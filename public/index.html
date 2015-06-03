@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="images/favicon.ico">
     <!-- Latest compiled CSS -->
-    <link rel="stylesheet" href="css/custom.css" />
     <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="app/bower_components/angularjs-toaster/toaster.css">
     <!-- Optional theme -->
@@ -24,7 +23,8 @@
     <script type="text/javascript" src="app/bower_components/angular-moment/angular-moment.js"></script>
      <script type="text/javascript" src="app/bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="app/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-	
+	       <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 	<body ng-app="clearbud">
 	   <div class="wrapper" ng-controller="AuthController">
@@ -58,27 +58,33 @@
               </span>
                </a>
             </li>
-            <li ><a class="form-list secndry-lnk login-link-text" href="/" >Home</a></li>
-            <li><a class="form-list secndry-lnk login-link-text" href="#" >Contact Us</a></li>            
-            <li class="menu-box login-type">
+            <li><a class="form-list secndry-lnk login-link-text" href="/" >Home</a></li>
+            <li><a class="form-list secndry-lnk login-link-text" href="#">Contact Us</a></li>            
+            <li class="menu-box login-type" ng-hide="signedIn()">
                <a href="#/login" class="form-list secndry-lnk login-link-text" role="button" aria-expanded="false" >Login</a>
             </li>
-            <li class="menu-box signup-type">
-              <a href="#" class="form-list secndry-lnk login-link-text" role="button" aria-expanded="false">SignUp</a>
+            <li class="menu-box signup-type" ng-hide="signedIn()">
+              <a class="form-list secndry-lnk login-link-text" role="button" aria-expanded="false" >SignUp</a>
                  <ul class="sub-menu-box"> 
                      <li><a href="#/customer-signup"> Customer Signup </a></li>
                      <li><a href="#/cleaner-signup">Cleaner Signup</a></li>
                  </ul>             
             </li>
            
-            <li ng-if="user.role"><a class="form-list" href="javascript:;" ng-click="logout();">Logout</a></li>
+            <li ng-show="signedIn()"><a class="form-list" href="javascript:;" ng-click="logout();">Logout</a></li>
         </ul>
                   </div>
              </div><!--container fluid-->
         </nav>
         </div><!-- container-->
     </div>
-
+    <div class="footer">
+    <div class="container">
+      <div class="row">
+        <p class="copyright">&copy;2015 ClearBud All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>
 
 	<div ng-view=""></div>
 	<script type="text/javascript" src="js/app.js"></script> 

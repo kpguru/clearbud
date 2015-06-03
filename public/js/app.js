@@ -16,8 +16,16 @@ var app = angular.module('clearbud',[
             templateUrl: 'templates/home.html',
             controller: 'HomeController'
         });
+        $routeProvider.when('/cleaner-profile', {
+            templateUrl: 'templates/cleaner-profile.html',
+            controller: 'HomeController'
+        });
          $routeProvider.when('/customer-signup', {
             templateUrl: 'templates/customer-signup.html',
+            controller: 'AuthController'
+        });
+          $routeProvider.when('/cleaner-signup', {
+            templateUrl: 'templates/cleaner-signup.html',
             controller: 'AuthController'
         });
           $routeProvider.when('/login', {

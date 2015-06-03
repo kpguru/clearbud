@@ -4,22 +4,26 @@
 			<div class="row">
 			    <div class="col-md-3"></div>
 				<div class="col-md-6 signfrm">			
-				    <form class="prf-logn" role="form" name="signup_form">				    	 
+				    <form class="prf-logn" role="form" name="signup_form" class="ng-pristine ng-invalid ng-invalid-required ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-email">				    	 
 				    <p align="center">Customer SignUp</p>	
 				    <div class="prf-logn-wrapper">		
 			            <div class="form-group" ng-class="{'has-error': signup_form.email.$dirty && signup_form.email.$invalid, 'has-success': !signup_form.email.$invalid}">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-								<input type="email" ng-model="customersignup.email" name="email" class="form-control log" placeholder="Email Address" required="required"/>
+								<input type="email" ng-model="customersignup.email" name="email" class="form-control log" placeholder="Email Address" required="required" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
 							</div>
-												
+							<span ng-show="signup_form.email.$error.required"></span>
+							<span ng-show="signup_form.email.$error.email" class="err-messg">Please enter valid email. Ex. example@example.com</span>							
 						</div>
                         <div class="form-group" ng-class="{'has-error': signup_form.password.$dirty && signup_form.password.$invalid, 'has-success': !signup_form.password.$invalid}">		               
 						    <div class="input-group">
 							     <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-lock"></i></span>
-							     <input type="password" placeholder="Password" ng-minlength="6" name="password" class="form-control log" placeholder="Password" ng-model="customersignup.password" required="required">
+							     <input type="password" placeholder="Password" ng-minlength="6" ng-maxlength="25" name="password" class="form-control log" placeholder="Password" ng-model="customersignup.password" required="required">
 							</div>
-							
+							<span ng-show="signup_form.password.$error.required"></span>
+							<span ng-show="signup_form.password.$error.minlength" class="err-messg">Password required Min 5 symbols.</span>
+							<span ng-show="signup_form.password.$error.maxlength" class="err-messg">Password required Max 25 symbols.</span>
+							<span ng-show="signup_form.password.$error.pattern" class="err-messg">Password required only a-zA-Z0-9_ symbols.</span>
 					    </div>
 
                         <div class="form-group" ng-class="{'has-error': signup_form.confirm_password.$dirty && signup_form.confirm_password.$invalid, 'has-success': !signup_form.confirm_password.$invalid}">              			
@@ -27,15 +31,16 @@
 							    <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-lock"></i></span>
 							     <input type="password" placeholder=" Confirm Password" name="confirm_password" class="form-control log" placeholder="Confirm Password" ng-model="customersignup.confirm_password" required="required"/>
 						    </div>
-						    
+						    <span ng-show="signup_form.confirm_password.$error.required"></span>
+						    <span class="err-messg" ng-show="customersignup.password != customersignup.confirm_password && (customersignup.confirm_password|| submitted)">Confirm Password does not match.</span>
 						</div>
 				
 					    <div class="form-group form-btns" style="text-align: center;">
-							 <button type="submit" class="btn btn-primary btn-main btn-popup loginbtn"  ng-disabled="signup_form.$invalid" ng-click = "customersignup(customersignup);">Sign Up</button>
+							 <button type="submit" class="btn btn-primary btn-main btn-popup loginbtn"  ng-disabled="signup_form.$invalid" ng-click="customersignup(customersignup)">Sign Up</button>
 						</div>
 							
 							<div class="form-group">
-						    	<a class="floatLeft" href="#/login"> Already Registered? Login Here</a>
+						    	<a class="floatLeft" href="/login" ng-click="viewLogin1('student');"> Already Registered? Login Here</a>
 							</div>
 							
 						   </div>

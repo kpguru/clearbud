@@ -1,7 +1,7 @@
 'use strict';
 
 	app.controller('AuthController', function ($scope, $window, $location,AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
-
+        $scope.signedIn = AuthenticationService.signedIn;
 
     var customer = {
     	email:'',
@@ -19,18 +19,34 @@
 		      return;
 		     }     
 		     customer.role="customer";
-		     AuthenticationService.customersignup(customer).then(function () {
+		     customer.phone='';
+		     AuthenticationService.signup(customer).then(function () {
 		            toaster.pop('success', "Register successfully!");
 		            //$location.path("/home").replace();
 		            window.location = "#/home";
 		        }, function (error) {
 		            toaster.pop('error', "Error..!", error.toString());
 		        });
-		};    
+		};  
+		$scope.cleanersignup = function(cleaner){
+		     if(!$scope.cleanersignup.email){
+		     	return;
+		     }
+		     if($scope.cleanersignup.password!= $scope.cleanersignup.confirm_password){
+		      return;
+		     }     
+		     cleaner.role="cleaner";
+		     AuthenticationService.signup(cleaner).then(function () {
+		            toaster.pop('success', "Register successfully!");
+		            //$location.path("/home").replace();
+		            window.location = "#/cleaner-profile";
+		        }, function (error) {
+		            toaster.pop('error', "Error..!", error.toString());
+		        });
+		};   
 		
-		$scope.login = function (user) {
-	        AuthenticationService.login(user).then(function (data) {
-	        	console.log(data.role);
+		$scope.login = function (user) {			
+	        AuthenticationService.login(user).then(function () {
 	                toaster.pop('success', "Logged in successfully!");
 	                //$location.path("/home").replace();
 	                window.location = "#/home";
@@ -39,4 +55,10 @@
 	            });
 
 	    };
+	    $scope.logout = function () {
+        AuthenticationService.logout();
+        toaster.pop('success', 'Logged out successfully!');
+        $location.path('/');
+    };
+
     })

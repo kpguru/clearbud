@@ -1,7 +1,6 @@
 'use strict';
 
 app.factory('AuthenticationService', function($firebaseAuth, FIREBASE_URL, $firebase) {
-
     var ref = new Firebase(FIREBASE_URL);
     var auth = $firebaseAuth(ref);
     var firebaseUsers = $firebase(ref.child('users'));
@@ -17,12 +16,14 @@ app.factory('AuthenticationService', function($firebaseAuth, FIREBASE_URL, $fire
                 date: Firebase.ServerValue.TIMESTAMP,
                 regUser: uid,                
                 email: user.email,
-                role:user.role
+                role:user.role,
+                phone: user.phone
             };
             firebaseUsers.$set(uid, userInfo);
         },
 
         login : function(user){
+            console.log(user.email, user.password);
             return auth.$authWithPassword(
                 {
                     email: user.email,
@@ -37,7 +38,7 @@ app.factory('AuthenticationService', function($firebaseAuth, FIREBASE_URL, $fire
                 });
         },
 
-        customersignup : function(user){
+        signup : function(user){
             return auth.$createUser({
                     email: user.email,
                     password: user.password

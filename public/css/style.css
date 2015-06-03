@@ -1,0 +1,1878 @@
+
+/*.navbar {min-height: inherit !important; }
+.navbar-default .navbar-nav > li > a.form-list:hover, .navbar-default .navbar-nav > li > a.form-list:focus { }
+.nav.navbar-nav.menu-list > li:nth-child(4) > a { color:#969696; }
+.nav.navbar-nav.menu-list > li:nth-child(5) > a { color:#969696; }
+.nav.navbar-nav.menu-list > li:nth-child(6) > a { color:#969696; }*/
+
+ .mid-content { padding-top: 6.4%; }
+ .heading-text li  { display:inline-block; margin:0 auto; padding-left: 1%; vertical-align: middle; padding-right: 1%; }
+ .heading-text { margin: 0 auto; padding-left: 0; text-align: center; width: 100%; }
+ 
+ .heading-text-title { color:#808B8F; font-size:40px; font-weight:400; }
+ 
+
+
+ .appointment { color:#00b4ef; }
+ .pencil {margin-right:7px; }
+ .services-2 { margin-top: 6%; }
+ .splst-name { font-size: 25px; margin-top: 11%; text-align: center;  margin-bottom: -1px;}
+ .splst-work { text-align: center; margin-bottom: 4px; }
+ .therapy-name { text-align: center; }
+ .therapy-time { text-align: center; }
+ 
+.img1 { border: 10px solid #fff; box-shadow: 0 0 0 1px #f0f0f0; }
+ 
+ .star { color: #aba9aa; font-size: 18px; margin-left: -5px; margin-right: 11px; }
+ .clock { color: #aba9aa; font-size: 18px; margin-left: -5px; margin-right: 11px; margin-left: -19%; }
+.mrgn { margin-top: 7%; }
+
+ .learn-btnn:hover, .learn-btnn:focus { /*box-shadow: 1px 1px 8px 1px grey; */ background-color: #808b8f; color: #ffffff;}
+ .specialist-block { background-color: #ffffff; padding-bottom: 7%; }
+ /*.specialist-block1:hover { border: 2px solid #666666;transition: all 0.5s ease; box-shadow: 1px 1px 5px grey; padding: 40px 15px; }*/
+ .mobile { margin: 0 auto; }
+ .para-title { font-size:25px; margin-top: 10px; color:#666666; }
+ .para-title1 { margin-top: 24px; color:#666666; }
+
+ .mb { font-size: 68px; vertical-align: middle; margin-right: 12px; }
+ .mobile-btnn { border-radius: 43px; padding-left: 26px; padding-right: 30px; background-color:#00B4EF; color:#ffffff; font-weight:bold; font-size: 18px;}
+ .customer { background-color:#00B4EF;  padding-bottom: 4%; }
+ .cutmr-dscrptn1 { margin: 0 auto; width: 83%; color:#ffffff; width: 90%; text-align:center; }
+ .comma-lft { color: #ffffff; font-size: 38px; margin-top: -27px; float:left; }
+ .comma-rgt { color: #ffffff; font-size: 38px; float: right; }
+ .heading-text-title1 {color:#ffffff; font-size: 40px; font-weight: 400;}
+ .customer-details { margin-top: 4%; }
+ .para2 { color:#ffffff; text-align:center; margin-top:8%; }
+ .cstmr-pic li { display:inline-block; vertical-align:middle; }
+ .lft-arw { color: #ffffff; font-size: 22px; margin-right: 40px; }
+ .rgt-arw { color: #ffffff; font-size: 22px; margin-left: 40px; }
+ .cstmr-pic { margin: 30px auto; padding-left: 0; width:100%; text-align: center;}
+ .client-logo-list  li{ display:inline-block; padding-left: 3%; padding-right: 3%; }
+ .client-logo-list { margin-top: 15px; }
+ .clients-block { padding-bottom: 6%; }
+ .mobileApp { background-color:#ECECEC; padding-bottom: 8%; }
+
+.head-text-footr { border-bottom: 1px solid #1d1d1d; box-shadow: 0 1px 0 #3a3a3a; color: #ffffff; font-size: 20px; text-align: center; padding-bottom:15px; }
+.footer-head li { list-style: outside none none; padding-bottom: 3px; padding-top: 3px; }
+ .footer-head a { color: #ffffff; font-size: 15px; transition: all 500ms ease 0s; }
+ .list-arw { font-size:15px; }
+ .list-arw { font-size: 17px; margin-right: 6px; }
+ .more { margin-left:15px; }
+ .footer-head > ul { padding-left: 7%;  }
+ .tweety {  color: #00b4ef; float: left; font-size: 22px; margin-bottom: 26px; margin-right: 8px; margin-top: 4px;}
+ .footer-tweet {color: #fff; float: left; margin-bottom: 20px; margin-left: 6px; width: 85%; }
+  .footer-tweet  >a { color: #00B4EF; transition: all 500ms ease 0s;  word-break: break-word; }
+
+.pst { margin-top: 35px; }
+.subscribe { color:#ffffff; }
+.mrkr { margin-right:10px; }
+.envolop { margin-right:10px; }
+.fone { margin-right:10px; }
+.adress1 { color:#ffffff; margin-bottom:20px; }
+.icnn1 { color:#787878; margin-right: 8px; }
+.adress-bar1 { display: block; float: left; margin-right: 0; }
+.adress-bar { display: block; float: right; margin-bottom: 15px; margin-left: 2px; width: 92%; margin-left: 4px; }
+
+.footer-menus-list > li { color: #ffffff; display: inline-block; padding: 0 4px; }
+.footer-menus-list { padding-left:0; text-align:center; margin-bottom: 0;
+    padding: 20px 0 25px; border-bottom: 1px solid #1d1d1d; box-shadow: 0 1px 0 #3a3a3a; }
+.footer-menus-list a { color: #ffffff; transition: all 500ms ease 0s; font-size: 14px; }
+.copy-right-text { color: #ffffff; font-size: 14px; text-align: center;  margin: 0 5% 5px; padding: 30px 0 25px; border-bottom: 1px solid #1d1d1d;
+ box-shadow: 0 1px 0 #3a3a3a; }
+.footer-menus-list a:hover, .footer-menus-list a:focus { text-decoration:none; color: #00B4EF; }
+.emel:hover { border:2px solid #00B4EF;  }
+.anchor-color { color: #fff; }
+.anchor-color:hover{ text-decoration:none; color:#00B4EF; transition: all 500ms ease 0s; }
+.footer-head a:hover{ text-decoration:none; color:#00B4EF;  }
+
+ .anchor-color1 { text-decoration:none; color:#ed5565; font-size: 14px; font-weight: bold; }
+  .anchor-color1:hover {  color:#00B4EF;}
+ .social p:hover { background: none repeat scroll 0 0 rgba(0, 0, 0, 0); border: 1px solid #ED5565; color:#ED5565; transition:all 0.2s ease; }
+ 
+ .nav.navbar-nav.menu-list { float: right; }
+ .itunee { border-radius: 35px; }
+ .specialist-block1{ border:1px solid #ffffff; padding:1px; padding: 1px 1px 20px; transition: all 500ms ease 0s; }
+ .specialist-block1:hover { /*border:1px solid #00B4EF; margin-top: -60px;*/  transition: all 500ms ease-in-out 0s;}
+ .nav.navbar-nav.menu-list > li:nth-child(4) { border-left: 1px solid #e0e0e0; }
+ .customer-pic { border: 5px solid #ffffff; margin: 0 auto; border-radius:100%; overflow:hidden; }
+ .customer-pic > li:nth-child(2) { border-radius:100%; overflow:hidden; }
+.hidden-class { visibility:hidden; }
+ .socl { margin-top:5%; }
+ .therapist-name { margin-top:15px; }
+ .specialist-block1:hover  .img1 {  box-shadow: 0 0 0 1px #ED5565; }
+
+ 
+ /* therepist page */
+.prfl-img { display: inline-block; width:50px; height:50px; }
+.profl { padding-top: 12px !important; padding-bottom: 11px !important; }
+.profile-name { margin-left:10px; color: #969696; text-transform: capitalize; font-size: 16px; }
+.profl > a { padding-right:0 !important; }
+.therepist-mid-content { padding-top: 90px; height:auto; background-color:#ffffff; } /* height shuld be auto */
+.mid-bg-img { background-image:url('../images/bg-img.jpg'); height:282px; background-position: 0 40%; padding-bottom: 5%;
+              background-position: 24% 35%; }
+.mid-bg { margin-top: -17%; }
+.menus-therapists .collapse.navbar-collapse { padding-right:0; }
+.menus-therapists .container-fluid { padding-right:0; }
+.menus-therapists .nav.navbar-nav.menu-list > li:nth-child(5) > a { padding-right: 0; color: }
+.therepist-dashboard-menu { padding-left:0; margin-top: 20px; margin-bottom: 0 !important; }
+.therepist-dashboard-menu li { display:inline-block; color:#ffffff; }
+.therepist-dashboard-menu li > a  { color: #ffffff; font-size: 14px; font-weight: 400; }
+.therepist-dashboard-menu li > p  { color: #ffffff; font-size: 14px; font-weight: 400; }
+.therapist-details { background-color:#395b66; }
+/*.therapist-photo { display: inline-block; float: left; width: 24.8%; position: relative; }*/
+.therapist-photo { background-color: #ebebeb; display: inline-block; float: left; height: 100%; margin: 0 auto; min-height: 313px;
+    position: relative; text-align: center; vertical-align: middle; width: 24.8%; }
+.therapist-details { background-color: #395b66; display: inline-block; width: 75%;   padding: 2% 3% 2.9% 1%; min-height: 314px; }
+.thrpst-rating > ul > li { display:inline-block; }
+.thrpst-info li { display: inline-block; width: 32%; padding-bottom: 2.8%; padding-top: 2.8%; border-right: 1px solid; padding-right: 8%; }
+.thrpst-rating { display: inline-block; margin-bottom:7px; vertical-align: bottom; padding-left: 5%; /*width: 40%; */}
+.thrpst-name {display: inline-block;  /* width:45%; float:left; */ }
+.thrpst-first-name { color: #ffffff; display: inline-block; font-size: 40px; overflow: hidden; text-transform: capitalize;  }
+.thrpst-last-name { color: #ffffff; font-size: 40px; font-weight:bold; text-transform:capitalize; display: inline-block; overflow: hidden;}
+.thrpst-para-name-block { color: #fff; margin-bottom: 0; margin-top: 0; overflow: hidden; vertical-align: middle; white-space: nowrap; }
+.thrpst-rating > ul { padding-left:8%; padding-top: 13px; }
+.therapist-details .services > p { margin-left:0; color:#ffffff; margin-left: 26px; }
+.thrpst-info > ul { padding-left: 0; margin-bottom:0; }
+.labl-name { color:#a0a0a0; }
+.labl-info { color: #ffffff; }
+.info-block p { margin-bottom:0 ; font-size: 14px; margin-left: 25px; text-transform: capitalize; overflow: hidden; text-overflow: ellipsis; }
+.vwer-fdbk { color: #909090; font-size: 16px; font-style: italic; padding-left: 30px; padding-right: 30px; text-align: center; width: 85%;  } 
+.comma-rgt-1 { color: #c0c0c0; float: right; font-size: 25px; margin-right: 10%; }
+.comma-lft-1 { color: #c0c0c0;  font-size: 25px;  }
+.about-section { padding-top:7%; }
+.feedback-section { padding-top:7.5%; margin-bottom: 9%; position: relative; }
+.fdbkk { background-color:#ED5564; color:#ffffff;font-size: 18.02px; font-weight: bold; margin-left: 2%; padding: 15px; }
+.post-feedback { margin:7.5% auto 0; text-align: center; }
+.session-avalbl { padding-left:0; }
+.session-avalbl li { display:inline-block; margin: 12px 3px 0 6px; }
+.para1 { padding-top: 40px; text-align: left; margin-left: 4%; } 
+.fdbkk-1 { background: none repeat scroll 0 0 rgba(0, 0, 0, 0); border: 1px solid #b9b9b9; border-radius: 2px; } 
+.calender > p { text-align:center; }
+.clndr-img { display:block; margin:0 auto; }
+.similar-therapst { padding-left:0; padding-top: 15px; }
+.similar-therapst li { display:inline-block;  display: inline-block; /*margin: 0 10px;*/ }
+.refer { background-color: #ed5564; color: #ffffff; display: block; font-size: 16px; left:44px; margin: -24px auto 0; position: absolute;
+     padding: 10px 25px; border-radius:2px; bottom: -18px; }
+.whitee { margin-right:7px; }
+.stapple { left:12px; position: absolute; top:10px; /*z-index: 2147483647;*/ }
+.calender > p { font-size: 15.98px; font-weight: bold; text-align: center; }
+.available { font-size: 15.98px; font-weight: bold; margin-left: 15px; margin-top: 10px; }
+.session-availabilty { margin-top: 3%; }
+.book { margin-top:4%; }
+.heading-box > ul { padding-left:0; }
+.heading-box li { display: inline-block; }
+.side-lines { margin-right: 35%;  margin-top: -11px; }
+.heding-text { font-size:25px; }
+.about-detail  { font-size:16px; font-weight: 400; color:#666666; margin-top: 17px; }
+.side-lines-2 { display: block; margin: 0 auto 8%; padding-top: 0; }
+.side-lines-3 { display: block; margin:5.5% auto 0; padding-top: 0; }
+.viewer-img1 { display:inline-block; float: left;}
+.viewer-detail { display:inline-block; margin-left: 4%; padding-top: 14px; }
+.vwer-name { margin-bottom:0; text-transform: capitalize; }
+.vwer-name-1 {  margin-bottom:0; } 
+/*.block-feed2 { margin: 13% auto 0; width: 70%; }*/
+.block-feed2 { margin: 5% auto 0; width: 75%; }
+.heading-box { /*padding-bottom: 3%; padding-top: 5%;*/ }
+.mrgn-hght { height:1px;}
+.arw-right { margin-right:7px; }
+.viewer-detail-2 p { font-size: 18px; font-style: italic; margin-left: 16px; width: 14em;
+    word-wrap: break-word; padding-right: 25px; }
+.info-block { border-right: 1px solid #4c6c76; display: inline-block; width: 32%; vertical-align: top; }
+.section-info-2 .info-block {padding-top: 23px;}
+.section-info-1 { margin-top: 25px; }
+ .hiden  { visibility:hidden;}
+.thrpst-detail { padding-left: 3%; } 
+.view { background: url("../images/bgimg.jpg") no-repeat scroll center center #fff; border: 10px solid #fff;
+        box-shadow: 1px 1px 2px #e6e6e6; cursor: default; float: left; margin: 10px; overflow: hidden; position: relative;
+    text-align: center; } 
+ .view-first:hover .mask { opacity: 1;}
+ .view-first .mask { background-color: rgba(237, 100, 114, 0.7); opacity: 0; transition: all 0.4s ease-in-out 0s; } 
+ .view-first img { transition: all 0.2s ease-in 0s; } 
+ .view img { display: block; position: relative; } 
+ .view .mask, .view .content { height: 252px; left: 0; overflow: hidden; position: absolute; top: 0; width: 240px; cursor: e-resize;} 
+ .view-first h2 { opacity: 0; transform: translateY(-100px); transition: all 0.2s ease-in-out 0s; } 
+ .view h2 {/* background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);*/ color: #fff; font-size:25px; margin: 20px 0 0 10px;
+            padding: 10px; position: relative; text-align:left; text-transform: uppercase; }
+.view p { font-size: 16px; padding:0px 20px 20px; position: relative; text-align:left;font-weight:bold; }
+.view-first p { opacity: 0; transform: translateY(100px); transition: all 0.2s linear 0s; color:#ffffff; }
+h2, .view-first:hover p, .view-first:hover a.info { opacity: 1; transform: translateY(0px); }
+.view-first:hover p { transition-delay: 0.1s; }
+.view-first:hover h2, .view-first:hover p, .view-first:hover a.info { opacity: 1; transform: translateY(0px); color: #fff; }
+.social-therapists { padding-left:0;}
+.social-therapists { display:inline-block; margin-top: -19px; }
+.social-therapists p { border: 1px solid #fff; border-radius: 2px; color: #ffffff; font-size: 22px; height: 37px; margin: 1px 0 0 11px;
+    padding: 2px 0 0; text-align: center; vertical-align: middle; width: 40px; }
+.post-feedback > span { color: #666666; font-size: 20px; font-weight: 400; }
+.therapist-block-2 {  background-color:#FAFAFA; border-left:1px solid #f0f0f0; border-right:1px solid #f0f0f0;
+                           border-bottom:1px solid #f0f0f0; padding-bottom:40px; }
+.similar-therapst-block {  padding-top: 9.3%; padding-bottom: 6%; }
+.view-first:hover .view .view-first{ border: 10px solid #fff; box-shadow: 1px 1px 2px #ED5564; }
+.fdbkk:hover, .fdbkk:focus { background-color:#D54C5A; color:#ffffff; }
+.no-brder { border:none; }
+.block-feed1 { min-height: 265px; }
+.refer:hover, .refer:focus { background-color: #d54c5a; color: #ffffff; }
+.slider-bottom { padding-bottom: 80px; }
+.white-2 { margin-top:-2px;}
+.social-therapists >li  { display:inline-block; }
+.inline > img { margin-bottom: 15px; width: 33px; }
+.calendar { padding-left: 49px; }
+.available-block { padding-left: 2%; }
+.prfl-img-large { display:block; width:auto; height:auto; margin:0 auto; display:block; vertical-align:middle; }
+.first-feedbk { padding: 0 15px; }
+.navbar-default .navbar-nav > li.active.disable-actv > a, .navbar-default .navbar-nav > li.active.disable-actv > a:hover, .navbar-default .navbar-nav > 
+li.active.disable-actv > a:focus { background-color: transparent; color:#D54C5A; outline:none; }
+.cropme {cursor: pointer; }
+.slid-arws-lft { color: #c0c0c0; font-size: 2em; left: -4%; position: absolute; top: 40%; }
+.slid-arws-rgt { color: #c0c0c0; font-size: 2em; right: -4%; position: absolute; top: 40%; }
+
+
+/*Therapist owl caraousel*/
+.owl-carousel { display: none; position: relative; width: 100%; /*padding: 0 60px 0 50px;*/ }
+.owl-carousel .owl-wrapper-outer { overflow: hidden; position: relative; width: 100%; }
+.owl-carousel .owl-wrapper { display: none; position: relative; }
+.owl-carousel .owl-wrapper, .owl-carousel .owl-item { backface-visibility: hidden; transform: translate3d(0px, 0px, 0px); }
+.owl-carousel .owl-wrapper:after { clear: both; content: "."; display: block; height: 0; line-height: 0; visibility: hidden; }
+.owl-carousel .owl-item { float: left; /*margin: 5px 18px;*/ margin: 5px 0; }
+
+
+
+
+.owl-theme .owl-controls .owl-buttons div { border-radius: 30px; color: #fff; display: inline-block; font-size: 12px; margin: 5px; padding: 3px 10px; /*position: absolute; bottom: 60px; */ cursor: pointer; }
+/*.owl-theme .owl-controls .owl-buttons div.owl-prev { left: -65px; }
+.owl-theme .owl-controls .owl-buttons div.owl-next { right: -65px; }*/
+
+.quick-desc { position: absolute; padding: 5px; top: 0; /*right: -170px; width: 160px; height: 130px;*/ right: -100%; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); transition: all ease 300ms; color: #9a9a9a; font-weight: 600; }
+a.quick-desc:hover, a.quick-desc:focus  { color: #9a9a9a; }
+.owl-carousel .item:hover .quick-desc, .owl-carousel .item:focus .quick-desc { right: 0; }
+.designer-brands .item, .videos .item  { cursor: e-resize; }
+.selected { background: #cf0a27; }
+.owl-nav { position: relative; }
+.owl-nav .owl-buttons div { position: absolute; }
+.owl-nav .owl-buttons .owl-prev { left: 10px; top: -206px; color: #ffffff; opacity: 0.4; text-shadow: 1px 1px 3px #000000; transition: all ease 400ms; }
+.owl-nav .owl-buttons .owl-next { right: 15px; top: -206px; opacity: 0.4; text-shadow: 1px 1px 3px #000000; transition: all ease 400ms; }
+.owl-nav:hover .owl-buttons .owl-prev, .owl-nav:focus .owl-buttons .owl-prev, .owl-nav:hover .owl-buttons .owl-next, .owl-nav:focus .owl-buttons .owl-next { opacity: 1; }
+
+/*user-dashboard page*/ 
+.profile-pic img{
+  max-height:200px;
+}
+.user-dashboard-mid-content { padding-top: 6.7%; }
+.user-dashboard-mid-content p { margin-bottom:0; }
+.dashboard-title-block { background-color:#BF5966; }
+.dashboard-title-block > ul{ padding: 21px 0; text-align: center; margin-bottom:0; }
+.dashboard-title-block > ul > li { display:inline-block; }
+.dashboard-title-block span { color: #ffffff; font-size: 25px; padding-left: 16px; padding-right: 18px; text-transform: uppercase; }
+.dashbored-alerts { background-color:#EEE5E6; padding: 20px; margin-top: 35px; margin-bottom: 25px; }
+.alert-icons { color:#a0a0a0; margin-right:5px; }
+.dashbored-alerts > p { font-size: 16px; color:#666666; margin-bottom: 13px; }
+.anchor-1 { color:#ed5565; }
+.anchor-1:hover, .anchor-1:focus { color:#ed5565; }
+.dshboard-usr-profl { border:2px solid #f0f0f0; padding: 5px 2px 2px; background-color: #fafafa; }
+.ranking-stars > li { display: inline-block; }
+.ranking-stars { padding-left:0; margin-top: 5px; }
+.usr-greeting { font-size: 16px; margin-top: 14px; }
+.usr-nm { font-size:22px; }
+.usr-uprcase { font-size: 13px; text-transform: uppercase; color:#999999; margin-top: 20px; }
+.dshboard-usr-profl-detail-box { margin-left:5px; }
+.prfl-img-1 { margin: 0 auto; vertical-align: middle; }
+.prfl-img-sml { height: 36px; width: 36px;margin: 0 auto; vertical-align: middle; }
+.links-lists > ul { padding-left:0; }
+.links-lists li { list-style: outside none none; }
+.links-lists a { color:#ed5565; font-size: 16px; }
+.links-title { background-color:#4b4b4b; padding: 0 0 0 10px; }
+.links-title > p { color: #fff; padding: 5px 0; font-size:13px; }
+.link-seperator {background-color: #dddddd; height: 1px; margin: 9px 0; overflow: hidden;}
+.link-li { padding: 2px 0; }
+.links-lists { border: 1px solid #a0a0a0; padding: 5px 9px 0; margin-bottom: 10px; }
+.links-bars { margin-right:5px; }
+.dshboared-quick-links { margin-top: 25px; }
+.dashoard-fdbkk { background-color: #ed5564; border-radius: 2px; color: #ffffff; font-size: 18px; font-weight: bold; margin-top:10px; }
+.spac-lft { padding: 15px 58px; }
+.spac-rgt { padding: 15px 62px; }
+.hver:hover, .hver:focus { background-color: #d54c5a; color: #ffffff; }
+.hver-1:hover, .hver-1:focus { background-color:#5D5D5D;  color: #ffffff; }
+.booking-titl p { color:#ffffff; padding: 10px 0 10px 10px; display: inline-block; }
+.dashbord-icn { margin-right:7px; }
+.booking-titl { background-color: #395b65; }
+.see-bookings { display: inline-block; float: right; margin-right:8px;}
+.see-book-days { background-color:transparent; color:#ffffff; border:1px solid #ffffff; margin-top: 4px;}
+.booking-details span { display:inline-block; vertical-align: text-top; }
+.booking-details { display:inline-block; width: 49%; }
+.dashoard-sbmt { background-color: #ed5564; border-radius: 2px; color: #ffffff; font-size: 12.99px; font-weight: bold; margin:10px 3px 0; }
+.dashoard-sbmt-1 { background-color: #4b4b4b; border-radius: 2px; color: #ffffff; font-size: 12.99px; font-weight: bold; margin:10px 3px 0; }
+.btn-box { margin-top: 12px; }
+.booking-dscrptn { border:1px solid #395b66; padding: 0 12px 12px; margin-top: -1px; }
+.spk-lft { color:#C0C0C0; font-size:20px; }
+.spk-rgt { float:right}
+.therapst-spk { color: #909090; font-style: italic; }
+.fav-thrpst-nm { font-weight:bold; margin-top: 10px; }
+.arw-buk { margin-right:5px; }
+.fav-book-sesion { color:#D54C5A; text-decoration:underline; font-size: 14px; }
+.dashbord-heding-text { font-size:20px; } 
+.fav-side-lines { margin-right:13%; margin-top:-9px; }
+.TherapistSpeak { margin-top:7px; }
+.therapst-feedbk { margin-top:54px; }
+.fav-viewer-detail { display: inline-block; margin-left: 4%; }
+.therapist-fav { margin-top: 23%; }
+.therapist-popular  { margin-top: 23%; }
+.user-dashboard-content-mid { padding-bottom: 80px; }
+.user-dashboard-mid-content .owl-carousel .item { cursor:default; }
+.booking-ticket option { border: 1px solid #ffffff; padding: 10px 5px; }
+.see-bookings.form-control:focus , .see-bookings.form-control:hover { border: 1px solid #ffffff; padding: 10px 5px; background-color:#ffffff; color:#395B65; }
+#brands-3 { padding-bottom: 20px; }
+
+.dash-left { width:75%;  float:left; }
+.dash-right { width:23%; margin-left:1.5%; float:left; }
+.link-mb { display:none; }
+.dshboard-usr-profl-pic { height: 285px; overflow: hidden;  width: 257px; }
+
+
+/* view therapists*/ 
+.view-therapist-mid-content { padding-top:6.7%; } 
+.view-therapist-title-block { background-color:#405359; }
+.dashbrd-lst-new { margin-bottom: 0; padding: 20px 0 23px; text-align: center; }
+.dashbrd-lst-new > li { display: inline-block; }
+.dashbrd-lst-new span { color: #ffffff; font-size: 25px; padding-left: 16px; padding-right: 18px; text-transform: uppercase; }
+.bredcrum-menu { padding-left:0; margin-bottom:0; margin-top:3%; }
+.bredcrum-menu li { display:inline-block; }
+.bredcrum-menu a { color: #666666; font-size: 14px; }
+.therapist-choice-menu { padding-left:0; margin-bottom:0; margin-top:2%; border-bottom: 2px solid #909090; }
+.therapist-choice-menu li { display:inline-block; margin-left: -4px; }
+.therapist-choice-menu a { color:#848484; font-size:20px; font-weight:bold;padding:3px 10px ; }
+.menu-active-thrpsts a { color:#ee6572; border-bottom: 2px solid; }
+.thrpst-picc-2-wraper { display:inline-block; float: left;}
+.thrpst-dtl-2-wraper { display:inline-block; padding-left: 15px; }
+.vw-thrpsts { background-color: #ed5564; border-radius: 2px; color: #ffffff; margin-top: 1.5%; font-size:12px; font-weight:bold; }
+.therapist-boxes-wrapper p { margin-bottom:0; }
+.thrpst-nm { font-size: 25px; }
+.thrpst-wrk { font-size:16px; }
+.vw-all { color:#ed5565 ; cursor: pointer;}
+.thrpst-dtl-label-1 { color:#999999; font-size:14px;  display:inline-block; width:37%; text-align:right; }
+.thrpst-dtl-value-1 {  font-size:14px; display:inline-block; padding-left: 10px; }
+.dr-detail-1 { margin-top:5%; }
+.thrpst-picc-2 { height: 180px; overflow: hidden; width: 180px; position: relative; }
+.view-thrpst-rating-stars { padding-left:0; margin-top: 6px; text-align:center; margin-bottom: 0; }
+.view-thrpst-rating-stars li { display:inline-block; }
+.prfl-img-5stars { width: 22px; }
+.therapist-avialbl-session { margin-top: 11.3%; }
+.session-date { display:inline-block; }
+.session-label  { display:inline-block; font-size: 14px; }
+.session-date { width:auto; height:auto; padding:1px 5px; border-radius:3px; border:1px solid #909090; }
+.therapist-avialbl-session-block { text-align: center; background-color:#E4E4E4; padding: 3px; }
+.session-avalbl-dates { padding-left:0; margin-bottom: 0; }
+.session-avalbl-dates li { display:inline-block;  }
+.avalbl-dates-1 { background: none repeat scroll 0 0 rgba(0, 0, 0, 0); border: 1px solid #b9b9b9; border-radius: 2px; font-size: 12px;
+    padding: 5px 8px; margin-top: 10px; }
+.therapist-boxes { border-top: 1px solid #ececec; padding-bottom: 32px; padding-top: 33px; }
+.vw-mor { width:100%; color:#a0a0a0; border:1px solid #a0a0a0; padding: 11px 12px; margin-top:2%; margin-bottom: 8.1%; 
+background-color: #fafafa; border: 1px solid #e4e4e4; }
+.therapist-choice-menu a:hover { text-decoration:none; color:}
+.vw-mor:hover { color: #a0a0a0; background-color:#E4E4E4;  }
+.revws { margin: -5px auto 0; text-align: center; }
+.revws  a { color:#ED5564; font-size:14px; }
+.therapist-choice-menu a:hover  , .therapist-choice-menu a:focus { border-bottom: 2px solid #ee6572; color: #ee6572; text-decoration:none; }
+.vw-arw { margin-right: 4px; font-size: 15px; }
+.dflt-srting { float: right; }
+.sorting-therpsts-list { margin-top:-8px; padding: 5px 2px; }
+.rgt-line-1 { margin-bottom:3px; }
+.no-sesion {
+    margin-top: 5px;
+   padding-bottom: 5%;
+   padding-top: 5%;
+   text-align: center;
+   background-color:#fafafa; 
+ }
+.vw-all:hover { color:#D54C5A; }
+.avalbl-dates-1:hover { border:1px solid #D54C5A; color:#D54C5A;}
+.therapist-avialbl-session {
+    margin-top: 12.5%;
+    min-height: 100px;
+    y-overflow:auto;
+    padding-bottom: 4%;
+}
+.thrpst-picc-2 {
+    background-color: #d8d8d8;
+}
+.view-thrpst-rating-stars.review-rating > img { margin:0 2px 0; float:none; }
+
+ /* media query */
+ @media screen and (max-width:480px) and (min-width: 320px) {
+ .logo { padding-bottom: 34px; }
+ .menus { margin-top:-25%; margin-left:0; }
+ .menu-list { float:none !important; }
+ .blck1 { margin-top:20px; }
+ .client-logo-list { padding-left:0; text-align: center; }
+ .client-logo-list  li { padding-top:10px; padding-bottom:10px; }
+ .head-text-footr { text-align:left; margin-top:15px; }
+ .specialist-block1 { margin-bottom:20px; }
+ .specialist-block1:hover { margin-top:0 !important;}
+ .img1{ margin:0 auto; }
+ .tweets { margin-top: 18%; }
+ .footer-social-icons { margin-top: 15%; }
+ .heading-text-title  { font-size:22px; }
+ .heading-text-title1  { font-size:25px; }
+ .heading-text.title4.hidden-class.FadeIn > li:nth-child(1)> .lines-left { width: 28px; }
+ .heading-text.title4.hidden-class.FadeIn > li:nth-child(3)> .lines-right{ width: 28px; }
+ .heading-text.title4.hidden-class.FadeIn > li:nth-child(2)> span { font-size:18px; }
+ .comma-lft, .comma-rgt { font-size:22px; }
+ .customer-details { margin-top: 18%; }
+ .para2 { margin-top:22%; }
+ .mobile { display:none; }
+ .para-title { font-size:22px; }
+ .mid-content { padding-top:0; }
+ .itunee { margin:0 auto; }
+ .slider { min-height:600px; }
+
+  /* therapists page */
+ .therepist-mid-content { padding-top:0; }
+ .mid-bg { margin-top: -88%; }
+ .therapist-photo { float:none; width:100%; } 
+ .therapist-details { width:100%; margin-top: 15%; }
+ .thrpst-name { width:100%; }
+ .thrpst-rating { width:100%; margin-top: 20px; padding-left:0; }
+ .info-block { width:100%; }
+ .section-info-1 .info-block { padding-top:5%; }
+ .section-info-2 .info-block { padding-top: 5%; }
+ .menus-therapists { margin-top: -24%; /*padding-bottom: 7.8%;*/ }
+ .menus-therapists .nav.navbar-nav.menu-list { margin:0; }
+ .menus-therapists .navbar-collapse.collapse.in  { margin:0; padding:0; }
+ .available { margin-top:10%; padding: 0 10px; }
+ .block-feed2 { width:100%; margin-bottom:20%; }
+ .fdbkk { margin-top:10%; }
+ /*.calender { padding: 0 10px; }*/
+ .thrpst-first-name { line-height: 1; /* width: 100%; word-wrap: break-word; */ }
+.thrpst-last-name { line-height: 1; /* width: 100%; word-wrap: break-word; */ }
+.services p { margin-left: 10px; }
+.info-block p { margin-left: 10px; }
+.calendar { padding-left: 0; }
+.available { margin-left:0; }
+.thrpst-para-name-block { white-space: normal; }
+.footer-tweet { float:none; }
+.tweety { float:none; }
+.therapist-details .services > p { margin-left: 9px; }
+.side-lines-2 { min-height:5px; }
+.side-lines-3 { min-height:5px; }
+
+
+/*user-dashboard page*/ 
+.user-dashboard-mid-content { padding-top:0; }
+.dashbored-alerts > p { margin-bottom: 25px; }
+.dashoard-fdbkk { display:block; margin:0 auto; margin-bottom:10px; width: 100%; }
+.booking-details { display: inline-block; margin-bottom: 15px; width: 100%; }
+.dashoard-sbmt { margin: 10px 0 0; }
+.left-section { margin-bottom:40px; }
+.dash-left { width:100%;  float:none; }
+.dash-right { width:100%;  float:none; }
+.usr-bookings { margin-top: 15%; }
+.dshboared-quick-links { display:none; }
+.link-mb { display:block; }
+.dshboard-usr-profl { margin-bottom: 15px; }
+
+
+/* view-therapists page*/
+.view-therapist-mid-content { padding-top:0; }
+.dashbrd-lst-new span { font-size: 20px; padding-left: 5px; padding-right: 10px; vertical-align: initial; }
+.therapist-choice-menu li { display:inline-block; }
+.therapist-choice-menu a { font-size:16px; }
+.therapist-avialbl-session { margin-top:6%; }
+.thrpst-dtl-2-wraper { margin-top:10%; padding-left:0; width:100%; }
+
+.vw-thrpsts { margin-top:5%; width: 100%; }
+.therapist-boxes-wrapper { margin-top:15%; }
+.sorting-therpsts-list { margin-top:12px; }
+.therapist-boxes { padding-top:0; border:0; padding-bottom:0; }
+.therapist-boxes-all { margin-top: 15%; }
+.session-avalbl-dates { padding-top: 5px; }
+.rgt-line-1 { margin-bottom:0; }
+.vw-mor { margin-bottom: 15%; margin-top: 8%; }
+
+ }
+ 
+ 
+  @media only screen and (min-width: 480px) and (max-width: 481px){
+ .clock { margin-left: -11% !important; }
+ .heading-text.title4.hidden-class.FadeIn > li:nth-child(1)> .lines-left { width: 100%; }
+ .heading-text.title4.hidden-class.FadeIn > li:nth-child(3)> .lines-right{ width: 100%; }
+ .heading-text.title4.hidden-class.FadeIn > li:nth-child(2)> span { font-size:25px; }
+ .mid-bg { margin-top: -54%; }
+ .prfl-img { display: block; margin: 0 auto; }
+ 
+ /* therapists page */
+ .similar-therapst { text-align:center; }
+ .fdbkk { margin-top:0; }
+ .menus-therapists { margin-top: -15%; }
+ .therepist-dashboard-menu { text-align:center; }
+ .therapist-photo { display: block; float: none; margin: 0 auto; width: 63%; }
+ .menus { margin-top: -16%; }
+ 
+ /*user-dashboard page*/ 
+ .dash-right .owl-carousel .owl-item { padding: 0 20px; }
+ 
+ /* view-therapists page*/
+ .sorting-therpsts-list { margin-top: 40px; }
+ .thrpst-dtl-label-1 { width:22%; }
+ }
+ 
+ 
+  @media screen and (max-width:1024px) and (min-width:768px) {
+ .blck-img { display: inline-block; width: 50%; }
+ .blck-dscrptn { display: inline-block; padding-left: 5px; width: 49%; } 
+ .blck1 {  margin-bottom:8%; }
+ .services-2 { margin-top:0; }
+ .services-block { padding-bottom:3%; }
+ .specialist-block1:hover { margin-top:0 !important;}
+ .specialist-img { width: 40%; display: inline-block; }
+ .specialist-description { width: 50%; display: inline-block; }
+ .social-icon { position: absolute !important; right: 0; top:44%; width: 47%; }
+ .social { text-align:left; }
+ .specialist-block1 { border: 1px solid #f8f8f8; margin-bottom: 30px; padding: 20px 10px 20px 20px; transition: all 500ms ease 0s; }
+ .mrgn { margin-top: 35%; }
+ .tunee { margin:0 auto; }
+ .client-logo-list li { display: inline-block; padding: 2% 2% 2% 1%; }
+ .client-logo-list { margin-top: 15px; padding-left: 0; text-align: center; }
+ .head-text-footr { text-align:left; }
+ .tweets { margin-top: 8%; }
+ .head-text-footr { margin-bottom: 5%; padding-bottom: 10px;}
+ .footer-menus-list > li { padding: 10px 4px; }
+ .itunee { margin:0 auto; }
+ .footer-tweet { float:none; }
+ .tweety { float:none; }
+   /* therapists page */
+ .menus-therapists .navbar-nav > li > a { padding: 6px 5px 9px 6px; }
+ .menus-therapists .collapse.navbar-collapse { padding-left:0; }
+.therapist-photo { float:none; width: 30%; min-height:230px; }
+.therapist-details { margin-top: -26%; width: 100%; }
+.thrpst-detail { padding-left: 34%; }
+.thrpst-name { width:100%; }
+.thrpst-rating { width:100%; }
+.thrpst-rating > ul { padding-left: 0; padding-top: 13px; }
+.thrpst-info { margin-top: 7%; }
+.refer { left: 18px; padding: 8px 17px; }
+.therepist-dashboard-menu { float: right; margin-top: 10px; padding-left: 0; width: 66%; }
+.mid-bg { margin-top: -28%; }
+.session-availabilty { margin-top: 5%; padding: 0 30px; }
+.available { margin-top: 26px; }
+.block-feed2 { margin:0; }
+.first-feedbk { margin-top: 8%; }
+.container-fluid { padding-left: 0; padding-right: 0; }
+.collapse.navbar-collapse { padding-left: 0; padding-right: 0; }
+.services p { color:#666666; }
+.therapist-details .services { padding-left: 31%; }
+.therapist-details .services p { color:#ffffff; }
+.calendar { padding-left:0;  }
+.available-block { padding-left:0; }
+.available { margin-left:0; }
+
+
+/*user-dashboard page*/ 
+.dashoard-fdbkk { display:block; margin:0 auto; margin-bottom:10px; width:100%; }
+.booking-details { display: inline-block; margin-bottom: 15px; width: 100%; }
+.dashoard-sbmt { margin: 10px 0 0; }
+.left-section { margin-bottom:40px; }
+.fav-book-sesion { margin-top: 40px; }
+.therapist-fav { margin-top: 8%; }
+
+
+.dash-left { width:100%;  float:none; }
+.dash-right { width:100%;  float:none; }
+.dash-right .owl-carousel .owl-item { padding: 0 30px; }
+.user-dashboard-mid-content { padding-top: 11.6%; }
+/*.owl-item { width:250px !important; white-space:no-wrap !important; float:left; display}*/
+
+/* view-therapists page*/
+.therapist-boxes { padding-top:0; }
+.therapist-boxes-wrapper { margin-top:10%; }
+.view-therapist-mid-content { padding-top: 11.6%; }
+.therapist-avialbl-session { margin-top: 3%; }
+.thrpst-dtl-2-wraper { padding-left:0; }
+
+ }
+ 
+ 
+@media only screen and (min-width:1024px) and (max-width:1100px){
+ .blck-img  { width:100%; }
+ .blck-dscrptn  { width:100%; }
+ .specialist-img {  width:100%; }
+ .specialist-description {  width:100%; }
+ .social-icon { position: absolute; right: 0; top: 44%; width: 47%; } 
+ .social-icon { margin: 0 auto; position: inherit !important; text-align: center; width: 100%; }
+ .specialist-block1 { padding: 12px; }
+ .social { text-align:center; }
+ .clock { margin-left: -28%; }
+ .mrgn { margin-top: 10%; }
+ .social li { padding: 0 2px 0 0; }
+ 
+ /* therapists page */
+ .refer { left: 42px; padding: 8px 25px; }
+ .thrpst-info { margin-top: 12%; }
+ .mid-bg { margin-top: -20%; }
+ .therapist-details { margin-top: -20%; width: 100%; }
+ .therapist-photo { width: 24.8%;  }
+ .thrpst-detail { padding-left: 30%; }
+ .thrpst-rating { padding-left:0; }
+ .therapist-details .services { padding-left: 27%; }
+ .calendar { padding-left:0;  }
+ .available { margin-top:0; }
+ .therepist-dashboard-menu { width:70%; }
+.available { margin-left:0; margin-top:0; }
+ .available-block { padding-left: 16%; }
+ 
+ 
+/*user-dashboard page*/ 
+.user-dashboard-mid-content { padding-top: 8.5%; }
+
+
+/* view-therapists page*/
+.view-therapist-mid-content { padding-top: 8.7%; }
+
+
+ }
+
+
+ .FadeIn {
+   visibility:visible;
+    -webkit-animation-name: text-map-fadeIn ;
+  -moz-animation-name: text-map-fadeIn ;
+  -o-animation-name: text-map-fadeIn ;
+  animation-name: text-map-fadeIn ;
+  
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  -o-animation-duration:1s;
+  animation-duration:1s;
+  
+  -webkit-animation-iteration-count:1;
+  -moz-animation-iteration-count:1;
+  -o-animation-iteration-count:1;
+  animation-iteration-count:1;
+  
+  -webkit-animation-direction:normal;
+  -moz-animation-direction:normal;
+  -o-animation-direction:normal;
+  animation-direction:normal;
+  
+  -webkit-animation-timing-function:ease-in-out;
+  -moz-animation-timing-function:ease-in-out;
+  -o-animation-timing-function:ease-in-out;
+  animation-timing-function:ease-in-out;
+  
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  
+  -webkit-animation-delay:0.2s;
+  -moz-animation-delay:0.2s;
+  -o-animation-delay:0.2s;
+  animation-delay:0.2s;
+}
+
+
+@-webkit-keyframes text-map-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@-moz-keyframes text-map-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@-o-keyframes text-map-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@keyframes text-map-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+ 
+ 
+ .action3 { 
+     visibility:visible;
+    -webkit-animation-name: bounceInLeft1 ;
+  -moz-animation-name: bounceInLeft1 ;
+  -o-animation-name: bounceInLeft1 ;
+  animation-name: bounceInLeft1 ;
+  
+  -webkit-animation-duration:2s;
+  -moz-animation-duration:2s;
+  -o-animation-duration:2s;
+  animation-duration:2s;
+  
+  -webkit-animation-iteration-count:1;
+  -moz-animation-iteration-count:1;
+  -o-animation-iteration-count:1;
+  animation-iteration-count:1;
+  
+  -webkit-animation-direction:normal;
+  -moz-animation-direction:normal;
+  -o-animation-direction:normal;
+  animation-direction:normal;
+  
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-timing-function: ease-in-out;
+  -o-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+ 
+ 
+ }
+
+@-webkit-keyframes bounceInLeft1 {
+  0% {opacity: 0;-webkit-transform: translateX(-2000px);}
+  60% {opacity: 1;-webkit-transform: translateX(30px);}
+  80% {-webkit-transform: translateX(-10px);}
+  100% {-webkit-transform: translateX(0);}
+}
+@-moz-keyframes bounceInLeft1 {
+  0% {opacity: 0;-moz-transform: translateX(-2000px);}
+  60% {opacity: 1;-moz-transform: translateX(30px);}
+  80% {-moz-transform: translateX(-10px);}
+  100% {-moz-transform: translateX(0);}
+}
+@-o-keyframes bounceInLeft1 {
+  0% {opacity: 0;-o-transform: translateX(-2000px);}
+  60% {opacity: 1;-o-transform: translateX(30px);}
+  80% {-o-transform: translateX(-10px);}
+  100% {-o-transform: translateX(0);}
+}
+@keyframes bounceInLeft1 {
+  0% {opacity: 0;transform: translateX(-500px);}
+  60% {opacity: 1;transform: translateX(30px);}
+  80% {transform: translateX(-10px);}
+  100% {transform: translateX(0);}
+}
+
+ 
+.FadeIn-services1 {
+     visibility:visible;
+    -webkit-animation-name: srvices-fadeIn ;
+  -moz-animation-name: srvices-fadeIn ;
+  -o-animation-name: srvices-fadeIn ;
+  animation-name: srvices-fadeIn ;
+  
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  -o-animation-duration:1s;
+  animation-duration:1s;
+  
+  -webkit-animation-iteration-count:1;
+  -moz-animation-iteration-count:1;
+  -o-animation-iteration-count:1;
+  animation-iteration-count:1;
+  
+  -webkit-animation-direction:normal;
+  -moz-animation-direction:normal;
+  -o-animation-direction:normal;
+  animation-direction:normal;
+  
+  -webkit-animation-timing-function:ease-in-out;
+  -moz-animation-timing-function:ease-in-out;
+  -o-animation-timing-function:ease-in-out;
+  animation-timing-function:ease-in-out;
+  
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  
+  -webkit-animation-delay:0.2s;
+  -moz-animation-delay:0.2s;
+  -o-animation-delay:0.2s;
+  animation-delay:0.2s;
+}
+
+
+
+@-webkit-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@-moz-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@-o-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+ 
+
+ .FadeIn-services2{
+     visibility:visible;
+    -webkit-animation-name: srvices-fadeIn ;
+  -moz-animation-name: srvices-fadeIn ;
+  -o-animation-name: srvices-fadeIn ;
+  animation-name: srvices-fadeIn ;
+  
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  -o-animation-duration:1s;
+  animation-duration:1s;
+  
+  -webkit-animation-iteration-count:1;
+  -moz-animation-iteration-count:1;
+  -o-animation-iteration-count:1;
+  animation-iteration-count:1;
+  
+  -webkit-animation-direction:normal;
+  -moz-animation-direction:normal;
+  -o-animation-direction:normal;
+  animation-direction:normal;
+  
+  -webkit-animation-timing-function:ease-in-out;
+  -moz-animation-timing-function:ease-in-out;
+  -o-animation-timing-function:ease-in-out;
+  animation-timing-function:ease-in-out;
+  
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  
+  -webkit-animation-delay:0.5s;
+  -moz-animation-delay:0.5s;
+  -o-animation-delay:0.5s;
+  animation-delay:0.5s;
+}
+
+
+
+@-webkit-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@-moz-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@-o-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+ 
+ 
+.therapist-avialbl-session {
+    margin-top: 12.5%;
+    min-height: 200px;
+    padding-bottom: 4%;
+}
+
+
+.thrpst-picc-2 {
+    background-color: #d8d8d8;
+}
+
+
+.view-thrpst-rating-stars.review-rating > img { margin:0 2px 0; float:none; }
+ 
+ .FadeIn-services3{
+     visibility:visible;
+    -webkit-animation-name: srvices-fadeIn ;
+  -moz-animation-name: srvices-fadeIn ;
+  -o-animation-name: srvices-fadeIn ;
+  animation-name: srvices-fadeIn ;
+  
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  -o-animation-duration:1s;
+  animation-duration:1s;
+  
+  -webkit-animation-iteration-count:1;
+  -moz-animation-iteration-count:1;
+  -o-animation-iteration-count:1;
+  animation-iteration-count:1;
+  
+  -webkit-animation-direction:normal;
+  -moz-animation-direction:normal;
+  -o-animation-direction:normal;
+  animation-direction:normal;
+  
+  -webkit-animation-timing-function:ease-in-out;
+  -moz-animation-timing-function:ease-in-out;
+  -o-animation-timing-function:ease-in-out;
+  animation-timing-function:ease-in-out;
+  
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  
+  -webkit-animation-delay:0.8s;
+  -moz-animation-delay:0.8s;
+  -o-animation-delay:0.8s;
+  animation-delay:0.8s;
+}
+
+
+
+@-webkit-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@-moz-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@-o-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+ 
+ 
+ .FadeIn-services4{
+     visibility:visible;
+    -webkit-animation-name: srvices-fadeIn ;
+  -moz-animation-name: srvices-fadeIn ;
+  -o-animation-name: srvices-fadeIn ;
+  animation-name: srvices-fadeIn ;
+  
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  -o-animation-duration:1s;
+  animation-duration:1s;
+  
+  -webkit-animation-iteration-count:1;
+  -moz-animation-iteration-count:1;
+  -o-animation-iteration-count:1;
+  animation-iteration-count:1;
+  
+  -webkit-animation-direction:normal;
+  -moz-animation-direction:normal;
+  -o-animation-direction:normal;
+  animation-direction:normal;
+  
+  -webkit-animation-timing-function:ease-in-out;
+  -moz-animation-timing-function:ease-in-out;
+  -o-animation-timing-function:ease-in-out;
+  animation-timing-function:ease-in-out;
+  
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  
+  -webkit-animation-delay:1s;
+  -moz-animation-delay:1s;
+  -o-animation-delay:1s;
+  animation-delay:1s;
+}
+
+
+
+@-webkit-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@-moz-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@-o-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+ 
+ 
+ 
+ .FadeIn-services5{
+     visibility:visible;
+    -webkit-animation-name: srvices-fadeIn ;
+  -moz-animation-name: srvices-fadeIn ;
+  -o-animation-name: srvices-fadeIn ;
+  animation-name: srvices-fadeIn ;
+  
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  -o-animation-duration:1s;
+  animation-duration:1s;
+  
+  -webkit-animation-iteration-count:1;
+  -moz-animation-iteration-count:1;
+  -o-animation-iteration-count:1;
+  animation-iteration-count:1;
+  
+  -webkit-animation-direction:normal;
+  -moz-animation-direction:normal;
+  -o-animation-direction:normal;
+  animation-direction:normal;
+  
+  -webkit-animation-timing-function:ease-in-out;
+  -moz-animation-timing-function:ease-in-out;
+  -o-animation-timing-function:ease-in-out;
+  animation-timing-function:ease-in-out;
+  
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  
+  -webkit-animation-delay:1.2s;
+  -moz-animation-delay:1.2s;
+  -o-animation-delay:1.2s;
+  animation-delay:1.2s;
+}
+
+
+
+@-webkit-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@-moz-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@-o-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+ 
+ 
+ 
+ .FadeIn-services6{
+     visibility:visible;
+    -webkit-animation-name: srvices-fadeIn ;
+  -moz-animation-name: srvices-fadeIn ;
+  -o-animation-name: srvices-fadeIn ;
+  animation-name: srvices-fadeIn ;
+  
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  -o-animation-duration:1s;
+  animation-duration:1s;
+  
+  -webkit-animation-iteration-count:1;
+  -moz-animation-iteration-count:1;
+  -o-animation-iteration-count:1;
+  animation-iteration-count:1;
+  
+  -webkit-animation-direction:normal;
+  -moz-animation-direction:normal;
+  -o-animation-direction:normal;
+  animation-direction:normal;
+  
+  -webkit-animation-timing-function:ease-in-out;
+  -moz-animation-timing-function:ease-in-out;
+  -o-animation-timing-function:ease-in-out;
+  animation-timing-function:ease-in-out;
+  
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  
+  -webkit-animation-delay:1.5s;
+  -moz-animation-delay:1.5s;
+  -o-animation-delay:1.5s;
+  animation-delay:1.5s;
+}
+
+
+
+@-webkit-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@-moz-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@-o-keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+
+@keyframes srvices-fadeIn  {
+  0% {opacity: 0; }
+ 100% { opacity:100%; }    
+}
+ 
+ .bounce-top1 {
+	visibility:visible;
+	-webkit-animation-name: fadeInDown ;
+	-moz-animation-name: fadeInDown ;
+	-o-animation-name: fadeInDown ;
+	animation-name: fadeInDown ;
+
+	-webkit-animation-duration:1s;
+	-moz-animation-duration:1s;
+	-o-animation-duration:1s;
+	animation-duration:1s;
+
+	-webkit-animation-iteration-count:1;
+	-moz-animation-iteration-count:1;
+	-o-animation-iteration-count:1;
+	animation-iteration-count:1;
+
+	-webkit-animation-direction:normal;
+	-moz-animation-direction:normal;
+	-o-animation-direction:normal;
+	animation-direction:normal;
+
+	-webkit-animation-timing-function:ease-in-out;
+	-moz-animation-timing-function:ease-in-out;
+	-o-animation-timing-function:ease-in-out;
+	animation-timing-function:ease-in-out;
+
+	-webkit-animation-fill-mode: both;
+	-moz-animation-fill-mode: both;
+	-o-animation-fill-mode: both;
+	animation-fill-mode: both;
+
+	-webkit-animation-delay:0.2s;
+	-moz-animation-delay:0.2s;
+	-o-animation-delay:0.2s;
+	animation-delay:0.2s;
+}
+ 
+ 
+ 
+ 
+ @-webkit-keyframes fadeInDown {
+  0% {opacity: 0; -webkit-transform: translateY(-120px);}
+  100% {opacity: 1;-webkit-transform: translateY(0); }
+}
+
+@-moz-keyframes fadeInDown {
+  0% {opacity: 0; -moz-transform: translateY(-120px); }
+  100% {  opacity: 1; -moz-transform: translateY(0); }
+}
+
+@-o-keyframes fadeInDown {
+  0% {opacity: 0; -o-transform: translateY(-120px); }
+  100% {opacity: 1;-o-transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  0% {opacity: 0; transform: translateY(-120px); }
+  100% {opacity: 1;transform: translateY(0);}
+}
+ 
+ 
+ 
+ .bounce-top2 {
+     visibility:visible;
+    -webkit-animation-name: fadeInDown ;
+  -moz-animation-name: fadeInDown ;
+  -o-animation-name: fadeInDown ;
+  animation-name: fadeInDown ;
+  
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  -o-animation-duration:1s;
+  animation-duration:1s;
+  
+  -webkit-animation-iteration-count:1;
+  -moz-animation-iteration-count:1;
+  -o-animation-iteration-count:1;
+  animation-iteration-count:1;
+  
+  -webkit-animation-direction:normal;
+  -moz-animation-direction:normal;
+  -o-animation-direction:normal;
+  animation-direction:normal;
+  
+  -webkit-animation-timing-function:ease-in-out;
+  -moz-animation-timing-function:ease-in-out;
+  -o-animation-timing-function:ease-in-out;
+  animation-timing-function:ease-in-out;
+  
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  
+  -webkit-animation-delay:0.7s;
+  -moz-animation-delay:0.7s;
+  -o-animation-delay:0.7s;
+  animation-delay:0.7s;
+}
+ 
+ 
+ 
+ 
+ @-webkit-keyframes fadeInDown {
+  0% {opacity: 0; -webkit-transform: translateY(-140px); }
+  40% { opacity: 0; }
+  80% {  opacity: 0.5; }
+  100% {opacity: 1;-webkit-transform: translateY(0); }
+}
+
+@-moz-keyframes fadeInDown {
+  0% {opacity: 0; -moz-transform: translateY(-140px); }
+  40% { opacity: 0; }
+  80% {  opacity: 0.5; }
+  100% {  opacity: 1; -moz-transform: translateY(0); }
+}
+
+@-o-keyframes fadeInDown {
+  0% {opacity: 0; -o-transform: translateY(-140px); }
+  40% { opacity: 0; }
+  80% {  opacity: 0.5; }
+  100% {opacity: 1;-o-transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  0% {opacity: 0; transform: translateY(-140px); }
+  40% { opacity: 0; }
+  80% {  opacity: 0.5; }
+  100% {opacity: 1;transform: translateY(0);}
+ }
+ 
+ 
+ .bounce-top3 {
+     visibility:visible;
+    -webkit-animation-name: fadeInDown ;
+  -moz-animation-name: fadeInDown ;
+  -o-animation-name: fadeInDown ;
+  animation-name: fadeInDown ;
+  
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  -o-animation-duration:1s;
+  animation-duration:1s;
+  
+  -webkit-animation-iteration-count:1;
+  -moz-animation-iteration-count:1;
+  -o-animation-iteration-count:1;
+  animation-iteration-count:1;
+  
+  -webkit-animation-direction:normal;
+  -moz-animation-direction:normal;
+  -o-animation-direction:normal;
+  animation-direction:normal;
+  
+  -webkit-animation-timing-function:ease-in-out;
+  -moz-animation-timing-function:ease-in-out;
+  -o-animation-timing-function:ease-in-out;
+  animation-timing-function:ease-in-out;
+  
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+
+  -webkit-animation-delay:1.2s;
+  -moz-animation-delay:1.2s;
+  -o-animation-delay:1.2s;
+  animation-delay:1.2s;
+ }
+ 
+ 
+ 
+ 
+ @-webkit-keyframes fadeInDown {
+  0% {opacity: 0; -webkit-transform: translateY(-160px); }
+  40% { opacity: 0; }
+  80% {  opacity: 0.5; }
+  100% {opacity: 1;-webkit-transform: translateY(0); }
+ }
+ 
+@-moz-keyframes fadeInDown {
+  0% {opacity: 0; -moz-transform: translateY(-160px); }
+  40% { opacity: 0; }
+  80% {  opacity: 0.5; }
+  100% {  opacity: 1; -moz-transform: translateY(0); }
+}
+ 
+@-o-keyframes fadeInDown {
+  0% {opacity: 0; -o-transform: translateY(-160px); }
+  40% { opacity: 0; }
+  80% {  opacity: 0.5; }
+  100% {opacity: 1;-o-transform: translateY(0); }
+}
+ 
+@keyframes fadeInDown {
+  0% {opacity: 0; transform: translateY(-160px); }
+  40% { opacity: 0; }
+  80% {  opacity: 0.5; }
+  100% {opacity: 1;transform: translateY(0);}
+ }
+ 
+ 
+ 
+ .bounce-top4 {
+     visibility:visible;
+    -webkit-animation-name: fadeInDown ;
+  -moz-animation-name: fadeInDown ;
+  -o-animation-name: fadeInDown ;
+  animation-name: fadeInDown ;
+  
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  -o-animation-duration:1s;
+  animation-duration:1s;
+  
+  -webkit-animation-iteration-count:1;
+  -moz-animation-iteration-count:1;
+  -o-animation-iteration-count:1;
+  animation-iteration-count:1;
+  
+  -webkit-animation-direction:normal;
+  -moz-animation-direction:normal;
+  -o-animation-direction:normal;
+  animation-direction:normal;
+  
+  -webkit-animation-timing-function:ease-in-out;
+  -moz-animation-timing-function:ease-in-out;
+  -o-animation-timing-function:ease-in-out;
+  animation-timing-function:ease-in-out;
+  
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  
+  -webkit-animation-delay:1.7s;
+  -moz-animation-delay:1.7s;
+  -o-animation-delay:1.7s;
+  animation-delay:1.7s;
+}
+ 
+ 
+ 
+ 
+ @-webkit-keyframes fadeInDown {
+  0% {opacity: 0; -webkit-transform: translateY(-180px); }
+  40% { opacity: 0; }
+  80% {  opacity: 0.5; }
+  100% {opacity: 1;-webkit-transform: translateY(0); }
+}
+
+@-moz-keyframes fadeInDown {
+  0% {opacity: 0; -moz-transform: translateY(-180px); }
+  40% { opacity: 0; }
+  80% {  opacity: 0.5; }
+  100% {  opacity: 1; -moz-transform: translateY(0); }
+}
+
+@-o-keyframes fadeInDown {
+  0% {opacity: 0; -o-transform: translateY(-180px); }
+  40% { opacity: 0; }
+  80% {  opacity: 0.5; }
+  100% {opacity: 1;-o-transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  0% {opacity: 0; transform: translateY(-180px); }
+  40% { opacity: 0; }
+  80% {  opacity: 0.5; }
+  100% {opacity: 1;transform: translateY(0);}
+}
+
+
+
+@-webkit-keyframes bounceIn {
+  0%, 20%, 40%, 60%, 80%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+            transform: scale3d(.3, .3, .3);
+  }
+
+  20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+            transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(.9, .9, .9);
+            transform: scale3d(.9, .9, .9);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+            transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    -webkit-transform: scale3d(.97, .97, .97);
+            transform: scale3d(.97, .97, .97);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+@-moz-keyframes bounceIn {
+  0%, 20%, 40%, 60%, 80%, 100% {
+    -moz-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -moz-transform: scale3d(.3, .3, .3);
+            transform: scale3d(.3, .3, .3);
+  }
+
+  20% {
+    -moz-transform: scale3d(1.1, 1.1, 1.1);
+            transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    -moz-transform: scale3d(.9, .9, .9);
+            transform: scale3d(.9, .9, .9);
+  }
+
+  60% {
+    opacity: 1;
+    -moz-transform: scale3d(1.03, 1.03, 1.03);
+            transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    -moz-transform: scale3d(.97, .97, .97);
+            transform: scale3d(.97, .97, .97);
+  }
+
+  100% {
+    opacity: 1;
+    -moz-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes bounceIn, @keyframes bounceIn2 {
+  0%, 20%, 40%, 60%, 80%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	-moz-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+	-moz-transform: scale3d(.3, .3, .3);
+            transform: scale3d(.3, .3, .3);
+  }
+
+  20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+	-moz-transform: scale3d(1.1, 1.1, 1.1);
+            transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(.9, .9, .9);
+	-moz-transform: scale3d(.9, .9, .9);
+            transform: scale3d(.9, .9, .9);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+	-moz-transform: scale3d(1.03, 1.03, 1.03);
+            transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    -webkit-transform: scale3d(.97, .97, .97);
+	-moz-transform: scale3d(.97, .97, .97);
+            transform: scale3d(.97, .97, .97);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+	-moz-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+.bounceIn {
+	visibility: visible;
+  -webkit-animation-name: bounceIn;
+  -moz-animation-name: bounceIn;
+          animation-name: bounceIn;
+  -webkit-animation-duration: .75s;
+  -moz-animation-duration: .75s;
+          animation-duration: .75s;
+}
+
+
+@-webkit-keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+            transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+            transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+            transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+            transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+            transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+@-moz-keyframes swing {
+  20% {
+    -moz-transform: rotate3d(0, 0, 1, 15deg);
+            transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    -moz-transform: rotate3d(0, 0, 1, -10deg);
+            transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    -moz-transform: rotate3d(0, 0, 1, 5deg);
+            transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    -moz-transform: rotate3d(0, 0, 1, -5deg);
+            transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  100% {
+    -moz-transform: rotate3d(0, 0, 1, 0deg);
+            transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+@keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+	-moz-transform: rotate3d(0, 0, 1, 15deg);
+            transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+	-moz-transform: rotate3d(0, 0, 1, -10deg);
+            transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+	-moz-transform: rotate3d(0, 0, 1, 5deg);
+            transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+	-moz-transform: rotate3d(0, 0, 1, -5deg);
+            transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+	-moz-transform: rotate3d(0, 0, 1, 0deg);
+            transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+.swing {
+  visibility: visible;
+  -webkit-transform-origin: top center;
+	 -moz-transform-origin: top center;
+      -ms-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-animation-name: swing;
+	 -moz-animation-name: swing;
+          animation-name: swing;
+}
+
+
+@-webkit-keyframes flipInY {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    -webkit-transition-timing-function: ease-in;
+            transition-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    -webkit-transition-timing-function: ease-in;
+            transition-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
+
+  100% {
+    -webkit-transform: perspective(400px);
+            transform: perspective(400px);
+  }
+}
+
+@-moz-keyframes flipInY {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+	-moz-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    -webkit-transition-timing-function: ease-in;
+	-moz-transition-timing-function: ease-in;
+            transition-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+	-moz-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    -webkit-transition-timing-function: ease-in;
+	-moz-transition-timing-function: ease-in;
+            transition-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+	-moz-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+	 -moz-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
+
+  100% {
+    -webkit-transform: perspective(400px);
+	-moz-transform: perspective(400px);
+            transform: perspective(400px);
+  }
+}
+
+@keyframes flipInY {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+	-moz-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    -webkit-transition-timing-function: ease-in;
+	-moz-transition-timing-function: ease-in;
+            transition-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+	-moz-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    -webkit-transition-timing-function: ease-in;
+	-moz-transition-timing-function: ease-in;
+            transition-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+	-moz-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+	-moz-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
+
+  100% {
+    -webkit-transform: perspective(400px);
+	-moz-transform: perspective(400px);
+            transform: perspective(400px);
+  }
+}
+
+.flipInY {
+	visibility: visible;
+  -webkit-backface-visibility: visible !important;
+  -moz-backface-visibility: visible !important;
+          backface-visibility: visible !important;
+  -webkit-animation-name: flipInY;
+  -moz-animation-name: flipInY;
+          animation-name: flipInY;
+}
+
+
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@-moz-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -moz-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+	-moz-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+	-moz-transform: none;
+            transform: none;
+  }
+}
+
+.fadeInLeft {
+	visibility: visible;
+  -webkit-animation-name: fadeInLeft;
+  -moz-animation-name: fadeInLeft;
+          animation-name: fadeInLeft;
+		  -webkit-animation-duration: 1s;
+		  -moz-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@-moz-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -moz-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -moz-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+	-moz-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+	-moz-transform: none;
+            transform: none;
+  }
+}
+
+.fadeInRight {
+	visibility: visible;
+  -webkit-animation-name: fadeInRight;
+  -moz-animation-name: fadeInRight;
+          animation-name: fadeInRight;
+		  -webkit-animation-duration: 1s;
+		  -moz-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
