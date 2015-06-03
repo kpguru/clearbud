@@ -1,0 +1,99 @@
+
+	<div class="login-block" ng-controller="studentDashboardController" >
+		<div class="container" ng-init="getClasses();">
+			<div class="row">
+			    <div class="col-md-3"></div>
+				<div class="col-md-6 signfrm" ng-if="signupshow =='student'">			
+				    <form class="prf-logn" role="form" name="signup_form" ng-submit="signupUser(signup_form);" novalidate>				    	 
+				    <p align="center">Cleaner Sign up Form</p>	
+				    <div class="prf-logn-wrapper">
+						<div class="form-group">
+                           <p class="err-messg" ng-if="errorMessage!='Not Authenticated'">{{errorMessage}}</p>	
+                         </div>
+
+              <div class="form-group">
+				         <span class="err-messg" ng-show="signup_form.classkey.$error.required  && submitted">Please enter Class Key.</span>
+				        <div class="input-group">
+							<span class="input-group-addon" id="sizing-addon2"><i class="fa fa-key"></i></span>	
+					        <input type="text" placeholder="Class Key" name="classkey" class="form-control log" ng-model="signup.classkey" required/>
+					    </div>    
+              </div>
+              <div class="form-group">
+							   <span class="err-messg" ng-show="signup_form.roll_number.$error.required  && submitted">Please enter Your Roll Number.</span>
+							  <div class="input-group">
+							    <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-pencil-square-o icn1"></i></span>						        
+							    <input type="text" placeholder="Student ID" name="roll_number" class="form-control log"ng-model="signup.roll_number" aria-describedby="sizing-addon2" required/>
+							  </div>							 
+							</div>
+							
+            	<div class="form-group">
+							   <span class="err-messg" ng-show="signup_form.first_name.$error.required  && submitted" >Please enter First name.</span>
+							    <span class="err-messg" ng-show="signup_form.first_name.$error.pattern">Please enter only Alphabets.</span>
+							  <div class="input-group">
+							     <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-user resiz icn1"></i></span>						        
+							     <input type="text" placeholder="First Name" name="first_name" class="form-control log" placeholder="First Name" ng-model="signup.first_name" ng-pattern="/^[a-zA-Z\s]*$/" required/>
+							</div>
+							</div>
+							
+							
+							
+              <div class="form-group">
+           		 <span class="err-messg" ng-show="signup_form.last_name.$error.required  && submitted">Please enter last name.</span>
+           		  <span class="err-messg" ng-show="signup_form.last_name.$error.pattern" >Please enter only Alphabets.</span>
+							   <div class="input-group">
+							     <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-user resiz icn1"></i></span>                         		 
+						     <input type="text" placeholder="Last Name" name="last_name" class="form-control log" placeholder="Last Name" ng-model="signup.last_name" ng-pattern="/^[a-zA-Z\s]*$/" required/>
+					    </div>
+						    </div>
+
+						    <div class="form-group">
+							    <span class="err-messg" ng-show="signup_form.email.$error.required  && submitted">Email Is Required</span>
+							     <span class="err-messg" ng-show="!signup_form.email.$error.required && signup_form.$error.email">Please Type Valid Email Address</span>
+						       <div class="input-group">
+							     <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-envelope"></i></span>						     	 
+							     <input type="email" name="email" class="form-control log" placeholder="Email" ng-model="signup.email" required/>
+							  </div>							    
+							</div>
+
+             <div class="form-group">
+	                <span class="err-messg" ng-show="signup_form.password.$error.required  && submitted">Password Is Required</span>
+	                <span class="err-messg" ng-show="signup_form.password.$error.minlength">Password requires minimum 6 characters.</span>
+							   <div class="input-group">
+							     <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-lock resiz1 icn1"></i></span>                                 
+							     <input type="password" placeholder="Password" ng-minlength="6" name="password" class="form-control log" placeholder="Password" ng-model="signup.password" required/>
+							</div>
+							</div>
+
+                <div class="form-group">
+              			<span class="err-messg" ng-show="signup.password != signup.confirm_password && (signup.confirm_password || submitted)">Confirm Password does not match.</span>
+							   <div class="input-group">
+							      <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-repeat icn1"></i></span>                                 
+							     <input type="password" placeholder=" Confirm Password" name="confirm_password" class="form-control log" placeholder="Confirm Password" ng-model="signup.confirm_password" required/>
+						    </div>
+							</div>
+
+		              <div class="form-group" style="display:none;">
+									  <div class="form-element gender log">
+										<label class="radio-inline">
+										<input type="radio" ng-model="signup.gender" value="male"> Male
+										</label>
+										<label class="radio-inline">
+										<input type="radio" ng-model="signup.gender" value="female"> Female
+										</label>
+									  </div>
+									</div>
+							
+					        <div class="form-group form-btns" style="text-align: center;">
+							    	<button type="submit" class="btn btn-primary btn-main btn-popup loginbtn">Sign Up</button>
+						    	</div>
+							
+							<div class="form-group">
+						    	<a class="floatLeft" href="/login" ng-click="viewLogin1('student');"> Already Registered? Login Here</a>
+							</div>
+							
+						   </div>
+					</form>
+			    </div>
+			</div>
+        </div>
+    </div>

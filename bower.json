@@ -1,0 +1,10 @@
+{
+  "name": "my-project",
+  "dependencies": {
+    "bootstrap": ">= 3.0.0",
+    "fontawesome": "~4.3.0"
+  },
+  "resolutions": {
+    "angular": "~1.2.0"
+  }
+}

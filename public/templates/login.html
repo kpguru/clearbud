@@ -1,0 +1,54 @@
+  <div class="container">
+	<div class="row">
+	  <div class="col-md-3"></div>
+		<div class="col-md-6">
+		  <div class="login-form">
+			<form class="prf-logn" name="login_form" ng-submit="login(login_form)">
+			  <p align="center"> Login Form</p>
+				<div class="prf-logn-wrapper">
+
+                  <div class="form-group" ng-class="{'has-error': login_form.email.$dirty && login_form.email.$invalid, 'has-success': !login_form.email.$invalid}">
+					<div class="input-group">
+
+	                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+
+	                  <input type="email" ng-model="user.email" name="email" class="form-control input-lg" placeholder="Email address" required="required" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
+	                  
+	                </div>
+
+	                <span ng-show="login_form.email.$error.required"></span>
+	                <span ng-show="login_form.email.$error.email" class="text-danger">Please enter valid email. Ex. example@example.com</span>
+                  </div>
+
+				  <div class="form-group" ng-class="{'has-error': login_form.password.$dirty && login_form.password.$invalid, 'has-success': !login_form.password.$invalid}">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                       <input type="password" ng-model="user.password" name="password" class="form-control input-lg" placeholder="Password" required="required" ng-minlength="5" ng-maxlength="25" ng-pattern='/^\s*\w*\s*$/' >
+                     </div>
+
+                      <span ng-show="login_form.password.$error.required"></span>
+
+                      <span ng-show="login_form.password.$error.minlength" class="text-danger">Password required Min 5 symbols.</span>
+
+                      <span ng-show="login_form.password.$error.maxlength" class="text-danger">Password required Max 25 symbols.</span>
+
+                      <span ng-show="login_form.password.$error.pattern" class="text-danger">Password required only a-zA-Z0-9_ symbols.</span>
+
+                    </div>
+
+						
+				  <div class="form-group form-btns " style="text-align: center;">
+					<button type="submit" class="btn btn-primary btn-main btn-popup loginbtn">Login</button>
+				  </div>
+						
+				  <div class="form-group clearfix">
+					<a class="create-new" href="/Signup"  ng-click="setSignupType('student');">Create New Account</a>
+				  </div>
+				</div>
+			</form> 
+		  </div>
+        </div>
+	  <div class="col-md-3"></div>
+	</div>
+  </div>
+
