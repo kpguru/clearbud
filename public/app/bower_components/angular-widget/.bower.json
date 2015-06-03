@@ -1,0 +1,43 @@
+{
+  "name": "angular-widget",
+  "version": "0.1.52",
+  "main": "angular-widget.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wix/angular-widget.git"
+  },
+  "ignore": [
+    ".*",
+    "Gemfile*",
+    "Gruntfile.js",
+    "pom.xml",
+    "*.json",
+    "*conf.js",
+    "app",
+    "test",
+    "maven",
+    "*.sublime*"
+  ],
+  "dependencies": {
+    "angular": ">= 1.2.0"
+  },
+  "devDependencies": {
+    "jquery": "~2.0.3",
+    "angular-mocks": ">= 1.2.0",
+    "es5-shim": "~2.1.0",
+    "angular-route": ">= 1.2.0",
+    "angular-ui-router": "~0.2.11",
+    "angular-widget": "~0.1.30"
+  },
+  "homepage": "https://github.com/shahata/angular-widget",
+  "_release": "0.1.52",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.52",
+    "commit": "ea100c62f5fdb36b7bf62476ae1fee50fdfe9367"
+  },
+  "_source": "git://github.com/shahata/angular-widget.git",
+  "_target": "~0.1.52",
+  "_originalSource": "angular-widget",
+  "_direct": true
+}
