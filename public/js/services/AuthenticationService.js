@@ -7,10 +7,9 @@ app.factory('AuthenticationService', function($firebaseAuth, FIREBASE_URL, $fire
 
     var Auth = {
         user: {},
-        // getCurrentUser : function(userID){
-        //     return firebaseUsers.child(userID)).$asObject();
-        // },
-
+        getCurrentUser : function(userID){
+            return $firebase(ref.child('users').child(userID)).$asObject();
+        },
         createUser : function(uid, user){
             var userInfo = {
                 date: Firebase.ServerValue.TIMESTAMP,
@@ -23,7 +22,6 @@ app.factory('AuthenticationService', function($firebaseAuth, FIREBASE_URL, $fire
         },
 
         login : function(user){
-            console.log(user.email, user.password);
             return auth.$authWithPassword(
                 {
                     email: user.email,
@@ -53,7 +51,11 @@ app.factory('AuthenticationService', function($firebaseAuth, FIREBASE_URL, $fire
         }, 
          signedIn : function(){
             return !!Auth.user.provider;
-        },      
+        },
+        requireAuth : function(){
+            return auth.$requireAuth();
+        }
+      
 
     };
 
