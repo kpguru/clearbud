@@ -24,16 +24,34 @@ var app = angular.module('clearbud',[
             templateUrl: 'templates/cleaner-signup.html',
             controller: 'AuthController'
         });
-        $routeProvider.when('/customer-profile', {
-            templateUrl: 'templates/Customer/customer-profile.html',
-            controller: 'CustomerController'
-        });
-        $routeProvider.when('/cleaner-profile', {
-            templateUrl: 'templates/Cleaner/cleaner-profile.html',
-            controller: 'CleanerController'
-        });
-          $routeProvider.when('/login', {
+        $routeProvider.when('/login', {
             templateUrl: 'templates/login.html',
             controller: 'AuthController'
         });
+        $routeProvider.when('/cleaner-dashboard', {
+            templateUrl: 'templates/Cleaner/cleaner-dashboard.html',
+            controller: 'CleanerController',
+            resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
+        });         
+        $routeProvider.when('/cleaner-profile/:userKey', {
+            templateUrl: 'templates/Cleaner/cleaner-profile.html',
+            controller: 'CleanerController',
+            resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
+        });
+        $routeProvider.when('/customer-dashboard', {
+           templateUrl: 'templates/Customer/customer-dashboard.html',
+           controller: 'CustomerController'
+       });
+       $routeProvider.when('/customer-edit', {
+           templateUrl: 'templates/Customer/customer-edit.html',
+           controller: 'CustomerController'
+       });
     }]);

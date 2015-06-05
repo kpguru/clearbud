@@ -34,7 +34,7 @@
 		     AuthenticationService.signup(cleaner).then(function () {
 		            toaster.pop('success', "Register successfully!");
 		            //$location.path("/home").replace();
-		            window.location = "#/cleaner-profile";
+		            window.location = "#/cleaner-dashboard";
 		        }, function (error) {
 		            toaster.pop('error', "Error..!", error.toString());
 		        });
@@ -48,7 +48,7 @@
                         window.location = "#/customer-profile";
 	                }else{
 	                	 toaster.pop('success', "Logged in successfully!");
-	                     window.location = "#/cleaner-profile";
+	                     window.location = "#/cleaner-dashboard";
 	                }
                });  
             }, function (error) {
