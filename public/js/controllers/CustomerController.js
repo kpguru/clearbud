@@ -26,7 +26,7 @@
                     $scope.user.city = customer.city;
                     $scope.user.state = customer.state;
                     $scope.user.zip_code = customer.zip_code;
-                    $scope.user.customer_image = $scope.image.resized.dataURL;
+                    $scope.user.customer_image = $scope.image ? $scope.image.resized.dataURL : $scope.currentUser.customer_image;
                     CustomerService.updateCustomer($scope.currentUser.$id,$scope.user).then(function() {
 		                toaster.pop('success', "Update successfully!");
 		                window.location = "#/customer-dashboard";

@@ -70,8 +70,10 @@
               <td>Zip Code</td>
               <td></td>
               <td><div class="form-group" ng-class="{'has-error':customerForm.zip_code.$dirty && customerForm.zip_code.$invalid,'has-success':!customerForm.zip_code.$invalid}">
-                    <input class="form-control" ng-model="currentUser.zip_code"  ng-pattern="/^\d+$/" maxlength="100" type="text" name="zip_code"/>
+                    <input class="form-control" ng-minlength="6" ng-maxlength="6" ng-model="currentUser.zip_code"  ng-pattern="/^\d+$/" maxlength="100" type="text" name="zip_code"/>
                     <span class="has-error" ng-show="customerForm.zip_code.$error.pattern">Invalid Zip Code!</span>
+                    <span ng-show="customerForm.zip_code.$error.minlength" class="err-messg">Zip Code required Minimum 6 Digits</span>
+                    <span ng-show="customerForm.zip_code.$error.maxlength" class="err-messg">Zip Code required Maximum 6 Digits</span>
                   </div></td>
             </tr>
             <tr>
