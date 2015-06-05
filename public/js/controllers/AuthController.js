@@ -45,7 +45,7 @@
                     users.$loaded().then(function (data) {		                
                     if(data.role== "customer"){
                     	toaster.pop('success', "Logged in successfully!");
-                        window.location = "#/customer-profile";
+                        window.location = "#/customer-dashboard";
 	                }else{
 	                	 toaster.pop('success', "Logged in successfully!");
 	                     window.location = "#/cleaner-profile";

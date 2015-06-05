@@ -1,0 +1,94 @@
+<style>
+.customer-edit{
+    height: 370px;
+    margin-left: 250px;
+    margin-top: 60px;
+    width: 700px;
+}
+</style>
+<div class="container">
+  <div class='customer-edit'>
+    <form name="customerForm">
+      <table class="table">
+          <tbody>
+            <tr>
+              <td>First Name</td>
+              <td></td>
+              <td><div class="form-group" ng-class="{'has-error': customerForm.fname.$dirty && customerForm.fname.$invalid, 'has-success': !customerForm.fname.$invalid}">
+                    <input class="form-control" ng-pattern="/[a-zA-Z]$/" ng-model="currentUser.first_name" required="required" maxlength="100" type="text" name="fname"/>
+                    <span class="has-error" ng-show="customerForm.fname.$error.pattern">Invalid Input!</span>
+                  </div></td>
+            </tr>
+            <tr>
+              <td>Last Name</td>
+              <td></td>
+              <td><div class="form-group" ng-class="{'has-error': customerForm.lname.$dirty && customerForm.lname.$invalid, 'has-success': !customerForm.lname.$invalid}">
+                    <input class="form-control" ng-pattern="/[a-zA-Z]$/" ng-model="currentUser.last_name" required="required" maxlength="100" type="text" name="lname"/>
+                    <span class="has-error" ng-show="customerForm.lname.$error.pattern">Invalid Input!</span>
+                  </div></td></td>
+            </tr>
+            <tr>
+              <td>Phone No</td>
+              <td></td>
+              <td><div class="form-group" ng-class="{'has-error': customerForm.phone.$dirty && customerForm.phone.$invalid, 'has-success': !customerForm.phone.$invalid}">
+                    <input class="form-control" ng-model="currentUser.phone" required="required" maxlength="100" type="text" name="phone"/>
+                  </div></td>
+            </tr>
+            <tr>
+              <td>Address</td>
+              <td></td>
+              <td><div class="form-group" ng-class="{'has-error': customerForm.address1.$dirty && customerForm.address1.$invalid, 'has-success': !customerForm.address1.$invalid}">
+                    <input class="form-control" ng-model="currentUser.address1" placeholder="123 Street Name" required="required" maxlength="100" type="text" name="address1"/>
+                  </div></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td><div class="form-group" ng-class="{'has-error': customerForm.address2.$dirty && customerForm.address2.$invalid, 'has-success': !customerForm.address2.$invalid}">
+                    <input class="form-control" ng-model="currentUser.address2" placeholder="Apartment#" required="required" maxlength="100" type="text" name="address2"/>
+                  </div></td>
+            </tr>
+            <tr>
+              <td>City</td>
+              <td></td>
+              <td><div class="form-group" ng-class="{'has-error':customerForm.city.$dirty && customerForm.city.$invalid,'has-success':!customerForm.city.$invalid}">
+                    <input class="form-control" ng-model="currentUser.city"  maxlength="100" type="text" name="city"/>
+                  </div></td>
+            </tr>
+            <tr>
+              <td>State</td>
+              <td></td>
+              <td><div class="form-group" ng-class="{'has-error':customerForm.state.$dirty && customerForm.state.$invalid,'has-success':!customerForm.state.$invalid}">
+                    <select class="form-control select-control" ng-model="currentUser.state" name="state" required >
+                        <option value=''>- Please Choose State -</option>
+                        <option ng-repeat="state in states">{{state.StateName}}</option>
+                    </select>
+                    <span ng-show="customerForm.state.$error.required"></span>
+                  </div></td>
+            </tr>
+            <tr>
+              <td>Zip Code</td>
+              <td></td>
+              <td><div class="form-group" ng-class="{'has-error':customerForm.zip_code.$dirty && customerForm.zip_code.$invalid,'has-success':!customerForm.zip_code.$invalid}">
+                    <input class="form-control" ng-model="currentUser.zip_code"  ng-pattern="/^\d+$/" maxlength="100" type="text" name="zip_code"/>
+                    <span class="has-error" ng-show="customerForm.zip_code.$error.pattern">Invalid Zip Code!</span>
+                  </div></td>
+            </tr>
+            <tr>
+              <td>Photo</td>
+              <td></td>
+              <td><div class="form-group ">
+                    <input type="file" accept="image/*" image="image" name="logo" id="uploadImage" class="choose-photo" resize-max-height="200" resize-max-width="200" resize-quality="0.7"/>
+                    <img ng-show="false" id="newLogo" ng-src="{{image.resized.dataURL}}" width="150px" height="150px"/>
+                  </div></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td><button class="btn btn-primary" ng-click="customer_edit(currentUser)">Submit</button></td>
+            </tr>
+          </tbody>
+      </table> 
+    </form>
+  </div>
+</div>

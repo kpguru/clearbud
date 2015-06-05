@@ -1,0 +1,96 @@
+<style>
+.customer-tab{
+  border-style:solid;
+    border-color: #708090;
+  margin-top:70px;
+  height:425px;
+  width:700px;
+  margin-left:213px;
+}
+.form-control-edit{
+  width: 50%;
+}
+.col-sm-2 {
+    width: 69.667%;
+}
+.col-sm-1 {
+    width: 21.333%;
+}
+.btn-block {
+    margin-top: 16px;
+}
+</style>
+
+<div class="content">
+  <div class="customer-tab">
+    <form class="form-horizontal">
+
+      <ul class="nav nav-tabs">
+        <li ng-repeat="step in steps" ng-class="{active: $index==getCurrentStepIndex()}">
+          <a href="javascript:void(0)" ng-click="goToStep($index)">{{step}}</a>
+        </li>
+      </ul>
+
+      <div ng-switch on="selection">
+
+        <!-- First Step -->
+        <div ng-switch-when="Appointments">
+            <h2>No Appointments Present!</h2>
+        </div>
+
+        <!-- Second Step -->
+        <div ng-switch-when="Account">
+          <div class="row">
+            <div class="col-sm-2"><h2>About You</h2></div>
+            <div class="col-sm-1">
+                <a href="#/customer-edit"><button class="btn btn-block btn-primary btn-lg" >Edit Account</button></a>
+            </div>
+          </div>
+          <div>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>Name</td>
+                  <td></td>
+                  <td>{{currentUser.first_name}} {{currentUser.last_name}}</td>
+                </tr>
+                <tr>
+                  <td>Phone No</td>
+                  <td></td>
+                  <td>{{currentUser.phone}}</td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td></td>
+                  <td>{{currentUser.email}}</td>
+                </tr>
+                <tr>
+                  <td>Address</td>
+                  <td></td>
+                  <td>{{currentUser.address1}} {{currentUser.address2}}</td>
+                </tr>
+                <tr>
+                  <td>City</td>
+                  <td></td>
+                  <td>{{currentUser.city}}</td>
+                </tr>
+                <tr>
+                  <td>State</td>
+                  <td></td>
+                  <td>{{currentUser.state}}</td>
+                </tr>
+                <tr>
+                  <td>Photo</td>
+                  <td></td>
+                  <td><div>
+                          <img id="newLogo" ng-src="{{currentUser.customer_image}}" width="97px" height="80px"/>
+                      </div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
