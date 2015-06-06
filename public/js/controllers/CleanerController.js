@@ -4,6 +4,7 @@
         $scope.signedIn = AuthenticationService.signedIn;
         $scope.profile ={};
         var currentuser={};
+        $scope.numbersOnly = /^\d+$/;
       var ref = new Firebase(FIREBASE_URL);
         ref.onAuth(function(authUser) {
             if (authUser != null) {
@@ -26,6 +27,9 @@
            
            } 
             $scope.updateCP=function(cleaner){
+               if(!$scope.currentUser.firstname  || !$scope.currentUser.lastname ||!$scope.currentUser.zip_code){
+               return; 
+              }  
              CleanerService.updateCP(authUser.uid, cleaner).then(function (data) {                  
                   toaster.pop('toast-warning', "Thank You for Complete Your Profile,We Will get in touch soon");
                   $location.path('/cleaner-dashboard');

@@ -23,37 +23,41 @@
               <td></td>
               <td><div class="form-group" ng-class="{'has-error': cleanerForm.fname.$dirty && cleanerForm.fname.$invalid, 'has-success': !cleanerForm.fname.$invalid}">
                     <input class="form-control" ng-pattern="/[a-zA-Z]$/" ng-model="currentUser.firstname" required="required" maxlength="100" type="text" name="fname"/>
-                    <span class="text-danger" ng-show="cleanerForm.fname.$error.pattern">Invalid Input!</span>
+                    <span class="text-danger" ng-show="cleanerForm.fname.$error.pattern">First Name Required only A_Z charactors.</span>
                   </div></td>
             </tr>
             <tr>
               <td>Last Name</td>
               <td></td>
               <td><div class="form-group" ng-class="{'has-error': cleanerForm.lastname.$dirty && cleanerForm.lastname.$invalid, 'has-success': !cleanerForm.lastname.$invalid}">
-                    <input class="form-control" ng-pattern="/[a-zA-Z]$/" ng-model="currentUser.lastname" required="required" maxlength="100" type="text" name="lastname"/>
-                    <span class="text-danger" ng-show="cleanerForm.lastname.$error.pattern">Invalid Input!</span>
+                    <input class="form-control" ng-pattern="/[a-zA-Z]$/" ng-model="currentUser.lastname" required="required" type="text" name="lastname"/>
+                    <span class="text-danger" ng-show="cleanerForm.lastname.$error.pattern">Last Name Required only A_Z charactors.</span>
                   </div></td></td>
             </tr>
             <tr>
               <td>Email</td>
               <td></td>
               <td><div class="form-group" ng-class="{'has-error': cleanerForm.email.$dirty && cleanerForm.email.$invalid, 'has-success': !cleanerForm.email.$invalid}">
-                    <input class="form-control"  ng-model="currentUser.email" required="required" maxlength="100" type="email" name="email"/>                    
+                    <input class="form-control"  ng-model="currentUser.email" required="required" maxlength="100" type="email" name="email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"/>
+                    <span ng-show="login_form.email.$error.required"></span>
+                  <span ng-show="login_form.email.$error.email" class="text-danger">Please enter valid email. Ex. example@example.com</span>
                   </div></td></td>
             </tr>
             <tr>
               <td>Phone No</td>
               <td></td>
               <td><div class="form-group" ng-class="{'has-error': cleanerForm.phone.$dirty && cleanerForm.phone.$invalid, 'has-success': !cleanerForm.phone.$invalid}">
-                    <input class="form-control" ng-model="currentUser.phone" required="required" maxlength="100" type="text" name="phone"/>
+                    <input class="form-control" ng-model="currentUser.phone" required="required" type="text" name="phone" ng-pattern = "numbersOnly"/>
+                    <span ng-show="scoreboardForm.game_zipcode.$error.required"></span>
+                    <span ng-show="scoreboardForm.game_zipcode.$error.pattern" class="text-danger">Scoreboard Game Zipcode required only 0-9 symbols.</span>
                   </div></td>
             </tr>
             <tr>
               <td>Company Name</td>
               <td></td>
               <td><div class="form-group" ng-class="{'has-error': cleanerForm.company_name.$dirty && cleanerForm.company_name.$invalid, 'has-success': !cleanerForm.company_name.$invalid}">
-                    <input class="form-control" ng-model="currentUser.company_name" required="required" maxlength="100" type="text" name="company_name"/>
-                    <span class="text-danger" ng-show="cleanerForm.company_name.$error.pattern">Invalid Input!</span>
+                    <input class="form-control" ng-model="currentUser.company_name" required="required" type="text" name="company_name" ng-pattern="/[a-zA-Z]$/"/>
+                    <span class="text-danger" ng-show="cleanerForm.company_name.$error.pattern">Company Name required A_Z Charecters Only</span>
                   </div></td></td>
             </tr>
 
@@ -75,7 +79,8 @@
               <td>City</td>
               <td></td>
               <td><div class="form-group" ng-class="{'has-error':cleanerForm.city.$dirty && cleanerForm.city.$invalid,'has-success':!cleanerForm.city.$invalid}">
-                    <input class="form-control" ng-model="currentUser.city"  maxlength="100" type="text" name="city"/>
+                    <input class="form-control" ng-model="currentUser.city" ng-pattern="/[a-zA-Z]$/" maxlength="100" type="text" name="city"/>
+                     <span class="text-danger" ng-show="cleanerForm.company_name.$error.pattern">City required A_Z Charecters Only</span>
                   </div></td>
             </tr>
             <tr>
@@ -112,16 +117,17 @@
               <td>Month In Business</td>
               <td></td>
               <td><div class="form-group" ng-class="{'has-error': cleanerForm.month_in_business.$dirty && cleanerForm.month_in_business.$invalid, 'has-success': !cleanerForm.month_in_business.$invalid}">
-                    <input class="form-control" ng-model="currentUser.month_in_business" required="required" type="text" name="month_in_business"/>
-                    <span class="text-danger" ng-show="cleanerForm.month_in_business.$error.pattern">Invalid Input!</span>
+                    <input class="form-control" ng-model="currentUser.month_in_business" required="required" type="text" name="month_in_business" ng-pattern ="numbersOnly"/>
+                    <span class="text-danger" ng-show="cleanerForm.month_in_business.$error.pattern">Please Enter Valid Input</span>
+                    <span class="text-danger" ng-show="cleanerForm.company_name.$error.pattern">Month In Business required 0-9 Symboles Only</span>
                   </div></td></td>
             </tr>
             <tr>
               <td>No. of Team Member</td>
               <td></td>
               <td><div class="form-group" ng-class="{'has-error': cleanerForm.team_member.$dirty && cleanerForm.team_member.$invalid, 'has-success': !cleanerForm.team_member.$invalid}">
-                    <input class="form-control" ng-model="currentUser.team_member" required="required" type="text" name="team_member"/>
-                    <span class="text-danger" ng-show="cleanerForm.team_member.$error.pattern">Invalid Input!</span>
+                    <input class="form-control" ng-model="currentUser.team_member" required="required" type="text" name="team_member" ng-pattern = "numbersOnly"/>
+                    <span class="text-danger" ng-show="cleanerForm.team_member.$error.pattern">No. of Team Member required 0-9 Symboles Only</span>
                   </div></td></td>
             </tr>
             <tr>
