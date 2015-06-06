@@ -10,7 +10,7 @@
 			            <div class="form-group" ng-class="{'has-error': signup_form.email.$dirty && signup_form.email.$invalid, 'has-success': !signup_form.email.$invalid}">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-								<input type="email" ng-model="customersignup.email" name="email" class="form-control log" placeholder="Email Address" required="required" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
+								<input type="email" ng-model="customersignup.email" name="email" class="form-control log" placeholder="Email Address" required="required">
 							</div>
 							<span ng-show="signup_form.email.$error.required"></span>
 							<span ng-show="signup_form.email.$error.email" class="err-messg">Please enter valid email. Ex. example@example.com</span>							

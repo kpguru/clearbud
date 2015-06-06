@@ -24,19 +24,6 @@ var app = angular.module('clearbud',[
             templateUrl: 'templates/cleaner-signup.html',
             controller: 'AuthController'
         });
-
-        $routeProvider.when('/customer-dashboard', {
-            templateUrl: 'templates/Customer/customer-dashboard.html',
-            controller: 'CustomerController'
-        });
-        $routeProvider.when('/customer-edit', {
-            templateUrl: 'templates/Customer/customer-edit.html',
-            controller: 'CustomerController'
-        });
-        $routeProvider.when('/cleaner-profile', {
-            templateUrl: 'templates/Cleaner/cleaner-profile.html',
-            controller: 'CleanerController'
-        });
           $routeProvider.when('/login', {
             templateUrl: 'templates/login.html',
             controller: 'AuthController'
@@ -50,8 +37,8 @@ var app = angular.module('clearbud',[
                 }
             }
         });         
-        $routeProvider.when('/cleaner-profile/:userKey', {
-            templateUrl: 'templates/Cleaner/cleaner-profile.html',
+        $routeProvider.when('/cleaner-edit/:userKey', {
+            templateUrl: 'templates/Cleaner/cleaner-edit.html',
             controller: 'CleanerController',
             resolve: {
                 currentAuth: function (AuthenticationService) {
@@ -61,10 +48,20 @@ var app = angular.module('clearbud',[
         });
         $routeProvider.when('/customer-dashboard', {
            templateUrl: 'templates/Customer/customer-dashboard.html',
-           controller: 'CustomerController'
+           controller: 'CustomerController',
+           resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
        });
-       $routeProvider.when('/customer-edit', {
+       $routeProvider.when('/customer-edit/:userKey', {
            templateUrl: 'templates/Customer/customer-edit.html',
-           controller: 'CustomerController'
+           controller: 'CustomerController',
+           resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
        });
     }]);
