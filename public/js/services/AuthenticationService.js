@@ -16,7 +16,8 @@ app.factory('AuthenticationService', function($firebaseAuth, FIREBASE_URL, $fire
                 regUser: uid,                
                 email: user.email,
                 role:user.role,
-                phone: user.phone
+                phone: user.phone,
+                isApproved: user.isApproved
             };
             firebaseUsers.$set(uid, userInfo);
         },
