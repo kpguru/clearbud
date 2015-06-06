@@ -64,4 +64,14 @@ var app = angular.module('clearbud',[
                 }
             }
        });
+       $routeProvider.when('/admin-dashboard', {
+           templateUrl: 'templates/Admin/admin-dashboard.html',
+           controller: 'AdminController',
+           resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
+       });
+
     }]);
