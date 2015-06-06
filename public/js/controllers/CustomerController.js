@@ -18,6 +18,9 @@
                 });
 
                 $scope.customer_edit = function(customer){
+                    if(!customer.first_name  || !customer.last_name ||!customer.zip_code){
+                       return; 
+                    }  
                 	$scope.user.first_name = customer.first_name;
                     $scope.user.last_name = customer.last_name;
                     $scope.user.phone = customer.phone;
