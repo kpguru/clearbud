@@ -18,7 +18,7 @@
 		     customer.phone='';
 		     AuthenticationService.signup(customer).then(function () {
 		            toaster.pop('success', "Register successfully!");
-		            window.location = "#/home";
+		            window.location = "#/customer-dashboard";
 		        }, function (error) {
 		            toaster.pop('error', "Error..!", error.toString());
 		        });
@@ -47,8 +47,13 @@
                     	toaster.pop('success', "Logged in successfully!");
                         window.location = "#/customer-dashboard";
 	                }else{
-	                	 toaster.pop('success', "Logged in successfully!");
-	                     window.location = "#/cleaner-dashboard";
+	                	 if(data.role == "cleaner"){
+		                	 toaster.pop('success', "Logged in successfully!");
+		                     window.location = "#/cleaner-dashboard";
+		                 }else{
+		                 	 toaster.pop('success', "Logged in successfully!");
+		                     window.location = "#/admin-dashboard";
+		                 }
 	                }
                });  
             }, function (error) {

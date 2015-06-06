@@ -6,7 +6,7 @@ app.factory('AuthenticationService', function($firebaseAuth, FIREBASE_URL, $fire
     var firebaseUsers = $firebase(ref.child('users'));
 
     var Auth = {
-        user: {},
+        user: {},       
         getCurrentUser : function(userID){
             return $firebase(ref.child('users').child(userID)).$asObject();
         },
@@ -19,6 +19,10 @@ app.factory('AuthenticationService', function($firebaseAuth, FIREBASE_URL, $fire
                 phone: user.phone
             };
             firebaseUsers.$set(uid, userInfo);
+        },
+
+        getUsersByRole: function(userRole){
+            return $firebase(ref.child('users').orderByChild("role").equalTo(userRole)).$asArray();
         },
 
         login : function(user){
