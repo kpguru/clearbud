@@ -18,7 +18,7 @@
 		     customer.phone='';
 		     AuthenticationService.signup(customer).then(function () {
 		            toaster.pop('success', "Register successfully!");
-		            window.location = "#/home";
+		            window.location = "#/customer-dashboard";
 		        }, function (error) {
 		            toaster.pop('error', "Error..!", error.toString());
 		        });
@@ -31,6 +31,7 @@
 		      return;
 		     }     
 		     cleaner.role="cleaner";
+		     cleaner.isApproved = false;   
 		     AuthenticationService.signup(cleaner).then(function () {
 		            toaster.pop('success', "Register successfully!");
 		            //$location.path("/home").replace();
