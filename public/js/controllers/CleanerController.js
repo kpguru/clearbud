@@ -24,6 +24,7 @@
                    return; 
               }  
               profile.cleaner_logo =  $scope.profile.logo; 
+              delete $scope.profile.logo;
               CleanerService.createCP(authUser.uid, profile).then(function (data) {
                   toaster.pop('success', "Thank You for creating account.");
                   $location.path('/cleaner/'+authUser.uid+'/profile');
@@ -31,20 +32,22 @@
            
            } 
             $scope.updateCP=function(cleaner){
-               var logo = document.getElementById("newLogo").src;
-               if(logo){                
-                 cleaner.cleaner_logo = logo; 
-               }else{
-                 cleaner.cleaner_logo= default_cleaner_logo;
-               }
-               if(!$scope.currentUser.firstname  || !$scope.currentUser.lastname ||!$scope.currentUser.zip_code){
-                  return; 
-               }  
-             
-             CleanerService.updateCP(authUser.uid, cleaner).then(function (data) {                  
-                  toaster.pop('success', "Thank You for Complete Your Profile,We Will get in touch soon");
-                  $location.path('/cleaner/'+authUser.uid+'/profile');
-              });
+
+                var logo = document.getElementById("newLogo").src;
+                if(logo){                
+                   cleaner.cleaner_logo = logo; 
+                }else{
+                   cleaner.cleaner_logo= default_cleaner_logo;
+                }
+                 if(!$scope.currentUser.firstname  || !$scope.currentUser.lastname ||!$scope.currentUser.zip_code){
+                    return; 
+                }  
+               
+               CleanerService.updateCP(authUser.uid, cleaner).then(function (data) {                  
+                    toaster.pop('toast-warning', "Thank You for Complete Your Profile,We Will get in touch soon");
+                    $location.path('/cleaner/'+authUser.uid+'/profile');
+                });
+
             }            
             $scope.steps = [
               'Personal Info',

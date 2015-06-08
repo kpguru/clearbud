@@ -1,6 +1,6 @@
 'use strict';
 
-	app.controller('CustomerController', function ($scope, $http, $window, $location, AuthenticationService, CustomerService, $firebase, toaster, FIREBASE_URL) { 
+	app.controller('CustomerController', function ($scope, $http, $window, $location, AuthenticationService, CustomerService, CleanerService,$firebase, toaster, FIREBASE_URL) { 
         $scope.signedIn = AuthenticationService.signedIn;
         get_states();
         $scope.user = {};
@@ -9,6 +9,11 @@
                         'Account'
                        ];
         $scope.selection = $scope.steps[0];
+        $scope.searchCleanerByName = function(name){
+          CleanerService.getCleanerByName(name).$loaded().then(function(data){
+            $scope.cleanerData = data;
+          });
+        }        
         var ref = new Firebase(FIREBASE_URL);
         ref.onAuth(function(authUser) {
             if(authUser != null) {
@@ -16,7 +21,6 @@
                 users.$loaded().then(function (data) {
                     $scope.currentUser = data;
                 });
-
                 $scope.customer_edit = function(customer){
                     if(!customer.firstname  || !customer.lastname ||!customer.zip_code){
                        return; 
@@ -49,8 +53,8 @@
                     {
                       $scope.selection = $scope.steps[index];
                     }
-                };
-            }
+                }; 
+            }              
         });
 
         function get_states() {
@@ -58,6 +62,4 @@
                 $scope.states = res.data;
             });
         }
-
-
     });
