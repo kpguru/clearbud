@@ -10,11 +10,11 @@ var app = angular.module('clearbud',[
         //$locationProvider.html5Mode(true);
         $routeProvider.otherwise({
             templateUrl: 'templates/home.html',
-            controller: 'HomeController'
+            controller: 'CustomerController'
         });
         $routeProvider.when('/home', {
             templateUrl: 'templates/home.html',
-            controller: 'HomeController'
+            controller: 'CustomerController'
         });        
          $routeProvider.when('/customer-signup', {
             templateUrl: 'templates/customer-signup.html',
@@ -66,6 +66,15 @@ var app = angular.module('clearbud',[
        });
        $routeProvider.when('/customer-edit/:userKey', {
            templateUrl: 'templates/Customer/customer-edit.html',
+           controller: 'CustomerController',
+           resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
+       });
+        $routeProvider.when('/search-cleaner', {
+           templateUrl: 'templates/Customer/customer-search.html',
            controller: 'CustomerController',
            resolve: {
                 currentAuth: function (AuthenticationService) {

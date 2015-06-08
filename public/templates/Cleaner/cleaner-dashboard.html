@@ -31,198 +31,203 @@
       <a href="javascript:void(0)" ng-click="goToStep($index)">{{step}}</a>
     </li>
   </ul>
-  <div ng-switch on="selection">
+      <div ng-switch on="selection">
 
-    <!-- First Step -->
-    <div ng-switch-when="Personal Info">
-       <div class="row">
-        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 basic-info">
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="form-group" ng-class="{'has-error': profileForm.firstname.$dirty && profileForm.firstname.$invalid, 'has-success': !profileForm.firstname.$invalid}">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input type="text" ng-model="profile.firstname" name="firstname" class="form-control input-log" placeholder="First Name" required="required" ng-pattern='/^[a-zA-Z]+$/'>
+        <!-- First Step -->
+        <div ng-switch-when="Personal Info">
+           <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 basic-info">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group" ng-class="{'has-error': profileForm.firstname.$dirty && profileForm.firstname.$invalid, 'has-success': !profileForm.firstname.$invalid}">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" ng-model="profile.firstname" name="firstname" class="form-control input-log" placeholder="First Name" required="required" ng-pattern='/^[a-zA-Z]+$/'>
+                      </div>
+                      <span ng-show="profileForm.firstname.$error.required"></span>               
+                      <span ng-show="profileForm.firstname.$error.pattern" class="text-danger">Firstname required only a-zA-Z_ symbols.</span>
+                    </div>
                   </div>
-                  <span ng-show="profileForm.firstname.$error.required"></span>               
-                  <span ng-show="profileForm.firstname.$error.pattern" class="text-danger">Firstname required only a-zA-Z_ symbols.</span>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="form-group" ng-class="{'has-error': profileForm.lastname.$dirty && profileForm.lastname.$invalid, 'has-success': !profileForm.lastname.$invalid}">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input type="text" ng-model="profile.lastname" name="lastname" class="form-control input-log" placeholder="Last Name" required="required" ng-pattern='/^[a-zA-Z]+$/' >
-                  </div>
-                  <span ng-show="profileForm.lastname.$error.required"></span>                  
-                  <span ng-show="profileForm.lastname.$error.pattern" class="text-danger">Lastname required only a-zA-Z0-9_ symbols.</span>
-                </div>
-              </div>
-            </div>
-            <div class="form-group" ng-class="{'has-error': profileForm.email.$dirty && profileForm.email.$invalid, 'has-success': !profileForm.email.$invalid}">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <input type="email" ng-model="profile.email" name="email" class="form-control input-log" placeholder="Email Address" required="required" ng-pattern='email'>
-              </div>
-              <span ng-show="profileForm.email.$error.required"></span>
-              <span ng-show="profileForm.email.$error.email" class="text-danger">Please enter valid email. Ex. example@example.com</span>
-            </div>
-            <div class="form-group" ng-class="{'has-error': profileForm.phone.$dirty && profileForm.phone.$invalid, 'has-success': !profileForm.phone.$invalid}">
-                <div class="input-group">
-                   <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-earphone"></i></span>
-                   <input type="text" placeholder="Phone Number" ng-minlength="10" 
-                   ng-maxlength="12" name="phone" class="form-control log" ng-model="profile.phone" ng-pattern="/[0-9]+/" required="required">
-              </div>
-              <span ng-show="profileForm.phone.$error.required"></span>
-              <span ng-show="profileForm.phone.$error.minlength" class="text-danger">Phone No.required Minimum 10 Digits</span>
-              <span ng-show="profileForm.phone.$error.maxlength" class="text-danger">Phone Number required Maximum 12 Digits.</span>
-              <span ng-show="profileForm.phone.$error.pattern" class="text-danger">Phone Number Allows Only Digits.</span>
-              </div> 
-        </div>
-      </div> 
-    </div>
 
-    <!-- Second Step -->
-    <div ng-switch-when="Company Address">
-       <div class="row">
-        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 basic-info">            
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="form-group" ng-class="{'has-error': profileForm.address1.$dirty && profileForm.address1.$invalid, 'has-success': !profileForm.address1.$invalid}">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span>
-                    <input type="text" ng-model="profile.address1" name="address1" class="form-control input-log" placeholder="Address" required="required">
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group" ng-class="{'has-error': profileForm.lastname.$dirty && profileForm.lastname.$invalid, 'has-success': !profileForm.lastname.$invalid}">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" ng-model="profile.lastname" name="lastname" class="form-control input-log" placeholder="Last Name" required="required" ng-pattern='/^[a-zA-Z]+$/' >
+                      </div>
+                      <span ng-show="profileForm.lastname.$error.required"></span>                  
+                      <span ng-show="profileForm.lastname.$error.pattern" class="text-danger">Lastname required only a-zA-Z0-9_ symbols.</span>
+                    </div>
                   </div>
-                  <span ng-show="profileForm.address1.$error.required"></span>
                 </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="form-group" ng-class="{'has-error': profileForm.address2.$dirty && profileForm.address2.$invalid, 'has-success': !profileForm.address2.$invalid}">
+
+                <div class="form-group" ng-class="{'has-error': profileForm.email.$dirty && profileForm.email.$invalid, 'has-success': !profileForm.email.$invalid}">
                   <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span>
-                    <input type="text" ng-model="profile.address2" name="address2" class="form-control input-log" placeholder="Optional address" required="required">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    <input type="email" ng-model="profile.email" name="email" class="form-control input-log" placeholder="Email Address" required="required" ng-pattern='email'>
                   </div>
-                  <span ng-show="profileForm.address2.$error.required"></span> 
+                  <span ng-show="profileForm.email.$error.required"></span>
+                  <span ng-show="profileForm.email.$error.email" class="text-danger">Please enter valid email. Ex. example@example.com</span>
                 </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="form-group" ng-class="{'has-error': profileForm.city.$dirty && profileForm.city.$invalid, 'has-success': !profileForm.city.$invalid}">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-                    <input type="text" ng-model="profile.city" name="city" class="form-control input-log" placeholder="City" required="required" ng-pattern='/^[a-zA-Z]+$/'>
+
+                <div class="form-group" ng-class="{'has-error': profileForm.phone.$dirty && profileForm.phone.$invalid, 'has-success': !profileForm.phone.$invalid}">
+                    <div class="input-group">
+                       <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-earphone"></i></span>
+                       <input type="text" placeholder="Phone Number" ng-minlength="10" 
+                       ng-maxlength="12" name="phone" class="form-control log" ng-model="profile.phone" ng-pattern="/[0-9]+/" required="required">
                   </div>
-                  <span ng-show="profileForm.city.$error.required"></span>                
-                  <span ng-show="profileForm.city.$error.pattern" class="text-danger">City required only a-zA-Z_ symbols.</span>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="form-group" ng-class="{'has-error': profileForm.state.$dirty && profileForm.state.$invalid, 'has-success': !profileForm.state.$invalid}">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-                        <select class="form-control input-log" ng-model="profile.state" name="state" required >
-                                <option value=''>- Please Choose State Name -</option>
-                                <option ng-repeat="state in states">{{state.StateName}}</option>
-                            </select>
-                  </div>
-                  <span ng-show="profileForm.state.$error.required"></span>
-                </div>
-              </div>
-            </div>
-            <div class="form-group" ng-class="{'has-error': profileForm.zip_code.$dirty && profileForm.zip_code.$invalid, 'has-success': !profileForm.zip_code.$invalid}">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-                    <input type="text" ng-model="profile.zip_code" name="zip_code" class="form-control input-log" placeholder="Zip Code" required="required"  ng-minlength="5" ng-pattern="/[0-9]+/" ng-maxlength="5">
-                  </div>
-                  <span ng-show="profileForm.zip_code.$error.required"></span>
-                  <span ng-show="profileForm.zip_code.$error.minlength" class="text-danger">Zip Code required Min 5 symbols.</span>
-                  <span ng-show="profileForm.zip_code.$error.maxlength" class="text-danger">Zip Code required Max 5 symbols.</span>
-                  <span ng-show="profileForm.zip_code.$error.pattern" class="text-danger">Zip Code required only 0-9_ symbols.</span>
+                  <span ng-show="profileForm.phone.$error.required"></span>
+                  <span ng-show="profileForm.phone.$error.minlength" class="text-danger">Phone No.required Minimum 10 Digits</span>
+                  <span ng-show="profileForm.phone.$error.maxlength" class="text-danger">Phone Number required Maximum 12 Digits.</span>
+                  <span ng-show="profileForm.phone.$error.pattern" class="text-danger">Phone Number Allows Only Digits.</span>
                 </div> 
+            </div>
+          </div> 
+        </div>
+
+        <!-- Second Step -->
+        <div ng-switch-when="Company Address">
+           <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 basic-info">            
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group" ng-class="{'has-error': profileForm.address1.$dirty && profileForm.address1.$invalid, 'has-success': !profileForm.address1.$invalid}">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span>
+                        <input type="text" ng-model="profile.address1" name="address1" class="form-control input-log" placeholder="Address" required="required">
+                      </div>
+                      <span ng-show="profileForm.address1.$error.required"></span>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group" ng-class="{'has-error': profileForm.address2.$dirty && profileForm.address2.$invalid, 'has-success': !profileForm.address2.$invalid}">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span>
+                        <input type="text" ng-model="profile.address2" name="address2" class="form-control input-log" placeholder="Optional address" required="required">
+                      </div>
+                      <span ng-show="profileForm.address2.$error.required"></span> 
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group" ng-class="{'has-error': profileForm.city.$dirty && profileForm.city.$invalid, 'has-success': !profileForm.city.$invalid}">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                        <input type="text" ng-model="profile.city" name="city" class="form-control input-log" placeholder="City" required="required" ng-pattern='/^[a-zA-Z]+$/'>
+                      </div>
+                      <span ng-show="profileForm.city.$error.required"></span>                
+                      <span ng-show="profileForm.city.$error.pattern" class="text-danger">City required only a-zA-Z_ symbols.</span>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group" ng-class="{'has-error': profileForm.state.$dirty && profileForm.state.$invalid, 'has-success': !profileForm.state.$invalid}">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                        <select class="form-control input-log" ng-model="profile.state" name="state" required >
+                            <option value=''>- Please Choose State Name -</option>
+                            <option ng-repeat="state in states">{{state.StateName}}</option>
+                        </select>
+                      </div>
+                      <span ng-show="profileForm.state.$error.required"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group" ng-class="{'has-error': profileForm.zip_code.$dirty && profileForm.zip_code.$invalid, 'has-success': !profileForm.zip_code.$invalid}">
+                      <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                          <input type="text" ng-model="profile.zip_code" name="zip_code" class="form-control input-log" placeholder="Zip Code" required="required"  ng-minlength="5" ng-pattern="/[0-9]+/" ng-maxlength="5">
+                      </div>
+                      <span ng-show="profileForm.zip_code.$error.required"></span>
+                      <span ng-show="profileForm.zip_code.$error.minlength" class="text-danger">Zip Code required Min 5 symbols.</span>
+                      <span ng-show="profileForm.zip_code.$error.maxlength" class="text-danger">Zip Code required Max 5 symbols.</span>
+                      <span ng-show="profileForm.zip_code.$error.pattern" class="text-danger">Zip Code required only 0-9_ symbols.</span>
+                </div> 
+            </div>
+          </div>
+        </div>
+
+         <!-- Third Step -->
+        <div ng-switch-when="Campaign Info">
+            <div class="row">
+              <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 basic-info">   
+                  <div class="form-group" ng-class="{'has-error': profileForm.company_name.$dirty && profileForm.company_name.$invalid, 'has-success': !profileForm.company_name.$invalid}">
+                      <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
+                          <input type="text" ng-model="profile.company_name" name="company_name" class="form-control input-log" placeholder="Company Name" required="required" ng-pattern='/^[a-zA-Z]+$/' >
+                      </div>
+                      <span ng-show="profileForm.company_name.$error.required"></span>
+                      <span ng-show="profileForm.company_name.$error.pattern" class="text-danger">Company Name required only characteres symbols.</span>
+                  </div>
+
+                  <div class="form-group">                                               
+                     <input type="file" accept="image/*" image="image" name="logo" id="uploadImage" class="choose-photo" resize-max-height="200" resize-max-width="200" resize-quality="0.7"/>
+                     <img ng-show="false" id="newLogo" ng-src="{{image.resized.dataURL}}" width="150px" height="150px" ng-model = "profile.cleaner_logo"/>             
+                  </div>
+                <div class="form-group" ng-class="{'has-error': profileForm.month_in_business.$dirty && profileForm.month_in_business.$invalid, 'has-success': !profileForm.month_in_business.$invalid}">
+                    <div class="input-group">
+                       <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-asterisk"></i></span>
+                       <input type="text" placeholder="Month In Business" ng-minlength="1" 
+                       ng-maxlength="2" name="month_in_business" class="form-control log" ng-model="profile.month_in_business" ng-pattern="/[0-9]+/" required="required">
+                    </div>
+                    <span ng-show="profileForm.month_in_business.$error.required"></span>
+                    <span ng-show="profileForm.month_in_business.$error.minlength" class="text-danger">Month In Business required Minimum 1 Digits</span>
+                    <span ng-show="profileForm.month_in_business.$error.maxlength" class="text-danger">Month In Business required Maximum 2 Digits.</span>
+                    <span ng-show="profileForm.month_in_business.$error.pattern" class="text-danger">Month In Business Allows Only Digits.</span>
+                </div>
+                <div class="form-group" ng-class="{'has-error': profileForm.team_member.$dirty && profileForm.team_member.$invalid, 'has-success': !profileForm.team_member.$invalid}">
+                    <div class="input-group">
+                       <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-asterisk"></i></span>
+                       <input type="text" placeholder="No. of Team Member" ng-minlength="1" 
+                       ng-maxlength="4" name="team_member" class="form-control log" ng-model="profile.team_member" ng-pattern="/[0-9]+/" required="required">
+                    </div>
+                    <span ng-show="profileForm.team_member.$error.required"></span>
+                    <span ng-show="profileForm.team_member.$error.minlength" class="text-danger">Team Member required Minimum 1 Digits</span>
+                    <span ng-show="profileForm.team_member.$error.maxlength" class="text-danger">Team Member required Maximum 4 Digits.</span>
+                    <span ng-show="profileForm.team_member.$error.pattern" class="text-danger">Team Member Allows Only Digits.</span>
+                </div>     
+            </div>
+          </div>
+        </div>
+
+        <!-- Fourth Step -->
+         <div ng-switch-when="submit">
+            <div class ="row">
+              <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 basic-info">
+                   <p>Thanks for creating a profile with ScrubBud.</p>
+
+                   <p>Please submit your information below. Before your account is activated a ScrubBud member will call you to finish your profile and show you how to use the software.</p>
+               </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-3">
+               <span class="button-checkbox">
+                  <div class="agree">
+                    <input type="checkbox" ng-model="profile.agree" name="agree" value="1" required="required"> <span style="color: #000">I Agree</span>
+                  </div>
+               </span>
+              </div>
+              <div class="col-xs-8 col-sm-9 col-md-9 term-condition">
+                By clicking Register, you agree to the <a ng-href="#/terms-and-conditions">Terms and Conditions</a><br> set out by this site, including our Cookie Use.
+              </div>
+          </div> 
         </div>
       </div>
-    </div>
-
-     <!-- Third Step -->
-    <div ng-switch-when="Campaign Info">
-              <div class="row">
-        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 basic-info">   
-                     <div class="form-group" ng-class="{'has-error': profileForm.company_name.$dirty && profileForm.company_name.$invalid, 'has-success': !profileForm.company_name.$invalid}">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
-                    <input type="text" ng-model="profile.company_name" name="company_name" class="form-control input-log" placeholder="Company Name" required="required" ng-pattern='/^[a-zA-Z]+$/' >
-                  </div>
-                  <span ng-show="profileForm.company_name.$error.required"></span>
-                  <span ng-show="profileForm.company_name.$error.pattern" class="text-danger">Company Name required only characteres symbols.</span>
-            </div>  
-            <div class="form-group">                                               
-                 <input type="file" accept="image/*" image="image" name="logo" id="uploadImage" class="choose-photo" resize-max-height="200" resize-max-width="200" resize-quality="0.7"/>
-                 <img ng-show="false" id="newLogo" ng-src="{{image.resized.dataURL}}" width="150px" height="150px" ng-model = "profile.cleaner_logo"/>             
-            </div>
-            <div class="form-group" ng-class="{'has-error': profileForm.month_in_business.$dirty && profileForm.month_in_business.$invalid, 'has-success': !profileForm.month_in_business.$invalid}">
-                <div class="input-group">
-                   <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-asterisk"></i></span>
-                   <input type="text" placeholder="Month In Business" ng-minlength="1" 
-                   ng-maxlength="2" name="month_in_business" class="form-control log" ng-model="profile.month_in_business" ng-pattern="/[0-9]+/" required="required">
-              </div>
-              <span ng-show="profileForm.month_in_business.$error.required"></span>
-              <span ng-show="profileForm.month_in_business.$error.minlength" class="text-danger">Month In Business required Minimum 1 Digits</span>
-              <span ng-show="profileForm.month_in_business.$error.maxlength" class="text-danger">Month In Business required Maximum 2 Digits.</span>
-              <span ng-show="profileForm.month_in_business.$error.pattern" class="text-danger">Month In Business Allows Only Digits.</span>
-              </div>
-              <div class="form-group" ng-class="{'has-error': profileForm.team_member.$dirty && profileForm.team_member.$invalid, 'has-success': !profileForm.team_member.$invalid}">
-                <div class="input-group">
-                   <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-asterisk"></i></span>
-                   <input type="text" placeholder="No. of Team Member" ng-minlength="1" 
-                   ng-maxlength="4" name="team_member" class="form-control log" ng-model="profile.team_member" ng-pattern="/[0-9]+/" required="required">
-              </div>
-              <span ng-show="profileForm.team_member.$error.required"></span>
-              <span ng-show="profileForm.team_member.$error.minlength" class="text-danger">Team Member required Minimum 1 Digits</span>
-              <span ng-show="profileForm.team_member.$error.maxlength" class="text-danger">Team Member required Maximum 4 Digits.</span>
-              <span ng-show="profileForm.team_member.$error.pattern" class="text-danger">Team Member Allows Only Digits.</span>
-              </div>     
-                </div>
-            </div>
-    </div>
-
-    <!-- Fourth Step -->
-     <div ng-switch-when="submit">
-        <div class ="row">
-          <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 basic-info">
-               <p>Thanks for creating a profile with ScrubBud.</p>
-
-               <p>Please submit your information below. Before your account is activated a ScrubBud member will call you to finish your profile and show you how to use the software.</p>
-           </div>
+      <div class="clearfix"></div>
+      <ul class="pager pull-left">
+        <li class="" ng-class="{disabled: !hasPreviousStep()}">
+          <a href="javascript:void(0);" ng-click="decrementStep()">&larr; Previous</a>
+        </li>
+        <li class="" ng-class="{disabled: !hasNextStep()}">
+          <a href="javascript:void(0);" ng-click="incrementStep()" ng-disabled="profileForm.$invalid">Next&rarr;</a>
+        </li>
+      </ul>
+      <div  ng-show="lastStep" class="pull-right"><button style="margin:20px 0;" class="btn btn-success" ng-click ="saveCleanerProfile(profile);" ng-disabled="profileForm.$invalid">Confirm and Submit</button>
       </div>
-        <div class="row">
-      <div class="col-xs-3">
-        <span class="button-checkbox">
-          <div class="agree">
-            <input type="checkbox" ng-model="profile.agree" name="agree" value="1" required="required"> <span style="color: #000">I Agree</span>
-            <!-- <span ng-show="profileForm.agree.$error.required"></span> -->
-          </div>
-        </span>
-      </div>
-      <div class="col-xs-8 col-sm-9 col-md-9 term-condition">
-        By clicking Register, you agree to the <a ng-href="#/terms-and-conditions">Terms and Conditions</a><br> set out by this site, including our Cookie Use.
-      </div>
-      </div> 
-    </div>
-
+      <div class="clearfix"></div>
+    </form>
+   </div>
   </div>
-  <div class="clearfix"></div>
-  <ul class="pager pull-left">
-    <li class="" ng-class="{disabled: !hasPreviousStep()}">
-      <a href="javascript:void(0);" ng-click="decrementStep()">&larr; Previous</a>
-    </li>
-    <li class="" ng-class="{disabled: !hasNextStep()}">
-      <a href="javascript:void(0);" ng-click="incrementStep()" ng-disabled="profileForm.$invalid">Next&rarr;</a>
-    </li>
-  </ul>
-  <div  ng-show="lastStep" class="pull-right"><button style="margin:20px 0;" class="btn btn-success" ng-click ="saveCleanerProfile(profile);" ng-disabled="profileForm.$invalid">Confirm and Submit</button></div>
-  <div class="clearfix"></div>
-</form>
-</div>
-</div>
 </div>

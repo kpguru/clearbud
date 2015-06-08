@@ -18,6 +18,7 @@
 }
 .btn-block {
     margin-top: 16px;
+    background-color: green;    
 }
 </style>
 
@@ -35,7 +36,10 @@
 
         <!-- First Step -->
         <div ng-switch-when="Appointments">
-            <h2>No Appointments Present!</h2>
+             <div class="col-sm-2"><h2>No Appointment Found</h2></div>
+            <div class="col-sm-1">
+                <a href='#/search-cleaner'><button class="btn btn-block btn-primary btn-log" >Book A Cleaner</button></a>
+
         </div>
 
         <!-- Second Step -->
