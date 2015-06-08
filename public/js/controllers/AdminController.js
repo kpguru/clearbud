@@ -34,7 +34,7 @@
                         if(confirm('Are you sure to Approve Cleaner')){
                             $scope.cleanerInfo.isApproved = status;
                             AdminService.updateCleanerStatus(cleanerId,$scope.cleanerInfo).then(function(data){ 
-                               toaster.pop('success', "successfull Approved Cleaner");
+                               toaster.pop('success', "Cleaner Approved Successfully");
                             });
                         }
                     }else{
@@ -44,7 +44,7 @@
                             {
                                 $scope.cleanerInfo.isApproved = status;
                                 AdminService.updateCleanerStatus(cleanerId,$scope.cleanerInfo).then(function(data){ 
-                                  toaster.pop('success', "successfull Reject Cleaner");
+                                  toaster.pop('success', "Cleaner Rejected Successfully");
                                 });
                             }
                         }
@@ -53,7 +53,7 @@
                             {
                                 $scope.cleanerInfo.isApproved = status;
                                 AdminService.updateCleanerStatus(cleanerId,$scope.cleanerInfo).then(function(data){ 
-                                  toaster.pop('success', "successfull Approved Cleaner");
+                                  toaster.pop('success', "Cleaner Approved Successfully");
                                 });
                             }
                         }

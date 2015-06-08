@@ -18,11 +18,11 @@
                 });
 
                 $scope.customer_edit = function(customer){
-                    if(!customer.first_name  || !customer.last_name ||!customer.zip_code){
+                    if(!customer.firstname  || !customer.lastname ||!customer.zip_code){
                        return; 
                     }  
-                	$scope.user.first_name = customer.first_name;
-                    $scope.user.last_name = customer.last_name;
+                	$scope.user.firstname = customer.firstname;
+                    $scope.user.lastname = customer.lastname;
                     $scope.user.phone = customer.phone;
                     $scope.user.address1 = customer.address1;
                     $scope.user.address2 = customer.address2;

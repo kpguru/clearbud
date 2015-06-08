@@ -42,7 +42,7 @@
                }  
              
              CleanerService.updateCP(authUser.uid, cleaner).then(function (data) {                  
-                  toaster.pop('toast-warning', "Thank You for Complete Your Profile,We Will get in touch soon");
+                  toaster.pop('success', "Thank You for Complete Your Profile,We Will get in touch soon");
                   $location.path('/cleaner/'+authUser.uid+'/profile');
               });
             }            
@@ -72,6 +72,8 @@
                if ( nextStep==4)
               {
                $scope.lastStep = true;
+              }else{
+                $scope.lastStep = false;
               }
            
               // Return true if there is a next step, false if not

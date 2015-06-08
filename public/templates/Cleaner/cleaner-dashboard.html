@@ -25,7 +25,7 @@
 <div class="container">
   <div class = "cleaner-tab">
 <div class="content">
-<form class="form-horizontal" role="form" name="profileForm" class="ng-pristine ng-invalid ng-invalid-required ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-email" >
+<form class="form-horizontal" role="form" name="profileForm" class="ng-pristine ng-invalid ng-invalid-required ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-email" novalidate>
   <ul class="nav nav-tabs">
     <li ng-repeat="step in steps" ng-class="{active: $index==getCurrentStepIndex()}">
       <a href="javascript:void(0)" ng-click="goToStep($index)">{{step}}</a>

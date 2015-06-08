@@ -16,7 +16,7 @@
 		     }     
 		     customer.role="customer";
 		     customer.phone='';
-		     customer.isApproved='1';
+		     customer.isApproved= 1;
 		     AuthenticationService.signup(customer).then(function () {
 		            toaster.pop('success', "Register successfully!");
 		            window.location = "#/customer-dashboard";

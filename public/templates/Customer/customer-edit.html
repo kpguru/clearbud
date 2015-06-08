@@ -15,7 +15,7 @@
               <td>First Name</td>
               <td></td>
               <td><div class="form-group" ng-class="{'has-error': customerForm.firstname.$dirty && customerForm.firstname.$invalid, 'has-success': !customerForm.firstname.$invalid}">
-                    <input class="form-control" ng-pattern="/[a-zA-Z]$/" ng-model="currentUser.first_name" required="required" ng-minlength="5" ng-maxlength="12" maxlength="100" type="text" name="firstname"/>
+                    <input class="form-control" ng-pattern="/[a-zA-Z]$/" ng-model="currentUser.firstname" required="required" ng-minlength="5" ng-maxlength="12" maxlength="100" type="text" name="firstname"/>
                     <span ng-show="customerForm.firstname.$error.required"></span>
                     <span ng-show="customerForm.firstname.$error.minlength" class="text-danger">Firstname required Min 5 symbols.</span>
                     <span ng-show="customerForm.firstname.$error.maxlength" class="text-danger">Firstname required Max 12 symbols.</span>
@@ -26,7 +26,7 @@
               <td>Last Name</td>
               <td></td>
               <td><div class="form-group" ng-class="{'has-error': customerForm.lastname.$dirty && customerForm.lastname.$invalid, 'has-success': !customerForm.lastname.$invalid}">
-                    <input class="form-control" ng-pattern="/[a-zA-Z]$/" ng-model="currentUser.last_name" required="required" maxlength="100" type="text" name="lastname"  ng-minlength="5" ng-maxlength="12"/>
+                    <input class="form-control" ng-pattern="/[a-zA-Z]$/" ng-model="currentUser.lastname" required="required" maxlength="100" type="text" name="lastname"  ng-minlength="5" ng-maxlength="12"/>
                     <span ng-show="customerForm.lastname.$error.required"></span>
                     <span ng-show="customerForm.lastname.$error.minlength" class="text-danger">Lastname required Min 5 symbols.</span>
                     <span ng-show="customerForm.lastname.$error.maxlength" class="text-danger">Lastname required Max 12 symbols.</span>
