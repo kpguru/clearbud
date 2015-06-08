@@ -5,34 +5,45 @@
         $scope.profile ={};
         var currentuser={};
         $scope.numbersOnly = /^\d+$/;
+        var default_cleaner_logo= "";
+
       var ref = new Firebase(FIREBASE_URL);
         ref.onAuth(function(authUser) {
             if (authUser != null) {
               var users = AuthenticationService.getCurrentUser(authUser.uid);
                     users.$loaded().then(function (currentuser) { 
                       $scope.currentUser = currentuser;
+                      default_cleaner_logo = currentuser.cleaner_logo;
                       $scope.profile.email = currentuser.email;
                       $scope.profile.phone = currentuser.phone;
                       get_states($scope.profile , 0);
               });           
 
            $scope.saveCleanerProfile = function(profile){ 
-           if(!$scope.profile.firstname  || !$scope.profile.lastname ||!$scope.profile.zip_code){
-               return; 
+              if(!$scope.profile.firstname  || !$scope.profile.lastname ||!$scope.profile.zip_code){
+                   return; 
               }  
-             CleanerService.createCP(authUser.uid, profile).then(function (data) {
+              profile.cleaner_logo =  $scope.profile.logo; 
+              CleanerService.createCP(authUser.uid, profile).then(function (data) {
                   toaster.pop('success', "Thank You for creating account.");
-                  $location.path('/cleaner-edit/'+authUser.uid);
+                  $location.path('/cleaner/'+authUser.uid+'/profile');
               });
            
            } 
             $scope.updateCP=function(cleaner){
+               var logo = document.getElementById("newLogo").src;
+               if(logo){                
+                 cleaner.cleaner_logo = logo; 
+               }else{
+                 cleaner.cleaner_logo= default_cleaner_logo;
+               }
                if(!$scope.currentUser.firstname  || !$scope.currentUser.lastname ||!$scope.currentUser.zip_code){
-               return; 
-              }  
+                  return; 
+               }  
+             
              CleanerService.updateCP(authUser.uid, cleaner).then(function (data) {                  
                   toaster.pop('toast-warning', "Thank You for Complete Your Profile,We Will get in touch soon");
-                  $location.path('/cleaner-dashboard');
+                  $location.path('/cleaner/'+authUser.uid+'/profile');
               });
             }            
             $scope.steps = [
@@ -73,10 +84,15 @@
               // Return true if there is a next step, false if not
               return !_.isUndefined($scope.steps[previousStep]);
             };  
-            $scope.incrementStep = function() {
+            $scope.incrementStep = function() {             
               if ( $scope.hasNextStep() )
               {
                 var stepIndex = $scope.getCurrentStepIndex();
+                if(stepIndex == 2)
+                {
+                   var x = document.getElementById("newLogo").src;
+                   $scope.profile.logo= x;
+                }
                 var nextStep = stepIndex + 1;
                 $scope.selection = $scope.steps[nextStep];
               }

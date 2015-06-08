@@ -46,6 +46,15 @@ var app = angular.module('clearbud',[
                 }
             }
         });
+         $routeProvider.when('/cleaner/:userKey/profile', {
+            templateUrl: 'templates/Cleaner/cleaner-profile.html',
+            controller: 'CleanerController',
+            resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
+        });
         $routeProvider.when('/customer-dashboard', {
            templateUrl: 'templates/Customer/customer-dashboard.html',
            controller: 'CustomerController',

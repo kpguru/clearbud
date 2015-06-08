@@ -25,7 +25,8 @@ app.factory('CleanerService', function($firebaseAuth, FIREBASE_URL, $firebase) {
                     zip_code: cleaner.zip_code,
                     company_name : cleaner.company_name,
                     month_in_business : cleaner.month_in_business,
-                    team_member : cleaner.team_member
+                    team_member : cleaner.team_member,
+                    cleaner_logo: cleaner.cleaner_logo
              }; 
             var cp = this.getCleaner(ID);
             return cp.$update(cleanerData);
