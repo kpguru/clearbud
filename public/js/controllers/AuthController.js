@@ -16,7 +16,7 @@
 		     }     
 		     customer.role="customer";
 		     customer.phone='';
-		     customer.isApproved='true'
+		     customer.isApproved='1';
 		     AuthenticationService.signup(customer).then(function () {
 		            toaster.pop('success', "Register successfully!");
 		            window.location = "#/customer-dashboard";
@@ -32,7 +32,7 @@
 		      return;
 		     }     
 		     cleaner.role="cleaner";
-		     cleaner.isApproved = false;   
+		     cleaner.isApproved = 0;   
 		     AuthenticationService.signup(cleaner).then(function () {
 		            toaster.pop('success', "Register successfully!");
 		            //$location.path("/home").replace();
