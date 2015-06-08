@@ -27,7 +27,7 @@
               <td></td>
               <td><div class="form-group" ng-class="{'has-error': customerForm.lastname.$dirty && customerForm.lastname.$invalid, 'has-success': !customerForm.lastname.$invalid}">
                     <input class="form-control" ng-pattern="/[a-zA-Z]$/" ng-model="currentUser.last_name" required="required" maxlength="100" type="text" name="lastname"  ng-minlength="5" ng-maxlength="12"/>
-                    <span ng-show="customerForm.firstname.$error.required"></span>
+                    <span ng-show="customerForm.lastname.$error.required"></span>
                     <span ng-show="customerForm.lastname.$error.minlength" class="text-danger">Lastname required Min 5 symbols.</span>
                     <span ng-show="customerForm.lastname.$error.maxlength" class="text-danger">Lastname required Max 12 symbols.</span>
                     <span ng-show="customerForm.lastname.$error.pattern" class="text-danger">Lastname required only a-zA-Z_ symbols.</span>
@@ -37,7 +37,8 @@
               <td>Phone No</td>
               <td></td>
               <td><div class="form-group" ng-class="{'has-error': customerForm.phone.$dirty && customerForm.phone.$invalid, 'has-success': !customerForm.phone.$invalid}">
-                    <input class="form-control" ng-model="currentUser.phone" required="required" maxlength="100" type="text" name="phone" ng-pattern="/^\d{0,9}(\.\d{1,9})?$/" ng-minlength="10" ng-maxlength="12"/>
+                    <input class="form-control" ng-model="currentUser.phone" required="required" maxlength="100" type="text" name="phone" ng-pattern="/^\d+$/" ng-minlength="10" ng-maxlength="12"/>
+                    <span ng-show="customerForm.phone.$error.required"></span>
                     <span ng-show="customerForm.phone.$error.minlength" class="text-danger">Phone required Min 10 digit.</span>
                     <span ng-show="customerForm.phone.$error.maxlength" class="text-danger">Phone required Max 12 digit.</span>
                     <span ng-show="customerForm.phone.$error.pattern" class="text-danger">Phone required only 0-9_ digit.</span>
@@ -80,9 +81,9 @@
               <td></td>
               <td><div class="form-group" ng-class="{'has-error':customerForm.zip_code.$dirty && customerForm.zip_code.$invalid,'has-success':!customerForm.zip_code.$invalid}">
                     <input class="form-control" ng-minlength="5" ng-maxlength="6" ng-model="currentUser.zip_code"  ng-pattern="/^\d+$/" maxlength="100" type="text" name="zip_code"/>
-                    <span class="has-error" ng-show="customerForm.zip_code.$error.pattern">Invalid Zip Code!</span>
-                    <span ng-show="customerForm.zip_code.$error.minlength" class="err-messg">Zip Code required Minimum 5 Digits</span>
-                    <span ng-show="customerForm.zip_code.$error.maxlength" class="err-messg">Zip Code required Maximum 6 Digits</span>
+                    <span ng-show="customerForm.zip_code.$error.minlength" class="text-danger">Zip Code required Minimum 5 Digits.</span>
+                    <span ng-show="customerForm.zip_code.$error.maxlength" class="text-danger">Zip Code required Maximum 6 Digits.</span>
+                    <span ng-show="customerForm.zip_code.$error.pattern" class="text-danger">Invalid Zip Code!</span>
                   </div></td>
             </tr>
             <tr>

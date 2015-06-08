@@ -21,8 +21,8 @@ margin-left: 847px;
           <span><i class="glyphicon glyphicon-filter"></i></span>Filter
         </button>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-          <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="get_cleaners(); setDeactivate(false);">Active</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="get_cleaners(); setDeactivate(true);">Deactive</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="get_cleaners(); setUserStatus(1);">Approved</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="get_cleaners(); setUserStatus(2);">Rejected</a></li>
         </ul>
       </div>
       <table class="table" id="table2">
@@ -32,6 +32,7 @@ margin-left: 847px;
             <th>Last Name</th>
             <th>Email</th>
             <th ng-show="check_cleaner">Status</th>
+            <th ng-show="check_cleaner">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -40,17 +41,26 @@ margin-left: 847px;
             <td>{{ customer.last_name }}</td>
             <td>{{ customer.email }}</td>
           </tr>
-          <tr ng-show="cleaner.role != 'customer' && cleaner.isApproved == true && !setDeactive" ng-repeat="cleaner in cleaners">
+          <tr ng-show="cleaner.role != 'customer' && cleaner.isApproved == 0 &&  setStatus == 0" ng-repeat="cleaner in cleaners">
             <td>{{ cleaner.first_name }}</td>
             <td>{{ cleaner.last_name }}</td>
             <td>{{ cleaner.email }}</td>
-            <td>{{cleaner.isApproved == true? "Active" : "Deactive"}}</td>
+            <td>{{cleaner.isApproved ==  0? "Pending" : "Approved"}}</td>
+            <th><button class="btn btn-default dropdown-toggle" ng-click="setCleanerStatus(cleaner.$id,1)" type="button">{{cleaner.isApproved ==  0? "Approved" : "Rejected"}}</button></th>
           </tr>
-          <tr ng-show="cleaner.role == 'cleaner' && cleaner.isApproved == false && setDeactive" ng-repeat="cleaner in cleaners">
+          <tr ng-show="cleaner.role == 'cleaner' && cleaner.isApproved == 1 && setStatus == 1" ng-repeat="cleaner in cleaners">
             <td>{{ cleaner.first_name }}</td>
             <td>{{ cleaner.last_name }}</td>
             <td>{{ cleaner.email }}</td>
-            <td>{{cleaner.isApproved == true? "Active" : "Deactive"}}</td>
+            <td>{{cleaner.isApproved == 0? "Pending" : "Approved"}}</td>
+            <th><button class="btn btn-default dropdown-toggle" ng-click="setCleanerStatus(cleaner.$id,2)" type="button">{{cleaner.isApproved ==  1? "Rejected" : "Approved"}}</button></th>
+          </tr>
+          <tr ng-show="cleaner.role == 'cleaner' && cleaner.isApproved == 2 && setStatus == 2" ng-repeat="cleaner in cleaners">
+            <td>{{ cleaner.first_name }}</td>
+            <td>{{ cleaner.last_name }}</td>
+            <td>{{ cleaner.email }}</td>
+            <td>{{cleaner.isApproved == 1? "Approved" : "Rejected"}}</td>
+            <th><button class="btn btn-default dropdown-toggle" ng-click="setCleanerStatus(cleaner.$id,1)"  type="button">{{cleaner.isApproved ==  1? "Rejected" : "Approved"}}</button></th>
           </tr>
         </tbody>
       </table>
