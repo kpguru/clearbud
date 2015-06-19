@@ -19,82 +19,183 @@
         var ref = new Firebase(FIREBASE_URL);
         ref.onAuth(function(authUser) {
             if (authUser != null) { 
-                $scope.saveCleanerAvailabilities = function(){
-                    $scope.availabilities.cleaner_id = authUser.uid;
-                    if(!angular.isUndefined($scope.allDayAllTime))
-                    {
-                        $scope.availabilities.all_day_all_time = $scope.allDayAllTime;
-                    }
-                    if(!angular.isUndefined($scope.sunday))
-                    {
+               $scope.saveCleanerAvailabilities = function(){
+                $scope.availabilities.cleaner_id = authUser.uid;
+                if(!angular.isUndefined($scope.allDayAllTime)){
+                    $scope.availabilities.all_day_all_time = $scope.allDayAllTime;
+                }
+                if(!angular.isUndefined($scope.sunday.day)){
+                   // console.log(($scope.sunday.fromTime).toUTCString(), $scope.sunday.toTime.toUTCString());
+                    $scope.availabilities.sunday.day =$scope.sunday.day;
+                    $scope.availabilities.sunday.fromTime = $scope.sunday.fromTime.getTime();
+                    $scope.availabilities.sunday.toTime   = $scope.sunday.toTime.getTime();
+                }
+                if(!angular.isUndefined($scope.monday.day)){
+                    $scope.availabilities.monday.day =$scope.monday.day;
+                    $scope.availabilities.monday.fromTime =$scope.monday.fromTime.getTime();
+                    $scope.availabilities.monday.toTime =$scope.monday.toTime.getTime();
+                }
+                if(!angular.isUndefined($scope.tuesday.day)){
+                    $scope.availabilities.tuesday.day =$scope.tuesday.day;
+                    $scope.availabilities.tuesday.fromTime =$scope.tuesday.fromTime.getTime();
+                    $scope.availabilities.tuesday.toTime =$scope.tuesday.toTime.getTime();
+                }
+                if(!angular.isUndefined($scope.wednesday.day)){
+                    $scope.availabilities.wednesday.day =$scope.wednesday.day;
+                    $scope.availabilities.wednesday.fromTime =$scope.wednesday.fromTime.getTime();
+                    $scope.availabilities.wednesday.toTime =$scope.wednesday.toTime.getTime();
+                }
+                if(!angular.isUndefined($scope.thusday.day)){
+                    $scope.availabilities.thusday.day =$scope.thusday.day;
+                    $scope.availabilities.thusday.fromTime =$scope.thusday.fromTime.getTime();
+                    $scope.availabilities.thusday.toTime =$scope.thusday.toTime.getTime();
+                }
+                if(!angular.isUndefined($scope.friday.day)){
+                    $scope.availabilities.friday.day =$scope.friday.day;
+                    $scope.availabilities.friday.fromTime =$scope.friday.fromTime.getTime();
+                    $scope.availabilities.friday.toTime =$scope.friday.toTime.getTime();
+                }
+                if(!angular.isUndefined($scope.saturday.day)){
+                    $scope.availabilities.saturday.day =$scope.saturday.day;
+                    $scope.availabilities.saturday.fromTime =$scope.saturday.fromTime.getTime();
+                    $scope.availabilities.saturday.toTime =$scope.saturday.toTime.getTime();
+                }
+                if(!angular.isUndefined($scope.everyday.day)){
+                    $scope.availabilities.everyday.day =$scope.everyday.day;
+                    $scope.availabilities.everyday.fromTime =$scope.everyday.fromTime.getTime();
+                    $scope.availabilities.everyday.toTime =$scope.everyday.toTime.getTime();
+                }
+                if(!angular.isUndefined($scope.weekends.day)){
+                    $scope.availabilities.weekends.day =$scope.weekends.day;
+                    $scope.availabilities.weekends.fromTime =$scope.weekends.fromTime.getTime();
+                    $scope.availabilities.weekends.toTime =$scope.weekends.toTime.getTime();
+                }
+                if(!angular.isUndefined($scope.montofri.day)){
+                    console.log($scope.montofri.fromTime, $scope.montofri.toTime);
+                    $scope.availabilities.monday_to_friday.day =$scope.montofri.day;
+                    $scope.availabilities.monday_to_friday.fromTime =$scope.montofri.fromTime.getTime();
+                    $scope.availabilities.monday_to_friday.toTime =$scope.montofri.toTime.getTime();
 
-                        $scope.availabilities.sunday.day =$scope.sunday.day;
-                        $scope.availabilities.sunday.fromTime = CleanerService.formatTime($scope.sunday.fromTime);
-                        $scope.availabilities.sunday.toTime =CleanerService.formatTime($scope.sunday.toTime);
-                    }
-                    if(!angular.isUndefined($scope.monday))
-                    {
-                        $scope.availabilities.monday.day =$scope.monday.day;
-                        $scope.availabilities.monday.fromTime =CleanerService.formatTime($scope.monday.fromTime);
-                        $scope.availabilities.monday.toTime =CleanerService.formatTime($scope.monday.toTime);
-                    }
-                    if(!angular.isUndefined($scope.tuesday))
-                    {
-                        $scope.availabilities.tuesday.day =$scope.tuesday.day;
-                        $scope.availabilities.tuesday.fromTime =CleanerService.formatTime($scope.tuesday.fromTime);
-                        $scope.availabilities.tuesday.toTime =CleanerService.formatTime($scope.tuesday.toTime);
-                    }
-                    if(!angular.isUndefined($scope.wednesday))
-                    {
-                        $scope.availabilities.wednesday.day =$scope.wednesday.day;
-                        $scope.availabilities.wednesday.fromTime =CleanerService.formatTime($scope.wednesday.fromTime);
-                        $scope.availabilities.wednesday.toTime =CleanerService.formatTime($scope.wednesday.toTime);
-                    }
-                    if(!angular.isUndefined($scope.thusday))
-                    {
-                        $scope.availabilities.thusday.day =$scope.thusday.day;
-                        $scope.availabilities.thusday.fromTime =CleanerService.formatTime($scope.thusday.fromTime);
-                        $scope.availabilities.thusday.toTime =CleanerService.formatTime($scope.thusday.toTime);
-                    }
-                    if(!angular.isUndefined($scope.friday))
-                    {
-                        $scope.availabilities.friday.day =$scope.friday.day;
-                        $scope.availabilities.friday.fromTime =CleanerService.formatTime($scope.friday.fromTime);
-                        $scope.availabilities.friday.toTime =CleanerService.formatTime($scope.friday.toTime);
-                    }
-                    if(!angular.isUndefined($scope.saturday))
-                    {
-                        $scope.availabilities.saturday.day =$scope.saturday.day;
-                        $scope.availabilities.saturday.fromTime =CleanerService.formatTime($scope.saturday.fromTime);
-                        $scope.availabilities.saturday.toTime =CleanerService.formatTime($scope.saturday.toTime);
-                    }
-                    if(!angular.isUndefined($scope.everyday))
-                    {
-                        $scope.availabilities.everyday.day =$scope.everyday.day;
-                        $scope.availabilities.everyday.fromTime =CleanerService.formatTime($scope.everyday.fromTime);
-                        $scope.availabilities.everyday.toTime =CleanerService.formatTime($scope.everyday.toTime);
-                    }
-                    if(!angular.isUndefined($scope.weekends))
-                    {
-                        $scope.availabilities.weekends.day =$scope.weekends.day;
-                        $scope.availabilities.weekends.fromTime =CleanerService.formatTime($scope.weekends.fromTime);
-                        $scope.availabilities.weekends.toTime =CleanerService.formatTime($scope.weekends.toTime);
-                    }
-                    if(!angular.isUndefined($scope.montofri))
-                    {
-                        $scope.availabilities.monday_to_friday.day =$scope.montofri.day;
-                        $scope.availabilities.monday_to_friday.fromTime =CleanerService.formatTime($scope.montofri.fromTime);
-                        $scope.availabilities.monday_to_friday.toTime =CleanerService.formatTime($scope.montofri.toTime);
-
-                    }
-
-                    AvailabilitiesService.addCleanerAvailabilities( $scope.availabilities).then(function(data) {
-                        toaster.pop('success', "Add Cleaner availabilities successfully!");
-                    },function (data) {
-                        toaster.pop('error', "Error..!", error.toString());
-                    });
+                }
+                AvailabilitiesService.addCleanerAvailabilities( $scope.availabilities).then(function(data) {
+                    toaster.pop('success', "Add Cleaner availabilities successfully!");
+                },function (data) {
+                    toaster.pop('error', "Error..!", error.toString());
+                });
+             }
+               }
+               $scope.updateCleanerAvailabilities = function(){
+                $scope.availabilities.cleaner_id = authUser.uid;
+                if(!angular.isUndefined($scope.allDayAllTime)){
+                    $scope.availabilities.all_day_all_time = $scope.allDayAllTime;
+                }
+                if(!angular.isUndefined($scope.sunday.day)){
+                    $scope.availabilities.sunday.day =$scope.sunday.day;
+                    if(angular.isDate($scope.sunday.fromTime)){
+                        $scope.availabilities.sunday.fromTime =  $scope.sunday.fromTime.getTime();
+                        $scope.availabilities.sunday.toTime =$scope.sunday.toTime.getTime();
+                 }else{
+                    $scope.availabilities.sunday.fromTime = $scope.sunday.fromTime;
+                     $scope.availabilities.sunday.toTime =$scope.sunday.toTime;
                  }
-            }
+                }
+                if(!angular.isUndefined($scope.monday.day)){
+                    $scope.availabilities.monday.day =$scope.monday.day;
+                    if(angular.isDate($scope.monday.fromTime)){
+                      $scope.availabilities.monday.fromTime =$scope.monday.fromTime.getTime();
+                      $scope.availabilities.monday.toTime =$scope.monday.toTime.getTime();
+                    }else{
+                      $scope.availabilities.monday.fromTime =$scope.monday.fromTime;
+                      $scope.availabilities.monday.toTime =$scope.monday.toTime;
+                    }
+                }
+                if(!angular.isUndefined($scope.tuesday.day)){
+                    $scope.availabilities.tuesday.day =$scope.tuesday.day;
+                    if(angular.isDate($scope.tuesday.fromTime)){
+                        $scope.availabilities.tuesday.fromTime =$scope.tuesday.fromTime.getTime();
+                        $scope.availabilities.tuesday.toTime =$scope.tuesday.toTime.getTime();
+                    }else{
+                         $scope.availabilities.tuesday.fromTime =$scope.tuesday.fromTime;
+                        $scope.availabilities.tuesday.toTime =$scope.tuesday.toTime;
+                    }
+                }
+                if(!angular.isUndefined($scope.wednesday.day)){
+                    $scope.availabilities.wednesday.day =$scope.wednesday.day;
+                    if(angular.isDate($scope.wednesday.fromTime)){
+                      $scope.availabilities.wednesday.fromTime =$scope.wednesday.fromTime.getTime();
+                      $scope.availabilities.wednesday.toTime =$scope.wednesday.toTime.getTime();
+                     }else{
+                      $scope.availabilities.wednesday.fromTime =$scope.wednesday.fromTime;
+                      $scope.availabilities.wednesday.toTime =$scope.wednesday.toTime;
+                     }
+                }
+                if(!angular.isUndefined($scope.thusday)){
+                    $scope.availabilities.thusday.day =$scope.thusday.day;
+                    if(angular.isDate($scope.thusday.fromTime)){
+                        $scope.availabilities.thusday.fromTime =$scope.thusday.fromTime.getTime();
+                        $scope.availabilities.thusday.toTime =$scope.thusday.toTime.getTime();
+                    }else{                        
+                        $scope.availabilities.thusday.fromTime =$scope.thusday.fromTime;
+                        $scope.availabilities.thusday.toTime =$scope.thusday.toTime;
+                    }
+                }
+                if(!angular.isUndefined($scope.friday)){
+                    $scope.availabilities.friday.day =$scope.friday.day;
+                    if(angular.isDate($scope.friday.fromTime)){
+                        $scope.availabilities.friday.fromTime =$scope.friday.fromTime.getTime();
+                        $scope.availabilities.friday.toTime =$scope.friday.toTime.getTime();
+                    }else{
+                        $scope.availabilities.friday.fromTime =$scope.friday.fromTime;
+                        $scope.availabilities.friday.toTime =$scope.friday.toTime;
+                    }
+                }
+                if(!angular.isUndefined($scope.saturday)){
+                    $scope.availabilities.saturday.day =$scope.saturday.day;
+                    if(angular.isDate($scope.saturday.fromTime)){
+                        $scope.availabilities.saturday.fromTime =$scope.saturday.fromTime.getTime();
+                        $scope.availabilities.saturday.toTime =$scope.saturday.toTime.getTime();
+                    }else{
+                        $scope.availabilities.saturday.fromTime =$scope.saturday.fromTime;
+                        $scope.availabilities.saturday.toTime =$scope.saturday.toTime;
+                    }
+                }
+                if(!angular.isUndefined($scope.everyday)){
+                    $scope.availabilities.everyday.day =$scope.everyday.day;
+                    if(angular.isDate($scope.everyday.fromTime)){
+                        $scope.availabilities.everyday.fromTime =$scope.everyday.fromTime.getTime();
+                        $scope.availabilities.everyday.toTime =$scope.everyday.toTime.getTime();
+                    }else{
+                         $scope.availabilities.everyday.fromTime =$scope.everyday.fromTime;
+                         $scope.availabilities.everyday.toTime =$scope.everyday.toTime;
+                    }
+                }
+                if(!angular.isUndefined($scope.weekends)){
+                    $scope.availabilities.weekends.day =$scope.weekends.day;
+                    if(angular.isDate($scope.weekends.fromTime)){
+                        $scope.availabilities.weekends.fromTime =$scope.weekends.fromTime.getTime();
+                        $scope.availabilities.weekends.toTime =$scope.weekends.toTime.getTime();
+                    }else{
+                        $scope.availabilities.weekends.fromTime =$scope.weekends.fromTime;
+                        $scope.availabilities.weekends.toTime =$scope.weekends.toTime;
+                    }
+                }
+                if(!angular.isUndefined($scope.montofri)){
+                    $scope.availabilities.monday_to_friday.day =$scope.montofri.day;
+                    if(angular.isDate($scope.wednesday.fromTime)){
+                    $scope.availabilities.monday_to_friday.fromTime =$scope.montofri.fromTime.getTime();
+                    $scope.availabilities.monday_to_friday.toTime =$scope.montofri.toTime.getTime();
+                }else{
+                    $scope.availabilities.monday_to_friday.fromTime =$scope.montofri.fromTime;
+                    $scope.availabilities.monday_to_friday.toTime =$scope.montofri.toTime;
+                }
+                }
+                AvailabilitiesService.updateCleanerAvailabilities($scope.Availabilities.$id, $scope.availabilities).then(function(data) {
+                    toaster.pop('success', "Update Cleaner availabilities successfully!");
+                },function (data) {
+                    toaster.pop('error', "Error..!", error.toString());
+                })
+               }
+
         });
     });
     

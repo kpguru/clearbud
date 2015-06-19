@@ -14,6 +14,16 @@
       $scope.services.bathroom = [];
       $scope.services.bedroom = [];
       $scope.services.livingArea = [];
+      $scope.sunday = {}; 
+      $scope.monday = {};
+      $scope.tuesday = {};
+      $scope.wednesday = {};
+      $scope.thusday = {}; 
+      $scope.friday = {};
+      $scope.saturday = {};
+      $scope.everyday = {};
+      $scope.weekends = {}; 
+      $scope.montofri = {};
       $scope.no_of_bedrooms = [{name: '1 Bedroom', value: '1 Bedroom' },
                       {name: '2 Bedroom', value: '2 Bedroom' },
                       {name: '3 Bedroom', value: '3 Bedroom' },
@@ -42,7 +52,8 @@
               "Reviews",
               "About",
               "What's Included",
-              'Pricing'
+              'Pricing',
+              'Availability'
             ];
       $scope.selection1 = $scope.steps1[0];
         
@@ -63,8 +74,19 @@
                    $scope.update =true;
                 });    
                 var clanerAvailabilities = AvailabilitiesService.getCleanerAvailabilities($routeParams.cleanerID);
-                 clanerAvailabilities.$loaded().then(function (clanerAvailabilities) { 
+                 clanerAvailabilities.$loaded().then(function (data) { 
+                  console.log(clanerAvailabilities[0]);
                   $scope.Availabilities = clanerAvailabilities[0]; 
+                  $scope.sunday = clanerAvailabilities[0].sunday;
+                  $scope.monday = clanerAvailabilities[0].monday;
+                  $scope.tuesday = clanerAvailabilities[0].tuesday;
+                  $scope.wednesday = clanerAvailabilities[0].wednesday;
+                  $scope.thusday = clanerAvailabilities[0].thusday;
+                  $scope.friday = clanerAvailabilities[0].friday;
+                  $scope.saturday = clanerAvailabilities[0].saturday;
+                  $scope.everyday = clanerAvailabilities[0].everyday;
+                  $scope.weekends = clanerAvailabilities[0].weekends;                  
+                  $scope.montofri = clanerAvailabilities[0].monday_to_friday;
                 }); 
 
                 var clanerCharges = ChargesService.getCharges($routeParams.cleanerID);

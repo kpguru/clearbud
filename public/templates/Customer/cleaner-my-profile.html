@@ -12,8 +12,8 @@
 						 <table>
 					        <tr ng-repeat='Availability in Availabilities'>
 					            <td>{{Availability.day}}</td>
-					            <td>{{Availability.fromTime}}</td>
-					            <td>{{Availability.toTime}}</td>
+					            <td>{{Availability.fromTime | date:'h:mma'}}</td>
+					            <td>{{Availability.toTime | date:'h:mma'}}</td>
 					        </tr>
 					    </table>
 					</div>
@@ -24,7 +24,7 @@
 
 				    <ul class="nav nav-tabs">
 				        <li ng-repeat="step in steps1" ng-class="{active: $index==getCurrentStepIndex1()}">
-				          <a href="javascript:void(0)" ng-click="goToStep1($index)">{{step}}</a>
+				          <a href="javascript:void(0)" ng-click="goToStep1($index)" ng-hide="step=='Availability'">{{step}}</a>
 				        </li>
 				    </ul>
 
@@ -46,40 +46,86 @@
 
 				        <!-- Thired Step -->
 				        <div ng-switch-when="What's Included">
-				        	<div class="cleaner_info">
-				        		<div>
-				        			<h4>General</h4>
-				        		</div>
-				        		<div class="cleaner-general-service">
-				        			<div ng-repeat='general in services[0].general[0]'>
-							            <p>{{general}}</p>
-							        </div>
-				        		</div>
-				        		<div>
-				        			<h4>Bathrooms</h4>
-				        		</div>
-				        		<div class="cleaner-general-service">
-				        			<div ng-repeat='bathroom in services[0].bathroom[0]'>
-							            <p>{{bathroom}}</p>
-							        </div>
-				        		</div>
-				        		<div>
-				        			<h4>Bedrooms</h4>
-				        		</div>
-				        		<div class="cleaner-general-service">
-				        			<div ng-repeat='bedroom in services[0].bedroom[0]'>
-							            <p>{{bedroom}}</p>
-							        </div>
-				        		</div>
-				        		<div>
-				        			<h4>Other Living Areas, including Hallways and Stairs</h4>
-				        		</div>
-				        		<div class="cleaner-general-service">
-				        			<div ng-repeat='livingArea in services[0].livingArea[0]'>
-							            <p>{{livingArea}}</p>
-							        </div>
-				        		</div>
-							</div>
+				        	  <div class="cleaner_info">				        		
+				        	<form name="cleanerForm1">
+						      <table class="table custom-table">
+						        <tbody>
+					            <tr>
+					              <td>General</td>
+					              <td></td>
+					              <td><div>
+					                    <input type="checkbox"  ng-model="generalServices.general1" ng-checked="services[0].general[0].general1"> &nbsp; Appliance exteriors cleaned (interiors upon request)<br>
+						                    <input type="checkbox"  ng-model="generalServices.general2" ng-checked="services[0].general[0].general2"> &nbsp;Microwave exterior/interior cleaned<br>
+						                    <input type="checkbox" ng-model="generalServices.general3" ng-checked="services[0].general[0].general3"> &nbsp;Tables and chairs cleaned<br>
+						                    <input type="checkbox"  ng-model="generalServices.general4" ng-checked="services[0].general[0].general4"> &nbsp;Counter tops and back splash disinfected (all items removed and replaced)<br>
+						                    <input type="checkbox"  ng-model="generalServices.general5" ng-checked="services[0].general[0].general5"> &nbsp;Cabinet fronts cleaned<br>
+						                    <input type="checkbox"  ng-model="generalServices.general6" ng-checked="services[0].general[0].general6"> &nbsp;Sinks scrubbed and disinfected (dishes upon request)<br>
+						                    <input type="checkbox"  ng-model="generalServices.general7" ng-checked="services[0].general[0].general7"> &nbsp;Floor vacuumed and/or washed<br>
+						                    <input type="checkbox"  ng-model="generalServices.general8" ng-checked="services[0].general[0].general8"> &nbsp;Windowsills cleaned (blinds dusted upon request)<br>
+						                    <input type="checkbox"  ng-model="generalServices.general9" ng-checked="services[0].general[0].general9"> &nbsp;Baseboards dusted<br>
+						                    <input type="checkbox" ng-model="generalServices.general10" ng-checked="services[0].general[0].general10"> &nbsp;Trash emptied<br>
+						                  </div></td>
+						        </tr>
+						        <tr>
+							          <td>Bathrooms</td>
+							          <td></td>
+							          <td><div>
+							                <input type="checkbox"  ng-model="bathroomServices.bathroom1" ng-checked="services[0].bathroom[0].bathroom1"> &nbsp;Tub and shower tiles scrubbed, disinfected and rinsed<br>
+							                <input type="checkbox" ng-model= "bathroomServices.bathroom2" ng-checked="services[0].bathroom[0].bathroom2"> &nbsp;Toilets disinfected inside and out<br>
+							                <input type="checkbox"  ng-model="bathroomServices.bathroom3" ng-true-value="'true'" ng-checked="services[0].bathroom[0].bathroom3"> &nbsp;Towels neatly hung and folded<br>
+
+							                <input type="checkbox"  ng-model="bathroomServices.bathroom4" ng-checked="services[0].bathroom[0].bathroom4"> &nbsp;counter tops disinfected (all items removed and replaced)<br>
+							                <input type="checkbox"  ng-model="bathroomServices.bathroom5" ng-checked="services[0].bathroom[0].bathroom5"> &nbsp;Cabinet fronts cleaned<br>
+							                <input type="checkbox"  ng-model="bathroomServices.bathroom6" ng-checked="services[0].bathroom[0].bathroom6"> &nbsp;Sinks scrubbed and disinfected<br>
+							                <input type="checkbox"  ng-model="bathroomServices.bathroom7" ng-checked="services[0].bathroom[0].bathroom7"> &nbsp;Floors vacuumed and/or washed<br>
+							                <input type="checkbox"  ng-model="bathroomServices.bathroom8" ng-checked="services[0].bathroom[0].bathroom8"> &nbsp;Windowsills cleaned (blinds dusted upon request)<br>
+							                <input type="checkbox"  ng-model="bathroomServices.bathroom9" ng-checked="services[0].bathroom[0].bathroom9"> &nbsp;Trash emptied<br>
+							                <input type="checkbox"  ng-model="bathroomServices.bathroom10" ng-checked="services[0].bathroom[0].bathroom10"> &nbsp;Mirrors cleaned<br>
+							              </div></td>
+							        </tr>
+							        <tr>
+							          <td>Bedrooms</td>
+							          <td></td>
+							          <td><div>
+							                <input type="checkbox"  ng-model="bedroomServices.bedroom1" ng-checked="services[0].bedroom[0].bedroom1"> &nbsp;Beds made (linens changed upon request)<br>
+							                <input type="checkbox"  ng-model="bedroomServices.bedroom2" ng-checked="services[0].bedroom[0].bedroom2"> &nbsp;Lamps cleaned and lampshades dusted<br>
+							                <input type="checkbox"  ng-model="bedroomServices.bedroom3" ng-checked="services[0].bedroom[0].bedroom3"> &nbsp;Furniture dusted - top, front and underneath<br>
+							                <input type="checkbox"  ng-model="bedroomServices.bedroom4" ng-checked="services[0].bedroom[0].bedroom4"> &nbsp;Floors vacuumed and/or washed (under bed if accessible)<br>
+
+							                <input type="checkbox"  ng-model="bedroomServices.bedroom5" ng-checked="services[0].bedroom[0].bedroom5"> &nbsp;Windowsills cleaned (blinds dusted upon request)<br>
+
+							                <input type="checkbox"  ng-model="bedroomServices.bedroom6" ng-checked="services[0].bedroom[0].bedroom6"> &nbsp;Baseboards dusted<br>
+
+							                <input type="checkbox"  ng-model="bedroomServices.bedroom7" ng-checked="services[0].bedroom[0].bedroom7"> &nbsp;Fingerprints removed from all woodwork, door frames and switch plates<br>
+
+							                <input type="checkbox"  ng-model="bedroomServices.bedroom8" ng-checked="services[0].bedroom[0].bedroom8">&nbsp;Windowsills cleaned (blinds dusted upon request)<br>
+							                <input type="checkbox"  ng-model="bedroomServices.bedroom9" ng-checked="services[0].bedroom[0].bedroom9">&nbsp;Trash emptied<br>
+
+							                <input type="checkbox"  ng-model="bedroomServices.bedroom10" ng-checked="services[0].bedroom[0].bedroom10">&nbsp;Mirrors cleaned<br>
+							              </div></td>
+							        </tr>
+							        <tr>
+							          <td>&nbsp;Other Living Areas, including Hallways and Stairs</td>
+							          <td></td>
+							          <td><div>
+							                <input type="checkbox"  ng-model="livingAreaServices.other_living_area1" ng-checked="services[0].livingArea[0].other_living_area1">&nbsp;Upholstered furniture vacuumed<br>
+							                <input type="checkbox"  ng-model="livingAreaServices.other_living_area2" ng-checked="services[0].livingArea[0].other_living_area2">&nbsp;Cushions and pillows fluffed and straightened<br>
+							                <input type="checkbox"  ng-model="livingAreaServices.other_living_area3" ng-checked="services[0].livingArea[0].other_living_area3">&nbsp;Lamps cleaned and lampshades dusted<br>
+							                <input type="checkbox"  ng-model="livingAreaServices.other_living_area4" ng-checked="services[0].livingArea[0].other_living_area4">&nbsp;Furniture dusted - on top, on front and underneath<br>
+							                <input type="checkbox"  ng-model="livingAreaServices.other_living_area5" ng-checked="services[0].livingArea[0].other_living_area5">&nbsp;Hardwood floors vacuumed and/or washed<br>
+							                <input type="checkbox"  ng-model="livingAreaServices.other_living_area6" ng-checked="services[0].livingArea[0].other_living_area6">&nbsp;Tile floors vacuumed and/or washed<br>
+							                <input type="checkbox" ng-model="livingAreaServices.other_living_area7" ng-checked="services[0].livingArea[0].other_living_area7">&nbsp;Hallways and stairs vacuumed and/or washed<br>
+							                <input type="checkbox"  ng-model="livingAreaServices.other_living_area8" ng-checked="services[0].livingArea[0].other_living_area8">&nbsp;Carpets vacuumed<br>
+							                <input type="checkbox"  ng-model="livingAreaServices.other_living_area9" ng-checked="services[0].livingArea[0].other_living_area9">&nbsp;Windowsills cleaned (blinds dusted upon request)<br>
+							                <input type="checkbox" ng-model="livingAreaServices.other_living_area10" ng-checked="services[0].livingArea[0].other_living_area10">&nbsp;Baseboards dusted<br>
+							                <input type="checkbox" ng-model="livingAreaServices.other_living_area11" ng-checked="services[0].livingArea[0].other_living_area11">&nbsp;Trash emptied
+							                <input type= "text" ng-model="serviceID"><br>
+							              </div></td>    
+							            </tr>					        
+					           </tbody>
+					        </table>
+					     </form>
+						</div>				 
 				        </div>
 
 				        <!-- Fourth Step -->

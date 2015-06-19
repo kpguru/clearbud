@@ -1,33 +1,7 @@
-<style>
-.book-now{
-	margin-top:12px;
+<style type="text/css">
+.timeText {
+    width: 100px;
 }
-.cleaner-profile-bg-color{
-	background-color: #F1F1E2;
-}
-.cleaner_logo{
-	 margin-top:13px;
-}
-.cleaner_info{
-	 margin-left: 66px;
-	 margin-top: 44px;
-}
-.cleaner-profile{
-	 height: 675px; 
-	 margin-top: 60px;
-}
-.fixed-img{
-	 height: 172px; 
-	 margin-top: 16px; 
-	 margin-left: 50px;
-}
-.cleaner-tab{
-     height: 500px;
-     margin-top: 10px;
-}
-.custom-table{
-      width:70%;
- }
 </style>
 <div class="container">
 	<div class="row">
@@ -42,9 +16,9 @@
 					<div>
 						 <table>
 					        <tr ng-repeat='Availability in Availabilities'>
-					            <td>{{Availability.day}}</td>
-					            <td>{{Availability.fromTime}}</td>
-					            <td>{{Availability.toTime}}</td>
+					            <td>{{Availability.day| date:'h:mma '}}</td>
+					            <td>{{Availability.fromTime| date:'h:mma '}}</td>
+					            <td>{{Availability.toTime| date:'h:mma '}}</td>
 					        </tr>
 					    </table>
 					</div>
@@ -215,6 +189,462 @@
 							      </table> 
 							    </form>
 							</div>
+				        </div>
+				        <div ng-switch-when="Availability">
+				         <div class = "row">
+                           <div class = "col-sm-12" style="height: 675px; margin-top: 60px;">
+        	<form name="cleanerForm">
+        		<h3>Cleaner Availabilities</h3>
+			    <table class="table custom-table">
+			        <tbody>
+			            <tr>
+					        <td>
+					            <input type="checkbox"  ng-model="sunday.day" ng-true-value="'Sunday'" ng-false-value="'false'">&nbsp; &nbsp;Sunday<br>
+					        </td>
+					        <td>
+                                <div class = "row" style="background-color:lavender;  height:35px; width: 430px; margin-left: 196px;">
+                                    <div class = "col-sm-2">
+                                    	From
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                          <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="sunday.fromTime">{{sunday.fromTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="sunday.fromTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30}"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                    <div class = "col-sm-2">
+                                    	To
+                                    </div>
+                                    <div class = "col-sm-4">
+                                        <div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+                                                <div>
+                                                    <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="sunday.toTime">{{sunday.toTime| date:'h:mma '}}</p>
+                                                  </div>
+                                                </div>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                                <datetimepicker data-ng-model="sunday.toTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30}"/>
+                                            </ul>
+                                        </div>
+                                    </div>						
+					        </td>
+					    </tr>
+					    <tr>
+					        <td>
+					            <input type="checkbox"  ng-model="monday.day" ng-true-value="'Monday'" ng-false-value="'false'">&nbsp; &nbsp;Monday<br>
+					        </td>
+					        <td>
+                                <div class = "row" style="background-color:lavender;  height:35px; width: 430px; margin-left: 196px;">
+                                    <div class = "col-sm-2">
+                                    	From
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                           <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="monday.fromTime">{{monday.fromTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="monday.fromTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30 }"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                    <div class = "col-sm-2">
+                                    	To
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                            <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="monday.toTime">{{monday.toTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="monday.toTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30}"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                </div>								
+					        </td>
+					    </tr>
+					    <tr>
+					        <td>
+					            <input type="checkbox" ng-model="tuesday.day" ng-true-value="'Tuesday'" ng-false-value="'false'">&nbsp; &nbsp;Tuesday<br>
+					        </td>
+					        <td>
+                                <div class = "row" style="background-color:lavender;  height:35px; width: 430px; margin-left: 196px;">
+                                    <div class = "col-sm-2">
+                                    	From
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                           <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="tuesday.fromTime">{{tuesday.fromTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="tuesday.fromTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30}"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                    <div class = "col-sm-2">
+                                    	To
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                            <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="tuesday.toTime">{{tuesday.toTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="tuesday.toTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30}"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                </div>								
+					        </td>
+					    </tr>
+					    <tr>
+					        <td>
+					            <input type="checkbox"  ng-model="wednesday.day" ng-true-value="'Wednesday'" ng-false-value="'false'">&nbsp; &nbsp;Wednesday<br>
+					        </td>
+					        <td>
+                                <div class = "row" style="background-color:lavender;  height:35px; width: 430px; margin-left: 196px;">
+                                    <div class = "col-sm-2">
+                                    	From
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                            <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="wednesday.fromTime">{{wednesday.fromTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="wednesday.fromTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30}"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                    <div class = "col-sm-2">
+                                    	To
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                            <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="wednesday.toTime">{{wednesday.toTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="wednesday.toTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30}"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                </div>								
+					        </td>
+					    </tr>
+					    <tr>
+					        <td>
+					            <input type="checkbox"  ng-model="thusday.day" ng-true-value="'Thusday'" ng-false-value="'false'">&nbsp; &nbsp;Thusday<br>
+					        </td>
+					        <td>
+                                <div class = "row" style="background-color:lavender;  height:35px; width: 430px; margin-left: 196px;">
+                                    <div class = "col-sm-2">
+                                    	From
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                             <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="thusday.fromTime">{{thusday.fromTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="thusday.fromTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30 }"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                    <div class = "col-sm-2">
+                                    	To
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                           <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="thusday.toTime">{{thusday.toTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="thusday.toTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30}"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                </div>								
+					        </td>
+					    </tr>           
+					    <tr>
+					        <td>
+					            <input type="checkbox"  ng-model="friday.day" ng-true-value="'Friday'" ng-false-value="'false'">&nbsp; &nbsp;Friday<br>
+					        </td>
+					        <td>
+                                <div class = "row" style="background-color:lavender;  height:35px; width: 430px; margin-left: 196px;">
+                                    <div class = "col-sm-2">
+                                    	From
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                            <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="friday.fromTime">{{friday.fromTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="friday.fromTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30}"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                    <div class = "col-sm-2">
+                                    	To
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                            <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="friday.toTime">{{friday.toTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="friday.toTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30}"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                </div>								
+					        </td>
+					    </tr>                     
+					    <tr>
+					        <td>
+					            <input type="checkbox"  ng-model="saturday.day" ng-true-value="'Saturday'" ng-false-value="'false'">&nbsp; &nbsp;Saturday<br>
+					        </td>
+					        <td>
+                                <div class = "row" style="background-color:lavender;  height:35px; width: 430px; margin-left: 196px;">
+                                    <div class = "col-sm-2">
+                                    	From
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                            <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="saturday.fromTime">{{saturday.fromTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="saturday.fromTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30}"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                    <div class = "col-sm-2">
+                                    	To
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                            <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="saturday.toTime">{{saturday.toTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="saturday.toTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30}"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                </div>								
+					        </td>
+					    </tr> 
+					    <tr>
+					        <td>
+					            <input type="checkbox"  ng-model="everyday.day" ng-true-value="'Everyday'" ng-false-value="'false'">&nbsp; &nbsp;Everyday<br>
+					        </td>
+					        <td>
+                                <div class = "row" style="background-color:lavender;  height:35px; width: 430px; margin-left: 196px;">
+                                    <div class = "col-sm-2">
+                                    	From
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                            <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="everyday.fromTime">{{everyday.fromTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="everyday.fromTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30}"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                    <div class = "col-sm-2">
+                                    	To
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                             <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="everyday.toTime">{{everyday.toTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="everyday.toTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30 }"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                </div>								
+					        </td>
+					    </tr>                       
+					    <tr>
+					        <td>
+					            <input type="checkbox"  ng-model="weekends.day" ng-true-value="'Weekends'" ng-false-value="'false'">&nbsp; &nbsp;Weekends<br>
+					        </td>
+					        <td>
+                                <div class = "row" style="background-color:lavender;  height:35px; width: 430px; margin-left: 196px;">
+                                    <div class = "col-sm-2">
+                                    	From
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                             <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="weekends.fromTime">{{weekends.fromTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="weekends.fromTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30 }"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                    <div class = "col-sm-2">
+                                    	To
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                             <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="weekends.toTime">{{weekends.toTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="weekends.toTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30}"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                </div>								
+					        </td>
+					    </tr> 
+					    <tr>
+					        <td>
+					            <input type="checkbox" ng-model="montofri.day" ng-true-value="'Monday-Friday'" ng-false-value="'false'">&nbsp;&nbsp;Monday-Friday<br>
+					        </td>
+					        <td>
+                                <div class = "row" style="background-color:lavender;  height:35px; width: 430px; margin-left: 196px;">
+                                    <div class = "col-sm-2">
+                                    	From
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                             <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="montofri.fromTime">{{montofri.fromTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="montofri.fromTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30}"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                    <div class = "col-sm-2">
+                                    	To
+                                    </div>
+                                    <div class = "col-sm-4">
+                                    	<div class="dropdown">
+                                            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+		                                        <div>
+		                                            <div class="input-group timeText">
+                                                     <p class="form-control" data-ng-model="montofri.toTime">{{montofri.toTime| date:'h:mma '}}</p>
+                                                  </div>
+		                                        </div>
+                                            </a>
+		                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		                                        <datetimepicker data-ng-model="montofri.toTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'hour',minView: 'minute' ,minuteStep: 30}"/>
+		                                    </ul>
+                                        </div>
+                                    </div>
+                                </div>								
+					        </td>
+					    </tr>      
+					    <tr>
+					        <td>
+					            <input type="checkbox" ng-model="allDayAllTime" ng-true-value="'All-Day-All-Time'" ng-false-value="'false'">&nbsp;&nbsp;All-Day-All-Time<br> <input type = "hidden" ng-model = "Availabilities.$id">
+					        </td>
+					        <td>							
+					        </td>
+					    </tr>           
+			        </tbody>
+                </table> 
+            </form>
+           </div>
+	       </div>
+	       <div class="row">
+	      
+	        <div class="col-sm-2">
+	       <button class="btn btn-primary" ng-show="!Availabilities.$id" ng-controller = "AvailabilitiesController" ng-click="saveCleanerAvailabilities()" style=" height: 40px; margin-left: 509px; width: 90px;">Save</button></div>
+	       <div class="col-sm-4">
+			<button class="btn btn-primary" ng-show="Availabilities.$id" ng-controller = "AvailabilitiesController" ng-click="updateCleanerAvailabilities()" style=" height: 40px; margin-left: 509px; width: 90px;">Update</button></div>
+			<div class="col-sm-8"></div></div>
 				        </div>
 			        </div>
 			    </form>
