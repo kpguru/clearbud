@@ -1,27 +1,3 @@
-<style type="text/css">
-  .content{
-    margin: 10px 0 0 10px;
-  }
-  .cleaner-tab{
-    border-style:solid;
-    border-color: #708090;
-    margin-top:70px;
-    height:400px;
-    width:700px;
-    margin-left:213px;
-  }
-  .basic-info{
-    margin-top: 74px;
-    padding-top: 10px;
-  }
-  .loginbtn{
-    width:50%;
-    margin-left: 80px;
-  }
-  .agree {
-     margin-left: 78px;
-  }
-</style>
 <div class="container">
   <div class = "cleaner-tab">
 <div class="content">
@@ -224,7 +200,7 @@
           <a href="javascript:void(0);" ng-click="incrementStep()" ng-disabled="profileForm.$invalid">Next&rarr;</a>
         </li>
       </ul>
-      <div  ng-show="lastStep" class="pull-right"><button style="margin:20px 0;" class="btn btn-success" ng-click ="saveCleanerProfile(profile);" ng-disabled="profileForm.$invalid">Confirm and Submit</button>
+      <div  ng-show="lastStep" class="pull-right"><button class="btn btn-success cleaner-submit" ng-click ="saveCleanerProfile(profile);" ng-disabled="profileForm.$invalid">Confirm and Submit</button>
       </div>
       <div class="clearfix"></div>
     </form>

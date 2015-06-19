@@ -4,6 +4,7 @@ app.factory('AuthenticationService', function($firebaseAuth, FIREBASE_URL, $fire
     var ref = new Firebase(FIREBASE_URL);
     var auth = $firebaseAuth(ref);
     var firebaseUsers = $firebase(ref.child('users'));
+    var isCleaner = '';
 
     var Auth = {
         user: {},       
@@ -21,7 +22,6 @@ app.factory('AuthenticationService', function($firebaseAuth, FIREBASE_URL, $fire
             };
             firebaseUsers.$set(uid, userInfo);
         },
-
         getUsersByRole: function(userRole){
             return $firebase(ref.child('users').orderByChild("role").equalTo(userRole)).$asArray();
         },
@@ -35,7 +35,6 @@ app.factory('AuthenticationService', function($firebaseAuth, FIREBASE_URL, $fire
                     if (error) {
                         console.log("Login Failed!", error);
                     } else {
-                        //console.log("Authenticated successfully with payload:", authData);
                         return authData;
                     }
                 });

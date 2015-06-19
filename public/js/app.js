@@ -3,6 +3,7 @@ var app = angular.module('clearbud',[
     'ngAnimate',
     'ngResource',
     'ui.bootstrap',
+    'ui.bootstrap.datetimepicker',
     'firebase',
     'toaster'
 	]).constant('FIREBASE_URL', 'https://amber-inferno-3378.firebaseio.com/')
@@ -90,6 +91,41 @@ var app = angular.module('clearbud',[
                     return AuthenticationService.requireAuth();
                 }
             }
+       }); 
+       $routeProvider.when('/cleaner-availabilities', {
+           templateUrl: 'templates/Cleaner/cleaner-availabilities.html',
+           controller: 'AvailabilitiesController',
+           resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
        });
-
+       $routeProvider.when('/cleaner_profiles/:cleanerID/home-smile-cleaners', {
+           templateUrl: 'templates/Customer/cleaner-my-profile.html',
+           controller: 'CleanerController',
+           resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
+       });
+          $routeProvider.when('/cleaner_profiles/:cleanerID', {
+           templateUrl: 'templates/Cleaner/cleaner-my-profile1.html',
+           controller: 'CleanerController',
+           resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
+       });
+       $routeProvider.when('/cleaner_profiles/home-smile-cleaners/orders/new', {
+           templateUrl: 'templates/Cleaner/cleaner-book.html',
+           controller: 'BookingController',
+           resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
+       });
     }]);

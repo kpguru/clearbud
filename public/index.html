@@ -8,6 +8,7 @@
     <!-- Latest compiled CSS -->
     <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="app/bower_components/angularjs-toaster/toaster.css">
+    <link rel="stylesheet" href="app/bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap-theme.css">
     <script type="text/javascript" src="app/bower_components/angular/angular.js"></script>
@@ -16,27 +17,30 @@
     <script type="text/javascript" src="app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script type="text/javascript" src="app/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script type="text/javascript" src="app/bower_components/angular-resource/angular-resource.js"></script>
-     <script type="text/javascript" src="app/bower_components/firebase/firebase.js"></script>
+    <script type="text/javascript" src="app/bower_components/firebase/firebase.js"></script>
     <script type="text/javascript" src="app/bower_components/angularfire/dist/angularfire.js"></script>
     <script type="text/javascript" src="app/bower_components/angularjs-toaster/toaster.js"></script>
-     <script type="text/javascript" src="app/bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="app/bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="app/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="app/bower_components/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="app/bower_components/moment/moment.js"></script>
+    <script type="text/javascript" src="app/bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
 	  <link rel="stylesheet" href="css/custom.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/index.css" />
   </head>
 	<body ng-app="clearbud">
-	   <div class="wrapper" ng-controller="AuthController">
+	  <div class="wrapper" ng-controller="AuthController">
       <!--<div class="container">-->
-        <header>
-          <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
-          <app-nav></app-nav>
-        </header>
-        <div class="header">
-          <div class="container">
-            <nav class="navbar navbar-default" role="navigation">
-              <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
+      <header>
+        <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+        <app-nav></app-nav>
+      </header>
+      <div class="header">
+        <div class="container">
+          <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -49,13 +53,6 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav navbar-right head-menu">
-                    <li ng-if="user.role">
-                      <a href="#" class="form-list">
-                        <span class="nav-content">
-                              {{Auth.user.email}}
-                        </span>
-                      </a>
-                    </li>
                     <li><a class="form-list secndry-lnk login-link-text" href="/" >Home</a></li>
                     <li><a class="form-list secndry-lnk login-link-text" href="#">Contact Us</a>   </li>            
                     <li class="menu-box login-type" ng-hide="signedIn()">
@@ -67,14 +64,15 @@
                         <li><a href="#/customer-signup"> Customer Signup </a></li>
                         <li><a href="#/cleaner-signup">Cleaner Signup</a></li>
                       </ul>             
-                    </li>
+                    </li>             
                     <li ng-show="signedIn()"><a class="form-list" href="javascript:;" ng-click="logout();">Logout</a></li>
                   </ul>
                 </div>
-              </div><!--container fluid-->
-            </nav>
-          </div><!-- container-->
-        </div>
+            </div><!--container fluid-->
+          </nav>
+        </div><!-- container-->
+      </div>
+    </div>
 
       <div ng-view=""></div>
     	<script type="text/javascript" src="js/app.js"></script> 
@@ -82,12 +80,20 @@
       <script type="text/javascript" src="js/services/CustomerService.js"></script>
       <script type="text/javascript" src="js/services/CleanerService.js"></script>
       <script type="text/javascript" src="js/services/AdminService.js"></script>
+       <script type="text/javascript" src="js/services/ChargesService.js"></script>
+      <script type="text/javascript" src="js/services/ServicesService.js"></script>
+      <script type="text/javascript" src="js/services/AvailabilitiesService.js"></script>
+      <script type="text/javascript" src="js/services/BookingService.js"></script>
       
       <script type="text/javascript" src="js/controllers/AuthController.js"></script>
       <script type="text/javascript" src="js/controllers/HomeController.js"></script>
       <script type="text/javascript" src="js/controllers/CustomerController.js"></script>
       <script type="text/javascript" src="js/controllers/CleanerController.js"></script>
       <script type="text/javascript" src="js/controllers/AdminController.js"></script>
+      <script type="text/javascript" src="js/controllers/ChargesController.js"></script>
+      <script type="text/javascript" src="js/controllers/ServicesController.js"></script>
+      <script type="text/javascript" src="js/controllers/AvailabilitiesController.js"></script>
+      <script type="text/javascript" src="js/controllers/BookingController.js"></script>
       
       <script type="text/javascript" src="js/directives/ImageResize.js"></script>
 

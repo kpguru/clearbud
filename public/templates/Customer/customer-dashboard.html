@@ -1,28 +1,4 @@
-<style>
-.customer-tab{
-  border-style:solid;
-    border-color: #708090;
-  margin-top:70px;
-  height:425px;
-  width:700px;
-  margin-left:213px;
-}
-.form-control-edit{
-  width: 50%;
-}
-.col-sm-2 {
-    width: 69.667%;
-}
-.col-sm-1 {
-    width: 21.333%;
-}
-.btn-block {
-    margin-top: 16px;
-    background-color: green;    
-}
-</style>
-
-<div class="content">
+<div class="container-fluid">
   <div class="customer-tab">
     <form class="form-horizontal">
 
@@ -36,18 +12,18 @@
 
         <!-- First Step -->
         <div ng-switch-when="Appointments">
-             <div class="col-sm-2"><h2>No Appointment Found</h2></div>
-              <div class="col-sm-1">
-                <a href='#/search-cleaner'><button class="btn btn-block btn-primary btn-log" >Book A Cleaner</button></a>
+             <div class="col-sm-2 cleaner-profile-col2"><h2>No Appointment Found</h2></div>
+              <div class="col-sm-1 cleaner-profile-col1">
+                <a href='#/search-cleaner'><button class="btn cleaner-profile-btn btn-primary btn-log" >Book A Cleaner</button></a>
 
               </div>
         </div>
         <!-- Second Step -->
         <div ng-switch-when="Account">
           <div class="row">
-            <div class="col-sm-2"><h2>About You</h2></div>
-            <div class="col-sm-1">
-                <a href='#/customer-edit/{{currentUser.$id}}'><button class="btn btn-block btn-primary btn-lg" >Edit Account</button></a>
+            <div class="col-sm-2 cleaner-profile-col2"><h2>About You</h2></div>
+            <div class="col-sm-1 cleaner-profile-col1">
+                <a href='#/customer-edit/{{currentUser.$id}}'><button class="btn cleaner-profile-btn btn-primary btn-lg" >Edit Account</button></a>
             </div>
           </div>
           <div>

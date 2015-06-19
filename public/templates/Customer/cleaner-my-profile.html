@@ -1,0 +1,117 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-8 cleaner-profile">
+			<div class="row cleaner-profile-bg-color">
+				<div class="col-sm-4">
+					<img src = {{clanerProfile.cleaner_logo}} class="cleaner_logo">
+				</div>
+				<div class="col-sm-8">
+					<h2>{{clanerProfile.firstname}} {{clanerProfile.lastname}}</h2>
+					<p>Hours Of Operation:</p>
+					<div>
+						 <table>
+					        <tr ng-repeat='Availability in Availabilities'>
+					            <td>{{Availability.day}}</td>
+					            <td>{{Availability.fromTime}}</td>
+					            <td>{{Availability.toTime}}</td>
+					        </tr>
+					    </table>
+					</div>
+				</div>
+			</div>
+			<div class="row cleaner-tab-my-profile">
+				<form class="form-horizontal">
+
+				    <ul class="nav nav-tabs">
+				        <li ng-repeat="step in steps1" ng-class="{active: $index==getCurrentStepIndex1()}">
+				          <a href="javascript:void(0)" ng-click="goToStep1($index)">{{step}}</a>
+				        </li>
+				    </ul>
+
+			        <div ng-switch on="selection1">
+
+				        <!-- First Step -->
+				        <div ng-switch-when="Reviews">
+				             <div class="col-sm-2"><h2>No Reviews</h2></div>
+				              <div class="col-sm-1">
+				              </div>
+				        </div>
+
+				        <!-- Second Step -->
+				        <div ng-switch-when="About">
+				        	<div class="cleaner_info">
+				        			<h4>{{clanerProfile.cleaner_about_us}}</h4>
+				        	</div>
+				        </div>
+
+				        <!-- Thired Step -->
+				        <div ng-switch-when="What's Included">
+				        	<div class="cleaner_info">
+				        		<div>
+				        			<h4>General</h4>
+				        		</div>
+				        		<div class="cleaner-general-service">
+				        			<div ng-repeat='general in services[0].general[0]'>
+							            <p>{{general}}</p>
+							        </div>
+				        		</div>
+				        		<div>
+				        			<h4>Bathrooms</h4>
+				        		</div>
+				        		<div class="cleaner-general-service">
+				        			<div ng-repeat='bathroom in services[0].bathroom[0]'>
+							            <p>{{bathroom}}</p>
+							        </div>
+				        		</div>
+				        		<div>
+				        			<h4>Bedrooms</h4>
+				        		</div>
+				        		<div class="cleaner-general-service">
+				        			<div ng-repeat='bedroom in services[0].bedroom[0]'>
+							            <p>{{bedroom}}</p>
+							        </div>
+				        		</div>
+				        		<div>
+				        			<h4>Other Living Areas, including Hallways and Stairs</h4>
+				        		</div>
+				        		<div class="cleaner-general-service">
+				        			<div ng-repeat='livingArea in services[0].livingArea[0]'>
+							            <p>{{livingArea}}</p>
+							        </div>
+				        		</div>
+							</div>
+				        </div>
+
+				        <!-- Fourth Step -->
+				        <div ng-switch-when="Pricing">
+				        	<div class="cleaner_info">
+								 <table>
+								 	<tr>
+							            <td>Weekly &nbsp; &nbsp; &nbsp; &nbsp;</td>
+							            <td>Bi-weekly &nbsp; &nbsp; &nbsp; &nbsp;</td>
+							            <td>Every 4 Weeks &nbsp; &nbsp; &nbsp; &nbsp;</td>
+							            <td>One Time &nbsp; &nbsp; &nbsp; &nbsp;</td>
+							        </tr>
+							        <tr ng-repeat='charge in charges'>
+							            <td>&#36;{{charge.weekly}}</td>
+							            <td>&#36;{{charge.every_two_weeks}}</td>
+							            <td>&#36;{{charge.every_four_weeks}}</td>
+							            <td>&#36;{{charge.one_time}}</td>
+							        </tr>
+							    </table>
+							</div>
+				        </div>
+			        </div>
+			    </form>
+			</div>
+		</div>
+		<div class="col-sm-4 cleaner-profile" ng-hide="show">
+			<input type="hidden" ng-model="bookingInfo.cleanerId"/>
+			<img src ="images/service.jpeg" class="fixed-img">
+		    <select ng-options="no_of_bedroom.value as no_of_bedroom.name for no_of_bedroom in no_of_bedrooms"  class="form-control input-lg select-credential" ng-model="bookingInfo.bedrooms"></select>
+		    <select ng-options="no_of_bathroom.value as no_of_bathroom.name for no_of_bathroom in no_of_bathrooms"  class="select-credential form-control input-lg " ng-model="bookingInfo.bathrooms"></select>
+		     <select ng-options="frequency1.value as frequency1.name for frequency1 in frequency"  class="select-credential form-control input-lg " ng-model="bookingInfo.frequency_type"></select>
+		     <a href="#/cleaner_profiles/home-smile-cleaners/orders/new" title="Cleaner Profile"><button ng-controller="BookingController"class="btn btn-primary book-now select-credential" ng-click="setBookInfo(bookingInfo)">Book Now</button></a>
+		</div>
+	</div>
+</div>

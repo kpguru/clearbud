@@ -1,31 +1,23 @@
-<style>
-#admin{
-  width: 13%;
-}
-.filter{
-margin-left: 847px;
-}
-</style>
-<div class="container-fluid" ng-init="get_customers()">
+<div class="container" ng-init="get_customers()">
   <h1>Welcome</h1>
   <div class="row">
 
-    <div class="col-sm-3" id="admin" style="background-color:lavender;">
-      <a ng-click="get_customers()" style="cursor: pointer;">Customer</a></br></br>
-      <a ng-click="get_cleaners()" style="cursor: pointer;">Cleaners</a>
+    <div class="col-sm-3" id="admin">
+      <a ng-click="get_customers()" class="cursor-pointer">Customer</a></br></br>
+      <a ng-click="get_cleaners(); setUserStatus(0);" class="cursor-pointer">Cleaners</a>
     </div>
 
-    <div class="col-sm-9" style="background-color:lavenderblush;">
+    <div class="col-sm-9">
       <div class="dropdown filter" ng-show="check_cleaner">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
           <span><i class="glyphicon glyphicon-filter"></i></span>Filter
         </button>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-          <li role="presentation"><a role="menuitem" tabindex="-1" style="cursor: pointer;" ng-click="get_cleaners(); setUserStatus(1);">Approved</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" style="cursor: pointer;" ng-click="get_cleaners(); setUserStatus(2);">Rejected</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" class="cursor-pointer" ng-click="get_cleaners(); setUserStatus(1);">Approved</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" class="cursor-pointer" ng-click="get_cleaners(); setUserStatus(2);">Rejected</a></li>
         </ul>
       </div>
-      <table class="table" id="table2">
+      <table class="table">
         <thead>
           <tr>
             <th>First Name</th>
@@ -68,9 +60,3 @@ margin-left: 847px;
 
   </div>
 </div>
-
-<script language="javascript" type="text/javascript">  
-//<![CDATA[  
-    var tf1 = setFilterGrid("table2");  
-//]]>  
-</script>

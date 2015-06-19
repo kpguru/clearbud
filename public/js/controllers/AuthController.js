@@ -1,12 +1,14 @@
 'use strict';
 
-	app.controller('AuthController', function ($scope, $window, $location,AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
-        $scope.signedIn = AuthenticationService.signedIn;       
-    var customer = {
-    	email:'',
-    	password:'',
-    	role:''
-    };
+	app.controller('AuthController', function ($rootScope, $scope, $window, $location,AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
+        $scope.signedIn = AuthenticationService.signedIn;      
+	    var customer = {
+	    	email:'',
+	    	password:'',
+	    	role:''
+	    };
+
+    
 	    $scope.customersignup = function(customer){
 		     if(!$scope.customersignup.email){
 		     	return;
@@ -45,19 +47,24 @@
 	        AuthenticationService.login(user).then(function (data) { 
         	    var users = AuthenticationService.getCurrentUser(data.uid);
                     users.$loaded().then(function (data) {		                
-                    if(data.role== "customer"){
+                    if(data.role== "customer"){ 	
                     	toaster.pop('success', "Logged in successfully!");
                         window.location = "#/customer-dashboard";
 	                }else{
 	                	 if(data.role == "cleaner"){
-		                	 toaster.pop('success', "Logged in successfully!");
-		                     window.location = "#/cleaner-dashboard";
+		                	if(data.isApproved== 1){
+		                	   toaster.pop('success', "Logged in successfully!");
+		                     window.location = "#/cleaner_profiles/"+ data.$id;
+		                     }else{
+		                     	toaster.pop('success', "Logged in successfully!,Your Profile is Not Approved by Admin");
+		                         window.location = "#/cleaner-dashboard";
+		                     }
 		                 }else{
-		                 	 toaster.pop('success', "Logged in successfully!");
-		                     window.location = "#/admin-dashboard";
+		                 	toaster.pop('success', "Logged in successfully!");
+		                    window.location = "#/admin-dashboard";
 		                 }
 	                }
-               });  
+               });
             }, function (error) {
                 toaster.pop('error', "Error..!", error.toString());
 	        });
@@ -65,6 +72,7 @@
 	    };
 	    $scope.logout = function () {
 	        AuthenticationService.logout();
+	         $rootScope.isCleaner = false;
 	        toaster.pop('success', 'Logged out successfully!');
 	        $location.path('/');
         };

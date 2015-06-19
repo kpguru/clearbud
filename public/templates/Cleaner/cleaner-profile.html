@@ -1,29 +1,8 @@
-<style type="text/css">
-    .container.cleaner-profile.ng-scope {
-        margin-left: 55px;
-        margin-right: 123px;
-        margin-top: 92px;
-        padding-left: 195px;
-        padding-right: 197px;
-      }
-      .form-control-edit{
-  width: 50%;
-}
-.col-sm-2 {
-    width: 69.667%;
-}
-.col-sm-1 {
-    width: 21.333%;
-}
-.btn-block {
-    margin-top: 16px;
-}
-</style>
 <div class = "container cleaner-profile">
 
-  <div class="col-sm-2"><h2>Your Profile</h2></div>
-            <div class="col-sm-1">
-                <a href='#/cleaner-edit/{{currentUser.$id}}'><button class="btn btn-block btn-primary btn-lg" >Edit Account</button></a>
+  <div class="col-sm-2 cleaner-profile-col2"><h2>Your Profile</h2></div>
+            <div class="col-sm-1 cleaner-profile-col1">
+                <a href='#/cleaner-edit/{{currentUser.$id}}'><button class="btn btn-block btn-primary btn-lg cleaner-profile-btn" >Edit Account</button></a>
             </div><br/>
 
             <table class="table">

@@ -1,0 +1,284 @@
+/*cleaner booking*/
+.booking-section {
+    background-color: lavenderblush;
+    height: 70px;
+    margin-left: 49px;
+    margin-top: 33px;
+}
+.summary-section{
+	background-color: lavenderblush;
+    height: 70px;
+    margin-right: 49px;
+    margin-top: 33px;
+}
+.booking-text{
+    margin-left: 152px;
+    padding-top: 19px;
+}
+.summary-text{
+    margin-left: 78px;
+    padding-top: 19px;
+}
+.booking-section-heading{
+    background-color: lavenderblush;
+    height: 70px;
+    margin-left: 49px; 
+}
+.booking-heading-text{
+   margin-left: 111px; 
+   padding-top: 19px;
+}
+.booking-section-hours{
+   background-color: lavenderblush;
+   height: 165px;
+   margin-left: 49px; 
+}
+.booking-hours-text{
+   margin-left: 198px; 
+   height: 90px;
+   padding-top: 19px;
+}
+.select-credential{
+   margin-top:1px;
+   width:210px;
+   margin-left:48px;
+}
+.select-hours{
+  margin-top:-32px;
+  width:200px;
+  margin-left:250px;
+}
+.booking-section-charges{
+   background-color: lavenderblush;
+    height: 165px;
+   margin-left: 49px; 
+}
+.booking-charges-text{
+    margin-left: 281px;
+   padding-top: 19px;
+}
+.booking-charges-table{
+    margin-left: 124px;
+}
+.booking-charges-coloum{
+    padding: 19px;
+    text-align: center;
+}
+.booking-charges-coloum1{
+    padding: 19px;
+    text-align: center;
+    cursor: pointer;
+}
+.booking-section-date{
+   background-color: lavenderblush;
+    height: 165px;
+   margin-left: 49px; 
+}
+.booking-date-text{
+    margin-left: 176px;
+   padding-top: 19px;
+}
+.summary-position{
+     position: fixed;
+     margin-left: 788px;
+}
+.booking-hours-input{
+    margin-left: 212px;
+    width: 319px;
+}
+.dropdown-menu-date{
+    margin-left: 183px;
+    width:372px;
+}
+.icon{
+    font-size: 32px;
+    margin-left: 18px;
+}
+.booking-button-next{
+    height: 42px;
+    margin-left: 49px;
+    width: 701px;
+}
+.booking-section-next{
+    height: 100px;
+}
+.booking-customer-fname{
+    margin-left: 49px;
+    width: 100px;
+}
+.booking-customer-lname{
+    margin-left: 469px;
+    margin-top: -73px;
+    width: 100px;
+}
+.customer-fname{
+  margin-left: 49px;
+    margin-top: 10px;
+    width: 206px;
+}
+.customer-lname{
+  margin-left: 467px;
+    margin-top: 6px;
+    width: 206px;
+}
+.customer-new-address{
+    margin-left: 464px;
+    margin-top: -14px;
+    width: 115px;
+}
+.customer-apart-address{
+  margin-left: 464px;
+    margin-top: -48px;
+    width: 189px;
+}
+.booking-address-table{
+  margin-left: 66px;
+    margin-top: -8px;
+    width: 599px;
+}
+.customer-pre-address{
+    margin-left: 60px;
+    width: 174px;
+}
+.booking-section-address{
+  background-color: lavenderblush;
+    height: 367px;
+    margin-left: 49px;
+}
+.customer-address{
+  height: 41px;
+}
+/*admin-dashboard*/
+#admin{
+  width: 13%;
+}
+.filter{
+margin-left: 847px;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+/*cleaner-dashboard*/
+ .content{
+    margin: 10px 0 0 10px;
+  }
+  .cleaner-tab{
+    border-style:solid;
+    border-color: #708090;
+    margin-top:70px;
+    height:400px;
+    width:700px;
+    margin-left:213px;
+  }
+  .basic-info{
+    margin-top: 74px;
+    padding-top: 10px;
+  }
+  .loginbtn{
+    width:50%;
+    margin-left: 80px;
+  }
+  .agree {
+     margin-left: 78px;
+  }
+  .cleaner-submit{
+    margin:20px;
+  }
+  /*cleaner-edit*/
+  .customer-edit{
+    height: 370px;
+    margin-left: 250px;
+    margin-top: 60px;
+    width: 700px;
+  }
+  .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+      padding:7px;
+  }
+  .custom-table{
+      width:70%;
+  }
+/*cleaner-my-profile*/
+.book-now{
+  margin-top:12px;
+}
+.cleaner-profile-bg-color{
+  background-color: #F1F1E2;
+}
+.cleaner_logo{
+   margin-top:13px;
+}
+.cleaner_info{
+   margin-left: 66px;
+   margin-top: 44px;
+}
+.cleaner-profile{
+   height: 675px; 
+   margin-top: 60px;
+}
+.fixed-img{
+   height: 172px; 
+   margin-top: 16px; 
+   margin-left: 50px;
+}
+.cleaner-tab-my-profile{
+     height: 500px;
+     margin-top: 10px;
+}
+.cleaner-general-service{
+  margin-left: 100px;
+}
+/*cleaner-profile*/
+.container.cleaner-profile.ng-scope {
+  margin-left: 55px;
+  margin-right: 123px;
+  margin-top: 92px;
+  padding-left: 195px;
+  padding-right: 197px;
+}
+.form-control-edit{
+   width: 50%;
+}
+.cleaner-profile-col2 {
+    width: 69.667%;
+}
+.cleaner-profile-col1 {
+    width: 21.333%;
+}
+.cleaner-profile-btn {
+    margin-top: 16px;
+}
+/*cleaner-services*/
+.cleaner-edit{
+    height: 370px;
+    margin-left: 100px;
+    margin-top: 60px;
+    width: 1500px;
+}
+/*customer-dashboard*/
+.customer-tab{
+  border-style:solid;
+    border-color: #708090;
+  margin-top:70px;
+  height:425px;
+  width:700px;
+  margin-left:213px;
+}
+.col-padding{
+  padding: 7px;
+}
+/*customer-search*/
+.search-page {
+  margin-left: 288px;
+  margin-top: 20px;
+}
+.cleaner-list{
+  margin-top: 20px;
+  border: 1px #e4e4e4 solid;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 6px #ccc;
+  background-color: #fff;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+        box-shadow: 0 10px 6px -6px #777;
+}

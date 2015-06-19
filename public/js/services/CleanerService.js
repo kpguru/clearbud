@@ -34,6 +34,25 @@ app.factory('CleanerService', function($firebaseAuth, FIREBASE_URL, $firebase) {
             var cp = this.getCleaner(ID);
             return cp.$update(cleanerData);
         },
+        saveCleanerAbout : function(ID,about){
+            var ca = this.getCleaner(ID);
+            return ca.$update(about);
+        },
+         formatDate: function (input_date) {
+            var year = input_date.getFullYear() + "";
+            var month = (input_date.getMonth() + 1) + "";
+            var day = input_date.getDate() + "";
+            var format_date = day + "/" + month + "/" + year;
+            return format_date
+        },
+        formatTime: function (input_time) {
+            var hours24 = parseInt(input_time.getHours());
+            var minutes = (input_time.getMinutes()) + "";
+            var am_pm = hours24<12 ? "AM" : "PM";
+            var hour = (((hours24 + 11) % 12) + 1);
+            var format_time= hour + ":" + minutes + am_pm;
+            return format_time;
+        }
     }
     return Cleaner;
  });
