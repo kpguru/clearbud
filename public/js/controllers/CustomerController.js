@@ -1,6 +1,6 @@
 'use strict';
 
-	app.controller('CustomerController', function ($scope, $http, $window, $location, AuthenticationService, CustomerService, CleanerService,$firebase, toaster, FIREBASE_URL) { 
+	app.controller('CustomerController', function ($scope, $http, $window, $location, BookingService, AuthenticationService, CustomerService, CleanerService,$firebase, toaster, FIREBASE_URL) { 
         $scope.signedIn = AuthenticationService.signedIn;
         get_states();
         $scope.user = {};
@@ -8,6 +8,8 @@
         $scope.rateFunction = function(rating) {
           console.log('Rating selected - ' + rating);
         };
+        $scope.bookings = {};
+        $scope.booking_status = {};
         $scope.steps = [
                         'Appointments',
                         'Account'
@@ -21,6 +23,21 @@
         var ref = new Firebase(FIREBASE_URL);
         ref.onAuth(function(authUser) {
             if(authUser != null) {
+                
+                var customerBookings = BookingService.getCustomerBookings(authUser.uid);
+                 customerBookings.$loaded().then(function (data) { 
+                  $scope.bookings = data;
+                  // var cleanerName = CleanerService.getCleaner();
+                  $scope.isAppointment = true;
+                    angular.forEach($scope.bookings, function(value , key) {
+                        $scope.isAppointment = false;
+                    })
+                }); 
+
+                $scope.getClenaerName = function(booking){
+                    // console.log(booking);
+                }
+
                 var users = AuthenticationService.getCurrentUser(authUser.uid);
                 users.$loaded().then(function (data) {
                     $scope.currentUser = data;
@@ -46,6 +63,19 @@
 		            });
                 };
 
+                $scope.setBooking = function(booking){
+                     CustomerService.setBooking(booking);
+                };
+                $scope.getBooking = function(){
+                    $scope.booking = CustomerService.getBooking();
+                };
+                $scope.updateBookingStatus = function(booking){
+
+                    $scope.booking_status.status = "complete";
+                     
+                    // delete booking.$id;
+                    BookingService.updateBookingStatus(booking.$id,$scope.booking_status);
+                };
                 $scope.getCurrentStepIndex = function(){
                     // Get the index of the current step given selection
                     return _.indexOf($scope.steps, $scope.selection);

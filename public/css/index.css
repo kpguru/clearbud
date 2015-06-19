@@ -256,8 +256,6 @@ margin-left: 847px;
 }
 /*customer-dashboard*/
 .customer-tab{
-  border-style:solid;
-    border-color: #708090;
   margin-top:70px;
   height:425px;
   width:700px;
@@ -265,6 +263,20 @@ margin-left: 847px;
 }
 .col-padding{
   padding: 7px;
+}
+.customer-booking-list{
+   background-color: #fff;
+    border: 1px solid #e4e4e4;
+    border-radius: 12px;
+    box-shadow: 0 10px 6px -6px #777;
+    margin-left: 14px;
+    margin-top: 20px;
+    padding: 20px;
+    width: 662px;
+}
+.customer-booking-table{
+  border-collapse: collapse;
+    border-spacing: 0;
 }
 /*customer-search*/
 .search-page {
@@ -305,4 +317,16 @@ ul.rating {
 
 .rating .filled {
   color: #21568b;
+}
+
+/*show booking*/
+.customer-booking{
+  background-color: #fff;
+    border: 1px solid #e4e4e4;
+    border-radius: 12px;
+    box-shadow: 0 10px 6px -6px #777;
+    margin-left: 245px;
+    margin-top: 20px;
+    padding: 20px;
+    width: 662px;
 }

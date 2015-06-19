@@ -5,7 +5,7 @@ app.factory('CleanerService', function($firebaseAuth, FIREBASE_URL, $firebase) {
     var auth = $firebaseAuth(ref);
     var firebaseUsers = $firebase(ref.child('users'));
     var Cleaner = {
-         getCleaner : function (cleanerID) {
+        getCleaner : function (cleanerID) {
             return $firebase(ref.child('users').child(cleanerID));
         },
         getCleanerByName : function(cleaner){

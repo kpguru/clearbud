@@ -1,6 +1,6 @@
 'use strict';
 
-    app.controller('ServicesController', function ($scope, $window, $location, ChargesService, ServicesService, AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
+    app.controller('ServicesController', function ($scope, $window, $location, ChargesService, BookingService, ServicesService, AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
         $scope.signedIn = AuthenticationService.signedIn; 
         $scope.services = {};
         $scope.services.general = []; 
@@ -23,7 +23,7 @@
                     },function (data) {
                         toaster.pop('error', "Error..!", error.toString());
                     });
-                },
+                }
                 $scope.updateServices= function(){
                     $scope.services.cleaner_id = authUser.uid;  
                     $scope.services.general.push($scope.generalServices);

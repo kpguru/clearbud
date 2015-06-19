@@ -16,8 +16,47 @@
               <div class="col-sm-1 cleaner-profile-col1">
                 <a href='#/search-cleaner'><button class="btn cleaner-profile-btn btn-primary btn-log" >Book A Cleaner</button></a>
                 <a href = "#/customer_rating">rate a Cleaner</a>
-
+          <div class="row">
+            <div class="col-sm-8 cleaner-profile-col2" ng-show = "isAppointment" ><h2>No Appointment Found</h2></div>
+            <div class="col-sm-4 cleaner-profile-col1">
+              <a href='#/search-cleaner'><button class="btn cleaner-profile-btn btn-primary btn-log" >Book A Cleaner</button></a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div> 
+                <div ng-repeat = "booking in bookings">          
+                  <div class="row customer-booking-list" ng-hide="booking.status == 'complete'"> 
+                    <div>
+                      <a href='#/customer_booking/view_orders'><button class="btn  btn-primary btn-log" ng-click="setBooking(booking)">View</button></a>
+                       <a href='#/'><button class="btn  btn-primary btn-log" ng-click = "updateBookingStatus(booking);">Complete</button></a>
+                      <a href='#/'><button class="btn  btn-primary btn-log" >Cancel</button></a>
+                    </div> 
+                    <table class = "table customer-booking-table" ng-init="getClenaerName(booking)">
+                      <tr>
+                          <td><b>Cleaner Name</b></td>
+                        <td>{{booking.firstname}} {{booking.lastname}}</td>
+                      </tr>
+                      <tr>
+                           <td><b>Booking Address</b></td>
+                        <td>{{booking.address1}}, {{booking.address2}} {{booking.city}}</td>                        
+                      </tr>
+                      <tr>
+                          <td><b>Booking Date-Time</b></td>
+                        <td>{{booking.date}} {{booking.time}}</td>
+                        
+                      </tr>
+                      <tr>
+                          <td><b>Amount</b></td>
+                        <td>{{booking.total}}</td>                        
+                      </tr>
+                    </table>        
+                  </div>
+                </div>
+>>>>>>> 88940e5ef4b58aa4b70bc8dcaacfaa71c9800adc
               </div>
+            </div>
+          </div>
         </div>
         <!-- Second Step -->
         <div ng-switch-when="Account">
