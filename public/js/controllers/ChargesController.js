@@ -1,22 +1,3 @@
-// 'use strict';
-
-// 	app.controller('ChargesController', function ($scope, $window, $location, ChargesService, AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
-//         $scope.signedIn = AuthenticationService.signedIn; 
-
-//         var ref = new Firebase(FIREBASE_URL);
-//         ref.onAuth(function(authUser) {
-//             if (authUser != null) { 
-//             	$scope.saveCharges = function(charges){
-//             	    charges.cleaner_id = authUser.uid;
-//                     ChargesService.addCleanerCharges(charges).then(function(data) {
-//                         toaster.pop('success', "Add Cleaner Charges successfully!");
-//                     },function (data) {
-//                         toaster.pop('error', "Error..!", error.toString());
-//                     });
-//             	}
-//             }
-//         });  
-//     });
 'use strict';
 
     app.controller('ChargesController', function ($scope, $window, $location, ChargesService, AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
