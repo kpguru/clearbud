@@ -157,17 +157,8 @@
               $scope.about.cleaner_about_us =  $scope.clanerProfile.cleaner_about_us;
                 CleanerService.saveCleanerAbout(authUser.uid, $scope.about).then(function (data) {
                   toaster.pop('success', "Add Cleaner Aboutus Successfully.");
-                   $location.path("/cleaner_profiles/"+ authUser.uid +"/home-smile-cleaners");
                 });
             }
-            $scope.updateCleanerAbout   = function(){
-                 $scope.about.cleaner_about_us =  $scope.clanerProfile.cleaner_about_us;
-                CleanerService.saveCleanerAbout(authUser.uid, $scope.about).then(function (data) {
-                  toaster.pop('success', "Update Cleaner Aboutus Successfully.");
-                  $location.path("/cleaner_profiles/"+ authUser.uid +"/home-smile-cleaners");
-                });
-            }
-
             $scope.getCurrentStepIndex1 = function(){
               // Get the index of the current step given selection
               return _.indexOf($scope.steps1, $scope.selection1);

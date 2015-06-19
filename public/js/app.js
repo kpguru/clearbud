@@ -128,4 +128,13 @@ var app = angular.module('clearbud',[
                 }
             }
        });
+       $routeProvider.when('/customer_rating', {
+           templateUrl: 'templates/Customer/customer_rating.html',
+           controller: 'CustomerController',
+           resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
+       });
     }]);

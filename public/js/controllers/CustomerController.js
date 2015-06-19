@@ -4,6 +4,10 @@
         $scope.signedIn = AuthenticationService.signedIn;
         get_states();
         $scope.user = {};
+        $scope.rating = 5;
+        $scope.rateFunction = function(rating) {
+          console.log('Rating selected - ' + rating);
+        };
         $scope.steps = [
                         'Appointments',
                         'Account'
