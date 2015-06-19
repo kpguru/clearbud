@@ -21,9 +21,9 @@
                 var users = AuthenticationService.getCurrentUser(authUser.uid);
                 users.$loaded().then(function (currentuser) { 
                     $scope.currentUser = currentuser;
-                });  
+                }); 
             	$scope.setBookInfo = function(bookingInfo){
-                    console.log(bookingInfo);
+                    // console.log(bookingInfo);
                     $scope.booking = true;
                     $scope.bookInfo.no_of_bedroom =$scope.bookingInfo.bedrooms;
                     $scope.bookInfo.no_of_bathroom =$scope.bookingInfo.bathrooms;
@@ -119,6 +119,7 @@
                     $scope.completeBookInfo.zip_code = $scope.currentUser.zip_code;
                     $scope.completeBookInfo.total = $scope.subtotal;
                     $scope.completeBookInfo.customerID = authUser.uid;
+                    $scope.completeBookInfo.status = "In progress";
 
                 }
                 //set new address on booking page
@@ -137,12 +138,15 @@
                         $scope.bookInfo.zip_code = $scope.zip_code; 
                         $scope.bookInfo.total = $scope.subtotal;
                         $scope.bookInfo.customerID = authUser.uid;
-                        console.log($scope.bookInfo);
+                        $scope.bookInfo.status = "In progress";
+                        // console.log($scope.bookInfo);
                         BookingService.cleanerBooking($scope.bookInfo).then(function (data) {
+                            sessionStorage.user = null;
                            toaster.pop('success', "Successfully generate Booking Order");
                         });
                     }else{
-                        console.log($scope.completeBookInfo);
+                        // console.log($scope.completeBookInfo);
+                        sessionStorage.user = null;
                         BookingService.cleanerBooking($scope.completeBookInfo).then(function (data) {
                            toaster.pop('success', "Successfully generate Booking Order");
                         });
