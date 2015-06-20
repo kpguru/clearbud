@@ -86,10 +86,12 @@
                     if(angular.isUndefined($scope.bookInfo.date))
                     {
                         $scope.date = new Date();
-                        $scope.time = CleanerService.formatTime(new Date());
+                        // $scope.time = CleanerService.formatTime(new Date());
+                         $scope.date_time = $scope.date.getTime();
                     }else{             
-                        $scope.date = $scope.bookInfo.date;
-                        $scope.time = $scope.bookInfo.time;
+                        // $scope.date = $scope.bookInfo.date;
+                        // $scope.time = $scope.bookInfo.time;
+                        $scope.date_time = $scope.bookInfo.date_time;
                      }
                      $scope.subtotal = $scope.bookInfo.charges * $scope.bookInfo.reserve_hours;
                      get_states();
@@ -116,8 +118,7 @@
                     $scope.completeBookInfo.no_of_bathroom = $scope.bookInfo.no_of_bathroom;
                     $scope.completeBookInfo.no_of_bedroom = $scope.bookInfo.no_of_bedroom;
                     $scope.completeBookInfo.reserve_hours = $scope.bookInfo.reserve_hours;
-                    $scope.completeBookInfo.date = $scope.bookInfo.date;
-                    $scope.completeBookInfo.time = $scope.bookInfo.time;
+                    $scope.completeBookInfo.date_time = $scope.bookInfo.date_time;
                     $scope.completeBookInfo.address1 = $scope.currentUser.address1;
                     $scope.completeBookInfo.address2 = $scope.currentUser.address2;
                     $scope.completeBookInfo.city = $scope.currentUser.city;
