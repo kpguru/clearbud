@@ -5,7 +5,6 @@
       $scope.profile ={};
       var currentuser={};
       $scope.show=false;
-      $scope.isCleaner = true;
       $scope.bookingInfo={};
       $scope.about ={};
       $scope.availabilities ={};
@@ -118,7 +117,6 @@
             var users = AuthenticationService.getCurrentUser(authUser.uid);
               users.$loaded().then(function (currentuser) { 
                 $scope.currentUser = currentuser;
-                var default_cleaner_logo = currentuser.cleaner_logo;
                 $scope.profile.email = currentuser.email;
                 $scope.profile.phone = currentuser.phone;
                 get_states($scope.profile , 0);
@@ -131,7 +129,6 @@
               profile.cleaner_logo =  $scope.profile.logo; 
               delete $scope.profile.logo;
               CleanerService.createCP(authUser.uid, profile).then(function (data) {
-                $rootScope.isCleaner = true;
                 toaster.pop('success', "Thank You for creating account.");
                 $location.path('/cleaner/'+authUser.uid+'/profile');
               });
@@ -142,9 +139,9 @@
               if(logo){                
                 cleaner.cleaner_logo = logo; 
               }else{
-                  cleaner.cleaner_logo= default_cleaner_logo;
+                  cleaner.cleaner_logo= $scope.currentUser.cleaner_logo;
                }
-               if(!$scope.currentUser.firstname  || !$scope.currentUser.lastname ||!$scope.currentUser.zip_code){
+               if(!$scope.currentUser.firstname  || !$scope.currentUser.lastname ||!$scope.currentUser.zip_code ||!cleaner.cleaner_logo){
                   return; 
                }  
                
