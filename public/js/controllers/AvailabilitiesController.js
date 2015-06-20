@@ -25,7 +25,6 @@
                     $scope.availabilities.all_day_all_time = $scope.allDayAllTime;
                 }
                 if(!angular.isUndefined($scope.sunday.day)){
-                   // console.log(($scope.sunday.fromTime).toUTCString(), $scope.sunday.toTime.toUTCString());
                     $scope.availabilities.sunday.day =$scope.sunday.day;
                     $scope.availabilities.sunday.fromTime = $scope.sunday.fromTime.getTime();
                     $scope.availabilities.sunday.toTime   = $scope.sunday.toTime.getTime();
@@ -71,7 +70,6 @@
                     $scope.availabilities.weekends.toTime =$scope.weekends.toTime.getTime();
                 }
                 if(!angular.isUndefined($scope.montofri.day)){
-                    console.log($scope.montofri.fromTime, $scope.montofri.toTime);
                     $scope.availabilities.monday_to_friday.day =$scope.montofri.day;
                     $scope.availabilities.monday_to_friday.fromTime =$scope.montofri.fromTime.getTime();
                     $scope.availabilities.monday_to_friday.toTime =$scope.montofri.toTime.getTime();

@@ -8,7 +8,6 @@ var app = angular.module('clearbud',[
     'ui.bootstrap.datetimepicker'
 	]).constant('FIREBASE_URL', 'https://amber-inferno-3378.firebaseio.com/')
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-        //$locationProvider.html5Mode(true);
         $routeProvider.otherwise({
             templateUrl: 'templates/home.html',
             controller: 'CustomerController'

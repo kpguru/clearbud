@@ -23,7 +23,6 @@
                     $scope.currentUser = currentuser;
                 }); 
             	$scope.setBookInfo = function(bookingInfo){
-                    // console.log(bookingInfo);
                     $scope.booking = true;
                     $scope.bookInfo.no_of_bedroom =$scope.bookingInfo.bedrooms;
                     $scope.bookInfo.no_of_bathroom =$scope.bookingInfo.bathrooms;
@@ -51,6 +50,11 @@
 
                 //complete booking
                 $scope.completeBooking = function(){
+                    if(angular.isUndefined($scope.bookInfo.date_time))
+                    {
+                        $scope.date = new Date();
+                        $scope.bookInfo.date_time = $scope.date.getTime();
+                    }
                     $scope.booking = false;
                 }
 
@@ -83,19 +87,8 @@
                 $scope.getBookInfo = function(){
                     $scope.bookInfo = JSON.parse(sessionStorage.user);
                     $scope.reserve_hours = $scope.bookInfo.reserve_hours;
-                    if(angular.isUndefined($scope.bookInfo.date))
-                    {
-                        $scope.date = new Date();
-                        // $scope.time = CleanerService.formatTime(new Date());
-                         $scope.date_time = $scope.date.getTime();
-                    }else{             
-                        // $scope.date = $scope.bookInfo.date;
-                        // $scope.time = $scope.bookInfo.time;
-                        $scope.date_time = $scope.bookInfo.date_time;
-                     }
                      $scope.subtotal = $scope.bookInfo.charges * $scope.bookInfo.reserve_hours;
                      get_states();
-                     // $scope.bookInfo.subtotal = $scope.subtotal;
                 }
 
                 //this fun call on loading of cleaner book page               
@@ -127,8 +120,6 @@
                     $scope.completeBookInfo.total = $scope.subtotal;
                     $scope.completeBookInfo.customerID = authUser.uid;
                     $scope.completeBookInfo.status = "In progress";
-                    console.log($scope.completeBookInfo);
-
                 }
                 //set new address on booking page
                 $scope.setNewAddress = function(){
@@ -147,16 +138,15 @@
                         $scope.bookInfo.total = $scope.subtotal;
                         $scope.bookInfo.customerID = authUser.uid;
                         $scope.bookInfo.status = "In progress";
-                        // console.log($scope.bookInfo);
                         BookingService.cleanerBooking($scope.bookInfo).then(function (data) {
                             sessionStorage.user = null;
                             $location.path('/customer_booking/submit_orders').replace();
                             toaster.pop('success', "Successfully generate Booking Order");
                         });
                     }else{
-                        // console.log($scope.completeBookInfo);
                         sessionStorage.user = null;
                         BookingService.cleanerBooking($scope.completeBookInfo).then(function (data) {
+                            $location.path('/customer_booking/submit_orders').replace();
                            toaster.pop('success', "Successfully generate Booking Order");
                         });
                     }

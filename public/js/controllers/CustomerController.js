@@ -27,16 +27,11 @@
                 var customerBookings = BookingService.getCustomerBookings(authUser.uid);
                  customerBookings.$loaded().then(function (data) { 
                   $scope.bookings = data;
-                  // var cleanerName = CleanerService.getCleaner();
                   $scope.isAppointment = true;
                     angular.forEach($scope.bookings, function(value , key) {
                         $scope.isAppointment = false;
                     })
                 }); 
-
-                $scope.getClenaerName = function(booking){
-                    // console.log(booking);
-                }
 
                 var users = AuthenticationService.getCurrentUser(authUser.uid);
                 users.$loaded().then(function (data) {

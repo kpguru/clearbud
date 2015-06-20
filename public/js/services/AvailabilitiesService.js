@@ -12,7 +12,6 @@ app.factory('AvailabilitiesService', function($firebaseAuth, FIREBASE_URL, $fire
             return $firebase(ref.child('availabilities').orderByChild("cleaner_id").equalTo(cleanerID)).$asArray();
         },
     	addCleanerAvailabilities: function (availabilities) {
-            console.log(availabilities);
             return firebaseAvailabilities.$push(availabilities);
         },
         updateCleanerAvailabilities : function(id, availability){

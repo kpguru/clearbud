@@ -15,7 +15,6 @@ app.factory('ServicesService', function($firebaseAuth, FIREBASE_URL, $firebase) 
             return firebaseServices.$push(service);
         },
         updateCleanerServices : function(id, services){
-          console.log(services, id);
            var cp = this.getServicesById(id);
            return cp.$update(services);
         }
