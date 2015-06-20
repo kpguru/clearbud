@@ -30,6 +30,10 @@
                     $scope.bookInfo.reserve_hours ='3.0';
                     $scope.frequency1 =$scope.bookingInfo.frequency_type;
                     $scope.bookInfo.cleanerID = $scope.bookingInfo.cleanerId;
+                    var clanerProfile = AuthenticationService.getCurrentUser($scope.bookInfo.cleanerID);
+                       clanerProfile.$loaded().then(function (clanerProfile) { 
+                        $scope.clanerProfile = clanerProfile;
+                    })
                     var clanerCharges = ChargesService.getCharges($scope.bookInfo.cleanerID);
                     clanerCharges.$loaded().then(function (data) { 
                         $scope.charges = data;
@@ -39,6 +43,8 @@
                           $scope.bookInfo.charges = key; 
                         }
                     });
+                    $scope.bookInfo.cleaner_firstname =$scope.clanerProfile.firstname;
+                    $scope.bookInfo.cleaner_lastname =$scope.clanerProfile.lastname;
                     sessionStorage.user = null;
                     sessionStorage.user = angular.toJson($scope.bookInfo);
                 }
@@ -105,6 +111,8 @@
                     $scope.newAddress = false;
                     $scope.completeBookInfo.firstname = $scope.firstname;
                     $scope.completeBookInfo.lastname = $scope.lastname;
+                    $scope.completeBookInfo.cleaner_firstname = $scope.bookInfo.cleaner_firstname;
+                    $scope.completeBookInfo.cleaner_lastname = $scope.bookInfo.cleaner_lastname;
                     $scope.completeBookInfo.charges = $scope.bookInfo.charges;
                     $scope.completeBookInfo.cleanerID = $scope.bookInfo.cleanerID;
                     $scope.completeBookInfo.no_of_bathroom = $scope.bookInfo.no_of_bathroom;
@@ -120,6 +128,7 @@
                     $scope.completeBookInfo.total = $scope.subtotal;
                     $scope.completeBookInfo.customerID = authUser.uid;
                     $scope.completeBookInfo.status = "In progress";
+                    console.log($scope.completeBookInfo);
 
                 }
                 //set new address on booking page

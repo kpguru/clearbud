@@ -29,8 +29,8 @@
         </thead>
         <tbody>
           <tr ng-show="customer.role == 'customer'" ng-repeat="customer in customers">
-            <td>{{ customer.first_name }}</td>
-            <td>{{ customer.last_name }}</td>
+            <td>{{ customer.firstname }}</td>
+            <td>{{ customer.lastname }}</td>
             <td>{{ customer.email }}</td>
           </tr>
           <tr ng-show="cleaner.role != 'customer' && cleaner.isApproved == 0 &&  setStatus == 0" ng-repeat="cleaner in cleaners">

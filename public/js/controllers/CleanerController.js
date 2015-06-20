@@ -75,7 +75,6 @@
                 });    
                 var clanerAvailabilities = AvailabilitiesService.getCleanerAvailabilities($routeParams.cleanerID);
                  clanerAvailabilities.$loaded().then(function (data) { 
-                  console.log(clanerAvailabilities[0]);
                   $scope.Availabilities = clanerAvailabilities[0]; 
                   $scope.sunday = clanerAvailabilities[0].sunday;
                   $scope.monday = clanerAvailabilities[0].monday;

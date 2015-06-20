@@ -44,7 +44,11 @@
                 });
                 $scope.customer_edit = function(customer){
                     if(!customer.firstname  || !customer.lastname ||!customer.zip_code){
-                       return; 
+                        return; 
+                    }
+                    if(angular.isUndefined($scope.currentUser.customer_image) && angular.isUndefined($scope.image)){
+                        toaster.pop('error', "Select Customer Photo!");
+                        return;
                     }  
                 	$scope.user.firstname = customer.firstname;
                     $scope.user.lastname = customer.lastname;
@@ -70,10 +74,7 @@
                     $scope.booking = CustomerService.getBooking();
                 };
                 $scope.updateBookingStatus = function(booking){
-
                     $scope.booking_status.status = "complete";
-                     
-                    // delete booking.$id;
                     BookingService.updateBookingStatus(booking.$id,$scope.booking_status);
                 };
                 $scope.getCurrentStepIndex = function(){
