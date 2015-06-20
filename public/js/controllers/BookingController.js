@@ -74,10 +74,8 @@
                 //set date and time on summary view 
                 $scope.setDateTime = function(date){
                     sessionStorage.user = null;
-                    $scope.date = CleanerService.formatDate(date);
-                    $scope.time = CleanerService.formatTime(date);
-                    $scope.bookInfo.date = $scope.date;
-                    $scope.bookInfo.time = $scope.time;
+                    $scope.date_time = date.getTime();
+                    $scope.bookInfo.date_time = $scope.date_time;
                     sessionStorage.user = angular.toJson($scope.bookInfo);
                 }
 
@@ -151,7 +149,8 @@
                         // console.log($scope.bookInfo);
                         BookingService.cleanerBooking($scope.bookInfo).then(function (data) {
                             sessionStorage.user = null;
-                           toaster.pop('success', "Successfully generate Booking Order");
+                            $location.path('/customer_booking/submit_orders').replace();
+                            toaster.pop('success', "Successfully generate Booking Order");
                         });
                     }else{
                         // console.log($scope.completeBookInfo);
