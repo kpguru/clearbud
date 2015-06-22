@@ -30,9 +30,7 @@
                          cleaner_id       : updatedcharges.cleaner_id
                         }                    
                      ChargesService.UpdateCharges(updatedcharges.$id, charge).then(function (data) {                  
-                     toaster.pop('success', "YOur charges Updated Successfully");
-                     window.location = "#/cleaner_profiles/"+ authUser.uid+"/home-smile-cleaners";
-                  
+                     toaster.pop('success', "YOur charges Updated Successfully");                  
                 });
                 }
 

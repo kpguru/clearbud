@@ -100,8 +100,8 @@ var app = angular.module('clearbud',[
                 }
             }
        });
-       $routeProvider.when('/cleaner_profiles/:cleanerID/home-smile-cleaners', {
-           templateUrl: 'templates/Customer/cleaner-my-profile.html',
+       $routeProvider.when('/cleaner_profiles/:cleanerID/home-smile-cleaner', {
+           templateUrl: 'templates/Customer/customer-view-cleaner.html',
            controller: 'CleanerController',
            resolve: {
                 currentAuth: function (AuthenticationService) {
@@ -110,7 +110,7 @@ var app = angular.module('clearbud',[
             }
        });
           $routeProvider.when('/cleaner_profiles/:cleanerID', {
-           templateUrl: 'templates/Cleaner/cleaner-my-profile1.html',
+           templateUrl: 'templates/Cleaner/cleaner-my-profile.html',
            controller: 'CleanerController',
            resolve: {
                 currentAuth: function (AuthenticationService) {

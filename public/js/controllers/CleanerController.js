@@ -47,6 +47,12 @@
             language: 'ru',
             uiColor: '#000000'
       };
+      $scope.steps = [
+              'Personal Info',
+              'Company Address',
+              'Campaign Info',
+              'submit'
+            ];
       $scope.steps1 = [
               "Reviews",
               "About",
@@ -54,16 +60,13 @@
               'Pricing',
               'Availability'
             ];
-      $scope.selection1 = $scope.steps1[0];
-        
+      $scope.selection1 = $scope.steps1[0];        
       var ref = new Firebase(FIREBASE_URL);
         ref.onAuth(function(authUser) {
           if (authUser != null) {
-
             //get cleaner availabilities,charges,services,profile
-            if($routeParams.cleanerID)
-            {
-               var clanerProfile = AuthenticationService.getCurrentUser($routeParams.cleanerID);
+            if($routeParams.cleanerID){ 
+              var clanerProfile = AuthenticationService.getCurrentUser($routeParams.cleanerID);
                clanerProfile.$loaded().then(function (clanerProfile) { 
                 $scope.clanerProfile = clanerProfile;
                 $scope.bookingInfo.cleanerId = $scope.clanerProfile.$id;
@@ -73,7 +76,8 @@
                    $scope.update =true;
                 });    
                 var clanerAvailabilities = AvailabilitiesService.getCleanerAvailabilities($routeParams.cleanerID);
-                 clanerAvailabilities.$loaded().then(function (data) { 
+                 clanerAvailabilities.$loaded().then(function (data) {
+                 if(clanerAvailabilities[0]){                   
                   $scope.Availabilities = clanerAvailabilities[0]; 
                   $scope.sunday = clanerAvailabilities[0].sunday;
                   $scope.monday = clanerAvailabilities[0].monday;
@@ -85,19 +89,21 @@
                   $scope.everyday = clanerAvailabilities[0].everyday;
                   $scope.weekends = clanerAvailabilities[0].weekends;                  
                   $scope.montofri = clanerAvailabilities[0].monday_to_friday;
+                }
                 }); 
 
                 var clanerCharges = ChargesService.getCharges($routeParams.cleanerID);
                 clanerCharges.$loaded().then(function (data) { 
                     $scope.charges = data;
                     angular.forEach( $scope.charges, function(value){
-                        $scope.charges.every_four_weeks  = value.every_four_weeks;
-                        $scope.charges.every_two_weeks   = value.every_two_weeks;
-                        $scope.charges.one_time          = value.one_time;
-                        $scope.charges.weekly            = value.weekly;
-                        $scope.charges.$id               = value.$id;
-                        $scope.charges.cleaner_id       = value.cleaner_id;
-
+                    $scope.chrg ={   
+                                    every_four_weeks  : value.every_four_weeks,
+                                    every_two_weeks   : value.every_two_weeks,
+                                    one_time          : value.one_time,
+                                    weekly            : value.weekly,
+                                    $id               : value.$id,
+                                    cleaner_id        :value.cleaner_id
+                                   }
                     })
                 });  
 
@@ -167,15 +173,7 @@
                 $scope.selection1 = $scope.steps1[index];
               }
             };
-
-            $scope.steps = [
-              'Personal Info',
-              'Company Address',
-              'Campaign Info',
-              'submit'
-            ];
             $scope.selection = $scope.steps[0];
-
             $scope.getCurrentStepIndex = function(){
               // Get the index of the current step given selection
               return _.indexOf($scope.steps, $scope.selection);
@@ -188,7 +186,6 @@
                 $scope.selection = $scope.steps[index];
               }
             };
-
             $scope.hasNextStep = function(){
               var stepIndex = $scope.getCurrentStepIndex();
               var nextStep = stepIndex + 1;
