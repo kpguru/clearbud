@@ -52,7 +52,61 @@ app.factory('CleanerService', function($firebaseAuth, FIREBASE_URL, $firebase) {
             var hour = (((hours24 + 11) % 12) + 1);
             var format_time= hour + ":" + minutes + am_pm;
             return format_time;
+        },
+       getCurrentStepIndex : function(steps,selection){
+              // Get the index of the current step given selection
+              return _.indexOf(steps, selection);
+            },
+   
+        goToStep : function(index, steps,selection) {
+                  if ( !_.isUndefined(steps[index]) )
+                  {
+                   selection = steps[index];
+                  }
+                },
+        No_of_bedRoom : function(){
+            var bedroom = [{name: '1 Bedroom', value: '1 Bedroom' },
+                      {name: '2 Bedroom', value: '2 Bedroom' },
+                      {name: '3 Bedroom', value: '3 Bedroom' },
+                      {name: '4 Bedroom', value: '4 Bedroom' },
+                      {name: '5 Bedroom', value: '5 Bedroom' }
+                      ];  
+            return bedroom
+        },
+        No_of_bathRoom : function(){
+            var bathroom = [{name: '1 Bathroom', value: '1 Bathroom' },
+                      {name: '2 Bathroom', value: '2 Bathroom' },
+                      {name: '3 Bathroom', value: '3 Bathroom' },
+                      {name: '4 Bathroom', value: '4 Bathroom' }
+                      ];
+            return bathroom;
+                  },
+        frequency: function(){
+                var frequency = [{name: 'Weekly', value: 'weekly' },
+                      {name: 'Every 2 Weekly', value: 'every_two_weeks' },
+                      {name: 'Every 4 Weeks', value: 'every_four_weeks' },
+                      {name: 'One Time', value: 'one_time' }
+                      ];
+                return frequency;
+                  },
+        steps :function(){
+               var steps =  [
+              'Personal Info',
+              'Company Address',
+              'Campaign Info',
+              'submit'
+            ];
+            return steps;
+        },
+        steps1 : function(){
+            var steps1 =["Reviews",
+                  "About",
+                  "What's Included",
+                  'Pricing',
+                  'Availability'
+                ];
+            return steps1;
         }
     }
-    return Cleaner;
- });
+        return Cleaner;
+     });

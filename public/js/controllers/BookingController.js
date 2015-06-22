@@ -8,12 +8,7 @@
         $scope.date = new Date();
         $scope.newAddress = true;
         $scope.time = CleanerService.formatTime(new Date());
-        $scope.hours = [{name: '3.0 hours', value: '3.0' },
-                      {name: '3.5 hours', value: '3.5' },
-                      {name: '4.0 hours', value: '4.0' },
-                      {name: '4.5 hours', value: '4.5' },
-                      {name: '5.0 hours', value: '5.0' }
-                      ];
+        $scope.hours = BookingService.hours();
         $scope.reserve_hours = $scope.hours[0].value;
         var ref = new Firebase(FIREBASE_URL);
         ref.onAuth(function(authUser) {
@@ -25,13 +20,8 @@
                 $scope.setBookInfo = function(bookingInfo){
                 $scope.booking = true;                
                 $scope.frequency1 =$scope.bookingInfo.frequency_type;
-                // $scope.bookInfo.no_of_bedroom =$scope.bookingInfo.bedrooms;
-                // $scope.bookInfo.no_of_bathroom =$scope.bookingInfo.bathrooms;
-                // $scope.bookInfo.reserve_hours ='3.0';
-                // $scope.frequency1 =$scope.bookingInfo.frequency_type;
-                // $scope.bookInfo.cleanerID = $scope.bookingInfo.cleanerId;
                 var clanerProfile = AuthenticationService.getCurrentUser($scope.bookingInfo.cleanerId);
-                   clanerProfile.$loaded().then(function (clanerProfile) { 
+                    clanerProfile.$loaded().then(function (clanerProfile) { 
                     $scope.clanerProfile = clanerProfile;
                 })
                 var clanerCharges = ChargesService.getCharges($scope.bookingInfo.cleanerId);
@@ -99,7 +89,7 @@
 
                     $scope.bookInfo.firstname = $scope.firstname;
                     $scope.bookInfo.lastname  =$scope.lastname;                                        
-                    $scope.bookInfo.total      =$scope.subtotal ? $scope.subtotal : '0';
+                    $scope.bookInfo.total      =$scope.subtotal;
                     $scope.bookInfo.customerID =authUser.uid;
                     $scope.bookInfo.status     ="In progress"                   
                     if($scope.previous_address == true){
@@ -109,11 +99,11 @@
                     $scope.bookInfo.state    =$scope.currentUser.state;
                     $scope.bookInfo.zip_code =$scope.currentUser.zip_code;
                     }else{
-                        $scope.bookInfo.address1   =$scope.address1;
-                        $scope.bookInfo.address2   =$scope.address2;
-                        $scope.bookInfo.city       =$scope.city;
-                        $scope.bookInfo.state      =$scope.state;
-                        $scope.bookInfo.zip_code   =$scope.zip_code;
+                    $scope.bookInfo.address1   =$scope.address1;
+                    $scope.bookInfo.address2   =$scope.address2;
+                    $scope.bookInfo.city       =$scope.city;
+                    $scope.bookInfo.state      =$scope.state;
+                    $scope.bookInfo.zip_code   =$scope.zip_code;
                     }    
                     console.log($scope.bookInfo);  
                     BookingService.cleanerBooking($scope.bookInfo).then(function (data) {                        
