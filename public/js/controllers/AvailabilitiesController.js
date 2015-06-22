@@ -12,9 +12,7 @@
         $scope.availabilities.saturday = {};
         $scope.availabilities.everyday = {};
         $scope.availabilities.weekends = {}; 
-        $scope.availabilities.monday_to_friday = {};
-        
-
+        $scope.availabilities.monday_to_friday = {};  
 
         var ref = new Firebase(FIREBASE_URL);
         ref.onAuth(function(authUser) {
@@ -73,9 +71,8 @@
                     $scope.availabilities.monday_to_friday.day =$scope.montofri.day;
                     $scope.availabilities.monday_to_friday.fromTime =$scope.montofri.fromTime.getTime();
                     $scope.availabilities.monday_to_friday.toTime =$scope.montofri.toTime.getTime();
-
                 }
-                AvailabilitiesService.addCleanerAvailabilities( $scope.availabilities).then(function(data) {
+                AvailabilitiesService.addCleanerAvailabilities($scope.availabilities).then(function(data) {
                     toaster.pop('success', "Add Cleaner availabilities successfully!");
                 },function (data) {
                     toaster.pop('error', "Error..!", error.toString());

@@ -136,8 +136,11 @@
 				<div class="booking-section-address">
 				    <h4 class="booking-charges-text">ADDRESS</h4>
 				    <div class="customer-address">
-			            <div class="customer-pre-address cursor-pointer" ng-click="setPreviousAddress()">Previous Address</div>
-			            <div class="customer-new-address cursor-pointer" ng-click="setNewAddress()">New Address</div>  
+			            <div class="customer-pre-address cursor-pointer" >
+			            <input type= "checkbox" ng-model="previous_address">&nbsp;Previous Address
+			            </div>
+			            <div class="customer-new-address cursor-pointer" ng-model="new_address">
+			            <input type= "checkbox" ng-model="new_address">&nbsp New Address</div>  
 				    </div>
 				    <div ng-show="newAddress">
 					    <div class="customer-address">
