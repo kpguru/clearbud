@@ -310,13 +310,14 @@ ul.rating {
   list-style-type: none;
   display: inline-block;
   padding: 1px;
+  font-size: 20px;
   text-align: center;
   font-weight: bold;
   cursor: pointer;
 }
 
 .rating .filled {
-  color: #21568b;
+  color: #FFCC00;
 }
 
 /*show booking*/
@@ -343,13 +344,13 @@ ul.rating {
 }
 .rating-punctuality{
     height: 53px;
-    width: 181px;
+    width: 215px;
 }
 .rating-quality{
     height: 53px;
-    margin-left: 181px;
+    margin-left: 293px;
     margin-top: -53px;
-    width: 181px;
+    width: 215px;
 }
 .reviews{
     margin-top: -8px;

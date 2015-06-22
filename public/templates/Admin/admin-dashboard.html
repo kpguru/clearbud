@@ -38,21 +38,21 @@
             <td>{{ cleaner.last_name }}</td>
             <td>{{ cleaner.email }}</td>
             <td>{{cleaner.isApproved ==  0? "Pending" : "Approved"}}</td>
-            <th><button class="btn btn-default dropdown-toggle" ng-click="setCleanerStatus(cleaner.$id,1)" type="button">{{cleaner.isApproved ==  0? "Approve" : "Reject"}}</button></th>
+            <th><button class="btn btn-default dropdown-toggle" ng-click="setCleanerStatus(cleaner.$id,1)" ng-confirm-click="Are you sure to Approve Cleaner?" type="button">{{cleaner.isApproved ==  0? "Approve" : "Reject"}}</button></th>
           </tr>
           <tr ng-show="cleaner.role == 'cleaner' && cleaner.isApproved == 1 && setStatus == 1" ng-repeat="cleaner in cleaners">
             <td>{{ cleaner.first_name }}</td>
             <td>{{ cleaner.last_name }}</td>
             <td>{{ cleaner.email }}</td>
             <td>{{cleaner.isApproved == 0? "Pending" : "Approved"}}</td>
-            <th><button class="btn btn-default dropdown-toggle" ng-click="setCleanerStatus(cleaner.$id,2)" type="button">{{cleaner.isApproved ==  1? "Reject" : "Approve"}}</button></th>
+            <th><button class="btn btn-default dropdown-toggle" ng-click="setCleanerStatus(cleaner.$id,2)" ng-confirm-click="Are you sure to Reject Cleaner?" type="button">{{cleaner.isApproved ==  1? "Reject" : "Approve"}}</button></th>
           </tr>
           <tr ng-show="cleaner.role == 'cleaner' && cleaner.isApproved == 2 && setStatus == 2" ng-repeat="cleaner in cleaners">
             <td>{{ cleaner.first_name }}</td>
             <td>{{ cleaner.last_name }}</td>
             <td>{{ cleaner.email }}</td>
             <td>{{cleaner.isApproved == 1? "Approved" : "Rejected"}}</td>
-            <th><button class="btn btn-default dropdown-toggle" ng-click="setCleanerStatus(cleaner.$id,1)"  type="button">{{cleaner.isApproved ==  1? "Reject" : "Approve"}}</button></th>
+            <th><button class="btn btn-default dropdown-toggle" ng-click="setCleanerStatus(cleaner.$id,1)" ng-confirm-click="Are you sure to Approve Cleaner?"  type="button">{{cleaner.isApproved ==  1? "Reject" : "Approve"}}</button></th>
           </tr>
         </tbody>
       </table>

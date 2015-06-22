@@ -197,7 +197,7 @@
 					            <input type="checkbox"  ng-model="sunday.day" ng-true-value="'Sunday'" ng-false-value="'false'">&nbsp; &nbsp;Sunday<br>
 					        </td>
 					        <td>
-                                <div class = "row availletime">
+                                <div class = "row availletime" ng-show="sunday.day == 'Sunday'">
                                     <div class = "col-sm-2">
                                     	From
                                     </div>
@@ -239,7 +239,7 @@
 					            <input type="checkbox"  ng-model="monday.day" ng-true-value="'Monday'" ng-false-value="'false'">&nbsp; &nbsp;Monday<br>
 					        </td>
 					        <td>
-                                <div class = "row availletime">
+                                <div class = "row availletime" ng-show="monday.day == 'Monday'">
                                     <div class = "col-sm-2">
                                     	From
                                     </div>
@@ -282,7 +282,7 @@
 					            <input type="checkbox" ng-model="tuesday.day" ng-true-value="'Tuesday'" ng-false-value="'false'">&nbsp; &nbsp;Tuesday<br>
 					        </td>
 					        <td>
-                                <div class = "row availletime">
+                                <div class = "row availletime" ng-show="tuesday.day == 'Tuesday'">
                                     <div class = "col-sm-2">
                                     	From
                                     </div>
@@ -322,10 +322,10 @@
 					    </tr>
 					    <tr>
 					        <td>
-					            <input type="checkbox"  ng-model="wednesday.day" ng-true-value="'Wednesday'" ng-false-value="'false'">&nbsp; &nbsp;Wednesday<br>
+					            <input type="checkbox"  ng-model="wednesday.day" ng-true-value="'Wednesday'">&nbsp; &nbsp;Wednesday<br>
 					        </td>
 					        <td>
-                                <div class = "row availletime">
+                                <div class = "row availletime" ng-show="wednesday.day == 'Wednesday'">
                                     <div class = "col-sm-2">
                                     	From
                                     </div>
@@ -368,7 +368,7 @@
 					            <input type="checkbox"  ng-model="thusday.day" ng-true-value="'Thusday'" ng-false-value="'false'">&nbsp; &nbsp;Thusday<br>
 					        </td>
 					        <td>
-                                <div class = "row availletime">
+                                <div class = "row availletime" ng-show="thusday.day == 'Thusday'">
                                     <div class = "col-sm-2">
                                     	From
                                     </div>
@@ -411,7 +411,7 @@
 					            <input type="checkbox"  ng-model="friday.day" ng-true-value="'Friday'" ng-false-value="'false'">&nbsp; &nbsp;Friday<br>
 					        </td>
 					        <td>
-                                <div class = "row availletime">
+                                <div class = "row availletime" ng-show="friday.day == 'Friday'">
                                     <div class = "col-sm-2">
                                     	From
                                     </div>
@@ -454,7 +454,7 @@
 					            <input type="checkbox"  ng-model="saturday.day" ng-true-value="'Saturday'" ng-false-value="'false'">&nbsp; &nbsp;Saturday<br>
 					        </td>
 					        <td>
-                                <div class = "row availletime">
+                                <div class = "row availletime" ng-show="saturday.day == 'Saturday'">
                                     <div class = "col-sm-2">
                                     	From
                                     </div>
@@ -497,7 +497,7 @@
 					            <input type="checkbox"  ng-model="everyday.day" ng-true-value="'Everyday'" ng-false-value="'false'">&nbsp; &nbsp;Everyday<br>
 					        </td>
 					        <td>
-                                <div class = "row availletime">
+                                <div class = "row availletime" ng-show="everyday.day == 'Everyday'">
                                     <div class = "col-sm-2">
                                     	From
                                     </div>
@@ -540,7 +540,7 @@
 					            <input type="checkbox"  ng-model="weekends.day" ng-true-value="'Weekends'" ng-false-value="'false'">&nbsp; &nbsp;Weekends<br>
 					        </td>
 					        <td>
-                                <div class = "row availletime">
+                                <div class = "row availletime" ng-show="weekends.day == 'Weekends'">
                                     <div class = "col-sm-2">
                                     	From
                                     </div>
@@ -583,7 +583,7 @@
 					            <input type="checkbox" ng-model="montofri.day" ng-true-value="'Monday-Friday'" ng-false-value="'false'">&nbsp;&nbsp;Monday-Friday<br>
 					        </td>
 					        <td>
-                                <div class = "row availletime">
+                                <div class = "row availletime" ng-show="montofri.day == 'Monday-Friday'">
                                     <div class = "col-sm-2">
                                     	From
                                     </div>

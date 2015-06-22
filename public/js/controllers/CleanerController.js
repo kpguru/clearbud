@@ -4,7 +4,6 @@
       $scope.signedIn = AuthenticationService.signedIn;
       $scope.profile ={};
       var currentuser={};
-      $scope.show=false;
       $scope.bookingInfo={};
       $scope.about ={};
       $scope.availabilities ={};
@@ -23,6 +22,7 @@
       $scope.everyday = {};
       $scope.weekends = {}; 
       $scope.montofri = {};
+
       $scope.no_of_bedrooms = [{name: '1 Bedroom', value: '1 Bedroom' },
                       {name: '2 Bedroom', value: '2 Bedroom' },
                       {name: '3 Bedroom', value: '3 Bedroom' },
@@ -30,18 +30,21 @@
                       {name: '5 Bedroom', value: '5 Bedroom' }
                       ];
       $scope.bookingInfo.bedrooms = $scope.no_of_bedrooms[0].value;
+
       $scope.no_of_bathrooms = [{name: '1 Bathroom', value: '1 Bathroom' },
                       {name: '2 Bathroom', value: '2 Bathroom' },
                       {name: '3 Bathroom', value: '3 Bathroom' },
                       {name: '4 Bathroom', value: '4 Bathroom' }
                       ];
       $scope.bookingInfo.bathrooms = $scope.no_of_bathrooms[0].value;
+
       $scope.frequency = [{name: 'Weekly', value: 'weekly' },
                       {name: 'Every 2 Weekly', value: 'every_two_weeks' },
                       {name: 'Every 4 Weeks', value: 'every_four_weeks' },
                       {name: 'One Time', value: 'one_time' }
                       ];
       $scope.bookingInfo.frequency_type = $scope.frequency[0].value;
+      
       $scope.numbersOnly = /^\d+$/;
       $scope.editorOptions = {
             language: 'ru',

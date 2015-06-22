@@ -31,31 +31,31 @@
                 $scope.setCleanerStatus = function(cleanerId,status){
                     if($scope.setStatus == 0 )
                     {
-                        if(confirm('Are you sure to Approve Cleaner')){
+                        // if(confirm('Are you sure to Approve Cleaner')){
                             $scope.cleanerInfo.isApproved = status;
                             AdminService.updateCleanerStatus(cleanerId,$scope.cleanerInfo).then(function(data){ 
                                toaster.pop('success', "Cleaner Approved Successfully");
                             });
-                        }
+                        // }
                     }else{
                         if($scope.setStatus == 1 )
                         {
-                            if(confirm('Are you sure to Reject Cleaner'))
-                            {
+                            // if(confirm('Are you sure to Reject Cleaner'))
+                            // {
                                 $scope.cleanerInfo.isApproved = status;
                                 AdminService.updateCleanerStatus(cleanerId,$scope.cleanerInfo).then(function(data){ 
                                   toaster.pop('success', "Cleaner Rejected Successfully");
                                 });
-                            }
+                            // }
                         }
                         else{
-                            if(confirm('Are you sure to Approve Cleaner'))
-                            {
+                            // if(confirm('Are you sure to Approve Cleaner'))
+                            // {
                                 $scope.cleanerInfo.isApproved = status;
                                 AdminService.updateCleanerStatus(cleanerId,$scope.cleanerInfo).then(function(data){ 
                                   toaster.pop('success', "Cleaner Approved Successfully");
                                 });
-                            }
+                            // }
                         }
                     }                
                 }
