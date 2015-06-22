@@ -1,13 +1,9 @@
 'use strict';
 
-	app.controller('CustomerController', function ($scope, $http, $window, $location, BookingService, AuthenticationService, CustomerService, CleanerService,$firebase, toaster, FIREBASE_URL) { 
+	app.controller('CustomerController', function ($scope, $http, $window, $location, RatingService, BookingService, AuthenticationService, CustomerService, CleanerService,$firebase, toaster, FIREBASE_URL) { 
         $scope.signedIn = AuthenticationService.signedIn;
         get_states();
         $scope.user = {};
-        $scope.rating = 5;
-        $scope.rateFunction = function(rating) {
-          console.log('Rating selected - ' + rating);
-        };
         $scope.bookings = {};
         $scope.booking_status = {};
         $scope.steps = [
@@ -68,7 +64,22 @@
                 $scope.getBooking = function(){
                     $scope.booking = CustomerService.getBooking();
                 };
+                $scope.saveRating = function(rating){
+                    $scope.booking = CustomerService.getBooking();
+                    rating.cleanerId = $scope.booking.cleanerID;
+                    rating.customerId = $scope.booking.customerID;
+                    rating.bookingId = $scope.booking.$id;
+                    var ratingSum = rating.communication_rating + rating.friendliness_rating + rating.punctuality_rating + rating.quality_rating + rating.recommend_rating + rating.value_rating;
+                    rating.avrage_rating =  Math.round(ratingSum / 6);
+                    RatingService.addCustomersRating(rating).then(function() {
+                        toaster.pop('success', "successfully add rating!");
+                        window.location = "#/customer-dashboard";
+                    },function (error) {
+                        toaster.pop('error', "Error..!", error.toString());
+                    });;
+                };
                 $scope.updateBookingStatus = function(booking){
+                    CustomerService.setBooking(booking);
                     $scope.booking_status.status = "complete";
                     BookingService.updateBookingStatus(booking.$id,$scope.booking_status);
                 };
