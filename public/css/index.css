@@ -295,7 +295,7 @@ margin-left: 847px;
         box-shadow: 0 10px 6px -6px #777;
 }
 
-/*customer rating*/
+/*rating templates*/
 .rating{
   color: #a9a9a9;
   margin: 0;
@@ -358,3 +358,28 @@ ul.rating {
 .save-review{
   width: 617px;
 }
+
+/*cleaner-myprofile1*/
+.timeText {
+    width: 100px;
+}
+.availletime{
+  background-color:lavender;
+  height:35px;
+  width: 430px;
+  margin-left: 196px;
+}
+.about-us{
+ width: 60%;
+ height: 15em;
+}
+.avlfrm{
+  height: 675px;
+}
+.avlbtn{
+  height: 40px;
+  margin-left: 509px;
+  width: 90px;
+}
+/*login-signup*/
+.loginbtn{margin-left: 57px;margin-right: 66px;}
