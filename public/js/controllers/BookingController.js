@@ -25,11 +25,6 @@
                 $scope.setBookInfo = function(bookingInfo){
                 $scope.booking = true;                
                 $scope.frequency1 =$scope.bookingInfo.frequency_type;
-                // $scope.bookInfo.no_of_bedroom =$scope.bookingInfo.bedrooms;
-                // $scope.bookInfo.no_of_bathroom =$scope.bookingInfo.bathrooms;
-                // $scope.bookInfo.reserve_hours ='3.0';
-                // $scope.frequency1 =$scope.bookingInfo.frequency_type;
-                // $scope.bookInfo.cleanerID = $scope.bookingInfo.cleanerId;
                 var clanerProfile = AuthenticationService.getCurrentUser($scope.bookingInfo.cleanerId);
                    clanerProfile.$loaded().then(function (clanerProfile) { 
                     $scope.clanerProfile = clanerProfile;
@@ -40,10 +35,12 @@
                 });    
                 angular.forEach($scope.charges[0], function(key,value){
                     if($scope.frequency1 == value){
-                      $scope.bookInfo.charges = key; 
+                      $scope.charges = key; 
                     }
                 });
+
                 $scope.bookInfo={
+                   charges           : $scope.charges,
                    no_of_bedroom     : $scope.bookingInfo.bedrooms,
                    no_of_bathroom    : $scope.bookingInfo.bathrooms,
                    reserve_hours     : '3.0',                   
@@ -54,7 +51,6 @@
                
                 sessionStorage.user = null;
                 sessionStorage.user = angular.toJson($scope.bookInfo);
-                console.log($scope.bookInfo);
                 }
                 $scope.completeBooking = function(){
                     if(angular.isUndefined($scope.bookInfo.date_time)){
@@ -74,8 +70,6 @@
                     $scope.bookInfo.charges = charge;
                     sessionStorage.user = angular.toJson($scope.bookInfo);
                     $scope.subtotal = charge * $scope.reserve_hours;
-
-                    // $scope.bookInfo.subtotal = $scope.subtotal;
                 }
                  $scope.setDateTime = function(date){
                     sessionStorage.user = null;
@@ -96,10 +90,9 @@
                     });     
                 }
                 $scope.submitOrder = function(){    
-
                     $scope.bookInfo.firstname = $scope.firstname;
                     $scope.bookInfo.lastname  =$scope.lastname;                                        
-                    $scope.bookInfo.total      =$scope.subtotal ? $scope.subtotal : '0';
+                    $scope.bookInfo.total      =$scope.subtotal;
                     $scope.bookInfo.customerID =authUser.uid;
                     $scope.bookInfo.status     ="In progress"                   
                     if($scope.previous_address == true){
@@ -114,8 +107,7 @@
                         $scope.bookInfo.city       =$scope.city;
                         $scope.bookInfo.state      =$scope.state;
                         $scope.bookInfo.zip_code   =$scope.zip_code;
-                    }    
-                    console.log($scope.bookInfo);  
+                    }      
                     BookingService.cleanerBooking($scope.bookInfo).then(function (data) {                        
                         sessionStorage.user = null;
                         $location.path('/customer_booking/submit_orders').replace();

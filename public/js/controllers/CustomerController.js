@@ -29,7 +29,7 @@
                     //manage appointment tab through isAppointment
                     $scope.isAppointment = true;
                     angular.forEach($scope.bookings, function(value , key) {
-                       if(value.status == "In Progress"){
+                       if(value.status == "In progress"){
                          $scope.isAppointment = false;
                        };
                     })
@@ -86,7 +86,7 @@
                     rating.customer_id = $scope.booking.customerID;
                     rating.booking_id = $scope.booking.$id;
                     var ratingSum = rating.communication_rating + rating.friendliness_rating + rating.punctuality_rating + rating.quality_rating + rating.recommend_rating + rating.value_rating;
-                    rating.avrage_rating =  Math.round(ratingSum / 6);
+                    rating.average_rating =  Math.round(ratingSum / 6);
                     RatingService.addCustomersRating(rating).then(function() {
                         toaster.pop('success', "successfully add rating!");
                         window.location = "#/customer-dashboard";

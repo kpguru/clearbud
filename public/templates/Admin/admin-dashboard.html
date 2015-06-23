@@ -34,8 +34,8 @@
             <td>{{ customer.email }}</td>
           </tr>
           <tr ng-show="cleaner.role != 'customer' && cleaner.isApproved == 0 &&  setStatus == 0" ng-repeat="cleaner in cleaners">
-            <td>{{ cleaner.first_name }}</td>
-            <td>{{ cleaner.last_name }}</td>
+            <td>{{ cleaner.firstname }}</td>
+            <td>{{ cleaner.lastname }}</td>
             <td>{{ cleaner.email }}</td>
             <td>{{cleaner.isApproved ==  0? "Pending" : "Approved"}}</td>
             <th><button class="btn btn-default dropdown-toggle" ng-click="setCleanerStatus(cleaner.$id,1)" ng-confirm-click="Are you sure to Approve Cleaner?" type="button">{{cleaner.isApproved ==  0? "Approve" : "Reject"}}</button></th>

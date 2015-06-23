@@ -100,7 +100,7 @@ var app = angular.module('clearbud',[
                 }
             }
        });
-       $routeProvider.when('/cleaner_profiles/:cleanerID/home-smile-cleaner', {
+       $routeProvider.when('/cleaner_profiles/:cleanerID/home-smile-cleaners', {
            templateUrl: 'templates/Customer/customer-view-cleaner.html',
            controller: 'CleanerController',
            resolve: {

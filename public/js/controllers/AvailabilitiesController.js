@@ -184,7 +184,6 @@
                     $scope.availabilities.monday_to_friday.toTime =$scope.montofri.toTime;
                 }
                 }
-                // console.log($scope.wednesday.day);
                 AvailabilitiesService.updateCleanerAvailabilities($scope.Availabilities.$id, $scope.availabilities).then(function(data) {
                     toaster.pop('success', "Update Cleaner availabilities successfully!");
                 },function (data) {

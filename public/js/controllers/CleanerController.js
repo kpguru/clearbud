@@ -1,11 +1,13 @@
 'use strict';
 
-	app.controller('CleanerController', function ($routeParams, BookingService, ServicesService, ChargesService, AvailabilitiesService, $http, $scope, $window, $location,AuthenticationService, CleanerService, $firebase, toaster, FIREBASE_URL) { 
+	app.controller('CleanerController', function ($routeParams, BookingService, CustomerService, RatingService, ServicesService, ChargesService, AvailabilitiesService, $http, $scope, $window, $location,AuthenticationService, CleanerService, $firebase, toaster, FIREBASE_URL) { 
       $scope.signedIn = AuthenticationService.signedIn;
       $scope.profile ={};
       var currentuser={};
       $scope.bookingInfo={};
       $scope.about ={};
+      $scope.customerReviews = [];
+      $scope.manageReviews =true;
       $scope.availabilities ={};
       $scope.services = {};
       $scope.services.general = []; 
@@ -67,7 +69,7 @@
       var ref = new Firebase(FIREBASE_URL);
         ref.onAuth(function(authUser) {
           if (authUser != null) {
-            //get cleaner availabilities,charges,services,profile
+            //get cleaner availabilities,charges,services,profile,rating
             if($routeParams.cleanerID){ 
               var clanerProfile = AuthenticationService.getCurrentUser($routeParams.cleanerID);
                clanerProfile.$loaded().then(function (clanerProfile) { 
@@ -108,7 +110,26 @@
                                     cleaner_id        :value.cleaner_id
                                    }
                     })
-                });  
+                });
+                 
+                var clanerRating = RatingService.getCleanerRatings($routeParams.cleanerID);
+                clanerRating.$loaded().then(function (data) {
+                  if(data.length > 0){
+                    $scope.manageReviews = false;
+                    var c = 0;
+                    var sum = 0;
+                      angular.forEach( data, function(value){
+                        sum = sum + value.average_rating; 
+                        var customerInfo = CustomerService.getCustomer(value.customer_id);                          
+                        customerInfo.$asObject().$loaded().then(function (data) {
+                          $scope.customerReviews.push({customer_review: value.customer_review, customer_image: data.customer_image, firstname: data.firstname, lastname: data.lastname, date: value.date, customer_average_rating: value.average_rating});
+                        });
+                        c++;
+                      });
+                      $scope.average_rating = Math.round(sum / c);
+                  }
+                });
+
 
                 var cleanerService = ServicesService.getServices($routeParams.cleanerID);
                 cleanerService.$loaded().then(function (data) { 

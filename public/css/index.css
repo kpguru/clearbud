@@ -227,6 +227,22 @@ margin-left: 847px;
 .cleaner-general-service{
   margin-left: 100px;
 }
+.customer-review{
+   background-color: #fff;
+  border: 1px solid #e4e4e4;
+  border-radius: 12px;
+  box-shadow: 0 10px 6px -6px #777;
+  margin-left: 3px;
+  margin-top: 20px;
+  padding: 20px;
+  width: 662px;
+}
+.text_align{
+  text-align: justify;
+}
+.no-review{
+  width: 220px;
+}
 /*cleaner-profile*/
 .container.cleaner-profile.ng-scope {
   margin-left: 55px;
@@ -384,3 +400,14 @@ ul.rating {
 }
 /*login-signup*/
 .loginbtn{margin-left: 57px;margin-right: 66px;}
+/*customer-view-cleaner*/
+.cleaner-rating-section{
+  background-color: #fff;
+  border: 1px solid #e4e4e4;
+  border-radius: 12px;
+  box-shadow: 0 10px 6px -6px #777;
+  margin-left: 3px;
+  margin-top: 20px;
+  padding: 20px;
+  width: 662px;
+}

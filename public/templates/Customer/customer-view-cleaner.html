@@ -6,20 +6,40 @@
 					<img src = {{clanerProfile.cleaner_logo}} class="cleaner_logo">
 				</div>
 				<div class="col-sm-8">
-					<h2>{{clanerProfile.firstname}} {{clanerProfile.lastname}}</h2>
-					<p>Hours Of Operation:</p>
-					<div>
-						 <table>
-					        <tr ng-repeat='Availability in Availabilities'>
-					            <td>{{Availability.day}}</td>
-					            <td>{{Availability.fromTime | date:'h:mma'}}</td>
-					            <td>{{Availability.toTime | date:'h:mma'}}</td>
-					        </tr>
-					    </table>
-					</div>
+					<table>
+				        <tr>
+				            <td><h2>{{clanerProfile.firstname}} {{clanerProfile.lastname}}</h2></td>
+				            <td></td>
+				            <td></td>
+				        </tr>
+				        <tr>
+				            <td><div ng-init="average_rating = star.rating + 1"></div>
+				                <div><div class="star-rating" star-rating rating-value="average_rating" data-max="5"></div></td>
+				            <td></td>
+				            <td></td>
+				        </tr>
+				        <tr>
+				            <td><h4>Hours Of Operation:</h4></td>
+				            <td></td>
+				            <td></td>
+				        </tr>
+				        <tr>
+				            <td><div>
+									<table>
+								        <tr ng-repeat='Availability in Availabilities'>
+								            <td>{{Availability.day}}</td>
+								            <td>{{Availability.fromTime | date:'h:mma'}}</td>
+								            <td>{{Availability.toTime | date:'h:mma'}}</td>
+								        </tr>
+								    </table>
+								</div></td>
+				            <td></td>
+				            <td></td>
+				        </tr>
+				    </table>	
 				</div>
 			</div>
-			<div class="row cleaner-tab-my-profile">
+			<div class="cleaner-tab-my-profile">
 				<form class="form-horizontal">
 
 				    <ul class="nav nav-tabs">
@@ -32,15 +52,73 @@
 
 				        <!-- First Step -->
 				        <div ng-switch-when="Reviews">
-				             <div class="col-sm-2"><h2>No Reviews</h2></div>
-				              <div class="col-sm-1">
-				              </div>
+				            <div class="col-sm-2 no-review" ng-show="manageReviews">
+				            	<h2>No Reviews</h2>
+				            </div>
+				            <div ng-hide="manageReviews">
+				              	<div class="cleaner-rating-section">
+									<div class="rating-punctuality">
+										<div>Punctuality</div>
+										<div ng-init="punctuality_rating = 5"></div>
+										<div><div class="star-rating" star-rating rating-value="punctuality_rating" data-max="5"></div>
+									</div>
+									</div>
+									<div class="rating-quality">
+										<div>Quality</div>
+										<div ng-init="quality_rating = 5"></div>
+										<div><div class="star-rating" star-rating rating-value="quality_rating" data-max="5"></div></div>
+									</div>
+									<div class="rating-punctuality">
+										<div>Friendliness</div>
+										<div ng-init="friendliness_rating = 5"></div>
+										<div><div class="star-rating" star-rating rating-value="friendliness_rating" data-max="5"></div></div>
+									</div>
+									<div class="rating-quality">
+										<div>Value</div>
+										<div ng-init="value_rating = 5"></div>
+										<div><div class="star-rating" star-rating rating-value="value_rating" data-max="5"></div></div>
+									</div>
+									<div class="rating-punctuality">
+										<div>Communication</div>
+										<div ng-init="communication_rating = 5"></div>
+										<div><div class="star-rating" star-rating rating-value="communication_rating" data-max="5"></div></div>
+									</div>
+									<div class="rating-quality">
+										<div>Recommend</div>
+										<div ng-init="recommend_rating = 5"></div>
+										<div><div class="star-rating" star-rating rating-value="recommend_rating" data-max="5"></div></div>
+									</div>
+							    </div>
+				            
+					            <div class="row customer-review" ng-repeat="customerReview in customerReviews">
+					            	<div class="col-sm-4">
+					            		<img src = {{customerReview.customer_image}} class="cleaner_logo">
+					            	</div>
+					            	<div class="col-sm-8">
+					            		<table>
+									        <tr>
+									            <td><h5>{{customerReview.firstname}} {{customerReview.lastname}}</h5></td>
+									        </tr>
+									        <tr>
+									            <td>{{customerReview.date | date:'medium'}}</td>
+									        </tr>
+									        <tr>
+									        	<td>
+									                <div><div class="star-rating" star-rating rating-value="customerReview.customer_average_rating" data-max="5"></div></td>
+									        </tr>
+									        <tr>
+									            <td><p class="text_align">{{customerReview.customer_review}}</p></td>
+									        </tr>
+									    </table>	
+					            	</div>
+					            </div>
+				            </div>
 				        </div>
 
 				        <!-- Second Step -->
 				        <div ng-switch-when="About">
 				        	<div class="cleaner_info">
-				        			<h4>{{clanerProfile.cleaner_about_us}}</h4>
+				        			<p class="text_align">{{clanerProfile.cleaner_about_us}}</p>
 				        	</div>
 				        </div>
 
