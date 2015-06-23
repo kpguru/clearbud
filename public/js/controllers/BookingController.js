@@ -8,12 +8,7 @@
         $scope.date = new Date();
         $scope.newAddress = true;
         $scope.time = CleanerService.formatTime(new Date());
-        $scope.hours = [{name: '3.0 hours', value: '3.0' },
-                      {name: '3.5 hours', value: '3.5' },
-                      {name: '4.0 hours', value: '4.0' },
-                      {name: '4.5 hours', value: '4.5' },
-                      {name: '5.0 hours', value: '5.0' }
-                      ];
+        $scope.hours = BookingService.hours();
         $scope.reserve_hours = $scope.hours[0].value;
         var ref = new Firebase(FIREBASE_URL);
         ref.onAuth(function(authUser) {
@@ -26,7 +21,7 @@
                 $scope.booking = true;                
                 $scope.frequency1 =$scope.bookingInfo.frequency_type;
                 var clanerProfile = AuthenticationService.getCurrentUser($scope.bookingInfo.cleanerId);
-                   clanerProfile.$loaded().then(function (clanerProfile) { 
+                    clanerProfile.$loaded().then(function (clanerProfile) { 
                     $scope.clanerProfile = clanerProfile;
                 })
                 var clanerCharges = ChargesService.getCharges($scope.bookingInfo.cleanerId);
@@ -102,12 +97,12 @@
                     $scope.bookInfo.state    =$scope.currentUser.state;
                     $scope.bookInfo.zip_code =$scope.currentUser.zip_code;
                     }else{
-                        $scope.bookInfo.address1   =$scope.address1;
-                        $scope.bookInfo.address2   =$scope.address2;
-                        $scope.bookInfo.city       =$scope.city;
-                        $scope.bookInfo.state      =$scope.state;
-                        $scope.bookInfo.zip_code   =$scope.zip_code;
-                    }      
+                    $scope.bookInfo.address1   =$scope.address1;
+                    $scope.bookInfo.address2   =$scope.address2;
+                    $scope.bookInfo.city       =$scope.city;
+                    $scope.bookInfo.state      =$scope.state;
+                    $scope.bookInfo.zip_code   =$scope.zip_code;
+                    }
                     BookingService.cleanerBooking($scope.bookInfo).then(function (data) {                        
                         sessionStorage.user = null;
                         $location.path('/customer_booking/submit_orders').replace();
