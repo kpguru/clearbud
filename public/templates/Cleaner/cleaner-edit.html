@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-init="getRendering()">
   <div class='customer-edit'>
     <h3 align="center">My Profile</h3>
     <form name="cleanerForm">
@@ -121,7 +121,8 @@
             <tr>
               <td></td>
               <td></td>
-              <td><button class="btn btn-primary" ng-click="updateCP(currentUser)">Save Changes</button></td>
+              <td><button class="btn btn-primary" ng-show="updateProfile" ng-click="updateCP(currentUser,'cleanerSignup')">Save Changes</button>
+              <button class="btn btn-primary" ng-hide="updateProfile" ng-click="updateCP(currentUser,'updateProfile')">Update Profile</button></td>
             </tr>
           </tbody>
       </table> 

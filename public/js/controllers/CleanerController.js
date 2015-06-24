@@ -114,17 +114,33 @@
                 toaster.pop('success', "Thank You for creating account.");
                 $location.path('/cleaner/'+authUser.uid+'/profile');
               });
-            }            
-            $scope.updateCP=function(cleaner){
+            } 
+            $scope.setRendering =function(updateProfile){
+              CleanerService.setRendering(updateProfile);
+            };  
+            $scope.getRendering =function(){  
+              $scope.updateProfile = CleanerService.getRendering();
+            };           
+            $scope.updateCP=function(cleaner,updateProfile){
                 var logo = document.getElementById("newLogo").src;                          
                 cleaner.cleaner_logo = logo? logo : $scope.currentUser.cleaner_logo;
                 if(!$scope.currentUser.firstname  || !$scope.currentUser.lastname ||!$scope.currentUser.zip_code ||!cleaner.cleaner_logo){
                     return; 
-                 }
-                CleanerService.updateCP(authUser.uid, cleaner).then(function (data) {                  
-                  toaster.pop('success', "Thank You for Complete Your Profile,We Will get in touch soon");
-                  $location.path('/cleaner/'+authUser.uid+'/profile');
-                });
+                }
+                if(updateProfile == 'updateProfile')
+                {
+                  CleanerService.updateCP(authUser.uid, cleaner).then(function (data) {                  
+                    toaster.pop('success', "Successfully Updated Your Profile");
+                    $location.path('/cleaner_profiles/'+cleaner.$id);
+                  });
+                }
+                else{
+                  CleanerService.updateCP(authUser.uid, cleaner).then(function (data) {                  
+                    toaster.pop('success', "Thank You for Complete Your Profile,We Will get in touch soon");
+                    $location.path('/cleaner/'+authUser.uid+'/profile');
+                  });
+                }
+                
             } 
              $scope.saveCleanerAbout = function(){             
               $scope.about.cleaner_about_us =  $scope.clanerProfile.cleaner_about_us;

@@ -3,6 +3,7 @@
 app.factory('CleanerService', function($firebaseAuth, FIREBASE_URL, $firebase) {
     var ref = new Firebase(FIREBASE_URL);
     var auth = $firebaseAuth(ref);
+    var cleanerEdit;
     var firebaseUsers = $firebase(ref.child('users'));
     var Cleaner = {
         getCleaner : function (cleanerID) {
@@ -106,6 +107,12 @@ app.factory('CleanerService', function($firebaseAuth, FIREBASE_URL, $firebase) {
                   'Availability'
                 ];
             return steps1;
+        },
+        setRendering : function(updateProfile){
+           cleanerEdit = updateProfile;
+        },
+        getRendering : function(){
+           return cleanerEdit;
         }
     }
         return Cleaner;

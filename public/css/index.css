@@ -243,6 +243,12 @@ margin-left: 847px;
 .no-review{
   width: 220px;
 }
+.update-cleaner-profile{
+  height: 370px;
+  margin-left: 98px;
+  margin-top: 31px;
+  width: 700px;
+}
 /*cleaner-profile*/
 .container.cleaner-profile.ng-scope {
   margin-left: 55px;
