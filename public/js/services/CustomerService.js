@@ -4,7 +4,7 @@ app.factory("CustomerService", function ($firebase, FIREBASE_URL) {
 
     var ref = new Firebase(FIREBASE_URL);
     var firebaseCustomers = $firebase(ref.child('users')).$asArray();
-    var setBookingInfo;
+    var data;
     var customer = {
     	getCustomer : function (customerID) {
             return $firebase(ref.child('users').child(customerID));
@@ -13,11 +13,11 @@ app.factory("CustomerService", function ($firebase, FIREBASE_URL) {
           var customerInfo = this.getCustomer(customerID);
           return customerInfo.$update(editCustomer);
         },
-        setBooking : function(booking){
-            setBookingInfo = booking;
+        setData : function(info){
+            data = info;
         },
-        getBooking : function(){
-            return setBookingInfo;
+        getData : function(){
+            return data;
         }
     }
     return customer;

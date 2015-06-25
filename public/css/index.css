@@ -302,21 +302,33 @@ margin-left: 847px;
 }
 /*customer-search*/
 .search-page {
-  margin-left: 288px;
+   margin-left: 86px;
   margin-top: 20px;
 }
 .cleaner-list{
-  margin-top: 20px;
-  border: 1px #e4e4e4 solid;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 6px #ccc;
-  background-color: #fff;
-  -webkit-box-shadow: 0 10px 6px -6px #777;
-  -moz-box-shadow: 0 10px 6px -6px #777;
-        box-shadow: 0 10px 6px -6px #777;
+   background-color: #fff;
+    border: 1px solid #e4e4e4;
+    border-radius: 12px;
+    box-shadow: 0 10px 6px -6px #777;
+    height: 250px;
+    margin-top: 20px;
+    padding: 20px;
+    width: 800px;
 }
-
+.search-criteria{
+  margin-left: -232px;
+    margin-top: 79px;
+}
+.sort-text{
+  width: 93px;
+}
+.set-cleaner-image{
+  width: 200px;
+}
+.search-by-name{
+  margin-left: -13px;
+  width: 795px;
+}
 /*rating templates*/
 .rating{
   color: #a9a9a9;

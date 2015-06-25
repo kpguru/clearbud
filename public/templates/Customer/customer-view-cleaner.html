@@ -104,7 +104,7 @@
 									        </tr>
 									        <tr>
 									        	<td>
-									                <div><div class="star-rating" star-rating rating-value="customerReview.customer_average_rating" data-max="5"></div></td>
+									                <div class="star-rating" star-rating rating-value="customerReview.customer_average_rating" data-max="5"></div></td>
 									        </tr>
 									        <tr>
 									            <td><p class="text_align">{{customerReview.customer_review}}</p></td>
@@ -229,7 +229,7 @@
 			    </form>
 			</div>
 		</div>
-		<div class="col-sm-4 cleaner-profile" ng-hide="show">
+		<div class="col-sm-4 cleaner-profile">
 			<input type="hidden" ng-model="bookingInfo.cleanerId"/>
 			<img src ="images/service.jpeg" class="fixed-img">
 		    <select ng-options="no_of_bedroom.value as no_of_bedroom.name for no_of_bedroom in no_of_bedrooms"  class="form-control input-lg select-credential" ng-model="bookingInfo.bedrooms"></select>
