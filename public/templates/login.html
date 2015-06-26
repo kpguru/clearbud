@@ -4,7 +4,7 @@
 		<div class="col-md-6">
 		  <div class="login-form">
 			<form class="prf-logn" name="login_form" ng-submit="login(user)">
-			  <p align="center"> Login Form</p>
+			  <p align="center">Login Form</p>
 				<div class="prf-logn-wrapper">
 
                   <div class="form-group" ng-class="{'has-error': login_form.email.$dirty && login_form.email.$invalid, 'has-success': !login_form.email.$invalid}">
@@ -35,15 +35,18 @@
                       <span ng-show="login_form.password.$error.pattern" class="text-danger">Password required only a-zA-Z0-9_ symbols.</span>
 
                     </div>
-
-						
 				  <div class="form-group form-btns loginbtn">
 					<button type="submit" class="btn btn-primary btn-main btn-popup loginbtn">Login</button>
 				  </div>
 						
-				  <div class="form-group clearfix">
+				  <div class="form-group clearfix new-ac-section">
+				  	<a class="create-new" href="#/forgot-password">Forget Password!</a><br>
 					<a class="create-new" href="#/cleaner-signup">Create New Account(Cleaner)</a><br>
 					<a class="create-new" href="#/customer-signup">Create New Account(Customer)</a>
+				  </div>
+				  <div class="sn-site-logo">
+				  	<img src ="images/fb.png" ng-click="socialLogin('facebook')" class="cursor-pointer">
+				  	<img src ="images/g+.png"ng-click="socialLogin('google')" class="cursor-pointer">
 				  </div>
 				</div>
 			</form> 

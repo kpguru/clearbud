@@ -75,7 +75,6 @@
 
                 //search cleaner by name
                 $scope.searchCleanerByName = function(name){
-                    console.log(name);
                     if(name){
                         $scope.cleanerData = [];
                         $scope.cleaners = CustomerService.getData();

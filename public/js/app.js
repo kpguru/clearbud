@@ -28,6 +28,19 @@ var app = angular.module('clearbud',[
             templateUrl: 'templates/login.html',
             controller: 'AuthController'
         });
+          $routeProvider.when('/forgot-password', {
+            templateUrl: 'templates/forgot-password.html',
+            controller: 'AuthController'
+        });
+        $routeProvider.when('/change-password', {
+            templateUrl: 'templates/change-password.html',
+            controller: 'AuthController',
+            resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
+        }); 
         $routeProvider.when('/cleaner-dashboard', {
             templateUrl: 'templates/Cleaner/cleaner-dashboard.html',
             controller: 'CleanerController',

@@ -64,7 +64,8 @@
                         <li><a href="#/customer-signup"> Customer Signup </a></li>
                         <li><a href="#/cleaner-signup">Cleaner Signup</a></li>
                       </ul>             
-                    </li>             
+                    </li>   
+                    <li ng-show="signedIn()"><a href="#/change-password" class="form-list" href="javascript:;">Change Password</a></li>          
                     <li ng-show="signedIn()"><a class="form-list" href="javascript:;" ng-click="logout();">Logout</a></li>
                   </ul>
                 </div>

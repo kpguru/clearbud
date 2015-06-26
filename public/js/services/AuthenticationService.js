@@ -52,15 +52,21 @@ app.factory('AuthenticationService', function($firebaseAuth, FIREBASE_URL, $fire
         },
         logout : function(){
             return auth.$unauth();
+        },
+        resetPassword: function (reset) {
+            return auth.$resetPassword({email : reset.email});
         }, 
-         signedIn : function(){
+        changePassword : function(change){
+            return auth.$changePassword(
+                { email: change.email, oldPassword: change.old_password, newPassword: change.new_password }
+            )
+        },
+        signedIn : function(){
             return !!Auth.user.provider;
         },
         requireAuth : function(){
             return auth.$requireAuth();
         }
-      
-
     };
 
     auth.$onAuth(function(authData){
