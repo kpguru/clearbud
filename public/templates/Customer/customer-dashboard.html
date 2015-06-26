@@ -1,4 +1,12 @@
-<div class="container-fluid">
+<style type="text/css">
+  .status-pending{
+    color: gray;
+  }
+  .status-complete{
+    color: green;
+  }
+</style>
+<div class="container-fluid" >
   <div class="customer-tab">
     <form class="form-horizontal">
 
@@ -22,30 +30,25 @@
           <div class="row">
             <div class="col-sm-12">
               <div> 
-                <div ng-repeat = "booking in bookings">          
-                  <div class="row customer-booking-list" ng-hide="booking.status == 'complete'"> 
-                    <div>
-                      <a href='#/customer_booking/view_orders'><button class="btn  btn-primary btn-log" ng-click="setBooking(booking)">View</button></a>
-                       <a href='#/customer_rating'><button class="btn  btn-primary btn-log" ng-click = "updateBookingStatus(booking);">Complete</button></a>
-                     <!--  <a href='#/'><button class="btn  btn-primary btn-log" >Cancel</button></a> -->
+                <div>          
+                  <div class="row customer-booking-list"> 
+                    <div> 
                     </div> 
                     <table class = "table customer-booking-table" ng-init="getClenaerName(booking)">
-                      <tr>
-                          <td><b>Cleaner Name</b></td>
-                        <td>{{booking.cleaner_firstname}} {{booking.cleaner_lastname}}</td>
-                      </tr>
-                      <tr>
-                           <td><b>Booking Address</b></td>
-                        <td>{{booking.address1}}, {{booking.address2}} {{booking.city}}</td>                        
-                      </tr>
-                      <tr>
-                          <td><b>Booking Date-Time</b></td>
-                        <td>{{booking.date_time | date:"dd/MM/yyyy 'at' h:mma"}}</td>
-                        
-                      </tr>
-                      <tr>
-                          <td><b>Amount</b></td>
-                        <td>{{booking.total}}</td>                        
+                      <tr><th>Cleaner Name</th>
+                      <th>Booking Address</th>
+                      <th>Booking Date</th>
+                      <th>Booking Time</th>
+                      <th>Amount</th>
+                       <th>Status</th></tr>
+
+                        <tr ng-repeat = "booking in bookings"><td>{{booking.cleaner_firstname}} {{booking.cleaner_lastname}}</td>   
+                        <td>{{booking.address1}}, {{booking.address2}} {{booking.city}}</td>
+                        <td>{{booking.date_time | date:"dd/MM/yyyy"}}</td>
+                        <td>{{booking.date_time | date:" h:mma"}}</td>
+                        <td>{{booking.total}}</td> 
+                        <td class="status-pending" ng-if="booking.status=='In progress'">{{booking.status}}</td>
+                        <td class="status-complete" ng-if="booking.status=='complete'"><a href="#/customer_rating" ng-click="setBooking(booking)">Create Review</td>                        
                       </tr>
                     </table>        
                   </div>

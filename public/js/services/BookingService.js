@@ -15,8 +15,9 @@ app.factory('BookingService', function($firebaseAuth, FIREBASE_URL, $firebase) {
             return $firebase(ref.child('booking').orderByChild("customerID").equalTo(costomer_id)).$asArray();
         },
         updateBookingStatus : function (bookingID,status) {
+          var st = {status: status}
           var bookingInfo = this.getBooking(bookingID);
-          return bookingInfo.$update(status);
+          return bookingInfo.$update(st);
         },
         hours : function(){
             var hours = [{name: '3.0 hours', value: '3.0' },

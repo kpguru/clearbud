@@ -1,6 +1,6 @@
 'use strict';
 
-	app.controller('CleanerController', function ($routeParams, BookingService, SharedService, CustomerService, RatingService, ServicesService, ChargesService, AvailabilitiesService, $http, $scope, $window, $location,AuthenticationService, CleanerService, $firebase, toaster, FIREBASE_URL) { 
+	app.controller('CleanerController', function ($routeParams, BookingService, CustomerService, RatingService, ServicesService, ChargesService, AvailabilitiesService, $http, $scope, $window, $location,AuthenticationService, CleanerService, $firebase, toaster, FIREBASE_URL) { 
       $scope.signedIn = AuthenticationService.signedIn;
       $scope.profile ={};
       var currentuser={};
