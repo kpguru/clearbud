@@ -106,6 +106,7 @@
                                 clanerAvailabilities.$loaded().then(function (availabilities) {                      
                                     var clanerRating = RatingService.getCleanerRatings(cleaner.$id);
                                     clanerRating.$loaded().then(function (rating) {
+                                        console.log(rating);
                                         if(rating.length > 0){
                                             var c = 0;
                                             var sum = 0;

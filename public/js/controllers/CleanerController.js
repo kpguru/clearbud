@@ -72,8 +72,10 @@
                   if(data.length > 0){
                     $scope.manageReviews = false;
                     var c = 0;
+                    var a = 0
                     var sum = 0;
-                      angular.forEach( data, function(value){
+                    while(a<data.length){
+                      angular.forEach(data[c].rating, function(value){
                         sum = sum + value.average_rating; 
                         var customerInfo = CustomerService.getCustomer(value.customer_id);                          
                         customerInfo.$asObject().$loaded().then(function (data) {
@@ -82,6 +84,8 @@
                         c++;
                       });
                       $scope.average_rating = Math.round(sum / c);
+                      a++;
+                    }
                   }
                 });                  
            
