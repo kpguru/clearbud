@@ -3,15 +3,22 @@
 app.factory("RatingService", function ($firebase, FIREBASE_URL) {
 
     var ref = new Firebase(FIREBASE_URL);
-    var firebaseCustomersRating = $firebase(ref.child('rating'));
+    var firebaseCustomersRating = $firebase(ref.child('booking'));
     var rating = {
         addCustomersRating: function (rating) {
             rating.date = Firebase.ServerValue.TIMESTAMP;
-            return firebaseCustomersRating.$push(rating);
+            var t = $firebase(ref.child('booking').child(rating.booking_id).child('rating'));
+            return t.$push(rating);
         },
         getCleanerRatings : function(cleanerID){
-            return $firebase(ref.child('rating').orderByChild("cleaner_id").equalTo(cleanerID)).$asArray();
+
+            return $firebase(ref.child('booking').orderByChild("cleanerID").equalTo(cleanerID)).$asArray();
         }
     }
     return rating;
 });
+
+        //  joinSchool: function (schoolID, operators) {
+        //     var t = $firebase(ref.child('schools').child(schoolID).child('operators'));
+        //     return t.$push(operators);
+        // },

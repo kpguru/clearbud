@@ -15,14 +15,14 @@
         var ref = new Firebase(FIREBASE_URL);
         ref.onAuth(function(authUser) {
             if(authUser != null) {
-
                 //get all booking according to customer id
                 var customerBookings = BookingService.getCustomerBookings(authUser.uid);
                 customerBookings.$loaded().then(function (data) { 
-                    $scope.bookings = data;
+                    $scope.bookingData = data;     
+                    $scope.updateBookingStatus();  
                     //manage appointment tab through isAppointment
                     $scope.isAppointment = true;
-                    angular.forEach($scope.bookings, function(value , key) {
+                    angular.forEach($scope.bookingData, function(value , key) {
                        if(value.status == "In progress"){
                          $scope.isAppointment = false;
                        };
@@ -100,11 +100,13 @@
                         var i = 0;
                         angular.forEach( $scope.cleaners, function(cleaner){                       
                             var clanerCharges = ChargesService.getCharges(cleaner.$id);
-                            clanerCharges.$loaded().then(function (charges) {                   
+                            clanerCharges.$loaded().then(function (charges) {
+                             if(charges[0]){                 
                                 var clanerAvailabilities = AvailabilitiesService.getCleanerAvailabilities(cleaner.$id);
                                 clanerAvailabilities.$loaded().then(function (availabilities) {                      
                                     var clanerRating = RatingService.getCleanerRatings(cleaner.$id);
                                     clanerRating.$loaded().then(function (rating) {
+                                        console.log(rating);
                                         if(rating.length > 0){
                                             var c = 0;
                                             var sum = 0;
@@ -114,10 +116,11 @@
                                             });
                                             $scope.average_rating = Math.round(sum / c); 
                                         }                         
-                                        $scope.cleanerData.push({firstname:cleaner.firstname,lastname:cleaner.lastname,cleaner_id:cleaner.$id,isApproved:cleaner.isApproved,cleaner_logo:cleaner.cleaner_logo,cleaner_charge:charges[i].one_time,cleaner_availabilities:availabilities,cleaner_raing:$scope.average_rating});                
+                                        $scope.cleanerData.push({firstname:cleaner.firstname,lastname:cleaner.lastname,cleaner_id:cleaner.$id,isApproved:cleaner.isApproved,cleaner_logo:cleaner.cleaner_logo,cleaner_charge:charges[0].one_time,cleaner_availabilities:availabilities,cleaner_raing:$scope.average_rating});                
                                         CustomerService.setData($scope.cleanerData);
                                     });
                                 });
+                               }
                             });
                         });
                     });
@@ -140,10 +143,17 @@
                 };
 
                 //update booking status 
-                $scope.updateBookingStatus = function(booking){
-                    CustomerService.setData(booking);
-                    $scope.booking_status.status = "complete";
-                    BookingService.updateBookingStatus(booking.$id,$scope.booking_status);
+                $scope.updateBookingStatus = function(){
+                    angular.forEach($scope.bookingData, function(value){
+                        var date = new Date().getTime();
+                        if(date > value.date_time){
+                          value.status = "complete";
+                          BookingService.updateBookingStatus(value.$id, value.status);
+                        }
+                    })   
+                    customerBookings.$loaded().then(function (data) { 
+                    $scope.bookings = data;
+                    });
                 };
 
                 // Get the index of the current step given selection
