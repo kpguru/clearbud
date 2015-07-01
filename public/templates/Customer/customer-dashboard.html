@@ -31,7 +31,7 @@
             <div class="col-sm-12">
               <div> 
                 <div>          
-                  <div class="row customer-booking-list"> 
+                  <div class="row customer-booking-list" ng-hide = "isAppointment"> 
                     <div> 
                     </div> 
                     <table class = "table customer-booking-table" ng-init="getClenaerName(booking)">
@@ -40,16 +40,18 @@
                       <th>Booking Date</th>
                       <th>Booking Time</th>
                       <th>Amount</th>
-                       <th>Status</th></tr>
+                      <th>Status</th></tr>
 
-                        <tr ng-repeat = "booking in bookings"><td>{{booking.cleaner_firstname}} {{booking.cleaner_lastname}}</td>   
+                        <tr ng-repeat = "booking in bookings">
+                        <td>{{booking.cleaner_firstname}} {{booking.cleaner_lastname}}</td>   
                         <td>{{booking.address1}}, {{booking.address2}} {{booking.city}}</td>
                         <td>{{booking.date_time | date:"dd/MM/yyyy"}}</td>
                         <td>{{booking.date_time | date:" h:mma"}}</td>
                         <td>{{booking.total}}</td> 
-                        <td class="status-pending" ng-if="booking.status=='In progress'">{{booking.status}}</td>
-                        <td class="status-complete" ng-if="booking.status=='complete'"><a href="#/customer_rating" ng-click="setBooking(booking)">Create Review</td>                        
-                      </tr>
+                        <td class="status-pending" ng-if="booking.status=='In progress'">{{booking.status}}</td> 
+                        <td class="status-complete" ng-if="booking.status=='complete' && !booking.rating"><a href="#/customer_rating" ng-click="setBooking(booking)">Feedback</td>
+                        <td class="status-complete"  ng-if="booking.rating && booking.status=='complete'">{{booking.status}}</td>
+                       </tr>
                     </table>        
                   </div>
                 </div>

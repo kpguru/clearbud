@@ -39,6 +39,10 @@ app.factory('CleanerService', function($firebaseAuth, FIREBASE_URL, $firebase) {
             var ca = this.getCleaner(ID);
             return ca.$update(about);
         },
+        saveScore : function(ID,score){
+          var ca = this.getCleaner(ID);
+          return ca.$update(score);
+        },
          formatDate: function (input_date) {
             var year = input_date.getFullYear() + "";
             var month = (input_date.getMonth() + 1) + "";

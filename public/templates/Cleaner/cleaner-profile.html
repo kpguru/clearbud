@@ -1,70 +1,69 @@
 <div class = "container cleaner-profile">
-
   <div class="col-sm-2 cleaner-profile-col2"><h2>Your Profile</h2></div>
-            <div class="col-sm-1 cleaner-profile-col1">
-                <a href='#/cleaner-edit/{{currentUser.$id}}'><button class="btn btn-block btn-primary btn-lg cleaner-profile-btn" ng-click="setRendering('true')">Edit Account</button></a>
-            </div><br/>
-
-            <table class="table">
-              <tbody>
-                <tr>
-                  <td>Name</td>
-                  <td></td>
-                  <td>{{currentUser.firstname}} {{currentUser.lastname}}</td>
-                </tr>
-                <tr>
-                  <td>Email</td>
-                  <td></td>
-                  <td>{{currentUser.email}}</td>
-                </tr>
-                <tr>
-                  <td>Phone No</td>
-                  <td></td>
-                  <td>{{currentUser.phone}}</td>
-                </tr>
-                <tr>
-                  <td>Company Name</td>
-                  <td></td>
-                  <td>{{currentUser.company_name}}</td>
-                </tr>                
-                <tr>
-                  <td>Address</td>
-                  <td></td>
-                  <td>{{currentUser.address1}} {{currentUser.address2}}</td>
-                </tr>
-                <tr>
-                  <td>City</td>
-                  <td></td>
-                  <td>{{currentUser.city}}</td>
-                </tr>
-                <tr>
-                  <td>State</td>
-                  <td></td>
-                  <td>{{currentUser.state}}</td>
-                </tr>
-                <tr>
-                  <td>Zip Code</td>
-                  <td></td>
-                  <td>{{currentUser.zip_code}}</td>
-                </tr>
-                <tr>
-                  <td>Month In Business</td>
-                  <td></td>
-                  <td>{{currentUser.month_in_business}} Months</td>
-                </tr><tr>
-                  <td>No. of Team Member</td>
-                  <td></td>
-                  <td>{{currentUser.team_member}} Member(s)</td>
-                </tr>
-
-                <tr>
-                  <td>Company Logo</td>
-                  <td></td>
-                  <td><div>
-                          <img id="newLogo" ng-src="{{currentUser.cleaner_logo}}" width="97px" height="80px"/>
-                      </div></td>
-                </tr>
-              </tbody>
-            </table>
+  <div class="col-sm-1 cleaner-profile-col1">
+     <a href='#/cleaner-edit/{{currentUser.$id}}'><button class="btn btn-block btn-primary btn-lg cleaner-profile-btn" ng-click="setRendering('true')">Edit Account</button></a>
+  </div><br/>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>Name</td>
+        <td></td>
+        <td>{{currentUser.firstname}} {{currentUser.lastname}}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td></td>
+        <td>{{currentUser.email}}</td>
+      </tr>
+      <tr>
+        <td>Phone No</td>
+        <td></td>
+        <td>{{currentUser.phone}}</td>
+      </tr>
+      <tr>
+        <td>Company Name</td>
+        <td></td>
+        <td>{{currentUser.company_name}}</td>
+      </tr>                
+      <tr>
+        <td>Address</td>
+        <td></td>
+        <td>{{currentUser.address1}} {{currentUser.address2}}</td>
+      </tr>
+      <tr>
+        <td>City</td>
+        <td></td>
+        <td>{{currentUser.city}}</td>
+      </tr>
+      <tr>
+        <td>State</td>
+        <td></td>
+        <td>{{currentUser.state}}</td>
+      </tr>
+      <tr>
+        <td>Zip Code</td>
+        <td></td>
+        <td>{{currentUser.zip_code}}</td>
+      </tr>
+      <tr>
+        <td>Month In Business</td>
+        <td></td>
+        <td>{{currentUser.month_in_business}} Months</td>
+      </tr><tr>
+        <td>No. of Team Member</td>
+        <td></td>
+        <td>{{currentUser.team_member}} Member(s)</td>
+      </tr>
+      <tr>
+        <td>Company Logo</td>
+        <td></td>
+        <td>
+          <div>
+            <img id="newLogo" ng-src="{{currentUser.cleaner_logo}}" width="97px" height="80px"/>
           </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
         
