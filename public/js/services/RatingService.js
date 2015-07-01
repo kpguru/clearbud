@@ -18,7 +18,4 @@ app.factory("RatingService", function ($firebase, FIREBASE_URL) {
     return rating;
 });
 
-        //  joinSchool: function (schoolID, operators) {
-        //     var t = $firebase(ref.child('schools').child(schoolID).child('operators'));
-        //     return t.$push(operators);
-        // },
+       
