@@ -7,6 +7,8 @@
 				</div>
 				<div class="col-sm-8">
 					<h2>{{clanerProfile.firstname}} {{clanerProfile.lastname}}</h2>
+          <div ng-init="average_rating = 1"></div>
+          <div class="is-disabled"><div class="star-rating" star-rating rating-value="average_rating" data-max="5"></div></div>
 					<p>Hours Of Operation:</p>
 					<div>
 						 <table>
@@ -50,7 +52,7 @@
 									        </tr>
 									        <tr>
 									        	<td>
-									                <div><div class="star-rating" star-rating rating-value="customerReview.customer_average_rating" data-max="5"></div></td>
+									                <div class="is-disabled"><div class="star-rating" star-rating rating-value="customerReview.customer_average_rating" data-max="5"></div></div></td>
 									        </tr>
 									        <tr>
 									            <td><p class="text_align">{{customerReview.customer_review}}</p></td>

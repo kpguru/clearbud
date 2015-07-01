@@ -4,8 +4,7 @@
 		<div class="rating-punctuality">
 			<div>Punctuality</div>
 			<div ng-init="rating_review.punctuality_rating = star.rating + 1"></div>
-			<div><div class="star-rating" star-rating rating-value="rating_review.punctuality_rating" data-max="5"></div>
-		</div>
+			<div><div class="star-rating" star-rating rating-value="rating_review.punctuality_rating" data-max="5"></div></div>
 		</div>
 		<div class="rating-quality">
 			<div>Quality</div>
@@ -32,13 +31,15 @@
 			<div ng-init="rating_review.recommend_rating = star.rating + 1"></div>
 			<div><div class="star-rating" star-rating rating-value="rating_review.recommend_rating" data-max="5"></div></div>
 		</div>
+  </div>
+  <h3>Reviews</h3>
+  <div class="rating-section">
+    <div class="reviews">
+			<div>
+        <textarea ng-model="rating_review.customer_review" style="width: 60%; height: 15em;"></textarea><br><br>
+      </div>
     </div>
-    <h3>Reviews</h3>
-    <div class="rating-section">
-    	<div class="reviews">
-			<div><textarea ng-model="rating_review.customer_review" style="width: 60%; height: 15em;"></textarea><br><br>
-            </div>
-        </div>
-        <button class="btn btn-primary save-review" ng-click="saveRating(rating_review)">Save</button>
+    <button class="btn btn-primary save-review" ng-click="saveRating(rating_review)">Save</button>
 	</div>
 </div>
+

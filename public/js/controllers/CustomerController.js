@@ -94,36 +94,46 @@
                 }
                 //get all cleaners profile like name, availabilities, rating, charge on search page
                 $scope.getCleanersProfile = function(){
-                    $scope.manageCleanerSearch = true;
-                    AuthenticationService.getUsersByRole('cleaner').$loaded().then(function(data){
-                        $scope.cleaners = data;
-                        var i = 0;
-                        angular.forEach( $scope.cleaners, function(cleaner){                       
-                            var clanerCharges = ChargesService.getCharges(cleaner.$id);
-                            clanerCharges.$loaded().then(function (charges) {
-                             if(charges[0]){                 
-                                var clanerAvailabilities = AvailabilitiesService.getCleanerAvailabilities(cleaner.$id);
-                                clanerAvailabilities.$loaded().then(function (availabilities) {                      
-                                    var clanerRating = RatingService.getCleanerRatings(cleaner.$id);
-                                    clanerRating.$loaded().then(function (rating) {
-                                        console.log(rating);
-                                        if(rating.length > 0){
-                                            var c = 0;
-                                            var sum = 0;
-                                            angular.forEach( rating, function(value){
-                                                sum = sum + value.average_rating; 
-                                                c++;
-                                            });
-                                            $scope.average_rating = Math.round(sum / c); 
-                                        }                         
-                                        $scope.cleanerData.push({firstname:cleaner.firstname,lastname:cleaner.lastname,cleaner_id:cleaner.$id,isApproved:cleaner.isApproved,cleaner_logo:cleaner.cleaner_logo,cleaner_charge:charges[0].one_time,cleaner_availabilities:availabilities,cleaner_raing:$scope.average_rating});                
-                                        CustomerService.setData($scope.cleanerData);
-                                    });
-                                });
-                               }
-                            });
-                        });
-                    });
+                   $scope.manageCleanerSearch = true;
+                     AuthenticationService.getUsersByRole('cleaner').$loaded().then(function(data){
+                       $scope.cleaners = data;
+                       var i = 0;
+                       angular.forEach( $scope.cleaners, function(cleaner){                       
+                         var clanerCharges = ChargesService.getCharges(cleaner.$id);
+                         clanerCharges.$loaded().then(function (charges) {
+                           if(charges[0]){                 
+                             var clanerAvailabilities = AvailabilitiesService.getCleanerAvailabilities(cleaner.$id);
+                             clanerAvailabilities.$loaded().then(function (availabilities) { 
+                               var clanerRating = RatingService.getCleanerRatings(cleaner.$id);
+                               clanerRating.$loaded().then(function (data) {
+                                 if(data.length > 0){
+                                   var c = 0;
+                                   var r = 0;
+                                   $scope.average_rating = 0;
+                                   var sum = 0;
+                                   while(r<data.length){
+                                     angular.forEach(data[c].rating, function(value){
+                                       if(value.average_rating){
+                                         sum = sum + parseInt(value.average_rating); 
+                                         c++;
+                                       }
+                                     });
+                                     $scope.average_rating = Math.round(sum / c); 
+                                     r++;
+                                   }
+                                 }
+                                 if(Number.isNaN($scope.average_rating))
+                                 {
+                                  $scope.average_rating = 0;
+                                 }
+                                 $scope.cleanerData.push({firstname:cleaner.firstname,lastname:cleaner.lastname,cleaner_id:cleaner.$id,isApproved:cleaner.isApproved,cleaner_logo:cleaner.cleaner_logo,cleaner_charge:charges[0].one_time,cleaner_availabilities:availabilities,cleaner_rating:$scope.average_rating});                
+                                 CustomerService.setData($scope.cleanerData);
+                               });
+                             });
+                           }
+                         });
+                       });
+                     });
                 }; 
 
                 //save rating page

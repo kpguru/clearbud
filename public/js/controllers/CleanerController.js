@@ -69,7 +69,7 @@
                  
                 var clanerRating = RatingService.getCleanerRatings($routeParams.cleanerID);
                 clanerRating.$loaded().then(function (data) {
-                  if(data.length > 0){
+                  if(data.length > 0 && data[0].rating){
                     $scope.manageReviews = false;
                     var c = 0;
                     var a = 0
@@ -86,7 +86,9 @@
                       $scope.average_rating = Math.round(sum / c);
                       a++;
                     }
-                  }
+                  }else{
+                      $scope.average_rating = 0;
+                    }
                 });                  
            
 
