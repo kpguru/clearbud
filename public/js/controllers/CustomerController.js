@@ -3,14 +3,20 @@
 	app.controller('CustomerController', function ($scope, $http, $window, $filter, $location, AvailabilitiesService, ChargesService, RatingService, BookingService, AuthenticationService, CustomerService, CleanerService,$firebase, toaster, FIREBASE_URL) { 
     $scope.signedIn = AuthenticationService.signedIn;
     get_states();
-    $scope.bookings = {};
+    $scope.bookings = [];
     $scope.cleanerData = [];
     $scope.booking_status = {};
+    $scope.isAppointment = true;
     $scope.steps = [
                     'Appointments',
                     'Account'
                    ];
     $scope.selection = $scope.steps[0];
+    var date = new Date();
+    var date1 = new Date(date.getTime() - 1*24*60*60*1000);
+    $scope.timestampDate = date1.getTime();
+    $scope.currentDate = $filter('date')(date, 'MM/dd/yyyy');
+    $scope.bookingDate = $scope.currentDate;
 
     var ref = new Firebase(FIREBASE_URL);
     ref.onAuth(function(authUser) {
@@ -21,8 +27,7 @@
         customerBookings.$loaded().then(function (data) { 
           //manage appointment tab through isAppointment
           $scope.isAppointment = true;
-          $scope.bookingData = data;     
-          $scope.updateBookingStatus();  
+          $scope.bookingData = data;  
         }); 
 
         //get current user
@@ -59,7 +64,7 @@
           });
         };
 
-        //set booking details when click on view button into Customerservice
+        //set booking details when click on complete button into Customer dashboard
         $scope.setBooking = function(booking){
           CustomerService.setData(booking);
         };
@@ -87,6 +92,7 @@
         
         //sort by price
         $scope.setCleanerSearch = function(booleanValue){
+          //manageCleanerSearch var manage price and default wise cleaner
           $scope.manageCleanerSearch = booleanValue;
         };
         
@@ -134,7 +140,7 @@
           });
         }; 
 
-        //save rating page
+        //save rating page and set booking status is completed ang get each booking get 5 score to cleaner 
         $scope.saveRating = function(rating){
           $scope.booking = CustomerService.getData();
           rating.cleaner_id = $scope.booking.cleanerID;
@@ -143,6 +149,17 @@
           var ratingSum = rating.communication_rating + rating.friendliness_rating + rating.punctuality_rating + rating.quality_rating + rating.recommend_rating + rating.value_rating;
           rating.average_rating =  Math.round(ratingSum / 6);
           RatingService.addCustomersRating(rating).then(function() {
+             CleanerService.getCleaner($scope.booking.cleanerID).$asObject().$loaded().then(function(data){ 
+                  $scope.status = "Completed";
+                  $scope.final_status = {status: $scope.status};           
+                  $scope.final_score = data.score + 5;
+                  $scope.score = {score : $scope.final_score}; 
+                  CleanerService.saveScore($scope.booking.cleanerID, $scope.score);
+                  BookingService.updateBookingStatus($scope.booking.$id, $scope.final_status).then(function() {
+                  },function (error) {
+                    toaster.pop('error', "Error..!", error.toString());
+                  });
+              });
             toaster.pop('success', "successfully add rating!");
             window.location = "#/customer-dashboard";
           },function (error) {
@@ -150,27 +167,18 @@
           });;
         };
 
-        //update booking status 
-        $scope.updateBookingStatus = function(){
-          angular.forEach($scope.bookingData, function(value){
-            var date = new Date();
-            $scope.date = $filter('date')(date, 'MM/dd/yyyy');
-            var new_date = new Date(value.date_time);
-            $scope.new_date = $filter('date')(new_date, 'MM/dd/yyyy')
-            if($scope.date === $scope.new_date){               
-              CleanerService.getCleaner(value.cleanerID).$asObject().$loaded().then(function(data){ 
-                  $scope.status = "complete";
-                  $scope.final_status = {status: $scope.status};           
-                  $scope.final_score = data.score + 5;
-                  $scope.score = {score : $scope.final_score}; 
-                  CleanerService.saveScore(value.cleanerID, $scope.score);
-                  BookingService.updateBookingStatus(value.$id, $scope.final_status);
-              });
-            }
-          })   
+        //get booking by date 
+        $scope.getBookingByDate = function(date){
+          $scope.bookings = [];
+          $scope.search_date = $filter('date')(date, 'MM/dd/yyyy');
           customerBookings.$loaded().then(function (data) { 
-            $scope.bookings = data;
-            if($scope.bookings.length > 0){
+            angular.forEach(data, function(value){
+              var booking_date = $filter('date')(value.date_time, 'MM/dd/yyyy');
+                if(booking_date == $scope.search_date){
+                  $scope.bookings.push(value);
+                }
+            });
+            if(data.length > 0){
               $scope.isAppointment = false;
             }else{
               $scope.isAppointment = true;

@@ -91,7 +91,9 @@
                     if(flag == 0){
                       $scope.average_rating = 0;
                     }
-                  }
+                  }else{
+                     $scope.average_rating = 0;
+                    }
                 });                  
            
 

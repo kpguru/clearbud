@@ -1,4 +1,4 @@
-<style type="text/css">
+<style type="text/css" ng-init="getBookingByDate(bookingDate)">
   .status-pending{
     color: gray;
   }
@@ -26,6 +26,21 @@
               <a href='#/search-cleaner'><button class="btn cleaner-profile-btn btn-primary btn-log" >Book A Cleaner</button></a>
               <!-- <a href = "#/customer_rating">rate a Cleaner</a> -->
             </div>
+            <div class="search-booking" ng-hide = "isAppointment">
+              <div class="dropdown">
+                <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+                  <div>
+                    <div class="input-group">
+                      <p class="form-control" data-ng-model="bookingDate">{{bookingDate | date:'MM/dd/yyyy'}}</p>
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                  </div>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <datetimepicker data-ng-model="bookingDate" ng-change="getBookingByDate(bookingDate)"  data-datetimepicker-config="{ dropdownSelector: '#dropdown2',startView:'day',minView: 'day' }"/>
+                </ul>
+              </div>
+            </div>
           </div>
           <div class="row">
             <div class="col-sm-12">
@@ -35,23 +50,26 @@
                     <div> 
                     </div> 
                     <table class = "table customer-booking-table" ng-init="getClenaerName(booking)">
-                      <tr><th>Cleaner Name</th>
-                      <th>Booking Address</th>
-                      <th>Booking Date</th>
-                      <th>Booking Time</th>
-                      <th>Amount</th>
-                      <th>Status</th></tr>
-
-                        <tr ng-repeat = "booking in bookings">
+                      <tr>
+                        <th>Cleaner Name</th>
+                        <th>Booking Address</th>
+                        <th>Booking Date</th>
+                        <th>Booking Time</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                      </tr>
+                      <tr ng-repeat = "booking in bookings">
                         <td>{{booking.cleaner_firstname}} {{booking.cleaner_lastname}}</td>   
                         <td>{{booking.address1}}, {{booking.address2}} {{booking.city}}</td>
                         <td>{{booking.date_time | date:"dd/MM/yyyy"}}</td>
                         <td>{{booking.date_time | date:" h:mma"}}</td>
                         <td>{{booking.total}}</td> 
-                        <td class="status-pending" ng-if="booking.status=='In progress'">{{booking.status}}</td> 
-                        <td class="status-complete" ng-if="booking.status=='complete' && !booking.rating"><a href="#/customer_rating" ng-click="setBooking(booking)">Feedback</td>
-                        <td class="status-complete"  ng-if="booking.rating && booking.status=='complete'">{{booking.status}}</td>
-                       </tr>
+                        <td class="status-pending" ng-if="booking.status=='Pending'">{{booking.status}}</td> 
+                        <td class="status-complete" ng-if="booking.status =='Accepted' && booking.date_time > timestampDate">{{booking.status}}</td>
+                        <td class="status-complete" ng-if="booking.status=='Rejected'">{{booking.status}}</td>
+                        <td class="status-complete" ng-if="booking.status=='Completed'">{{booking.status}}</td>
+                        <td class="status-complete" ng-if="booking.date_time < timestampDate && booking.status=='Accepted'"><a href="#/customer_rating" ng-click="setBooking(booking)">Complete</a></td>
+                      </tr>
                     </table>        
                   </div>
                 </div>

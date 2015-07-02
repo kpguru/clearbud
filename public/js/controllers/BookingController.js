@@ -89,7 +89,7 @@
                     $scope.bookInfo.lastname  =$scope.lastname;                                        
                     $scope.bookInfo.total      =$scope.subtotal;
                     $scope.bookInfo.customerID =authUser.uid;
-                    $scope.bookInfo.status     ="In progress"                   
+                    $scope.bookInfo.status     ="Pending";                   
                     if($scope.previous_address == true){
                     $scope.bookInfo.address1 = $scope.currentUser.address1;
                     $scope.bookInfo.address2 =$scope.currentUser.address2;
