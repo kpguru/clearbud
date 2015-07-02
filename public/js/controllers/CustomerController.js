@@ -168,9 +168,6 @@
             toaster.pop('error', "Error..!", error.toString());
           });;
         };
-
-<<<<<<< HEAD
-=======
         //get booking by date 
         $scope.getBookingByDate = function(date){
           $scope.bookings = [];
@@ -189,8 +186,6 @@
              }
           });
         };
-
->>>>>>> 2017d986c342222af0b83c102e34e94b615a41f6
         // Get the index of the current step given selection
         $scope.getCurrentStepIndex = function(){
           return _.indexOf($scope.steps, $scope.selection);
