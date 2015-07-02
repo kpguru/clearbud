@@ -69,26 +69,29 @@
                  
                 var clanerRating = RatingService.getCleanerRatings($routeParams.cleanerID);
                 clanerRating.$loaded().then(function (data) {
-                  if(data.length > 0 && data[0].rating){
-                    $scope.manageReviews = false;
+                  if(data.length > 0){
                     var c = 0;
-                    var a = 0
+                    var flag = 0
                     var sum = 0;
-                    while(a<data.length){
-                      angular.forEach(data[c].rating, function(value){
-                        sum = sum + value.average_rating; 
-                        var customerInfo = CustomerService.getCustomer(value.customer_id);                          
-                        customerInfo.$asObject().$loaded().then(function (data) {
-                          $scope.customerReviews.push({customer_review: value.customer_review, customer_image: data.customer_image, firstname: data.firstname, lastname: data.lastname, date: value.date, customer_average_rating: value.average_rating});
-                        });
-                        c++;
-                      });
-                      $scope.average_rating = Math.round(sum / c);
-                      a++;
-                    }
-                  }else{
+                    angular.forEach(data, function(value1){
+                      if(value1.rating){
+                        $scope.manageReviews = false;
+                        angular.forEach(value1.rating, function(value){
+                          sum = sum + parseInt(value.average_rating); 
+                          var customerInfo = CustomerService.getCustomer(value.customer_id);                          
+                          customerInfo.$asObject().$loaded().then(function (data) {
+                            $scope.customerReviews.push({customer_review: value.customer_review, customer_image: data.customer_image, firstname: data.firstname, lastname: data.lastname, date: value.date, customer_average_rating: value.average_rating});
+                          });
+                          c++;
+                          flag++;
+                        })
+                        $scope.average_rating = Math.round(sum / c);
+                      }
+                    });
+                    if(flag == 0){
                       $scope.average_rating = 0;
                     }
+                  }
                 });                  
            
 

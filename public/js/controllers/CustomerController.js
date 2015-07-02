@@ -1,6 +1,6 @@
 'use strict';
 
-	app.controller('CustomerController', function ($scope, $http, $window, $location, AvailabilitiesService, ChargesService, RatingService, BookingService, AuthenticationService, CustomerService, CleanerService,$firebase, toaster, FIREBASE_URL) { 
+	app.controller('CustomerController', function ($scope, $http, $window, $filter, $location, AvailabilitiesService, ChargesService, RatingService, BookingService, AuthenticationService, CustomerService, CleanerService,$firebase, toaster, FIREBASE_URL) { 
     $scope.signedIn = AuthenticationService.signedIn;
     get_states();
     $scope.bookings = {};
@@ -153,11 +153,12 @@
         //update booking status 
         $scope.updateBookingStatus = function(){
           angular.forEach($scope.bookingData, function(value){
-            var date = new Date().toISOString().slice(0, 10);
-            var new_date = new Date(value.date_time).toISOString().slice(0, 10);
-            if(date <= new_date){
-              console.log(value);
-              CleanerService.getCleaner(value.cleanerID).$asObject().$loaded().then(function(data){
+            var date = new Date();
+            $scope.date = $filter('date')(date, 'MM/dd/yyyy');
+            var new_date = new Date(value.date_time);
+            $scope.new_date = $filter('date')(new_date, 'MM/dd/yyyy')
+            if($scope.date === $scope.new_date){               
+              CleanerService.getCleaner(value.cleanerID).$asObject().$loaded().then(function(data){ 
                   $scope.status = "complete";
                   $scope.final_status = {status: $scope.status};           
                   $scope.final_score = data.score + 5;

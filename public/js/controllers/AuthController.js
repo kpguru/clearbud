@@ -113,11 +113,20 @@
                 if (error) {
 				    console.log("Login Failed!", error);
 				} else {
+          if(provider == "google")
+          {
 					    var data = {
                             email: authData.google.cachedUserProfile.email,
                             password: authData.google.id
                         };
                         $scope.login(data);
+          }else{
+                        var data = {
+                            email: authData.facebook.cachedUserProfile.email,
+                            password: authData.facebook.id
+                        };
+                        $scope.login(data);
+               }
 				  }
 	        },{scope:"email"});
         }
