@@ -18,12 +18,14 @@
         
         //get all booking according to customer id
         var customerBookings = BookingService.getCustomerBookings(authUser.uid);
-        customerBookings.$loaded().then(function (data) { 
-          //manage appointment tab through isAppointment
-          $scope.isAppointment = true;
-          $scope.bookingData = data;     
-          $scope.updateBookingStatus();  
-        }); 
+            customerBookings.$loaded().then(function (data) { 
+            $scope.bookings = data;
+            if($scope.bookings.length > 0){
+              $scope.isAppointment = false;
+            }else{
+              $scope.isAppointment = true;
+             }
+          });
 
         //get current user
         var users = AuthenticationService.getCurrentUser(authUser.uid);
@@ -148,34 +150,6 @@
           },function (error) {
             toaster.pop('error', "Error..!", error.toString());
           });;
-        };
-
-        //update booking status 
-        $scope.updateBookingStatus = function(){
-          angular.forEach($scope.bookingData, function(value){
-            var date = new Date();
-            $scope.date = $filter('date')(date, 'MM/dd/yyyy');
-            var new_date = new Date(value.date_time);
-            $scope.new_date = $filter('date')(new_date, 'MM/dd/yyyy')
-            if($scope.date === $scope.new_date){               
-              CleanerService.getCleaner(value.cleanerID).$asObject().$loaded().then(function(data){ 
-                  $scope.status = "complete";
-                  $scope.final_status = {status: $scope.status};           
-                  $scope.final_score = data.score + 5;
-                  $scope.score = {score : $scope.final_score}; 
-                  CleanerService.saveScore(value.cleanerID, $scope.score);
-                  BookingService.updateBookingStatus(value.$id, $scope.final_status);
-              });
-            }
-          })   
-          customerBookings.$loaded().then(function (data) { 
-            $scope.bookings = data;
-            if($scope.bookings.length > 0){
-              $scope.isAppointment = false;
-            }else{
-              $scope.isAppointment = true;
-             }
-          });
         };
 
         // Get the index of the current step given selection
