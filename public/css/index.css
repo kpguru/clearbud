@@ -464,3 +464,42 @@ ul.rating {
     opacity: .5;
     pointer-events: none;
 }
+   .cleaner-view{
+		 width: 84%;
+		 }
+	.customer-tab {
+    height: 425px;
+    margin-left: 213px;
+    margin-top: 70px;
+    width: 1040px;
+	}
+	.bn{
+	  color: green;
+    height: 30px;
+	}
+	.bnr{
+		  color: red;
+      height: 30px;
+	}
+	.filter{
+		margin-bottom: 6px;
+    margin-left: 395px;
+	}
+ .right-col{
+		margin-left: -44px;
+		margin-top: 60px;
+  }
+	.link-txt{
+	  font-size: 18px;
+	}
+	.back-btnn{
+	  margin-right: 171px;
+	  margin-bottom: 10px;	 
+	 }
+	 .back-btn{
+	  margin-right: -16px;
+	  margin-bottom: 10px;
+   }
+    .booking-txt{
+      margin-left: 280px;
+   }

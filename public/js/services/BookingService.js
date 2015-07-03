@@ -5,14 +5,18 @@ app.factory('BookingService', function($firebaseAuth, FIREBASE_URL, $firebase) {
     var auth = $firebaseAuth(ref);
     var firebaseBooking = $firebase(ref.child('booking'));
     var Booking = {
+			  all : firebaseBooking,
         getBooking : function (bookingID) {
-            return $firebase(ref.child('booking').child(bookingID));
+          return $firebase(ref.child('booking').child(bookingID));
         },
         cleanerBooking : function (bookingInfo) {
-            return firebaseBooking.$push(bookingInfo);
+          return firebaseBooking.$push(bookingInfo);
         },
         getCustomerBookings : function (costomer_id) {
-            return $firebase(ref.child('booking').orderByChild("customerID").equalTo(costomer_id)).$asArray();
+          return $firebase(ref.child('booking').orderByChild("customerID").equalTo(costomer_id)).$asArray();
+        },
+        getCleanerBookings : function (cleaner_id) {
+          return $firebase(ref.child('booking').orderByChild("cleanerID").equalTo(cleaner_id)).$asArray();
         },
         updateBookingStatus : function (bookingID,status) {
           var bookingInfo = this.getBooking(bookingID);

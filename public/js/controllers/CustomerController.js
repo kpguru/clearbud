@@ -23,12 +23,14 @@
         
         //get all booking according to customer id
         var customerBookings = BookingService.getCustomerBookings(authUser.uid);
-        customerBookings.$loaded().then(function (data) { 
-          //manage appointment tab through isAppointment
-          $scope.isAppointment = true;
-          $scope.bookingData = data;  
-        }); 
-
+            customerBookings.$loaded().then(function (data) { 
+            $scope.bookings = data;
+            if($scope.bookings.length > 0){
+              $scope.isAppointment = false;
+            }else{
+              $scope.isAppointment = true;
+             }
+          });
         //get current user
         var users = AuthenticationService.getCurrentUser(authUser.uid);
         users.$loaded().then(function (data) {
@@ -165,7 +167,6 @@
             toaster.pop('error', "Error..!", error.toString());
           });;
         };
-
         //get booking by date 
         $scope.getBookingByDate = function(date){
           $scope.bookings = [];
@@ -184,7 +185,6 @@
              }
           });
         };
-
         // Get the index of the current step given selection
         $scope.getCurrentStepIndex = function(){
           return _.indexOf($scope.steps, $scope.selection);

@@ -167,4 +167,48 @@ var app = angular.module('clearbud',[
                 }
             }
        });
-    }]);
+        $routeProvider.when('/bookings', {
+           templateUrl: 'templates/Booking/booking-view.html',
+           controller: 'BookingController',
+           resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
+       });
+         $routeProvider.when('/open-bookings', {
+           templateUrl: 'templates/Booking/booking-open.html',
+           controller: 'BookingController',
+           resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
+       });
+       
+    }])
+     .run(["$rootScope", "$location", function ($rootScope, $location) {
+        var history = [];
+        $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+          if(current != undefined){
+            if(current.originalPath != undefined){
+              history.push(current.originalPath);
+            }
+          }
+        });
+
+        $rootScope.$on("$routeChangeError", function (event, next, previous, error) {
+            // We can catch the error thrown when the $requireAuth promise is rejected
+            // and redirect the user back to the home page
+            if (error === "AUTH_REQUIRED") {
+                $location.path("/login");
+            }
+        });
+
+        //GO back code
+        $rootScope.back = function () {
+            var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+            $location.path(prevUrl);
+        };
+        //end Go back code
+       }]);

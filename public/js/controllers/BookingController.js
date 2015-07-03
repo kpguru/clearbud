@@ -4,6 +4,8 @@
         $scope.signedIn = AuthenticationService.signedIn; 
         $scope.booking = true;
         $scope.bookInfo={};
+        $scope.setStatus =0;
+        $scope.bookingObj ={};
         $scope.completeBookInfo = {};
         $scope.date = new Date();
         $scope.newAddress = true;
@@ -47,6 +49,15 @@
                 sessionStorage.user = null;
                 sessionStorage.user = angular.toJson($scope.bookInfo);
                 }
+                var cleanerBookings = BookingService.getCleanerBookings(authUser.uid);
+									   cleanerBookings.$loaded().then(function (data) { 
+										 $scope.bookings = data;    
+							 });
+							 var allBookings = BookingService.all;
+							       allBookings.$asArray().$loaded().then(function (data) { 
+										 $scope.rejectedBooking = data;    
+							 });
+							 
                 $scope.completeBooking = function(){
                     if(angular.isUndefined($scope.bookInfo.date_time)){
                         $scope.date = new Date();
@@ -89,7 +100,7 @@
                     $scope.bookInfo.lastname  =$scope.lastname;                                        
                     $scope.bookInfo.total      =$scope.subtotal;
                     $scope.bookInfo.customerID =authUser.uid;
-                    $scope.bookInfo.status     ="Pending";                   
+                    $scope.bookInfo.status     ="Pending" 
                     if($scope.previous_address == true){
                     $scope.bookInfo.address1 = $scope.currentUser.address1;
                     $scope.bookInfo.address2 =$scope.currentUser.address2;
@@ -108,8 +119,35 @@
                         $location.path('/customer_booking/submit_orders').replace();
                        toaster.pop('success', "Successfully generate Booking Order");
                     });
-                } 
-              }
+                }
+                $scope.setUserStatus = function(status){
+									$scope.setStatus =status;
+								} 
+                $scope.setBookingStatus = function(bookingID, status){
+									if($scope.setStatus == 0 ){
+										 console.log(bookingID, status)
+											$scope.bookingObj.status = status;
+											BookingService.updateBookingStatus(bookingID,$scope.bookingObj).then(function(data){ 
+												console.log(data, bookingID);
+												toaster.pop('success', "Booking Approved Successfully");
+											});
+							    }else if($scope.setStatus == 1 ){
+													$scope.bookingObj.status = status;
+													BookingService.updateBookingStatus(bookingID,$scope.bookingObj).then(function(data){ 
+														toaster.pop('success', "Booking Rejected Successfully");
+													});
+									  }
+							  } 
+							  $scope.acceptOpenBooking = function(bookingID, status){
+									 console.log(bookingID, status, 'rejected');
+									 $scope.bookingObj.status = status;
+									 $scope.bookingObj.cleanerID =  $scope.currentUser.$id;
+									 console.log($scope.currentUser.$id,  $scope.bookingObj.status);
+									 BookingService.updateBookingStatus(bookingID,$scope.bookingObj).then(function(data){ 
+										 toaster.pop('success', "Open Booking Accepted Successfully");
+									});
+						   }
+					  }
             }); 
         function get_states() {
           return $http.get('js/data/states.json').then(function (res) {
