@@ -1,12 +1,4 @@
-<style type="text/css" ng-init="getBookingByDate(bookingDate)">
-  .status-pending{
-    color: gray;
-  }
-  .status-complete{
-    color: green;
-  }
-</style>
-<div class="container-fluid" >
+<div class="container-fluid" ng-init="getBookingByDate(bookingDate)">
   <div class="customer-tab">
     <form class="form-horizontal">
 
@@ -66,7 +58,7 @@
                         <td>{{booking.total}}</td> 
                         <td class="status-pending" ng-if="booking.status=='Pending'">{{booking.status}}</td> 
                         <td class="status-complete" ng-if="booking.status =='Accepted' && booking.date_time > timestampDate">{{booking.status}}</td>
-                        <td class="status-complete" ng-if="booking.status=='Rejected'">{{booking.status}}</td>
+                        <td class="status-error" ng-if="booking.status=='Rejected'">{{booking.status}}</td>
                         <td class="status-complete" ng-if="booking.status=='Completed'">{{booking.status}}</td>
                         <td class="status-complete" ng-if="booking.date_time < timestampDate && booking.status=='Accepted'"><a href="#/customer_rating" ng-click="setBooking(booking)">Complete</a></td>
                       </tr>

@@ -13,8 +13,7 @@
                    ];
     $scope.selection = $scope.steps[0];
     var date = new Date();
-    var date1 = new Date(date.getTime() - 1*24*60*60*1000);
-    $scope.timestampDate = date1.getTime();
+    $scope.timestampDate = date.getTime();
     $scope.currentDate = $filter('date')(date, 'MM/dd/yyyy');
     $scope.bookingDate = $scope.currentDate;
 
@@ -98,7 +97,7 @@
         
         //get all cleaners profile like name, availabilities, rating, charge on search page
         $scope.getCleanersProfile = function(){
-          $scope.manageCleanerSearch = true;
+          $scope.manageCleanerSearch = 0;
           AuthenticationService.getUsersByRole('cleaner').$loaded().then(function(data){
             $scope.cleaners = data;
             var i = 0;
@@ -130,7 +129,7 @@
                       {
                          $scope.average_rating = 0;
                       }
-                      $scope.cleanerData.push({firstname:cleaner.firstname,lastname:cleaner.lastname,cleaner_id:cleaner.$id,isApproved:cleaner.isApproved,cleaner_logo:cleaner.cleaner_logo,cleaner_charge:charges[0].one_time,cleaner_availabilities:availabilities,cleaner_rating:$scope.average_rating});                
+                      $scope.cleanerData.push({score:cleaner.score,firstname:cleaner.firstname,lastname:cleaner.lastname,cleaner_id:cleaner.$id,isApproved:cleaner.isApproved,cleaner_logo:cleaner.cleaner_logo,cleaner_charge:charges[0].one_time,cleaner_availabilities:availabilities,cleaner_rating:$scope.average_rating});                
                       CustomerService.setData($scope.cleanerData);
                     });
                   });

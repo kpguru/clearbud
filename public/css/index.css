@@ -310,9 +310,18 @@ margin-left: 847px;
   width: 193px;
 }
 .date-text{
- margin-left: 10px;
- margin-top: 14px;
- width: 193px;
+  margin-left: 10px;
+  margin-top: 14px;
+  width: 193px;
+}
+.status-pending{
+  color: gray;
+}
+.status-complete{
+  color: green;
+}
+.status-error{
+  color: red;
 }
 /*customer-search*/
 .search-page {
