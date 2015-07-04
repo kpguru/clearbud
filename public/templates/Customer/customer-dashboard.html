@@ -61,6 +61,11 @@
                         <td class="status-error" ng-if="booking.status=='Rejected'">{{booking.status}}</td>
                         <td class="status-complete" ng-if="booking.status=='Completed'">{{booking.status}}</td>
                         <td class="status-complete" ng-if="booking.date_time < timestampDate && booking.status=='Accepted'"><a href="#/customer_rating" ng-click="setBooking(booking)">Complete</a></td>
+                        <td ng-if="(booking.status=='Pending' || booking.status =='Accepted') && booking.date_time > timestampDate">
+                          <div class="team_btnn status-complete" ng-controller="BookingController">
+                            <a href="#/{{booking.$id}}/reschedule-booking" ng-click="setBookInfo(booking,false)" ng-confirm-click="Do you really want to Reschedule Booking?">Reschedule</a>
+                          </div>
+                        </td>
                       </tr>
                     </table>        
                   </div>

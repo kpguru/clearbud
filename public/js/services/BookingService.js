@@ -3,6 +3,7 @@
 app.factory('BookingService', function($firebaseAuth, FIREBASE_URL, $firebase) {
     var ref = new Firebase(FIREBASE_URL);
     var auth = $firebaseAuth(ref);
+    var data;
     var firebaseBooking = $firebase(ref.child('booking'));
     var Booking = {
 			  all : firebaseBooking,
@@ -21,6 +22,16 @@ app.factory('BookingService', function($firebaseAuth, FIREBASE_URL, $firebase) {
         updateBookingStatus : function (bookingID,status) {
           var bookingInfo = this.getBooking(bookingID);
           return bookingInfo.$update(status);
+        },
+        rescheduleBooking : function (bookingID,booking) {
+          var bookingInfo = this.getBooking(bookingID);
+          return bookingInfo.$update(booking);
+        },
+        setRescheduleBooking : function(info){
+          data = info;
+        },
+        getRescheduleBooking : function(){
+          return data;
         },
         hours : function(){
             var hours = [{name: '3.0 hours', value: '3.0' },

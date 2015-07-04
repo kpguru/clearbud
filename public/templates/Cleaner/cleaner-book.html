@@ -1,6 +1,6 @@
-<div class="container" ng-init="getBookInfo();getCharges();">
+<div class="container" ng-init="getBookInfo();getCharges(bookInfo.cleanerID);">
 	<!--START YOUR BOOKING CONTAINT  -->
-	<div class="row" ng-show="booking">
+	<div class="row" ng-show="final_booking">
 		<div class="col-sm-8">
 			<div class="booking-section">
 			    <h1 class="booking-text">START YOUR BOOKING</h1>
@@ -109,7 +109,7 @@
 	</div>
 
 	<!--COMPLETE YOUR BOOKING-->
-	<div class="row" ng-hide="booking">
+	<div class="row" ng-hide="final_booking">
 		<form name="customerForm">
 			<div class="col-sm-8">
 				<div class="booking-section">

@@ -4,20 +4,11 @@
       $scope.signedIn = AuthenticationService.signedIn;
       $scope.profile ={};
       var currentuser={};
-      $scope.bookingInfo={};
       $scope.about ={};
       $scope.customerReviews = [];
       $scope.manageReviews =true;
       $scope.availabilities ={};
       $scope.services = {};
-      $scope.no_of_bedrooms =CleanerService.No_of_bedRoom(); 
-      $scope.bookingInfo.bedrooms = $scope.no_of_bedrooms[0].value;
-
-      $scope.no_of_bathrooms = CleanerService.No_of_bathRoom();
-      $scope.bookingInfo.bathrooms = $scope.no_of_bathrooms[0].value;
-
-      $scope.frequency = CleanerService.frequency();
-      $scope.bookingInfo.frequency_type = $scope.frequency[0].value;      
       $scope.numbersOnly = /^\d+$/;    
       $scope.steps = CleanerService.steps();
       $scope.steps1 = CleanerService.steps1();
@@ -29,7 +20,6 @@
               var clanerProfile = AuthenticationService.getCurrentUser($routeParams.cleanerID);
                clanerProfile.$loaded().then(function (clanerProfile) { 
                 $scope.clanerProfile = clanerProfile;
-                $scope.bookingInfo.cleanerId = $scope.clanerProfile.$id;
                 if(angular.isUndefined($scope.clanerProfile.cleaner_about_us))                    
                    $scope.save =true;
                 else

@@ -21,16 +21,16 @@
     ref.onAuth(function(authUser) {
       if(authUser != null) {
         
-        //get all booking according to customer id
-        var customerBookings = BookingService.getCustomerBookings(authUser.uid);
-            customerBookings.$loaded().then(function (data) { 
-            $scope.bookings = data;
-            if($scope.bookings.length > 0){
-              $scope.isAppointment = false;
-            }else{
-              $scope.isAppointment = true;
-             }
-          });
+        //~ //get all booking according to customer id
+        //~ var customerBookings = BookingService.getCustomerBookings(authUser.uid);
+            //~ customerBookings.$loaded().then(function (data) { 
+            //~ $scope.bookings = data;
+            //~ if($scope.bookings.length > 0){
+              //~ $scope.isAppointment = false;
+            //~ }else{
+              //~ $scope.isAppointment = true;
+             //~ }
+          //~ });
         //get current user
         var users = AuthenticationService.getCurrentUser(authUser.uid);
         users.$loaded().then(function (data) {
@@ -171,6 +171,7 @@
         $scope.getBookingByDate = function(date){
           $scope.bookings = [];
           $scope.search_date = $filter('date')(date, 'MM/dd/yyyy');
+          var customerBookings = BookingService.getCustomerBookings(authUser.uid);
           customerBookings.$loaded().then(function (data) { 
             angular.forEach(data, function(value){
               var booking_date = $filter('date')(value.date_time, 'MM/dd/yyyy');
