@@ -1,3 +1,4 @@
+Stripe.setPublishableKey('fillMePlease');
 var app = angular.module('clearbud',[
      'ngRoute',
     'ngAnimate',
@@ -5,9 +6,14 @@ var app = angular.module('clearbud',[
     'ui.bootstrap',
     'firebase',
     'toaster',
+    'angularPayments',
     'ui.bootstrap.datetimepicker'
-	]).constant('FIREBASE_URL', 'https://amber-inferno-3378.firebaseio.com/')
+	]).constant('FIREBASE_URL', 'https://amber-inferno-3378.firebaseio.com/')	
+	  .constant('SECRET_KEY' , 'sk_test_IeK9KWcycB3NKQkWunnNkWlN')
+		.constant('PUBLISH_KEY' , 'key pk_test_VkqhfDUwIQNyWJK4sR7CKVsY')			 
+
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+			  Stripe.setPublishableKey('key pk_test_VkqhfDUwIQNyWJK4sR7CKVsY');
         $routeProvider.otherwise({
             templateUrl: 'templates/home.html',
             controller: 'CustomerController'

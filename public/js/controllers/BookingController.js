@@ -1,12 +1,15 @@
 'use strict';
 
-	app.controller('BookingController', function ($scope, $window, $location, $http, ChargesService, BookingService, CleanerService, AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
+	app.controller('BookingController', function ($scope, $rootScope,SECRET_KEY, PUBLISH_KEY, $window, $location, $http, ChargesService, BookingService, CleanerService, AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
         $scope.signedIn = AuthenticationService.signedIn; 
         $scope.booking = true;
         $scope.bookInfo={};
+        $scope.token ='';
+        $scope.payment={};
         $scope.setStatus =0;
         $scope.bookingObj ={};
         $scope.completeBookInfo = {};
+        $scope.token= '';
         $scope.date = new Date();
         $scope.newAddress = true;
         $scope.time = CleanerService.formatTime(new Date());
@@ -14,9 +17,9 @@
         $scope.reserve_hours = $scope.hours[0].value;
         var ref = new Firebase(FIREBASE_URL);
         ref.onAuth(function(authUser) {
-            if (authUser != null) { 
-                    var users = AuthenticationService.getCurrentUser(authUser.uid);
-                users.$loaded().then(function (currentuser) { 
+            if (authUser != null) { 							    
+                  var users = AuthenticationService.getCurrentUser(authUser.uid);
+                    users.$loaded().then(function (currentuser) { 
                     $scope.currentUser = currentuser;
                 }); 
                 $scope.setBookInfo = function(bookingInfo){
@@ -95,9 +98,20 @@
                     $scope.charges = data;
                     });     
                 }
-                $scope.submitOrder = function(){    
-                    $scope.bookInfo.firstname = $scope.firstname;
-                    $scope.bookInfo.lastname  =$scope.lastname;                                        
+							  
+                  $scope.submit = function(){
+									//	$scope.doPayment();
+									  Stripe.setPublishableKey('pk_test_VkqhfDUwIQNyWJK4sR7CKVsY');							  
+									  console.log($scope.number, $scope.exp_month, $scope.exp_year, $scope.cvc, $scope.name);
+									  var token = Stripe.card.createToken({number: $scope.number, cvc:$scope.cvc, exp_month: $scope.exp_month, exp_year: $scope.exp_year}, stripeResponseHandler);
+                    //$scope.token = token;
+                    console.log($rootScope.token); 
+                 }                 
+                 $scope.submitOrder = function(charge){
+									  $scope.bookInfo.paymentInfo  = charge;
+									  console.log(JSON.parse(sessionStorage.user));
+                    $scope.bookInfo.firstname  = $scope.firstname;                    
+                    $scope.bookInfo.lastname   =$scope.lastname;                                        
                     $scope.bookInfo.total      =$scope.subtotal;
                     $scope.bookInfo.customerID =authUser.uid;
                     $scope.bookInfo.status     ="Pending" 
@@ -119,7 +133,30 @@
                         $location.path('/customer_booking/submit_orders').replace();
                        toaster.pop('success', "Successfully generate Booking Order");
                     });
-                }
+									}	
+                 $scope.doPayment = function(token){
+									var paymentinfo = {};
+								    paymentinfo.token     = token;
+                    paymentinfo.card      = $scope.number;
+                    paymentinfo.exp_month = $scope.exp_month;
+                    paymentinfo.exp_yearm = $scope.exp_year;
+                    paymentinfo.cvc       = $scope.cvc;
+                    paymentinfo.name      = $scope.name;
+                    paymentinfo.amount    = $scope.subtotal;		
+									$http.post('/dopayment', paymentinfo)
+									.success(function(res){									
+										if(res){
+										 $scope.submitOrder(res);
+										}
+										else{
+											alert('There is something went wrong !! ');
+											}
+									})
+									.error(function(err){
+										$rootScope.showLoading = false;
+									});
+								}
+							
                 $scope.setUserStatus = function(status){
 									$scope.setStatus =status;
 								} 
@@ -154,4 +191,18 @@
               $scope.states = res.data;
           });
         }
+        function stripeResponseHandler(status, response){
+					var $form = $('#payment-form');
+					if (response.error) {
+						// Show the errors on the form
+						$form.find('.payment-errors').text(response.error.message);
+						$form.find('button').prop('disabled', false);
+					} else {
+						// response contains id and card, which contains additional card details
+						var token = response.id;
+						$rootScope.token = token;	
+						console.log(token);
+						 $scope.doPayment($rootScope.token);
+         }
+       }
     });
