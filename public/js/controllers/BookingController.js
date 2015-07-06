@@ -11,6 +11,7 @@
     $scope.bookingInfo = {};
     $scope.completeBookInfo = {};
     $scope.date = new Date();
+    $scope.timestampDate = $scope.date.getTime() - 1*24*60*60*1000;
     $scope.newAddress = true;
     $scope.time = CleanerService.formatTime(new Date());
     $scope.hours = BookingService.hours();
