@@ -323,6 +323,9 @@ margin-left: 847px;
 .status-error{
   color: red;
 }
+.team_btnn{ 
+  float:none !important;
+}
 /*customer-search*/
 .search-page {
    margin-left: 86px;
@@ -503,3 +506,29 @@ ul.rating {
     .booking-txt{
       margin-left: 280px;
    }
+   /* reschedule booking    */
+.select-bathroom-credential {
+  margin-left: 372px;
+  margin-top: -46px;
+  width: 210px;
+}
+.select-bedroom-credential {
+  margin-left: 86px;
+  margin-top: -18px;
+  width: 210px;
+}
+.select-cleaner-credential {
+  margin-left: 240px;
+  margin-top: 27px;
+  width: 247px;
+}
+.booking-section-availabilities{
+  background-color: lavenderblush;
+   height: 215px;
+   margin-left: 49px;
+  
+}
+.availabilities-section{
+  margin-left: 240px;
+  width: 497px;
+}

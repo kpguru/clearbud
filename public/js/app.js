@@ -173,7 +173,7 @@ var app = angular.module('clearbud',[
                 }
             }
        });
-        $routeProvider.when('/bookings', {
+       $routeProvider.when('/bookings', {
            templateUrl: 'templates/Booking/booking-view.html',
            controller: 'BookingController',
            resolve: {
@@ -182,7 +182,7 @@ var app = angular.module('clearbud',[
                 }
             }
        });
-         $routeProvider.when('/open-bookings', {
+       $routeProvider.when('/open-bookings', {
            templateUrl: 'templates/Booking/booking-open.html',
            controller: 'BookingController',
            resolve: {
@@ -191,7 +191,15 @@ var app = angular.module('clearbud',[
                 }
             }
        });
-       
+       $routeProvider.when('/:bookingID/reschedule-booking', {
+           templateUrl: 'templates/Booking/reschedule-booking.html',
+           controller: 'BookingController',
+           resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
+       });
     }])
      .run(["$rootScope", "$location", function ($rootScope, $location) {
         var history = [];

@@ -19,18 +19,7 @@
     var ref = new Firebase(FIREBASE_URL);
     ref.onAuth(function(authUser) {
       if(authUser != null) {
-				
-        
-        //~ //get all booking according to customer id
-        //~ var customerBookings = BookingService.getCustomerBookings(authUser.uid);
-            //~ customerBookings.$loaded().then(function (data) { 
-            //~ $scope.bookings = data;
-            //~ if($scope.bookings.length > 0){
-              //~ $scope.isAppointment = false;
-            //~ }else{
-              //~ $scope.isAppointment = true;
-             //~ }
-          //~ });
+
         //get current user
         var users = AuthenticationService.getCurrentUser(authUser.uid);
         users.$loaded().then(function (data) {

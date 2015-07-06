@@ -17,13 +17,14 @@
             $scope.services.bathroom.push($scope.bathroomServices);
             $scope.services.bedroom.push($scope.bedroomServices);
             $scope.services.livingArea.push($scope.livingAreaServices);
-           
+            
             ServicesService.addCleanerServices($scope.services).then(function(data) {
               toaster.pop('success', "Add Cleaner Services Successfully!");
             },function (data) {
               toaster.pop('error', "Error..!", error.toString());
             });
           }
+          
           $scope.updateServices= function(){
             $scope.services.cleaner_id = authUser.uid;  
             $scope.services.general.push($scope.generalServices);

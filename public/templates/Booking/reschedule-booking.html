@@ -1,25 +1,9 @@
-<style>
-  .booking-section-hours1 {
-    background-color: lavenderblush;
-    height: 280px;
-    margin-left: 49px;
-   }
-   .payment-frm{
-		 width: 600px;
-		 }
-	.card-img{			 
-    margin-left: -11px;
-    margin-top: -35px;
-
-	}
-</style>
-
 <div class="container" ng-init="getBookInfo();getCharges(bookInfo.cleanerID);">
 	<!--START YOUR BOOKING CONTAINT  -->
 	<div class="row" ng-show="final_booking">
 		<div class="col-sm-8">
 			<div class="booking-section">
-			    <h1 class="booking-text">START YOUR BOOKING</h1>
+			    <h1 class="booking-text">RESCHEDULE BOOKING</h1>
 			</div>
 			<div class="booking-section-heading">
 			    <h4 class="booking-heading-text">Great! A few more details and we can complete your booking.</h4>
@@ -28,8 +12,28 @@
 			    <h4 class="booking-hours-text">HOURS OF CLEANING TO RESERVE</h4>
 			    <select ng-options="hour.value as hour.name for hour in hours" ng-change="setHour()" class="form-control input-lg select-hours" ng-model="reserve_hours"></select>
 			</div>
+      <div class="booking-section-hours">
+        <h4 class="booking-hours-text">SELECTE NUMBER OF SERVICES</h4>			    
+		    <select ng-change="setServices(bookInfo.no_of_bedroom,'bedroom')" ng-options="no_of_bedroom.value as no_of_bedroom.name for no_of_bedroom in no_of_bedrooms"  class="form-control input-lg select-bedroom-credential" ng-model="bookInfo.no_of_bedroom"></select>
+        <select ng-change="setServices(bookInfo.no_of_bathroom,'bathroom')" ng-options="no_of_bathroom.value as no_of_bathroom.name for no_of_bathroom in no_of_bathrooms"  class="select-bathroom-credential form-control input-lg " ng-model="bookInfo.no_of_bathroom"></select>
+			</div>
+      <div class="booking-section-availabilities">
+        <h4 class="booking-charges-text">SELECTE CLEANER</h4>			    
+        <select ng-options="cleaner.firstname for cleaner in cleaners" ng-change="getSelectedCleanerInfo(cleaner)" class="form-control input-lg select-cleaner-credential" ng-model="cleaner"></select>
+        <div class="row">
+          <div ng-repeat='Availability in Availabilities'>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6 availabilities-section">
+              {{Availability.day}}
+              {{Availability.fromTime | date:'h:mma'}}
+              {{Availability.toTime | date:'h:mma'}}
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+        </div>
+			</div>
 			<div class="booking-section-charges">
-			    <h4 class="booking-charges-text">HOW OFTEN?</h4>
+			    <h4 class="booking-charges-text">SELECTE CHARGES</h4>
 			    <table class ="booking-charges-table">
 			        <tr>
 			            <td class="booking-charges-coloum">One Time</td>
@@ -62,7 +66,7 @@
           </div>
 			</div>
 			<div class="booking-section-next">
-				<a href="#/cleaner_profiles/home-smile-cleaners/orders/new"><button class="btn btn-primary booking-button-next" ng-click="completeBooking()">Next</button></a>
+				<button class="btn btn-primary booking-button-next" ng-click="completeBooking()">Next</button>
 			</div>
 		</div>
 
@@ -123,11 +127,13 @@
 			</div>
 		</div>
 	</div>
+
+	<!--COMPLETE YOUR BOOKING-->
 	<div class="row" ng-hide="final_booking">
 		<form name="customerForm">
 			<div class="col-sm-8">
 				<div class="booking-section">
-				    <h1 class="booking-text">COMPLETE YOUR BOOKING</h1>
+				    <h3 class="booking-text">COMPLETE YOUR RESCHEDULE BOOKING</h3>
 				</div>
 				<div class="booking-section-heading">
 				    <h4 class="booking-heading-text">Great! A few more details and we can complete your booking.</h4>
@@ -150,13 +156,13 @@
 				<div class="booking-section-address">
 				    <h4 class="booking-charges-text">ADDRESS</h4>
 				    <div class="customer-address">
-			            <div class="customer-pre-address cursor-pointer" >
+			            <div ng-hide="new_address" class="customer-pre-address cursor-pointer" >
 			            <input type= "checkbox" ng-model="previous_address">&nbsp;Previous Address
 			            </div>
-			            <div class="customer-new-address cursor-pointer" ng-model="new_address">
+			            <div ng-hide="previous_address" class="customer-new-address cursor-pointer" ng-model="new_address">
 			            <input type= "checkbox" ng-model="new_address">&nbsp New Address</div>  
 				    </div>
-				    <div ng-show="newAddress">
+				    <div ng-hide="previous_address">
 					    <div class="customer-address">
 				            <div class="customer-pre-address">Street Address</div>
 				            <div class="customer-new-address">Apt # (Optional)</div>  
@@ -218,56 +224,11 @@
 			            </div>
 				    </div>
 				</div>
-				<div class="booking-section-hours1">
-					 <div class ="row">
-						<div class="col-sm-3"></div>
-					    <div class="col-sm-2" style="margin-left: 80px;">
-				       <h4></h4>PAYMENT</h4>
-				     </div>
-				     <div class="col-sm-2">
-				      <img style="margin-top:-13px;" src="images/card.png" width="80px" height="80px">
-				     </div>	
-				     <div class="col-sm-3"></div>
-				   </div>
-
-				   <div class="container">
-							<form stripe-form  role="form" id= "payment-form">
-								<fieldset class="payment-frm">
-									<div class="form-group">
-										<label class="col-sm-3 control-label" for="card-holder-name">Name on Card</label>
-										<div class="col-sm-9">
-											<input type="text" class="form-control"  ng-model="name"  name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name">
-										</div>
-									</div><br/><br/>
-									<div class="form-group">
-										<label class="col-sm-3 control-label" for="card-number">Card Number</label>
-										<div class="col-sm-9">
-											<input type="text" class="form-control" ng-model="number" data-stripe="number"/>
-            				</div>
-									</div><br/><br/>
-									 <div class="form-group">
-										<label class="col-sm-3 control-label" for="exp">Expiration (MM/YYYY)</label>
-										<div class="col-sm-9">
-												<input type="text" size="2" data-stripe="exp-month" ng-model="exp_month"/>										
-												<span> / </span>
-												<input type="text" size="5" data-stripe="exp-year" ng-model="exp_year"/>
-										</div>
-									</div><br/><br/>
-									<div class="form-group">										
-                    <label class="col-sm-3 control-label" for="card-number">CVV</label>
-                    <div class="col-sm-5">
-									 <input type="text" class="form-control" data-stripe="cvc" ng-model="cvc" payments-validate="cvc" payments-format="cvc" payments-type-model="type"/>
-									 </div>	
-									 <div class="col-sm-4">
-									 <img class="card-img" src="images/visa.png" width="80px" height="80px">	
-									 </div>	  									
-									</div>
-								</fieldset>
-							</form>
-           </div>
+				<div class="booking-section-hours">
+				    <h4 class="booking-charges-text">PAYMENT</h4>
 				</div>
 				<div class="booking-section-next">
-					<a href="#"><button class="btn btn-primary booking-button-next" ng-click="submit()">SUBMIT ORDER</button></a>
+					<a href="#"><button class="btn btn-primary booking-button-next" ng-click="submitOrder()">SUBMIT ORDER</button></a>
 				</div>
 			</div>
 
