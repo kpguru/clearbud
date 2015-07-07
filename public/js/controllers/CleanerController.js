@@ -9,11 +9,13 @@
     $scope.manageReviews =true;
     $scope.availabilities ={};
     $scope.services = {};
+		$scope.recipients ={};
     $scope.numbersOnly = /^\d+$/;    
     $scope.steps = CleanerService.steps();
     $scope.steps1 = CleanerService.steps1();
     $scope.selection1 = $scope.steps1[0];        
     var ref = new Firebase(FIREBASE_URL);
+    $scope.bankinfo ={};
     ref.onAuth(function(authUser) {
       if (authUser != null) {
         if($routeParams.cleanerID){ 
@@ -157,7 +159,7 @@
             toaster.pop('success', "Add Cleaner Aboutus Successfully.");
           });
         }
-        
+         
         $scope.getCurrentStepIndex1 = function(){
           return _.indexOf($scope.steps1, $scope.selection1);
         };
@@ -211,15 +213,62 @@
             var previousStep = stepIndex - 1;
             $scope.selection = $scope.steps[previousStep];
           }
-        };           
-      }
-    });
-    
+        }; 
+        $scope.submitInfo = function(account){
+          Stripe.setPublishableKey('pk_test_VkqhfDUwIQNyWJK4sR7CKVsY');							  
+          console.log($scope.bankinfo.number, $scope.bankinfo.exp_month, $scope.bankinfo.exp_year, $scope.bankinfo.cvc, $scope.bankinfo.name);
+          var token = Stripe.card.createToken({number: $scope.bankinfo.number, cvc:$scope.bankinfo.cvc, exp_month: $scope.bankinfo.exp_month, exp_year: $scope.bankinfo.exp_year}, stripeResponseHandler);
+
+          }  
+        $scope.updateBankInfo= function(recID){
+					   $scope.recipients.recipientID = recID;
+					   console.log($scope.recipients.recipientID, authUser.uid);
+             CleanerService.saveCleanerBankInfo(authUser.uid, $scope.recipients).then(function (data) {
+             toaster.pop('success', "Add Bank Information SUccessfully");
+          });
+				 };    
+        $scope.createRecipentID = function(token){
+          var accountInfo = {};
+            accountInfo.token     = token;
+            accountInfo.card      = $scope.bankinfo.number;
+            accountInfo.exp_month = $scope.bankinfo.exp_month;
+            accountInfo.exp_yearm = $scope.bankinfo.exp_year;
+            accountInfo.cvc       = $scope.bankinfo.cvc;
+            accountInfo.email      = $scope.clanerProfile.email;
+            accountInfo.name    = $scope.clanerProfile.firstname;	
+						$http.post('/createRecipentID', accountInfo)
+						.success(function(res){									
+							if(res){							
+							 $scope.updateBankInfo(res);
+							}
+							else{
+								alert('There is something went wrong !! ');
+								}
+						})
+						.error(function(err){
+							console.log(err);
+						});
+        }
+             
+        }
+    });    
     function get_states(modelName, selected) {
       return $http.get('js/data/states.json').then(function (res) {
           modelName.state = '';
           $scope.states = res.data;
       });
     }
+		function stripeResponseHandler(status, response){
+			var $form = $('#payment-form');
+			if (response.error) {
+				$form.find('.payment-errors').text(response.error.message);
+				$form.find('button').prop('disabled', false);
+			} else {
+				var token = response.id;	
+				console.log(token);				
+				 $scope.createRecipentID(token);
+	}
+   }
+    
   });
 

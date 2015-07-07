@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 	      res.sendfile('./public/home.html');
 		});
 		app.post('/doPayment', userController.doPayment);
-
+    app.post('/createRecipentID', userController.createRecipentID);
 		app.post('/*', function(req, res){
 		   res.redirect('/');
 	    });	

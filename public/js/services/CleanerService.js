@@ -39,6 +39,11 @@ app.factory('CleanerService', function($firebaseAuth, FIREBASE_URL, $firebase) {
             var ca = this.getCleaner(ID);
             return ca.$update(about);
         },
+        saveCleanerBankInfo : function(cleanerID, recipent){
+					console.log(cleanerID, recipent);
+            var ca = this.getCleaner(cleanerID);
+            return ca.$update(recipent);
+        },
         saveScore : function(ID,score){
           var ca = this.getCleaner(ID);
           return ca.$update(score);
@@ -108,7 +113,8 @@ app.factory('CleanerService', function($firebaseAuth, FIREBASE_URL, $firebase) {
                   "About",
                   "What's Included",
                   'Pricing',
-                  'Availability'
+                  'Availability',
+                  'Bank Accounts Details'
                 ];
             return steps1;
         },

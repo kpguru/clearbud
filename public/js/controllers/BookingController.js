@@ -13,7 +13,8 @@
     $scope.completeBookInfo = {};
     $scope.date = new Date();
     $scope.timestampDate = $scope.date.getTime() - 1*24*60*60*1000;
-    $scope.newAddress = true;
+    $scope.newAddress = true;    
+    $scope.recID='';
     $scope.time = CleanerService.formatTime(new Date());
     $scope.hours = BookingService.hours();
     $scope.reserve_hours = $scope.hours[0].value;
@@ -37,9 +38,8 @@
         //show bookings cleaner open and show booking page on cleaner hand     
         var cleanerBookings = BookingService.getCleanerBookings(authUser.uid);
           cleanerBookings.$loaded().then(function (data) { 
-          $scope.bookings = data;    
-        });
-        
+          $scope.bookings = data;   
+        });        
         //show rejected booking on cleaner hand      
         var allBookings = BookingService.all;
           allBookings.$asArray().$loaded().then(function (data) { 
@@ -54,7 +54,7 @@
             $scope.frequency1 =$scope.bookingInfo.frequency_type;
             var clanerProfile = AuthenticationService.getCurrentUser($routeParams.cleanerID);
             clanerProfile.$loaded().then(function (clanerProfile) { 
-              $scope.clanerProfile = clanerProfile;
+            $scope.clanerProfile = clanerProfile;
             })
             var clanerCharges = ChargesService.getCharges($routeParams.cleanerID);
             clanerCharges.$loaded().then(function (data) { 
@@ -246,14 +246,18 @@
         };
           
         $scope.submit = function(){
-        //	$scope.doPayment();
+           var clanerProfile = AuthenticationService.getCurrentUser($scope.bookInfo.cleanerID);
+           clanerProfile.$loaded().then(function (clanerProfile) { 
+           $scope.recID = clanerProfile.recipientID;      
+				 });    
           Stripe.setPublishableKey('pk_test_VkqhfDUwIQNyWJK4sR7CKVsY');							  
           console.log($scope.number, $scope.exp_month, $scope.exp_year, $scope.cvc, $scope.name);
           var token = Stripe.card.createToken({number: $scope.number, cvc:$scope.cvc, exp_month: $scope.exp_month, exp_year: $scope.exp_year}, stripeResponseHandler);
         
         }                 
         $scope.doPayment = function(token){
-          var paymentinfo = {};
+           var paymentinfo = {}; 
+            paymentinfo.receipentID = $scope.recID;        
             paymentinfo.token     = token;
             paymentinfo.card      = $scope.number;
             paymentinfo.exp_month = $scope.exp_month;
@@ -263,7 +267,7 @@
             paymentinfo.amount    = $scope.subtotal;		
           $http.post('/dopayment', paymentinfo)
           .success(function(res){									
-            if(res){
+            if(res){							
              $scope.submitOrder(res);
             }
             else{
@@ -362,7 +366,7 @@
         $form.find('button').prop('disabled', false);
       } else {
         // response contains id and card, which contains additional card details
-        var token = response.id;					
+        var token = response.id;		
          $scope.doPayment(token);
      }
    }
