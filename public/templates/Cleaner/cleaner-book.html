@@ -218,56 +218,8 @@
 			            </div>
 				    </div>
 				</div>
-				<div class="booking-section-hours1">
-					 <div class ="row">
-						<div class="col-sm-3"></div>
-					    <div class="col-sm-2" style="margin-left: 80px;">
-				       <h4></h4>PAYMENT</h4>
-				     </div>
-				     <div class="col-sm-2">
-				      <img style="margin-top:-13px;" src="images/card.png" width="80px" height="80px">
-				     </div>	
-				     <div class="col-sm-3"></div>
-				   </div>
-
-				   <div class="container">
-							<form stripe-form  role="form" id= "payment-form">
-								<fieldset class="payment-frm">
-									<div class="form-group">
-										<label class="col-sm-3 control-label" for="card-holder-name">Name on Card</label>
-										<div class="col-sm-9">
-											<input type="text" class="form-control"  ng-model="name"  name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name">
-										</div>
-									</div><br/><br/>
-									<div class="form-group">
-										<label class="col-sm-3 control-label" for="card-number">Card Number</label>
-										<div class="col-sm-9">
-											<input type="text" class="form-control" ng-model="number" data-stripe="number"/>
-            				</div>
-									</div><br/><br/>
-									 <div class="form-group">
-										<label class="col-sm-3 control-label" for="exp">Expiration (MM/YYYY)</label>
-										<div class="col-sm-9">
-												<input type="text" size="2" data-stripe="exp-month" ng-model="exp_month"/>										
-												<span> / </span>
-												<input type="text" size="5" data-stripe="exp-year" ng-model="exp_year"/>
-										</div>
-									</div><br/><br/>
-									<div class="form-group">										
-                    <label class="col-sm-3 control-label" for="card-number">CVV</label>
-                    <div class="col-sm-5">
-									 <input type="text" class="form-control" data-stripe="cvc" ng-model="cvc" payments-validate="cvc" payments-format="cvc" payments-type-model="type"/>
-									 </div>	
-									 <div class="col-sm-4">
-									 <img class="card-img" src="images/visa.png" width="80px" height="80px">	
-									 </div>	  									
-									</div>
-								</fieldset>
-							</form>
-           </div>
-				</div>
 				<div class="booking-section-next">
-					<a href="#"><button class="btn btn-primary booking-button-next" ng-click="submit()">SUBMIT ORDER</button></a>
+					<a href="#"><button class="btn btn-primary booking-button-next" ng-click="submitOrder()">SUBMIT ORDER</button></a>
 				</div>
 			</div>
 
