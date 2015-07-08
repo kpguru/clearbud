@@ -234,8 +234,8 @@
             accountInfo.exp_month = $scope.bankinfo.exp_month;
             accountInfo.exp_yearm = $scope.bankinfo.exp_year;
             accountInfo.cvc       = $scope.bankinfo.cvc;
-            accountInfo.email      = $scope.clanerProfile.email;
-            accountInfo.name    = $scope.clanerProfile.firstname;	
+            accountInfo.email     = $scope.clanerProfile.email;
+            accountInfo.name      =  $scope.bankinfo.name  ;	
 						$http.post('/createRecipentID', accountInfo)
 						.success(function(res){									
 							if(res){							

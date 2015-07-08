@@ -34,7 +34,7 @@ var stripe_public = "pk_test_VkqhfDUwIQNyWJK4sR7CKVsY";
 										}, function(err, transfer) {
 									     res.json(charge);
 								      });
-								      res.json(charge);
+								     // res.json(charge);
 			      	});					
       }
 	    exports.createRecipentID = function(req, res){

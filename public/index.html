@@ -86,6 +86,10 @@
     </div>
 
       <div ng-view=""></div>
+     <div ng-if="showLoading" class="loader wait">
+       <img src="images/ajax-loader.gif">
+      </div>
+      
     	<script type="text/javascript" src="js/app.js"></script> 
       <script type="text/javascript" src="js/services/AuthenticationService.js"></script>
       <script type="text/javascript" src="js/services/CustomerService.js"></script>

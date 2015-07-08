@@ -1,7 +1,8 @@
 'use strict';
-  app.controller('BookingController', function ($scope, $routeParams, $window, $location, $http, AvailabilitiesService, ChargesService, CustomerService, BookingService, CleanerService, AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
+  app.controller('BookingController', function ($scope, $rootScope, $routeParams, $window, $location, $http, AvailabilitiesService, ChargesService, CustomerService, BookingService, CleanerService, AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
     $scope.signedIn = AuthenticationService.signedIn; 
     $scope.final_booking = true;
+    $rootScope.showLoading = false;
     $scope.bookInfo={};
     $scope.setStatus =0;
     $scope.token ='';
@@ -15,6 +16,7 @@
     $scope.timestampDate = $scope.date.getTime() - 1*24*60*60*1000;
     $scope.newAddress = true;    
     $scope.recID='';
+    $scope.paymentInfo={};
     $scope.time = CleanerService.formatTime(new Date());
     $scope.hours = BookingService.hours();
     $scope.reserve_hours = $scope.hours[0].value;
@@ -225,7 +227,6 @@
         $scope.setBookingStatus = function(bookingID, status){
           if($scope.setStatus == 0 ){
             $scope.bookingObj.status = status;
-            console.log(bookingID,$scope.bookingObj)
             BookingService.updateBookingStatus(bookingID,$scope.bookingObj).then(function(data){ 							
               toaster.pop('success', "Booking Approved Successfully");
             });
@@ -248,9 +249,9 @@
         };
           
         $scope.submit = function(payment){
+					$rootScope.showLoading = true;
           $scope.payment = payment;
           $scope.booking = CustomerService.getData();
-          console.log(payment,$scope.booking)
            var clanerProfile = AuthenticationService.getCurrentUser($scope.booking.cleanerID);
            clanerProfile.$loaded().then(function (clanerProfile) { 
            $scope.recID = clanerProfile.recipientID;      
@@ -260,18 +261,19 @@
         }                 
         $scope.doPayment = function(token){
           var paymentinfo = {}; 
-          console.log($scope.payment,$scope.booking,$scope.recID)
           $scope.payment.receipentID = $scope.recID;        
           $scope.payment.token     = token;
-          $scope.payment.amount    = $scope.booking.total;
-          console.log($scope.payment);		
+          $scope.payment.amount    = $scope.booking.total;	
           $http.post('/dopayment', $scope.payment)
           .success(function(res){									
-            if(res){							
-             BookingService.savePaymentInfo($scope.booking.$id,$scope.payment).then(function(data){ 
-               $location.path('/customer_rating').replace();
-                $(".btn-close-popup").click();
-                toaster.pop('success', "Payment Successfully");
+            if(res){	
+						 $scope.paymentInfo.paymentInfo = res;
+						  $scope.paymentInfo.paymentStatus = true;						
+             BookingService.savePaymentInfo($scope.booking.$id, $scope.paymentInfo).then(function(data){
+							 $rootScope.showLoading = false; 							
+							 $('#myModal').modal('hide');
+               $location.path('/customer_rating').replace();               
+               toaster.pop('success', "Payment Successfully");
               });
             }
             else{
@@ -288,10 +290,8 @@
         } 
         $scope.setBookingStatus = function(bookingID, status){
           if($scope.setStatus == 0 ){
-             console.log(bookingID, status)
               $scope.bookingObj.status = status;
               BookingService.updateBookingStatus(bookingID,$scope.bookingObj).then(function(data){ 
-                console.log(data, bookingID);
                 toaster.pop('success', "Booking Approved Successfully");
               });
           }else if($scope.setStatus == 1 ){
@@ -324,7 +324,6 @@
             $scope.bookInfo.zip_code   =$scope.zip_code;
             $scope.bookInfo.phone      =$scope.phone;
           }
-          console.log($scope.bookInfo)
           if($scope.reschedule){  
             BookingService.cleanerBooking($scope.bookInfo).then(function (data) {                        
               sessionStorage.user = null;
@@ -341,16 +340,13 @@
         };
         
         $scope.acceptOpenBooking = function(bookingID, status){
-          console.log(bookingID, status, 'rejected');
           $scope.bookingObj.status = status;
           $scope.bookingObj.cleanerID =  $scope.currentUser.$id;
-          console.log($scope.currentUser.$id,  $scope.bookingObj.status);
           BookingService.updateBookingStatus(bookingID,$scope.bookingObj).then(function(data){ 
             toaster.pop('success', "Open Booking Accepted Successfully");
           });
         }
          if($routeParams.cleanerID){
-					 console.log($routeParams.cleanerID, $scope.bookings);
 					  $scope.paymentDone =[];  
 					  var cleanerBookings = BookingService.getCleanerBookings(authUser.uid);
           cleanerBookings.$loaded().then(function (data) { 
@@ -360,7 +356,6 @@
 						  $scope.paymentDone.push(val);						 
 						 }	
 					 });
-					 console.log($scope.paymentDone);
 					}); 
 					}       
       }
