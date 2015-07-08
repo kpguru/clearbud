@@ -5,7 +5,6 @@ var fs = require('fs-extra');
 var stripe_secret = "sk_test_IeK9KWcycB3NKQkWunnNkWlN";
 var stripe_public = "pk_test_VkqhfDUwIQNyWJK4sR7CKVsY";
 
-
 			exports.doPayment = function(req, res){
 						var stripe = require("stripe")(stripe_secret);
 						var stripeToken = req.body.token;
@@ -38,7 +37,7 @@ var stripe_public = "pk_test_VkqhfDUwIQNyWJK4sR7CKVsY";
 								      res.json(charge);
 			      	});					
       }
-		 exports.createRecipentID = function(req, res){
+	    exports.createRecipentID = function(req, res){
 				 var stripe = require("stripe")(stripe_secret);
 				 var stripeToken = req.body.token;
 				 var cardno = req.body.number;

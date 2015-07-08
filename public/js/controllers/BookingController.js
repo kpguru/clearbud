@@ -38,7 +38,8 @@
         //show bookings cleaner open and show booking page on cleaner hand     
         var cleanerBookings = BookingService.getCleanerBookings(authUser.uid);
           cleanerBookings.$loaded().then(function (data) { 
-          $scope.bookings = data;   
+          $scope.bookings = data;  
+         
         });        
         //show rejected booking on cleaner hand      
         var allBookings = BookingService.all;
@@ -224,7 +225,8 @@
         $scope.setBookingStatus = function(bookingID, status){
           if($scope.setStatus == 0 ){
             $scope.bookingObj.status = status;
-            BookingService.updateBookingStatus(bookingID,$scope.bookingObj).then(function(data){ 
+            console.log(bookingID,$scope.bookingObj)
+            BookingService.updateBookingStatus(bookingID,$scope.bookingObj).then(function(data){ 							
               toaster.pop('success', "Booking Approved Successfully");
             });
           }else 
@@ -351,6 +353,20 @@
             toaster.pop('success', "Open Booking Accepted Successfully");
           });
         }
+         if($routeParams.cleanerID){
+					 console.log($routeParams.cleanerID, $scope.bookings);
+					  $scope.paymentDone =[];  
+					  var cleanerBookings = BookingService.getCleanerBookings(authUser.uid);
+          cleanerBookings.$loaded().then(function (data) { 
+            $scope.bookings = data; 
+            angular.forEach($scope.bookings, function(val){
+					  if(val.paymentStatus && val.paymentStatus== true){
+						  $scope.paymentDone.push(val);						 
+						 }	
+					 });
+					 console.log($scope.paymentDone);
+					}); 
+					}       
       }
     }); 
     function get_states() {
