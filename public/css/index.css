@@ -326,6 +326,17 @@ margin-left: 847px;
 .team_btnn{ 
   float:none !important;
 }
+.payment-frm{
+	width: 600px;
+}
+.complete-payment{
+	width: 550px;
+}
+.payment-button{
+    height: 42px;
+    margin-left: 26px;
+    width: 552px;
+}
 /*customer-search*/
 .search-page {
    margin-left: 86px;
@@ -531,4 +542,15 @@ ul.rating {
 .availabilities-section{
   margin-left: 240px;
   width: 497px;
+}
+/* home page*/
+.wait{
+  margin-left: 600px;
+  margin-top: 100px;
+  width: 600px;
+}
+.home-search{
+  margin-left: 96px;
+  margin-top: 54px;
+  width: 873px;
 }

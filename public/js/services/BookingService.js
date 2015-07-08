@@ -23,6 +23,10 @@ app.factory('BookingService', function($firebaseAuth, FIREBASE_URL, $firebase) {
           var bookingInfo = this.getBooking(bookingID);
           return bookingInfo.$update(status);
         },
+        savePaymentInfo : function (bookingID,payment) {
+          var bookingInfo = this.getBooking(bookingID);
+          return bookingInfo.$update(payment);
+        },
         rescheduleBooking : function (bookingID,booking) {
           var bookingInfo = this.getBooking(bookingID);
           return bookingInfo.$update(booking);

@@ -247,30 +247,32 @@
           });
         };
           
-        $scope.submit = function(){
-           var clanerProfile = AuthenticationService.getCurrentUser($scope.bookInfo.cleanerID);
+        $scope.submit = function(payment){
+          $scope.payment = payment;
+          $scope.booking = CustomerService.getData();
+          console.log(payment,$scope.booking)
+           var clanerProfile = AuthenticationService.getCurrentUser($scope.booking.cleanerID);
            clanerProfile.$loaded().then(function (clanerProfile) { 
            $scope.recID = clanerProfile.recipientID;      
 				 });    
           Stripe.setPublishableKey('pk_test_VkqhfDUwIQNyWJK4sR7CKVsY');							  
-          console.log($scope.number, $scope.exp_month, $scope.exp_year, $scope.cvc, $scope.name);
-          var token = Stripe.card.createToken({number: $scope.number, cvc:$scope.cvc, exp_month: $scope.exp_month, exp_year: $scope.exp_year}, stripeResponseHandler);
-        
+          var token = Stripe.card.createToken({number: payment.number, cvc:payment.cvc, exp_month: payment.exp_month, exp_year: payment.exp_year}, stripeResponseHandler);
         }                 
         $scope.doPayment = function(token){
-           var paymentinfo = {}; 
-            paymentinfo.receipentID = $scope.recID;        
-            paymentinfo.token     = token;
-            paymentinfo.card      = $scope.number;
-            paymentinfo.exp_month = $scope.exp_month;
-            paymentinfo.exp_yearm = $scope.exp_year;
-            paymentinfo.cvc       = $scope.cvc;
-            paymentinfo.name      = $scope.name;
-            paymentinfo.amount    = $scope.subtotal;		
-          $http.post('/dopayment', paymentinfo)
+          var paymentinfo = {}; 
+          console.log($scope.payment,$scope.booking,$scope.recID)
+          $scope.payment.receipentID = $scope.recID;        
+          $scope.payment.token     = token;
+          $scope.payment.amount    = $scope.booking.total;
+          console.log($scope.payment);		
+          $http.post('/dopayment', $scope.payment)
           .success(function(res){									
             if(res){							
-             $scope.submitOrder(res);
+             BookingService.savePaymentInfo($scope.booking.$id,$scope.payment).then(function(data){ 
+               $location.path('/customer_rating').replace();
+                $(".btn-close-popup").click();
+                toaster.pop('success', "Payment Successfully");
+              });
             }
             else{
               alert('There is something went wrong !! ');
@@ -301,13 +303,7 @@
         }
         
         // this function call when click submit order on booking and reschedule booking page
-        $scope.submitOrder = function(charge){ 
-          if(charge){
-            $scope.bookInfo.paymentInfo  = charge;
-          }else{
-            $scope.bookInfo.paymentInfo  = $scope.bookInfo.paymentInfo;
-            }
-          
+        $scope.submitOrder = function(){ 
           $scope.bookInfo.firstname = $scope.firstname;
           $scope.bookInfo.lastname  =$scope.lastname;                                        
           $scope.bookInfo.total      =$scope.subtotal;

@@ -60,7 +60,7 @@
                         <td class="status-complete" ng-if="booking.status =='Accepted' && booking.date_time > timestampDate">{{booking.status}}</td>
                         <td class="status-error" ng-if="booking.status=='Rejected'">{{booking.status}}</td>
                         <td class="status-complete" ng-if="booking.status=='Completed'">{{booking.status}}</td>
-                        <td class="status-complete" ng-if="booking.date_time < timestampDate && booking.status=='Accepted'"><a href="#/customer_rating" ng-click="setBooking(booking)">Complete</a></td>
+                        <td class="status-complete" ng-if="booking.date_time < timestampDate && booking.status=='Accepted'"><a data-toggle="modal" data-target="#myModal" ng-click="setBooking(booking)">Complete</a></td>
                         <td ng-if="(booking.status=='Pending' || booking.status =='Accepted') && booking.date_time > timestampDate">
                           <div class="team_btnn status-complete" ng-controller="BookingController">
                             <a href="#/{{booking.$id}}/reschedule-booking" ng-click="setBookInfo(booking,false)" ng-confirm-click="Do you really want to Reschedule Booking?">Reschedule</a>
@@ -130,3 +130,57 @@
     </form>
   </div>
 </div>
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog" ng-controller="BookingController">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">PAYMENT</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+							<form stripe-form  role="form" id= "payment-form">
+								<fieldset class="complete-payment">
+									<div class="form-group">
+										<label class="col-sm-3 control-label" for="card-holder-name">Name on Card</label>
+										<div class="col-sm-9">
+											<input type="text" class="form-control"  ng-model="payment.name"  name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name">
+										</div>
+									</div><br/><br/>
+									<div class="form-group">
+										<label class="col-sm-3 control-label" for="card-number">Card Number</label>
+										<div class="col-sm-9">
+											<input type="text" class="form-control" ng-model="payment.number" data-stripe="number"/>
+            				</div>
+									</div><br/><br/>
+									 <div class="form-group">
+										<label class="col-sm-3 control-label" for="exp">Expiration (MM/YYYY)</label>
+										<div class="col-sm-9">
+												<input type="text" size="2" data-stripe="exp-month" ng-model="payment.exp_month"/>										
+												<span> / </span>
+												<input type="text" size="5" data-stripe="exp-year" ng-model="payment.exp_year"/>
+										</div>
+									</div><br/><br/>
+									<div class="form-group">										
+                    <label class="col-sm-3 control-label" for="card-number">CVV</label>
+                    <div class="col-sm-5">
+									 <input type="text" class="form-control" data-stripe="cvc" ng-model="payment.cvc" payments-validate="cvc" payments-format="cvc" payments-type-model="type"/>
+									 </div>	
+									 <div class="col-sm-4">
+									 <img class="card-img" src="images/visa.png" width="80px" height="80px">	
+									 </div>	  									
+									</div>
+								</fieldset>
+							</form>
+           </div>
+        </div>
+        <div class="booking-section-next">
+					<button class="btn btn-primary payment-button" ng-click="submit(payment)">PAY</button>
+				</div>
+      </div>
+    </div>
+  </div>
+
