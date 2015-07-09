@@ -21,7 +21,11 @@ var app = angular.module('clearbud',[
         $routeProvider.when('/home', {
             templateUrl: 'templates/home.html',
             controller: 'CustomerController'
-        });        
+        });
+        $routeProvider.when('/contact-us', {
+            templateUrl: 'templates/contact-us.html',
+            controller: 'HomeController'
+        });         
          $routeProvider.when('/customer-signup', {
             templateUrl: 'templates/customer-signup.html',
             controller: 'AuthController'

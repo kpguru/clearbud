@@ -1,0 +1,43 @@
+<div class="login-block">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2"></div>
+      <div class="col-md-8">			
+        <form class="contactfrm" role="form" name="signup_form" class="ng-pristine ng-invalid ng-invalid-required ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-email">				    	 
+          <p align="center">Contact Us</p>
+          <div class="prf-logn-wrapper">	
+            <div class="form-group" ng-class="{'has-error': signup_form.name.$dirty && signup_form.name.$invalid, 'has-success': !signup_form.name.$invalid}">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input class="form-control" ng-pattern="/[a-zA-Z]$/" ng-model="contact.name" placeholder="Name" required="required" maxlength="100" type="text" name="name"/>
+              </div>
+              <span ng-show="signup_form.name.$error.required"></span>
+              <span ng-show="signup_form.name.$error.pattern" class="text-danger">Firstname required only a-zA-Z_ symbols.</span>
+            </div>
+            <div class="form-group" ng-class="{'has-error': signup_form.email.$dirty && signup_form.email.$invalid, 'has-success': !signup_form.email.$invalid}">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input type="email" ng-model="contact.email_id" name="email" class="form-control log" placeholder="Email Address" required="required">
+              </div>
+              <span ng-show="signup_form.email.$error.required"></span>
+              <span ng-show="signup_form.email.$error.email" class="err-messg">Please enter valid email. Ex. example@example.com</span>							
+            </div>
+            <div class="form-group" ng-class="{'has-error': signup_form.subject.$dirty && signup_form.subject.$invalid, 'has-success': !signup_form.subject.$invalid}">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input class="form-control" ng-model="contact.subject" required="required" placeholder="Subject" maxlength="100" type="text" name="subject"/>
+              </div>
+              <span ng-show="signup_form.subject.$error.required"></span>
+            </div>
+            <div class="form-group" ng-class="{'has-error': signup_form.message.$dirty && signup_form.message.$invalid, 'has-success': !signup_form.message.$invalid}">
+              <textarea ng-model="contact.message" placeholder="Message" class= "contact-us" name="message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary send"  ng-disabled="signup_form.$invalid" ng-click="sendEmail(contact)">Send</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+</div>
+

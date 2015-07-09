@@ -58,12 +58,6 @@
         $scope.setBooking = function(booking){
           CustomerService.setData(booking);
         };
-
-        //get booking details when load show booking page
-        $scope.getBooking = function(){
-          $scope.booking = CustomerService.getData();
-        };
-
         //search cleaner by name
         $scope.searchCleanerByName = function(name){
           if(name){
@@ -82,13 +76,13 @@
         
         //sort by price
         $scope.setCleanerSearch = function(booleanValue){
-          //manageCleanerSearch var manage price and default wise cleaner
-          $scope.manageCleanerSearch = booleanValue;
+          //searchManage var manage price
+          $scope.searchManage = booleanValue;
         };
         
         //get all cleaners profile like name, availabilities, rating, charge on search page
         $scope.getCleanersProfile = function(){
-          $scope.manageCleanerSearch = 0;
+          $scope.searchManage = 0;
           AuthenticationService.getUsersByRole('cleaner').$loaded().then(function(data){
             $scope.cleaners = data;
             var i = 0;
@@ -130,7 +124,7 @@
           });
         }; 
 
-        //save rating page and set booking status is completed ang get each booking get 5 score to cleaner 
+        //save rating and set booking status is completed ang get each booking get 5 score to cleaner 
         $scope.saveRating = function(rating){
           $scope.booking = CustomerService.getData();
           rating.cleaner_id = $scope.booking.cleanerID;
@@ -179,7 +173,6 @@
         $scope.getCurrentStepIndex = function(){
           return _.indexOf($scope.steps, $scope.selection);
         };
-
         // Go to a defined step index
         $scope.goToStep = function(index) {
           if ( !_.isUndefined($scope.steps[index]) )
@@ -189,7 +182,6 @@
         }; 
       }              
     });
-
     //get states
     function get_states() {
       return $http.get('js/data/states.json').then(function (res) {

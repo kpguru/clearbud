@@ -322,7 +322,6 @@
             $scope.bookInfo.zip_code   =$scope.zip_code;
             $scope.bookInfo.phone      =$scope.phone;
           }
-          console.log($scope.bookInfo)
           if($scope.reschedule){  
             BookingService.cleanerBooking($scope.bookInfo).then(function (data) {                        
               sessionStorage.user = null;

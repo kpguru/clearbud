@@ -19,7 +19,7 @@
             </span>
           </div>
           <div>
-            <div ng-repeat = "cleaner in cleanerData" ng-show="manageCleanerSearch == 0"> 
+            <div ng-repeat = "cleaner in cleanerData" ng-show="searchManage == 0"> 
               <div class="row cleaner-list" ng-show="cleaner.isApproved == 1">
                 <div class = "col-sm-4">            	  	
                   <a href="#/cleaner_profiles/{{cleaner.cleaner_id}}/home-smile-cleaners" title="Cleaner Profile"><img src = {{cleaner.cleaner_logo}}></a>
@@ -49,7 +49,7 @@
                 </div>
               </div>
             </div><!--close ng-repeat-->
-            <div ng-repeat = "cleaner in cleanerData | orderBy:'cleaner_charge':false" ng-show="manageCleanerSearch == 1"> 
+            <div ng-repeat = "cleaner in cleanerData | orderBy:'cleaner_charge':false" ng-show="searchManage == 1"> 
               <div class="row cleaner-list" ng-show="cleaner.isApproved == 1">
                 <div class = "col-sm-4">                    
                   <a href="#/cleaner_profiles/{{cleaner.cleaner_id}}/home-smile-cleaners" title="Cleaner Profile"><img src = {{cleaner.cleaner_logo}}></a>
@@ -79,7 +79,7 @@
                 </div>
               </div>
             </div><!--close ng-repeat-->
-            <div ng-repeat = "cleaner in cleanerData | orderBy:'score':true" ng-show="manageCleanerSearch == 2"> 
+            <div ng-repeat = "cleaner in cleanerData | orderBy:'score':true" ng-show="searchManage == 2"> 
               <div class="row cleaner-list" ng-show="cleaner.isApproved == 1">
                 <div class = "col-sm-4">                    
                   <a href="#/cleaner_profiles/{{cleaner.cleaner_id}}/home-smile-cleaners" title="Cleaner Profile"><img src = {{cleaner.cleaner_logo}}></a>
