@@ -204,6 +204,15 @@ var app = angular.module('clearbud',[
                 }
             }
        });
+       $routeProvider.when('/payment-history/:cleanerID', {
+           templateUrl: 'templates/Cleaner/payment-history.html',
+           controller: 'BookingController',
+           resolve: {
+                currentAuth: function (AuthenticationService) {
+                    return AuthenticationService.requireAuth();
+                }
+            }
+       });
     }])
      .run(["$rootScope", "$location", function ($rootScope, $location) {
         var history = [];

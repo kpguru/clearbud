@@ -220,9 +220,9 @@
           var token = Stripe.card.createToken({number: $scope.bankinfo.number, cvc:$scope.bankinfo.cvc, exp_month: $scope.bankinfo.exp_month, exp_year: $scope.bankinfo.exp_year}, stripeResponseHandler);
 
           }  
-        $scope.updateBankInfo= function(recID){
-					   $scope.recipients.recipientID = recID;
-					   console.log($scope.recipients.recipientID, authUser.uid);
+        $scope.updateBankInfo= function(recInfo){
+					   $scope.recipients.recipientInfo = recInfo;
+					   console.log($scope.recipients.recipientInfo, authUser.uid);
              CleanerService.saveCleanerBankInfo(authUser.uid, $scope.recipients).then(function (data) {
              toaster.pop('success', "Add Bank Information SUccessfully");
           });
@@ -234,12 +234,13 @@
             accountInfo.exp_month = $scope.bankinfo.exp_month;
             accountInfo.exp_yearm = $scope.bankinfo.exp_year;
             accountInfo.cvc       = $scope.bankinfo.cvc;
-            accountInfo.email      = $scope.clanerProfile.email;
-            accountInfo.name    = $scope.clanerProfile.firstname;	
+            accountInfo.email     = $scope.clanerProfile.email;
+            accountInfo.name      =  $scope.bankinfo.name  ;	
 						$http.post('/createRecipentID', accountInfo)
 						.success(function(res){									
-							if(res){							
-							 $scope.updateBankInfo(res);
+							if(res){		
+								console.log(res);					
+							  $scope.updateBankInfo(res);
 							}
 							else{
 								alert('There is something went wrong !! ');
