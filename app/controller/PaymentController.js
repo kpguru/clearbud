@@ -12,30 +12,36 @@ var stripe_public = "pk_test_VkqhfDUwIQNyWJK4sR7CKVsY";
 						var card_cvc = req.body.card_cvc;
 						var exp_month = req.body.exp_month;
 						var exp_year = req.body.exp_year;
-						var amount = req.body.amount;
-						var receipentID = req.body.receipentID
+						var amt = req.body.amount;
+						var amount = amt;
+						var cleanerAmt = (amount*90);
+						var cleanerAmount = cleanerAmt/100;
+						console.log(cleanerAmount);
+						var receipent = req.body.receipent;
+						console.log(req.body.email);
 					   stripe.customers.create({
 							   card: stripeToken,
-							   email: 'patoliya@grepruby.com'
+							   email: req.body.email
 				     }).then(function(customer) {
 						 	return stripe.charges.create({
-									amount: amount, // amount in cents, again
+									amount: amount*100, // amount in cents, again
 									currency: "usd",									
 									description: "patoliya@grepruby.com",
 									customer : customer.id
 					   });
-			       	}).then(function(charge) {					
+			       	}).then(function(charge) {				
 					       stripe.transfers.create({
-											amount: 2, // amount in cents
+											amount: cleanerAmount*100, // amount in cents
 											currency: "usd",
-											recipient: receipentID,
-											card: 'card_16LvIHEHY4NsJu4sP4aOdAj2',
+											recipient: receipent.id,
+											card: receipent.default_card,
 											statement_descriptor: "Your first booking payment"
 										}, function(err, transfer) {
+											console.log(err);
 									     res.json(charge);
 								      });
-								     // res.json(charge);
-			      	});					
+								   //res.json(charge);
+			   });					
       }
 	    exports.createRecipentID = function(req, res){
 				 var stripe = require("stripe")(stripe_secret);
@@ -54,7 +60,6 @@ var stripe_public = "pk_test_VkqhfDUwIQNyWJK4sR7CKVsY";
 						email: email
 					}, function(err, recipient) {
 						console.log(err);
-						console.log(recipient);
-						res.json(recipient.id);
+						res.json(recipient);
 					});			
-	   }
+	    }

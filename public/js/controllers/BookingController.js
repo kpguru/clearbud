@@ -15,7 +15,7 @@
     $scope.date = new Date();
     $scope.timestampDate = $scope.date.getTime() - 1*24*60*60*1000;
     $scope.newAddress = true;    
-    $scope.recID='';
+    $scope.recInfo={};
     $scope.paymentInfo={};
     $scope.time = CleanerService.formatTime(new Date());
     $scope.hours = BookingService.hours();
@@ -254,16 +254,17 @@
           $scope.booking = CustomerService.getData();
            var clanerProfile = AuthenticationService.getCurrentUser($scope.booking.cleanerID);
            clanerProfile.$loaded().then(function (clanerProfile) { 
-           $scope.recID = clanerProfile.recipientID;      
+           $scope.recInfo = clanerProfile.recipientInfo;      
 				 });    
           Stripe.setPublishableKey('pk_test_VkqhfDUwIQNyWJK4sR7CKVsY');							  
           var token = Stripe.card.createToken({number: payment.number, cvc:payment.cvc, exp_month: payment.exp_month, exp_year: payment.exp_year}, stripeResponseHandler);
         }                 
         $scope.doPayment = function(token){
           var paymentinfo = {}; 
-          $scope.payment.receipentID = $scope.recID;        
+          $scope.payment.receipent = $scope.recInfo;        
           $scope.payment.token     = token;
           $scope.payment.amount    = $scope.booking.total;	
+          $scope.payment.email      =($scope.booking.firstname).concat("@gmail.com");
           $http.post('/dopayment', $scope.payment)
           .success(function(res){									
             if(res){	

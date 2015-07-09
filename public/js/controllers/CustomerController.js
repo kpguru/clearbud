@@ -8,7 +8,8 @@
     $scope.isAppointment = true;
     $scope.steps = [
                     'Appointments',
-                    'Account'
+                    'Account',
+                    'Payment History'
                    ];
     $scope.selection = $scope.steps[0];
     var date = new Date();
@@ -19,7 +20,16 @@
     var ref = new Firebase(FIREBASE_URL);
     ref.onAuth(function(authUser) {
       if(authUser != null) {
-
+         	  $scope.paymentHistory =[];  
+					  var cleanerBookings = BookingService.getCustomerBookings(authUser.uid);
+          cleanerBookings.$loaded().then(function (data) { 
+            $scope.custBookings = data; 
+            angular.forEach($scope.custBookings, function(val){
+					  if(val.paymentStatus && val.paymentStatus== true){
+						  $scope.paymentHistory.push(val);						 
+						 }	
+					 });
+					}); 
         //get current user
         var users = AuthenticationService.getCurrentUser(authUser.uid);
         users.$loaded().then(function (data) {

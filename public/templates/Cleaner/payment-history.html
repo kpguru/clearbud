@@ -21,7 +21,7 @@
 						<td>{{booking.address1}}, {{booking.address2}} {{booking.city}}</td>
 						<td>{{booking.date_time | date:"dd/MM/yyyy"}}</td>
 						<td>{{booking.date_time | date:" h:mma"}}</td>
-						<td>{{booking.total}}</td> 
+						<td>{{(booking.total*90)/100}}</td> 
 						<td class="status-pending bn">{{booking.status}}</td> 
 						<td class="status-pending bn" ng-if="booking.paymentStatus== true ">Done</td>
 					 </tr>
