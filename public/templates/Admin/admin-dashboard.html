@@ -6,7 +6,7 @@
       <a ng-click="get_cleaners(); setUserStatus(0);" class="cursor-pointer">Cleaners</a>
     </div>
     <div class="col-sm-9">
-      <div class="dropdown filter" ng-show="check_cleaner">
+      <div class="dropdown admin-filter" ng-show="check_cleaner">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
           <span><i class="glyphicon glyphicon-filter"></i></span>Filter
         </button>
@@ -15,14 +15,15 @@
           <li role="presentation"><a role="menuitem" tabindex="-1" class="cursor-pointer" ng-click="get_cleaners(); setUserStatus(2);">Rejected</a></li>
         </ul>
       </div>
-      <table class="table">
+      <div class="row customer-booking-list">
+      <table class="table customer-booking-table">
         <thead>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th ng-show="check_cleaner">Status</th>
-            <th ng-show="check_cleaner">Action</th>
+            <td><b>First Name</b></td>
+            <td><b>Last Name</b></td>
+            <td><b>Email</b></td>
+            <td ng-show="check_cleaner"><b>Status</b></td>
+            <td ng-show="check_cleaner"><b>Action</b></td>
           </tr>
         </thead>
         <tbody>
@@ -36,24 +37,25 @@
             <td>{{ cleaner.lastname }}</td>
             <td>{{ cleaner.email }}</td>
             <td>{{cleaner.isApproved ==  0? "Pending" : "Approved"}}</td>
-            <th><button class="btn btn-default dropdown-toggle" ng-click="setCleanerStatus(cleaner.$id,1)" ng-confirm-click="Are you sure to Approve Cleaner?" type="button">{{cleaner.isApproved ==  0? "Approve" : "Reject"}}</button></th>
+            <td><button class="btn btn-default dropdown-toggle" ng-click="setCleanerStatus(cleaner.$id,1)" ng-confirm-click="Are you sure to Approve Cleaner?" type="button">{{cleaner.isApproved ==  0? "Approve" : "Reject"}}</button></td>
           </tr>
           <tr ng-show="cleaner.role == 'cleaner' && cleaner.isApproved == 1 && setStatus == 1" ng-repeat="cleaner in cleaners">
-            <td>{{ cleaner.first_name }}</td>
-            <td>{{ cleaner.last_name }}</td>
+            <td>{{ cleaner.firstname }}</td>
+            <td>{{ cleaner.lastname }}</td>
             <td>{{ cleaner.email }}</td>
             <td>{{cleaner.isApproved == 0? "Pending" : "Approved"}}</td>
-            <th><button class="btn btn-default dropdown-toggle" ng-click="setCleanerStatus(cleaner.$id,2)" ng-confirm-click="Are you sure to Reject Cleaner?" type="button">{{cleaner.isApproved ==  1? "Reject" : "Approve"}}</button></th>
+            <td><button class="btn btn-default dropdown-toggle" ng-click="setCleanerStatus(cleaner.$id,2)" ng-confirm-click="Are you sure to Reject Cleaner?" type="button">{{cleaner.isApproved ==  1? "Reject" : "Approve"}}</button></td>
           </tr>
           <tr ng-show="cleaner.role == 'cleaner' && cleaner.isApproved == 2 && setStatus == 2" ng-repeat="cleaner in cleaners">
-            <td>{{ cleaner.first_name }}</td>
-            <td>{{ cleaner.last_name }}</td>
+            <td>{{ cleaner.firstname }}</td>
+            <td>{{ cleaner.lastname }}</td>
             <td>{{ cleaner.email }}</td>
             <td>{{cleaner.isApproved == 1? "Approved" : "Rejected"}}</td>
-            <th><button class="btn btn-default dropdown-toggle" ng-click="setCleanerStatus(cleaner.$id,1)" ng-confirm-click="Are you sure to Approve Cleaner?"  type="button">{{cleaner.isApproved ==  1? "Reject" : "Approve"}}</button></th>
+            <td><button class="btn btn-default dropdown-toggle" ng-click="setCleanerStatus(cleaner.$id,1)" ng-confirm-click="Are you sure to Approve Cleaner?"  type="button">{{cleaner.isApproved ==  1? "Reject" : "Approve"}}</button></td>
           </tr>
         </tbody>
       </table>
+      </div>
     </div>
   </div>
 </div>

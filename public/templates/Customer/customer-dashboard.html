@@ -2,7 +2,6 @@
   <div class="customer-tab">
     <form class="form-horizontal">
       <ul class="nav nav-tabs customer-tabs">
-
         <li ng-repeat="step in steps" ng-class="{active: $index==getCurrentStepIndex()}">
           <a href="javascript:void(0)" ng-click="goToStep($index)">{{step}}</a>
         </li>
@@ -63,7 +62,6 @@
                             <a href="#/{{booking.$id}}/reschedule-booking" ng-click="setBookInfo(booking,false)" ng-confirm-click="Do you really want to Reschedule Booking?">{{booking.date_time > timestampDate ? "Reschedule" : "No Action Available"}}</a>
                           </div>
                         </td>
-                        <td ng-if="booking.status==('Completed'||'Rejected' ||'Accepted') && booking.date_time < timestampDate">No Action Available</td>
                         <td class="status-complete" ng-if="booking.date_time < timestampDate && booking.status=='Accepted'"><a data-toggle="modal" data-target="#myModal" ng-click="setBooking(booking)">Complete</a></td>
                       </tr>
                     </table>        
