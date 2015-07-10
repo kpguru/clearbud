@@ -2,6 +2,9 @@
 	.card-img{
 	  margin-top: -29px;	
 		}
+		.customer-tabs{
+			width: 848px;
+			}
   
 
 </style>
@@ -9,7 +12,7 @@
   <div class="customer-tab">
     <form class="form-horizontal">
 
-      <ul class="nav nav-tabs">
+      <ul class="nav nav-tabs customer-tabs">
         <li ng-repeat="step in steps" ng-class="{active: $index==getCurrentStepIndex()}">
           <a href="javascript:void(0)" ng-click="goToStep($index)">{{step}}</a>
         </li>
@@ -90,10 +93,10 @@
           <div class="row">
             <div class="col-sm-2 cleaner-profile-col2"><h2>About You</h2></div>
             <div class="col-sm-1 cleaner-profile-col1">
-                <a href='#/customer-edit/{{currentUser.$id}}'><button class="btn cleaner-profile-btn btn-primary btn-lg" >Edit Account</button></a>
+                <a href='#/customer-edit/{{currentUser.$id}}'><button class="btn .cleaner-profile-btn1 btn-primary btn-lg" >Edit Account</button></a>
             </div>
           </div>
-          <div>
+          <div class= "customer-tabs">
             <table class="table">
               <tbody>
                 <tr>
