@@ -1,6 +1,6 @@
 'use strict';
 
-	app.controller('AuthController', function ($rootScope, $scope, $window, $location,AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
+	app.controller('AuthController', function ($scope, $window, $location,AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
     $scope.signedIn = AuthenticationService.signedIn;      
     var customer = {
           email:'',
@@ -157,7 +157,6 @@
 	    }
 	    $scope.logout = function () {
 	        AuthenticationService.logout();
-	         $rootScope.isCleaner = false;
 	        toaster.pop('success', 'Logged out successfully!');
 	        $location.path('/');
         };

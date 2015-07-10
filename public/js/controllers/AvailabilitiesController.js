@@ -1,6 +1,6 @@
 'use strict';
 
-	app.controller('AvailabilitiesController', function ($scope, $window, $location, AvailabilitiesService, CleanerService, ChargesService, AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
+	app.controller('AvailabilitiesController', function ($scope, $window, $location, AvailabilitiesService, AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
     $scope.signedIn = AuthenticationService.signedIn; 
     $scope.availabilities = {};
     $scope.availabilities.sunday = {}; 

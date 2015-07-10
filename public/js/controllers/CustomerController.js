@@ -158,7 +158,7 @@
             window.location = "#/customer-dashboard";
           },function (error) {
             toaster.pop('error', "Error..!", error.toString());
-          });;
+          });
         };
         //get booking by date 
         $scope.getBookingByDate = function(date){
