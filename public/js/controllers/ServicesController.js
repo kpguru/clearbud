@@ -1,6 +1,6 @@
 'use strict';
 
-  app.controller('ServicesController', function ($scope, ServicesService, AuthenticationService, firebase, toaster, FIREBASE_URL) { 
+  app.controller('ServicesController', function ($scope, ServicesService, AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
     $scope.signedIn = AuthenticationService.signedIn; 
     $scope.services = {};
     $scope.services.general = []; 
