@@ -50,7 +50,7 @@
 				<form class="form-horizontal">
           <ul class="nav nav-tabs">
             <li ng-repeat="step in steps1" ng-class="{active: $index==getCurrentStepIndex1()}">
-              <a href="javascript:void(0)" ng-click="goToStep1($index)" ng-hide="step=='Availability'">{{step}}</a>
+              <a href="javascript:void(0)" ng-click="goToStep1($index)" ng-hide="step == 'Availability' || step == 'Bank Accounts Details'">{{step}}</a>
             </li>
           </ul>
           <div ng-switch on="selection1">
