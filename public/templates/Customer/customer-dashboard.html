@@ -1,3 +1,10 @@
+<style>
+	.card-img{
+	  margin-top: -29px;	
+		}
+  
+
+</style>
 <div class="container-fluid" ng-init="getBookingByDate(bookingDate)">
   <div class="customer-tab">
     <form class="form-horizontal">
@@ -49,6 +56,7 @@
                         <th>Booking Time</th>
                         <th>Amount</th>
                         <th>Status</th>
+                        <th>Action</th>
                       </tr>
                       <tr ng-repeat = "booking in bookings">
                         <td>{{booking.cleaner_firstname}} {{booking.cleaner_lastname}}</td>   
@@ -57,15 +65,18 @@
                         <td>{{booking.date_time | date:" h:mma"}}</td>
                         <td>{{booking.total}}</td> 
                         <td class="status-pending" ng-if="booking.status=='Pending'">{{booking.status}}</td> 
-                        <td class="status-complete" ng-if="booking.status =='Accepted' && booking.date_time > timestampDate">{{booking.status}}</td>
                         <td class="status-error" ng-if="booking.status=='Rejected'">{{booking.status}}</td>
+                        <td class="status-complete" ng-if="booking.status=='Accepted' && booking.date_time > timestampDate">{{booking.status}}</td>
                         <td class="status-complete" ng-if="booking.status=='Completed'">{{booking.status}}</td>
-                        <td class="status-complete" ng-if="booking.date_time < timestampDate && booking.status=='Accepted'"><a data-toggle="modal" data-target="#myModal" ng-click="setBooking(booking)">Complete</a></td>
-                        <td ng-if="(booking.status=='Pending' || booking.status =='Accepted') && booking.date_time > timestampDate">
+                        <td ng-if="booking.status=='Accepted'&& booking.date_time < timestampDate">service Done</td>
+                        <td ng-if="(booking.status=='Pending' || booking.status =='Accepted'|| 'Rejected') && booking.date_time > timestampDate">
                           <div class="team_btnn status-complete" ng-controller="BookingController">
-                            <a href="#/{{booking.$id}}/reschedule-booking" ng-click="setBookInfo(booking,false)" ng-confirm-click="Do you really want to Reschedule Booking?">Reschedule</a>
+                            <a href="#/{{booking.$id}}/reschedule-booking" ng-click="setBookInfo(booking,false)" ng-confirm-click="Do you really want to Reschedule Booking?">{{booking.date_time > timestampDate ? "Reschedule" : "No Action Available"}}</a>
                           </div>
                         </td>
+                        <td ng-if="booking.status==('Completed'||'Rejected' ||'Accepted') && booking.date_time < timestampDate">No Action Available</td>
+                        <td class="status-complete" ng-if="booking.date_time < timestampDate && booking.status=='Accepted'"><a data-toggle="modal" data-target="#myModal" ng-click="setBooking(booking)">Complete</a></td>
+                    
                       </tr>
                     </table>        
                   </div>
@@ -186,7 +197,7 @@
 									<div class="form-group">
 										<label class="col-sm-3 control-label" for="card-number">Card Number</label>
 										<div class="col-sm-9">
-											<input type="text" class="form-control" ng-model="payment.number" data-stripe="number"/>
+											<input type="text" class="form-control" ng-model="payment.number" data-stripe="number"/ placeholder="card Number ex. 4242424242424242">
             				</div>
 									</div><br/><br/>
 									 <div class="form-group">
@@ -200,7 +211,7 @@
 									<div class="form-group">										
                     <label class="col-sm-3 control-label" for="card-number">CVV</label>
                     <div class="col-sm-5">
-									 <input type="text" class="form-control" data-stripe="cvc" ng-model="payment.cvc" payments-validate="cvc" payments-format="cvc" payments-type-model="type"/>
+									 <input type="text" placeholder="CVV EX -123" class="form-control" data-stripe="cvc" ng-model="payment.cvc" payments-validate="cvc" payments-format="cvc" payments-type-model="type"/>
 									 </div>	
 									 <div class="col-sm-4">
 									 <img class="card-img" src="images/visa.png" width="80px" height="80px">	
