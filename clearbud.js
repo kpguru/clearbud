@@ -12,7 +12,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 require('./app/routes')(app); 
 app.use(function(req, res) {
   res.sendfile(__dirname + '/public/index.html');
