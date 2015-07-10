@@ -1,10 +1,3 @@
-<style>
-	.card-img{
-	  margin-top: -29px;	
-		}
-  
-
-</style>
 <div class="container-fluid" ng-init="getBookingByDate(bookingDate)">
   <div class="customer-tab">
     <form class="form-horizontal">
@@ -71,7 +64,6 @@
                         </td>
                         <td ng-if="booking.status==('Completed'||'Rejected' ||'Accepted') && booking.date_time < timestampDate">No Action Available</td>
                         <td class="status-complete" ng-if="booking.date_time < timestampDate && booking.status=='Accepted'"><a data-toggle="modal" data-target="#myModal" ng-click="setBooking(booking)">Complete</a></td>
-                    
                       </tr>
                     </table>        
                   </div>
@@ -124,9 +116,10 @@
                 <tr>
                   <td>Photo</td>
                   <td></td>
-                  <td><div>
-                          <img id="newLogo" ng-src="{{currentUser.customer_image}}" width="97px" height="80px"/>
-                      </div>
+                  <td>
+                    <div>
+                      <img id="newLogo" ng-src="{{currentUser.customer_image}}" width="97px" height="80px"/>
+                    </div>
                   </td>
                 </tr>
               </tbody>
