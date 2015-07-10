@@ -62,8 +62,8 @@
                           <div class="team_btnn status-complete" ng-controller="BookingController">
                             <a href="#/{{booking.$id}}/reschedule-booking" ng-click="setBookInfo(booking,false)" ng-confirm-click="Do you really want to Reschedule Booking?">{{booking.date_time > timestampDate ? "Reschedule" : "No Action Available"}}</a>
                           </div>
-                        </td>
-                        <td ng-if="booking.status==('Completed'||'Rejected' ||'Accepted') && booking.date_time < timestampDate">No Action Available</td>
+                        </td>                        
+                        <td ng-if="booking.status == 'Completed'|| booking.status =='Rejected' || booking.status =='Pending' && booking.date_time < timestampDate">No Action Available</td>
                         <td class="status-complete" ng-if="booking.date_time < timestampDate && booking.status=='Accepted'"><a data-toggle="modal" data-target="#myModal" ng-click="setBooking(booking)">Complete</a></td>
                       </tr>
                     </table>        
