@@ -1,8 +1,7 @@
 'use strict';
-  app.controller('BookingController', function ($scope, $rootScope, $routeParams, $window, $location, $http, AvailabilitiesService, ChargesService, CustomerService, BookingService, CleanerService, AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
+  app.controller('BookingController', function ($scope, $routeParams, $window, $location, $http, AvailabilitiesService, ChargesService, CustomerService, BookingService, CleanerService, AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
     $scope.signedIn = AuthenticationService.signedIn; 
     $scope.final_booking = true;
-    $rootScope.showLoading = false;
     $scope.bookInfo={};
     $scope.setStatus =0;
     $scope.token ='';
@@ -249,7 +248,6 @@
         };
           
         $scope.submit = function(payment){
-					$rootScope.showLoading = true;
           $scope.payment = payment;
           $scope.booking = CustomerService.getData();
            var clanerProfile = AuthenticationService.getCurrentUser($scope.booking.cleanerID);
@@ -271,7 +269,6 @@
 						 $scope.paymentInfo.paymentInfo = res;
 						  $scope.paymentInfo.paymentStatus = true;						
              BookingService.savePaymentInfo($scope.booking.$id, $scope.paymentInfo).then(function(data){
-							 $rootScope.showLoading = false; 							
 							 $('#myModal').modal('hide');
                $location.path('/customer_rating').replace();               
                toaster.pop('success', "Payment Successfully");

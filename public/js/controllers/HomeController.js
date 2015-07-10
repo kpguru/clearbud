@@ -1,22 +1,13 @@
 'use strict';
-  app.controller('HomeController', function ($scope, $routeParams, $http, $window, $location, toaster, $firebaseAuth, FIREBASE_URL, $firebase) { 
-    //~ var ref = new Firebase(FIREBASE_URL);
-    //~ var firebaseEmails = $firebase(ref.child('emails'));
+  app.controller('HomeController', function ($scope, $http, $location, toaster) { 
     $scope.sendEmail = function(contact_us){
-      console.log(contact_us);
-       $http.post('/contact-us',contact_us).
+      $http.post('/contact-us',contact_us).
 		    success(function(data, status, headers, config) {
-			      console.log(data);
-            toaster.pop('success', "Send mail Successfully!");
-			      //~ $location.path('/contact-us');
+			    toaster.pop('success', "Send mail Successfully!");
+          $location.path('/home');
 		    }).
 		    error(function(data, status, headers, config) {
-		    	
+		    	toaster.pop('error', "Error in send mail!");
 		    }); 
-      //~ firebaseEmails.$push(contact_us).then(function(data){
-        //~ toaster.pop('success', "Send mail Successfully!");
-      //~ },function (data) {
-              //~ toaster.pop('error', "Error..!", error.toString());
-        //~ });
     }
   });

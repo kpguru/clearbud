@@ -8,14 +8,14 @@ exports.sendEmail= function(req,res){
       pass: "okrhvfkqnxxqyjjg"
     }
   });
-
   // setup e-mail data with unicode symbols
   var mailOptions = {
                       from: req.body.name+"<"+ req.body.email_id +">", // sender address
                       to: "Receiver Name <clearbudapp@gmail.com>", // list of receivers
+                      sender: req.body.email_id,
                       subject: req.body.subject, // Subject line
                       text: "", // plaintext body
-                      html: "<h3>Hello, Sir/Mam </h3></br><p>"+ req.body.email_id +"</br>"+req.body.message+"</p></br><h3>Thanks</h3>"
+                      html: "<html><h3>Hello, Sir/Mam </h3><body>"+ req.body.email_id +"</br><p>"+req.body.message+"</p></br><h3>Thanks</h3></body></html>"
                     }
   // send mail with defined transport object
   smtpTransport.sendMail(mailOptions, function(error, response){
