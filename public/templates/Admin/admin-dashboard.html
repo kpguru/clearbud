@@ -1,12 +1,10 @@
 <div class="container" ng-init="get_customers()">
   <h1>Welcome</h1>
   <div class="row">
-
     <div class="col-sm-3" id="admin">
       <a ng-click="get_customers()" class="cursor-pointer">Customer</a></br></br>
       <a ng-click="get_cleaners(); setUserStatus(0);" class="cursor-pointer">Cleaners</a>
     </div>
-
     <div class="col-sm-9">
       <div class="dropdown filter" ng-show="check_cleaner">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
@@ -57,6 +55,5 @@
         </tbody>
       </table>
     </div>
-
   </div>
 </div>
