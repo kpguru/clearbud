@@ -1,47 +1,47 @@
 /*cleaner booking*/
 .booking-section {
-    background-color: lavenderblush;
-    height: 70px;
-    margin-left: 49px;
-    margin-top: 33px;
+  background-color: lavenderblush;
+  height: 70px;
+  margin-left: 49px;
+  margin-top: 33px;
 }
 .summary-section{
 	background-color: lavenderblush;
-    height: 70px;
-    margin-right: 49px;
-    margin-top: 33px;
+  height: 70px;
+  margin-right: 49px;
+  margin-top: 33px;
 }
 .booking-text{
-    margin-left: 152px;
-    padding-top: 19px;
+  margin-left: 152px;
+  padding-top: 19px;
 }
 .summary-text{
-    margin-left: 78px;
-    padding-top: 19px;
+  margin-left: 78px;
+  padding-top: 19px;
 }
 .booking-section-heading{
-    background-color: lavenderblush;
-    height: 70px;
-    margin-left: 49px; 
+  background-color: lavenderblush;
+  height: 70px;
+  margin-left: 49px; 
 }
 .booking-heading-text{
-   margin-left: 111px; 
-   padding-top: 19px;
+  margin-left: 111px; 
+  padding-top: 19px;
 }
 .booking-section-hours{
-   background-color: lavenderblush;
-   height: 165px;
-   margin-left: 49px; 
+  background-color: lavenderblush;
+  height: 165px;
+  margin-left: 49px; 
 }
 .booking-hours-text{
-   margin-left: 198px; 
-   height: 90px;
-   padding-top: 19px;
+  margin-left: 198px; 
+  height: 90px;
+  padding-top: 19px;
 }
 .select-credential{
-   margin-top:1px;
-   width:210px;
-   margin-left:48px;
+  margin-top:1px;
+  width:210px;
+  margin-left:48px;
 }
 .select-hours{
   margin-top:-32px;
@@ -49,101 +49,101 @@
   margin-left:250px;
 }
 .booking-section-charges{
-   background-color: lavenderblush;
-    height: 165px;
-   margin-left: 49px; 
+  background-color: lavenderblush;
+  height: 165px;
+  margin-left: 49px; 
 }
 .booking-charges-text{
-    margin-left: 281px;
-   padding-top: 19px;
+  margin-left: 281px;
+  padding-top: 19px;
 }
 .booking-charges-table{
-    margin-left: 124px;
+  margin-left: 124px;
 }
 .booking-charges-coloum{
-    padding: 19px;
-    text-align: center;
+  padding: 19px;
+  text-align: center;
 }
 .booking-charges-coloum1{
-    padding: 19px;
-    text-align: center;
-    cursor: pointer;
+  padding: 19px;
+  text-align: center;
+  cursor: pointer;
 }
 .booking-section-date{
-   background-color: lavenderblush;
-    height: 165px;
-   margin-left: 49px; 
+  background-color: lavenderblush;
+  height: 165px;
+  margin-left: 49px; 
 }
 .booking-date-text{
-    margin-left: 176px;
-   padding-top: 19px;
+  margin-left: 176px;
+  padding-top: 19px;
 }
 .summary-position{
-     position: fixed;
-     margin-left: 788px;
+  position: fixed;
+  margin-left: 788px;
 }
 .booking-hours-input{
-    margin-left: 212px;
-    width: 319px;
+  margin-left: 212px;
+  width: 319px;
 }
 .dropdown-menu-date{
-    margin-left: 183px;
-    width:372px;
+  margin-left: 183px;
+  width:372px;
 }
 .icon{
-    font-size: 32px;
-    margin-left: 18px;
+  font-size: 32px;
+  margin-left: 18px;
 }
 .booking-button-next{
-    height: 42px;
-    margin-left: 49px;
-    width: 701px;
+  height: 42px;
+  margin-left: 49px;
+  width: 701px;
 }
 .booking-section-next{
-    height: 100px;
+  height: 100px;
 }
 .booking-customer-fname{
-    margin-left: 49px;
-    width: 100px;
+  margin-left: 49px;
+  width: 100px;
 }
 .booking-customer-lname{
-    margin-left: 469px;
-    margin-top: -73px;
-    width: 100px;
+  margin-left: 469px;
+  margin-top: -73px;
+  width: 100px;
 }
 .customer-fname{
   margin-left: 49px;
-    margin-top: 10px;
-    width: 206px;
+  margin-top: 10px;
+  width: 206px;
 }
 .customer-lname{
   margin-left: 467px;
-    margin-top: 6px;
-    width: 206px;
+  margin-top: 6px;
+  width: 206px;
 }
 .customer-new-address{
-    margin-left: 464px;
-    margin-top: -14px;
-    width: 115px;
+  margin-left: 464px;
+  margin-top: -14px;
+  width: 115px;
 }
 .customer-apart-address{
   margin-left: 464px;
-    margin-top: -48px;
-    width: 189px;
+  margin-top: -48px;
+  width: 189px;
 }
 .booking-address-table{
   margin-left: 66px;
-    margin-top: -8px;
-    width: 599px;
+  margin-top: -8px;
+  width: 599px;
 }
 .customer-pre-address{
-    margin-left: 60px;
-    width: 174px;
+  margin-left: 60px;
+  width: 174px;
 }
 .booking-section-address{
   background-color: lavenderblush;
-    height: 367px;
-    margin-left: 49px;
+  height: 367px;
+  margin-left: 49px;
 }
 .customer-address{
   height: 41px;
@@ -153,54 +153,54 @@
   width: 13%;
 }
 .filter{
-margin-left: 847px;
+  margin-left: 847px;
 }
 .cursor-pointer{
   cursor: pointer;
 }
 /*cleaner-dashboard*/
  .content{
-    margin: 10px 0 0 10px;
-  }
-  .cleaner-tab{
-    border-style:solid;
-    border-color: #708090;
-    margin-top:70px;
-    height:400px;
-    width:700px;
-    margin-left:213px;
-  }
-  .basic-info{
-    margin-top: 74px;
-    padding-top: 10px;
-  }
-  .loginbtn{
-    width:50%;
-    margin-left: 80px;
-  }
-  .resetbtn{
-     width:80%;
-    margin-left: 80px;
-  }
-  .agree {
-     margin-left: 78px;
-  }
-  .cleaner-submit{
-    margin:20px;
-  }
-  /*cleaner-edit*/
-  .customer-edit{
-    height: 370px;
-    margin-left: 250px;
-    margin-top: 60px;
-    width: 700px;
-  }
-  .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
-      padding:7px;
-  }
-  .custom-table{
-      width:70%;
-  }
+  margin: 10px 0 0 10px;
+}
+.cleaner-tab{
+  border-style:solid;
+  border-color: #708090;
+  margin-top:70px;
+  height:400px;
+  width:700px;
+  margin-left:213px;
+}
+.basic-info{
+  margin-top: 74px;
+  padding-top: 10px;
+}
+.loginbtn{
+  width:50%;
+  margin-left: 80px;
+}
+.resetbtn{
+  width:80%;
+  margin-left: 80px;
+}
+.agree {
+  margin-left: 78px;
+}
+.cleaner-submit{
+  margin:20px;
+}
+/*cleaner-edit*/
+.customer-edit{
+  height: 370px;
+  margin-left: 250px;
+  margin-top: 60px;
+  width: 700px;
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+  padding:7px;
+}
+.custom-table{
+  width:70%;
+}
 /*cleaner-my-profile*/
 .book-now{
   margin-top:12px;
@@ -209,30 +209,30 @@ margin-left: 847px;
   background-color: #F1F1E2;
 }
 .cleaner_logo{
-   margin-top:13px;
+  margin-top:13px;
 }
 .cleaner_info{
-   margin-left: 66px;
-   margin-top: 44px;
+  margin-left: 66px;
+  margin-top: 44px;
 }
 .cleaner-profile{
-   height: 675px; 
-   margin-top: 60px;
+  height: 675px; 
+  margin-top: 60px;
 }
 .fixed-img{
-   height: 172px; 
-   margin-top: 16px; 
-   margin-left: 50px;
+  height: 172px; 
+  margin-top: 16px; 
+  margin-left: 50px;
 }
 .cleaner-tab-my-profile{
-     height: 500px;
-     margin-top: 10px;
+  height: 500px;
+  margin-top: 10px;
 }
 .cleaner-general-service{
   margin-left: 100px;
 }
 .customer-review{
-   background-color: #fff;
+  background-color: #fff;
   border: 1px solid #e4e4e4;
   border-radius: 12px;
   box-shadow: 0 10px 6px -6px #777;
@@ -262,23 +262,31 @@ margin-left: 847px;
   padding-right: 197px;
 }
 .form-control-edit{
-   width: 50%;
+  width: 50%;
 }
 .cleaner-profile-col2 {
-    width: 69.667%;
+  width: 69.667%;
 }
 .cleaner-profile-col1 {
-    width: 21.333%;
+  width: 21.333%;
 }
 .cleaner-profile-btn {
-    margin-top: 16px;
+  margin-top: 16px;
+}
+.payment-frm1{
+  width: 600px;
+	margin-top: 10px;
+ }
+.card-img1{			 
+  margin-left: -11px;
+  margin-top: -35px;
 }
 /*cleaner-services*/
 .cleaner-edit{
-    height: 370px;
-    margin-left: 100px;
-    margin-top: 60px;
-    width: 1500px;
+  height: 370px;
+  margin-left: 100px;
+  margin-top: 60px;
+  width: 1500px;
 }
 /*customer-dashboard*/
 .customer-tab{
@@ -333,28 +341,28 @@ margin-left: 847px;
 	width: 550px;
 }
 .payment-button{
-    height: 42px;
-    margin-left: 26px;
-    width: 552px;
+  height: 42px;
+  margin-left: 26px;
+  width: 552px;
 }
 /*customer-search*/
 .search-page {
-   margin-left: 86px;
+  margin-left: 86px;
   margin-top: 20px;
 }
 .cleaner-list{
-   background-color: #fff;
-    border: 1px solid #e4e4e4;
-    border-radius: 12px;
-    box-shadow: 0 10px 6px -6px #777;
-    height: 250px;
-    margin-top: 20px;
-    padding: 20px;
-    width: 800px;
+  background-color: #fff;
+  border: 1px solid #e4e4e4;
+  border-radius: 12px;
+  box-shadow: 0 10px 6px -6px #777;
+  height: 250px;
+  margin-top: 20px;
+  padding: 20px;
+  width: 800px;
 }
 .search-criteria{
   margin-left: -232px;
-    margin-top: 79px;
+  margin-top: 79px;
 }
 .sort-text{
   width: 93px;
@@ -390,42 +398,41 @@ ul.rating {
 .rating .filled {
   color: #FFCC00;
 }
-
 /*show booking*/
 .customer-booking{
   background-color: #fff;
-    border: 1px solid #e4e4e4;
-    border-radius: 12px;
-    box-shadow: 0 10px 6px -6px #777;
-    margin-left: 245px;
-    margin-top: 20px;
-    padding: 20px;
-    width: 662px;
+  border: 1px solid #e4e4e4;
+  border-radius: 12px;
+  box-shadow: 0 10px 6px -6px #777;
+  margin-left: 245px;
+  margin-top: 20px;
+  padding: 20px;
+  width: 662px;
 }
 /*rating page*/
 .rating-section{
-   background-color: #fff;
-    border: 1px solid #e4e4e4;
-    border-radius: 12px;
-    box-shadow: 0 10px 6px -6px #777;
-    margin-left: 2px;
-    margin-top: 20px;
-    padding: 20px;
-    width: 662px;
+  background-color: #fff;
+  border: 1px solid #e4e4e4;
+  border-radius: 12px;
+  box-shadow: 0 10px 6px -6px #777;
+  margin-left: 2px;
+  margin-top: 20px;
+  padding: 20px;
+  width: 662px;
 }
 .rating-punctuality{
-    height: 53px;
-    width: 215px;
+  height: 53px;
+  width: 215px;
 }
 .rating-quality{
-    height: 53px;
-    margin-left: 293px;
-    margin-top: -53px;
-    width: 215px;
+  height: 53px;
+  margin-left: 293px;
+  margin-top: -53px;
+  width: 215px;
 }
 .reviews{
-    margin-top: -8px;
-    width: 1024px;
+  margin-top: -8px;
+  width: 1024px;
 }
 .save-review{
   width: 617px;
@@ -433,7 +440,7 @@ ul.rating {
 
 /*cleaner-myprofile1*/
 .timeText {
-    width: 100px;
+  width: 100px;
 }
 .availletime{
   background-color:lavender;
@@ -442,8 +449,8 @@ ul.rating {
   margin-left: 196px;
 }
 .about-us{
- width: 60%;
- height: 15em;
+  width: 60%;
+  height: 15em;
 }
 .avlfrm{
   height: 675px;
@@ -454,14 +461,17 @@ ul.rating {
   width: 90px;
 }
 /*login-signup*/
-.loginbtn{margin-left: 57px;margin-right: 66px;}
+.loginbtn{
+  margin-left: 57px;
+  margin-right: 66px;
+}
 .new-ac-section{
   width: 224px;
 }
 .sn-site-logo{
- margin-left: 284px;
- margin-top: -77px;
- width: 117px;
+  margin-left: 284px;
+  margin-top: -77px;
+  width: 117px;
 }
 /*customer-view-cleaner*/
 .cleaner-rating-section{
@@ -475,49 +485,49 @@ ul.rating {
   width: 662px;
 }
 .is-disabled {
-    opacity: .5;
-    pointer-events: none;
+  opacity: .5;
+  pointer-events: none;
 }
-   .cleaner-view{
-		 width: 84%;
-		 }
-	.customer-tab {
-    height: 425px;
-    margin-left: 213px;
-    margin-top: 70px;
-    width: 1040px;
-	}
-	.bn{
-	  color: green;
-    height: 30px;
-	}
-	.bnr{
-		  color: red;
-      height: 30px;
-	}
-	.filter{
-		margin-bottom: 6px;
-    margin-left: 395px;
-	}
- .right-col{
-		margin-left: -44px;
-		margin-top: 60px;
-  }
-	.link-txt{
-	  font-size: 18px;
-	}
-	.back-btnn{
-	  margin-right: 171px;
-	  margin-bottom: 10px;	 
-	 }
-	 .back-btn{
-	  margin-right: -16px;
-	  margin-bottom: 10px;
-   }
-    .booking-txt{
-      margin-left: 280px;
-   }
-   /* reschedule booking    */
+.cleaner-view{
+	width: 84%;
+}
+.customer-tab {
+  height: 425px;
+  margin-left: 213px;
+  margin-top: 70px;
+  width: 1040px;
+}
+.bn{
+	color: green;
+  height: 30px;
+}
+.bnr{
+	color: red;
+  height: 30px;
+}
+.filter{
+  margin-bottom: 6px;
+  margin-left: 395px;
+}
+.right-col{
+  margin-left: -44px;
+	margin-top: 60px;
+}
+.link-txt{
+	font-size: 18px;
+}
+.back-btnn{
+	margin-right: 171px;
+	margin-bottom: 10px;	 
+}
+.back-btn{
+	margin-right: -16px;
+	margin-bottom: 10px;
+}
+.booking-txt{
+  margin-left: 280px;
+}
+/* reschedule booking    */
 .select-bathroom-credential {
   margin-left: 372px;
   margin-top: -46px;
@@ -535,9 +545,8 @@ ul.rating {
 }
 .booking-section-availabilities{
   background-color: lavenderblush;
-   height: 215px;
-   margin-left: 49px;
-  
+  height: 215px;
+  margin-left: 49px;
 }
 .availabilities-section{
   margin-left: 240px;
@@ -560,16 +569,26 @@ ul.rating {
 }
 .contactfrm{
   box-shadow: 0 0 1px 1px #999999;
-    line-height: 2;
-    margin: 0 auto;
-    width: 618px;
+  line-height: 2;
+  margin: 0 auto;
+  width: 618px;
 }
 .send {
-    margin-left: 1px;
-    width: 577px;
+  margin-left: 1px;
+  width: 577px;
 }
 .wait{
- margin-left: 600px;
- margin-top: 100px;
- width: 600px;
+  margin-left: 600px;
+  margin-top: 100px;
+  width: 600px;
+}
+/* cleaner-book */
+.booking-section-hours1 {
+  background-color: lavenderblush;
+  height: 280px;
+  margin-left: 49px;
+   }
+.card-img{			 
+  margin-left: -11px;
+  margin-top: -35px;
 }

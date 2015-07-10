@@ -118,7 +118,7 @@
                 </div>
               </div>
             <!-- Second Step -->
-				      <div ng-switch-when="About">
+				      <div ng-switch-when="About Us">
                 <div class="cleaner_info">
                   <p class="text_align">{{clanerProfile.cleaner_about_us}}</p>
                 </div>
@@ -200,7 +200,7 @@
                               <input type="checkbox"  ng-model="livingAreaServices.other_living_area9" ng-checked="services[0].livingArea[0].other_living_area9">&nbsp;Windowsills cleaned (blinds dusted upon request)<br>
                               <input type="checkbox" ng-model="livingAreaServices.other_living_area10" ng-checked="services[0].livingArea[0].other_living_area10">&nbsp;Baseboards dusted<br>
                               <input type="checkbox" ng-model="livingAreaServices.other_living_area11" ng-checked="services[0].livingArea[0].other_living_area11">&nbsp;Trash emptied
-                              <input type= "text" ng-model="serviceID"><br>
+                              <input type= "hidden" ng-model="serviceID"><br>
                             </div>
                           </td>    
                         </tr>					        
@@ -229,7 +229,7 @@
                   </table>
                 </div>
               </div>
-              
+      
           </div>
         </form>
       </div>

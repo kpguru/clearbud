@@ -3,128 +3,138 @@
     <h3 align="center">My Profile</h3>
     <form name="cleanerForm">
       <table class="table custom-table">
-          <tbody>
-            <tr>
-              <td>First Name</td>
-              <td></td>
-              <td><div class="form-group" ng-class="{'has-error': cleanerForm.fname.$dirty && cleanerForm.fname.$invalid, 'has-success': !cleanerForm.fname.$invalid}">
-                    <input class="form-control" ng-pattern="/[a-zA-Z]$/" ng-model="currentUser.firstname" required="required" maxlength="100" type="text" name="fname"/>
-                    <span ng-show="cleanerForm.fname.$error.required"></span>
-                    <span class="text-danger" ng-show="cleanerForm.fname.$error.pattern">First Name Required only A_Z charactors.</span>
-                  </div></td>
-            </tr>
-            <tr>
-              <td>Last Name</td>
-              <td></td>
-              <td><div class="form-group" ng-class="{'has-error': cleanerForm.lastname.$dirty && cleanerForm.lastname.$invalid, 'has-success': !cleanerForm.lastname.$invalid}">
-                    <input class="form-control" ng-pattern="/[a-zA-Z]$/" ng-model="currentUser.lastname" required="required" type="text" name="lastname"/>
-                    <span class="text-danger" ng-show="cleanerForm.lastname.$error.pattern">Last Name Required only A_Z charactors.</span>
-                  </div></td></td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td></td>
-              <td><div class="form-group" ng-class="{'has-error': cleanerForm.email.$dirty && cleanerForm.email.$invalid, 'has-success': !cleanerForm.email.$invalid}">
-                    <input class="form-control"  ng-model="currentUser.email" required="required" maxlength="100" type="email" name="email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"/>
-                    <span ng-show="login_form.email.$error.required"></span>
-                  <span ng-show="login_form.email.$error.email" class="text-danger">Please enter valid email. Ex. example@example.com</span>
-                  </div></td></td>
-            </tr>
-            <tr>
-              <td>Phone No</td>
-              <td></td>
-              <td><div class="form-group" ng-class="{'has-error': cleanerForm.phone.$dirty && cleanerForm.phone.$invalid, 'has-success': !cleanerForm.phone.$invalid}">
-                    <input class="form-control" ng-model="currentUser.phone" required="required" type="text" name="phone" ng-pattern = "numbersOnly"/>
-                    <span ng-show="scoreboardForm.game_zipcode.$error.required"></span>
-                    <span ng-show="scoreboardForm.game_zipcode.$error.pattern" class="text-danger">Scoreboard Game Zipcode required only 0-9 symbols.</span>
-                  </div></td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
-              <td></td>
-              <td><div class="form-group" ng-class="{'has-error': cleanerForm.company_name.$dirty && cleanerForm.company_name.$invalid, 'has-success': !cleanerForm.company_name.$invalid}">
-                    <input class="form-control" ng-model="currentUser.company_name" ng-trim="false" required="required" type="text" name="company_name" ng-pattern="/[a-zA-Z]$/"/>
-                    <span class="text-danger" ng-show="cleanerForm.company_name.$error.pattern">Company Name required A_Z Charecters Only</span>
-                  </div></td></td>
-            </tr>
-
-            <tr>
-              <td>Company Address</td>
-              <td></td>
-              <td><div class="form-group" ng-class="{'has-error': cleanerForm.address1.$dirty && cleanerForm.address1.$invalid, 'has-success': !cleanerForm.address1.$invalid}">
-                    <input class="form-control" ng-model="currentUser.address1" placeholder="123 Street Name" required="required" maxlength="100" type="text" name="address1"/>
-                  </div></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td><div class="form-group" ng-class="{'has-error': cleanerForm.address2.$dirty && cleanerForm.address2.$invalid, 'has-success': !cleanerForm.address2.$invalid}">
-                    <input class="form-control" ng-model="currentUser.address2" placeholder="Apartment#" required="required" maxlength="100" type="text" name="address2"/>
-                  </div></td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td></td>
-              <td><div class="form-group" ng-class="{'has-error':cleanerForm.city.$dirty && cleanerForm.city.$invalid,'has-success':!cleanerForm.city.$invalid}">
-                    <input class="form-control" ng-model="currentUser.city" ng-trim="false" ng-pattern="/[a-zA-Z]$/" maxlength="100" type="text" name="city"/>
-                     <span class="text-danger" ng-show="cleanerForm.company_name.$error.pattern">City required A_Z Charecters Only</span>
-                  </div></td>
-            </tr>
-            <tr>
-              <td>State</td>
-              <td></td>
-              <td><div class="form-group" ng-class="{'has-error':cleanerForm.state.$dirty && cleanerForm.state.$invalid,'has-success':!cleanerForm.state.$invalid}">
-                    <select class="form-control select-control" ng-model="currentUser.state" name="state" required >
-                        <option value=''>- Please Choose State -</option>
-                        <option ng-repeat="state in states">{{state.StateName}}</option>
-                    </select>
-                    <span ng-show="cleanerForm.state.$error.required"></span>
-                  </div></td>
-            </tr>
-            <tr>
-              <td>Zip Code</td>
-              <td></td>
-              <td><div class="form-group" ng-class="{'has-error':cleanerForm.zip_code.$dirty && cleanerForm.zip_code.$invalid,'has-success':!cleanerForm.zip_code.$invalid}">
-                    <input class="form-control" ng-minlength="5" ng-maxlength="5" ng-model="currentUser.zip_code"  ng-pattern="/^\d+$/" maxlength="100" type="text" name="zip_code"/>
-                    <span class="text-danger" ng-show="cleanerForm.zip_code.$error.pattern">Invalid Zip Code!</span>
-                    <span ng-show="cleanerForm.zip_code.$error.minlength" class="text-danger">Zip Code required Minimum 5 Digits</span>
-                    <span ng-show="cleanerForm.zip_code.$error.maxlength" class="text-danger">Zip Code required Maximum 5 Digits</span>
-                  </div></td>
-            </tr>
-            
-            <tr>
-              <td>Photo</td>
-              <td></td>
-              <td><div class="form-group ">
-                    <input type="file" accept="image/*" image="image" name="logo" id="uploadImage" class="choose-photo" resize-max-height="200" resize-max-width="200" resize-quality="0.7"/>
-                    <img ng-show="false" id="newLogo" ng-src="{{image.resized.dataURL}}" width="150px" height="150px"/>
-                  </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Month In Business</td>
-              <td></td>
-              <td><div class="form-group" ng-class="{'has-error': cleanerForm.month_in_business.$dirty && cleanerForm.month_in_business.$invalid, 'has-success': !cleanerForm.month_in_business.$invalid}">
-                    <input class="form-control" ng-model="currentUser.month_in_business" required="required" type="text" name="month_in_business" ng-pattern ="numbersOnly"/>
-                    <span class="text-danger" ng-show="cleanerForm.month_in_business.$error.pattern">Please Enter Valid Input</span>
-                    <span class="text-danger" ng-show="cleanerForm.company_name.$error.pattern">Month In Business required 0-9 Symboles Only</span>
-                  </div></td></td>
-            </tr>
-            <tr>
-              <td>No. of Team Member</td>
-              <td></td>
-              <td><div class="form-group" ng-class="{'has-error': cleanerForm.team_member.$dirty && cleanerForm.team_member.$invalid, 'has-success': !cleanerForm.team_member.$invalid}">
-                    <input class="form-control" ng-model="currentUser.team_member" required="required" type="text" name="team_member" ng-pattern = "numbersOnly"/>
-                    <span class="text-danger" ng-show="cleanerForm.team_member.$error.pattern">No. of Team Member required 0-9 Symboles Only</span>
-                  </div></td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td><button class="btn btn-primary" ng-show="updateProfile" ng-click="updateCP(currentUser,'cleanerSignup')">Save Changes</button>
-              <button class="btn btn-primary" ng-hide="updateProfile" ng-click="updateCP(currentUser,'updateProfile')">Update Profile</button></td>
-            </tr>
-          </tbody>
+        <tbody>
+          <tr>
+            <td>First Name</td>
+            <td></td>
+            <td><div class="form-group" ng-class="{'has-error': cleanerForm.fname.$dirty && cleanerForm.fname.$invalid, 'has-success': !cleanerForm.fname.$invalid}">
+                  <input class="form-control" ng-pattern="/[a-zA-Z]$/" ng-model="currentUser.firstname" required="required" maxlength="100" type="text" name="fname"/>
+                  <span ng-show="cleanerForm.fname.$error.required"></span>
+                  <span class="text-danger" ng-show="cleanerForm.fname.$error.pattern">First Name Required only A_Z charactors.</span>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Last Name</td>
+            <td></td>
+            <td><div class="form-group" ng-class="{'has-error': cleanerForm.lastname.$dirty && cleanerForm.lastname.$invalid, 'has-success': !cleanerForm.lastname.$invalid}">
+                  <input class="form-control" ng-pattern="/[a-zA-Z]$/" ng-model="currentUser.lastname" required="required" type="text" name="lastname"/>
+                  <span class="text-danger" ng-show="cleanerForm.lastname.$error.pattern">Last Name Required only A_Z charactors.</span>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td></td>
+            <td><div class="form-group" ng-class="{'has-error': cleanerForm.email.$dirty && cleanerForm.email.$invalid, 'has-success': !cleanerForm.email.$invalid}">
+                  <input class="form-control"  ng-model="currentUser.email" required="required" maxlength="100" type="email" name="email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"/>
+                  <span ng-show="login_form.email.$error.required"></span>
+                <span ng-show="login_form.email.$error.email" class="text-danger">Please enter valid email. Ex. example@example.com</span>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Phone No</td>
+            <td></td>
+            <td><div class="form-group" ng-class="{'has-error': cleanerForm.phone.$dirty && cleanerForm.phone.$invalid, 'has-success': !cleanerForm.phone.$invalid}">
+                  <input class="form-control" ng-model="currentUser.phone" required="required" type="text" name="phone" ng-pattern = "numbersOnly"/>
+                  <span ng-show="scoreboardForm.game_zipcode.$error.required"></span>
+                  <span ng-show="scoreboardForm.game_zipcode.$error.pattern" class="text-danger">Scoreboard Game Zipcode required only 0-9 symbols.</span>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Company Name</td>
+            <td></td>
+            <td><div class="form-group" ng-class="{'has-error': cleanerForm.company_name.$dirty && cleanerForm.company_name.$invalid, 'has-success': !cleanerForm.company_name.$invalid}">
+                  <input class="form-control" ng-model="currentUser.company_name" ng-trim="false" required="required" type="text" name="company_name" ng-pattern="/[a-zA-Z]$/"/>
+                  <span class="text-danger" ng-show="cleanerForm.company_name.$error.pattern">Company Name required A_Z Charecters Only</span>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Company Address</td>
+            <td></td>
+            <td><div class="form-group" ng-class="{'has-error': cleanerForm.address1.$dirty && cleanerForm.address1.$invalid, 'has-success': !cleanerForm.address1.$invalid}">
+                  <input class="form-control" ng-model="currentUser.address1" placeholder="123 Street Name" required="required" maxlength="100" type="text" name="address1"/>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><div class="form-group" ng-class="{'has-error': cleanerForm.address2.$dirty && cleanerForm.address2.$invalid, 'has-success': !cleanerForm.address2.$invalid}">
+                  <input class="form-control" ng-model="currentUser.address2" placeholder="Apartment#" required="required" maxlength="100" type="text" name="address2"/>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>City</td>
+            <td></td>
+            <td><div class="form-group" ng-class="{'has-error':cleanerForm.city.$dirty && cleanerForm.city.$invalid,'has-success':!cleanerForm.city.$invalid}">
+                  <input class="form-control" ng-model="currentUser.city" ng-trim="false" ng-pattern="/[a-zA-Z]$/" maxlength="100" type="text" name="city"/>
+                   <span class="text-danger" ng-show="cleanerForm.company_name.$error.pattern">City required A_Z Charecters Only</span>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>State</td>
+            <td></td>
+            <td><div class="form-group" ng-class="{'has-error':cleanerForm.state.$dirty && cleanerForm.state.$invalid,'has-success':!cleanerForm.state.$invalid}">
+                  <select class="form-control select-control" ng-model="currentUser.state" name="state" required >
+                      <option value=''>- Please Choose State -</option>
+                      <option ng-repeat="state in states">{{state.StateName}}</option>
+                  </select>
+                  <span ng-show="cleanerForm.state.$error.required"></span>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Zip Code</td>
+            <td></td>
+            <td><div class="form-group" ng-class="{'has-error':cleanerForm.zip_code.$dirty && cleanerForm.zip_code.$invalid,'has-success':!cleanerForm.zip_code.$invalid}">
+                  <input class="form-control" ng-minlength="5" ng-maxlength="5" ng-model="currentUser.zip_code"  ng-pattern="/^\d+$/" maxlength="100" type="text" name="zip_code"/>
+                  <span class="text-danger" ng-show="cleanerForm.zip_code.$error.pattern">Invalid Zip Code!</span>
+                  <span ng-show="cleanerForm.zip_code.$error.minlength" class="text-danger">Zip Code required Minimum 5 Digits</span>
+                  <span ng-show="cleanerForm.zip_code.$error.maxlength" class="text-danger">Zip Code required Maximum 5 Digits</span>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Photo</td>
+            <td></td>
+            <td><div class="form-group ">
+                  <input type="file" accept="image/*" image="image" name="logo" id="uploadImage" class="choose-photo" resize-max-height="200" resize-max-width="200" resize-quality="0.7"/>
+                  <img ng-show="false" id="newLogo" ng-src="{{image.resized.dataURL}}" width="150px" height="150px"/>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Month In Business</td>
+            <td></td>
+            <td><div class="form-group" ng-class="{'has-error': cleanerForm.month_in_business.$dirty && cleanerForm.month_in_business.$invalid, 'has-success': !cleanerForm.month_in_business.$invalid}">
+                  <input class="form-control" ng-model="currentUser.month_in_business" required="required" type="text" name="month_in_business" ng-pattern ="numbersOnly"/>
+                  <span class="text-danger" ng-show="cleanerForm.month_in_business.$error.pattern">Please Enter Valid Input</span>
+                  <span class="text-danger" ng-show="cleanerForm.company_name.$error.pattern">Month In Business required 0-9 Symboles Only</span>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>No. of Team Member</td>
+            <td></td>
+            <td><div class="form-group" ng-class="{'has-error': cleanerForm.team_member.$dirty && cleanerForm.team_member.$invalid, 'has-success': !cleanerForm.team_member.$invalid}">
+                  <input class="form-control" ng-model="currentUser.team_member" required="required" type="text" name="team_member" ng-pattern = "numbersOnly"/>
+                  <span class="text-danger" ng-show="cleanerForm.team_member.$error.pattern">No. of Team Member required 0-9 Symboles Only</span>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><button class="btn btn-primary" ng-show="updateProfile" ng-click="updateCP(currentUser,'cleanerSignup')">Save Changes</button>
+            <button class="btn btn-primary" ng-hide="updateProfile" ng-click="updateCP(currentUser,'updateProfile')">Update Profile</button></td>
+          </tr>
+        </tbody>
       </table> 
     </form>
   </div>

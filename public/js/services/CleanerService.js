@@ -108,7 +108,7 @@
       },
       steps1 : function(){
           var steps1 =["Reviews",
-                "About",
+                "About Us",
                 "What's Included",
                 'Pricing',
                 'Availability',

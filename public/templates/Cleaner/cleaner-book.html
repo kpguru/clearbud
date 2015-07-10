@@ -1,74 +1,57 @@
-<style>
-  .booking-section-hours1 {
-    background-color: lavenderblush;
-    height: 280px;
-    margin-left: 49px;
-   }
-   .payment-frm{
-		 width: 600px;
-		 }
-	.card-img{			 
-    margin-left: -11px;
-    margin-top: -35px;
-
-	}
-</style>
-
 <div class="container" ng-init="getBookInfo();getCharges(bookInfo.cleanerID);">
 	<!--START YOUR BOOKING CONTAINT  -->
 	<div class="row" ng-show="final_booking">
 		<div class="col-sm-8">
 			<div class="booking-section">
-			    <h1 class="booking-text">START YOUR BOOKING</h1>
+			  <h1 class="booking-text">START YOUR BOOKING</h1>
 			</div>
 			<div class="booking-section-heading">
-			    <h4 class="booking-heading-text">Great! A few more details and we can complete your booking.</h4>
+			  <h4 class="booking-heading-text">Great! A few more details and we can complete your booking.</h4>
 			</div>
 			<div class="booking-section-hours">
-			    <h4 class="booking-hours-text">HOURS OF CLEANING TO RESERVE</h4>
-			    <select ng-options="hour.value as hour.name for hour in hours" ng-change="setHour()" class="form-control input-lg select-hours" ng-model="reserve_hours"></select>
+        <h4 class="booking-hours-text">HOURS OF CLEANING TO RESERVE</h4>
+        <select ng-options="hour.value as hour.name for hour in hours" ng-change="setHour()" class="form-control input-lg select-hours" ng-model="reserve_hours"></select>
 			</div>
 			<div class="booking-section-charges">
-			    <h4 class="booking-charges-text">HOW OFTEN?</h4>
-			    <table class ="booking-charges-table">
-			        <tr>
-			            <td class="booking-charges-coloum">One Time</td>
-			            <td class="booking-charges-coloum">Weekly</td>
-			            <td class="booking-charges-coloum">Every 2 Weeks</td>
-			            <td class="booking-charges-coloum">Every 4 Weeks</td>
-			        </tr>
-			        <tr ng-repeat='charge in charges'>
-			            <td class="booking-charges-coloum1 active" ng-click="setCharge(charge.one_time)">&#36;{{charge.one_time}}</td>
-			            <td class="booking-charges-coloum1" ng-click="setCharge(charge.weekly)">&#36;{{charge.weekly}}</td>
-			            <td class="booking-charges-coloum1" ng-click="setCharge(charge.every_two_weeks)">&#36;{{charge.every_two_weeks}}</td>
-			            <td class="booking-charges-coloum1" ng-click="setCharge(charge.every_four_weeks)">&#36;{{charge.every_four_weeks}}</td>
-			        </tr>
-			    </table>
+        <h4 class="booking-charges-text">HOW OFTEN?</h4>
+        <table class ="booking-charges-table">
+          <tr>
+            <td class="booking-charges-coloum">One Time</td>
+            <td class="booking-charges-coloum">Weekly</td>
+            <td class="booking-charges-coloum">Every 2 Weeks</td>
+            <td class="booking-charges-coloum">Every 4 Weeks</td>
+          </tr>
+          <tr ng-repeat='charge in charges'>
+            <td class="booking-charges-coloum1 active" ng-click="setCharge(charge.one_time)">&#36;{{charge.one_time}}</td>
+            <td class="booking-charges-coloum1" ng-click="setCharge(charge.weekly)">&#36;{{charge.weekly}}</td>
+            <td class="booking-charges-coloum1" ng-click="setCharge(charge.every_two_weeks)">&#36;{{charge.every_two_weeks}}</td>
+            <td class="booking-charges-coloum1" ng-click="setCharge(charge.every_four_weeks)">&#36;{{charge.every_four_weeks}}</td>
+          </tr>
+        </table>
 			</div>
 			<div class="booking-section-hours">
-			    <h4 class="booking-hours-text">WHEN WOULD YOU LIKE US TO COME?</h4>
-			    <div class="dropdown-menu-date">
-			      <div class="dropdown">
-              <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
-                <div class="input-group">
-                  <input type="text" class="form-control" data-ng-model="appointment.date_time">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                </div>
-              </a>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                <datetimepicker ng-change="setDateTime(appointment.date_time)" data-ng-model="appointment.date_time" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
-              </ul>
-            </div>
+        <h4 class="booking-hours-text">WHEN WOULD YOU LIKE US TO COME?</h4>
+        <div class="dropdown-menu-date">
+          <div class="dropdown">
+            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="">
+              <div class="input-group">
+                <input type="text" class="form-control" data-ng-model="appointment.date_time">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              </div>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <datetimepicker ng-change="setDateTime(appointment.date_time)" data-ng-model="appointment.date_time" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
+            </ul>
           </div>
+        </div>
 			</div>
 			<div class="booking-section-next">
 				<a href="#/cleaner_profiles/home-smile-cleaners/orders/new"><button class="btn btn-primary booking-button-next" ng-click="completeBooking()">Next</button></a>
 			</div>
 		</div>
-
 		<div class="col-sm-4 summary-position">
 			<div class="summary-section">
-			    <h1 class="summary-text">SUMMARY</h1>
+			  <h1 class="summary-text">SUMMARY</h1>
 			</div>
 			<div class="row">
 				<div class="col-sm-4">
@@ -90,7 +73,6 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-4">
-
 					<span class="icon"><i class="glyphicon glyphicon-time"></i></span>
 				</div>
 				<div class="col-sm-8">
@@ -127,157 +109,156 @@
 		<form name="customerForm">
 			<div class="col-sm-8">
 				<div class="booking-section">
-				    <h1 class="booking-text">COMPLETE YOUR BOOKING</h1>
+			    <h1 class="booking-text">COMPLETE YOUR BOOKING</h1>
 				</div>
 				<div class="booking-section-heading">
-				    <h4 class="booking-heading-text">Great! A few more details and we can complete your booking.</h4>
+		      <h4 class="booking-heading-text">Great! A few more details and we can complete your booking.</h4>
 				</div>
 				<div class="booking-section-hours">
-				    <h4 class="booking-charges-text">NAME</h4>
-				    <div class="booking-customer-fname">First Name</div>
-				    <div class="form-group" ng-class="{'has-error': customerForm.firstname.$dirty && customerForm.firstname.$invalid, 'has-success': !customerForm.firstname.$invalid}">
-		                <input class="form-control customer-fname" ng-pattern="/[a-zA-Z]$/" ng-model="firstname" required="required" maxlength="100" type="text" name="firstname"/>
-		                <span ng-show="customerForm.firstname.$error.required"></span>
-		                <span ng-show="customerForm.firstname.$error.pattern" class="text-danger">Firstname required only a-zA-Z_ symbols.</span>
-	                </div>
-				    <div class="booking-customer-lname">Last Name</div>
-				    <div class="form-group" ng-class="{'has-error': customerForm.lastname.$dirty && customerForm.lastname.$invalid, 'has-success': !customerForm.lastname.$invalid}">
-	                    <input class="form-control customer-lname" ng-pattern="/[a-zA-Z]$/" ng-model="lastname" required="required" maxlength="100" type="text" name="lastname" />
-	                    <span ng-show="customerForm.lastname.$error.required"></span>
-	                    <span ng-show="customerForm.lastname.$error.pattern" class="text-danger">Lastname required only a-zA-Z_ symbols.</span>
-	                </div>
-				</div>
-				<div class="booking-section-address">
-				    <h4 class="booking-charges-text">ADDRESS</h4>
-				    <div class="customer-address">
-			            <div class="customer-pre-address cursor-pointer" >
-			            <input type= "checkbox" ng-model="previous_address">&nbsp;Previous Address
-			            </div>
-			            <div class="customer-new-address cursor-pointer" ng-model="new_address">
-			            <input type= "checkbox" ng-model="new_address">&nbsp New Address</div>  
-				    </div>
-				    <div ng-show="newAddress">
-					    <div class="customer-address">
-				            <div class="customer-pre-address">Street Address</div>
-				            <div class="customer-new-address">Apt # (Optional)</div>  
-					    </div>
-					    <div class="customer-address">
-				            <div class="customer-pre-address">
-	                            <div class="form-group" ng-class="{'has-error': customerForm.address1.$dirty && customerForm.address1.$invalid, 'has-success': !customerForm.address1.$invalid}">
-				                    <input class="form-control" ng-model="address1" placeholder="123 Street Name" maxlength="100" type="text" name="address1"/>
-				                </div>
-				            </div>
-				            <div class="customer-apart-address">
-					            <div class="form-group" ng-class="{'has-error': customerForm.address2.$dirty && customerForm.address2.$invalid, 'has-success': !customerForm.address2.$invalid}">
-				                    <input class="form-control" ng-model="address2" placeholder="Apartment#" maxlength="100" type="text" name="address2"/>
-				                </div>
-			                </div>
-					    </div>
-					    <div class="customer-address">
-				            <div class="customer-pre-address">City</div>
-				            <div class="customer-new-address">State</div>  
-					    </div>
-					    <div class="customer-address">
-				            <div class="customer-pre-address">
-	                            <div class="form-group" ng-class="{'has-error':customerForm.city.$dirty && customerForm.city.$invalid,'has-success':!customerForm.city.$invalid}">
-				                    <input class="form-control" ng-model="city"  maxlength="100" type="text" name="city"/>
-				                </div>
-				            </div>
-				            <div class="customer-apart-address">
-					            <div class="form-group" ng-class="{'has-error':customerForm.state.$dirty && customerForm.state.$invalid,'has-success':!customerForm.state.$invalid}">
-				                    <select class="form-control select-control" ng-model="state" name="state">
-				                        <option value=''>- Please Choose State -</option>
-				                        <option ng-repeat="state in states">{{state.StateName}}</option>
-				                    </select>
-				                    <span ng-show="customerForm.state.$error.required"></span>
-				                </div>
-			                </div>
-					    </div>
-					    <div class="customer-address">
-				            <div class="customer-pre-address">Zipcode</div>
-				            <div class="customer-new-address">Phone Number</div>  
-					    </div>
-					    <div class="customer-address">
-				            <div class="customer-pre-address">
-	                            <div class="form-group" ng-class="{'has-error':customerForm.zip_code.$dirty && customerForm.zip_code.$invalid,'has-success':!customerForm.zip_code.$invalid}">
-					                    <input class="form-control" ng-minlength="5" ng-maxlength="6" ng-model="zip_code"  ng-pattern="/^\d+$/" maxlength="100" type="text" name="zip_code"/>
-					                    <span ng-show="customerForm.zip_code.$error.minlength" class="text-danger">Zip Code required Minimum 5 Digits.</span>
-					                    <span ng-show="customerForm.zip_code.$error.maxlength" class="text-danger">Zip Code required Maximum 6 Digits.</span>
-					                    <span ng-show="customerForm.zip_code.$error.pattern" class="text-danger">Invalid Zip Code!</span>
-					            </div>
-				            </div>
-				            <div class="customer-apart-address">
-					            <div class="form-group" ng-class="{'has-error': customerForm.phone.$dirty && customerForm.phone.$invalid, 'has-success': !customerForm.phone.$invalid}">
-				                    <input class="form-control" ng-model="phone" maxlength="100" type="text" name="phone" ng-pattern="/^\d+$/" ng-minlength="10" ng-maxlength="12"/>
-				                    <span ng-show="customerForm.phone.$error.required"></span>
-				                    <span ng-show="customerForm.phone.$error.minlength" class="text-danger">Phone required Min 10 digit.</span>
-				                    <span ng-show="customerForm.phone.$error.maxlength" class="text-danger">Phone required Max 12 digit.</span>
-				                    <span ng-show="customerForm.phone.$error.pattern" class="text-danger">Phone required only 0-9_ digit.</span>
-				                </div>
-			                </div>
-			            </div>
-				    </div>
-				</div>
-				<div class="booking-section-next">
-					<a href="#"><button class="btn btn-primary booking-button-next" ng-click="submitOrder()">SUBMIT ORDER</button></a>
-				</div>
-			</div>
-
-			<div class="col-sm-4 summary-position">
-				<div class="summary-section">
-				    <h1 class="summary-text">SUMMARY</h1>
-				</div>
-				<div class="row">
-					<div class="col-sm-4">
-						<span class="icon"><i class="glyphicon glyphicon-home"></i></span>
-					</div>
-					<div class="col-sm-8">
-						<h4>{{bookInfo.reserve_hours}} hours</h4>
-						<h4>{{bookInfo.no_of_bedroom}}</h4>
-						<h4>{{bookInfo.no_of_bathroom}}</h4>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-4">
-						<span class="icon"><i class="glyphicon glyphicon-calendar"></i></span>
-					</div>
-					<div class="col-sm-8">
-						<h4>{{date |date:"MMM d, y"}} @ {{time}}</h4>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-4">
-						<span class="icon"><i class="glyphicon glyphicons-clock"></i></span>
-					</div>
-					<div class="col-sm-8">
-						<h4>{{bookInfo.reserve_hours}} hours @ &#36;{{bookInfo.charges}}.00</h4>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-4">
-						<h4>Subtotal</h4>
-					</div>
-					<div class="col-sm-8">
-						<h4>&#36;{{subtotal}}</h4>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-4">
-						<h4>Credits</h4>
-					</div>
-					<div class="col-sm-8">
-						<h4>&#36;0.00</h4>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-4">
-						<h4>TOTAL</h4>
-					</div>
-					<div class="col-sm-8">
-						<h4>&#36;{{subtotal}}</h4>
-					</div>
-				</div>
-			</div>
-		</form>
-	</div>
+          <h4 class="booking-charges-text">NAME</h4>
+          <div class="booking-customer-fname">First Name</div>
+          <div class="form-group" ng-class="{'has-error': customerForm.firstname.$dirty && customerForm.firstname.$invalid, 'has-success': !customerForm.firstname.$invalid}">
+            <input class="form-control customer-fname" ng-pattern="/[a-zA-Z]$/" ng-model="firstname" required="required" maxlength="100" type="text" name="firstname"/>
+            <span ng-show="customerForm.firstname.$error.required"></span>
+            <span ng-show="customerForm.firstname.$error.pattern" class="text-danger">Firstname required only a-zA-Z_ symbols.</span>
+          </div>
+          <div class="booking-customer-lname">Last Name</div>
+          <div class="form-group" ng-class="{'has-error': customerForm.lastname.$dirty && customerForm.lastname.$invalid, 'has-success': !customerForm.lastname.$invalid}">
+            <input class="form-control customer-lname" ng-pattern="/[a-zA-Z]$/" ng-model="lastname" required="required" maxlength="100" type="text" name="lastname" />
+            <span ng-show="customerForm.lastname.$error.required"></span>
+            <span ng-show="customerForm.lastname.$error.pattern" class="text-danger">Lastname required only a-zA-Z_ symbols.</span>
+          </div>
+        </div>
+        <div class="booking-section-address">
+          <h4 class="booking-charges-text">ADDRESS</h4>
+          <div class="customer-address">
+            <div class="customer-pre-address cursor-pointer" >
+              <input type= "checkbox" ng-model="previous_address">&nbsp;Previous Address
+            </div>
+            <div class="customer-new-address cursor-pointer" ng-model="new_address">
+              <input type= "checkbox" ng-model="new_address">&nbsp New Address</div>  
+            </div>
+            <div ng-show="newAddress">
+              <div class="customer-address">
+                <div class="customer-pre-address">Street Address</div>
+                <div class="customer-new-address">Apt # (Optional)</div>  
+              </div>
+              <div class="customer-address">
+                <div class="customer-pre-address">
+                  <div class="form-group" ng-class="{'has-error': customerForm.address1.$dirty && customerForm.address1.$invalid, 'has-success': !customerForm.address1.$invalid}">
+                    <input class="form-control" ng-model="address1" placeholder="123 Street Name" maxlength="100" type="text" name="address1"/>
+                  </div>
+                </div>
+                <div class="customer-apart-address">
+                  <div class="form-group" ng-class="{'has-error': customerForm.address2.$dirty && customerForm.address2.$invalid, 'has-success': !customerForm.address2.$invalid}">
+                    <input class="form-control" ng-model="address2" placeholder="Apartment#" maxlength="100" type="text" name="address2"/>
+                  </div>
+                </div>
+              </div>
+              <div class="customer-address">
+                <div class="customer-pre-address">City</div>
+                <div class="customer-new-address">State</div>  
+              </div>
+              <div class="customer-address">
+                <div class="customer-pre-address">
+                  <div class="form-group" ng-class="{'has-error':customerForm.city.$dirty && customerForm.city.$invalid,'has-success':!customerForm.city.$invalid}">
+                  <input class="form-control" ng-model="city"  maxlength="100" type="text" name="city"/>
+                </div>
+              </div>
+              <div class="customer-apart-address">
+                <div class="form-group" ng-class="{'has-error':customerForm.state.$dirty && customerForm.state.$invalid,'has-success':!customerForm.state.$invalid}">
+                  <select class="form-control select-control" ng-model="state" name="state">
+                    <option value=''>- Please Choose State -</option>
+                    <option ng-repeat="state in states">{{state.StateName}}</option>
+                  </select>
+                  <span ng-show="customerForm.state.$error.required"></span>
+                </div>
+              </div>
+            </div>
+            <div class="customer-address">
+              <div class="customer-pre-address">Zipcode</div>
+              <div class="customer-new-address">Phone Number</div>  
+            </div>
+            <div class="customer-address">
+              <div class="customer-pre-address">
+                <div class="form-group" ng-class="{'has-error':customerForm.zip_code.$dirty && customerForm.zip_code.$invalid,'has-success':!customerForm.zip_code.$invalid}">
+                  <input class="form-control" ng-minlength="5" ng-maxlength="6" ng-model="zip_code"  ng-pattern="/^\d+$/" maxlength="100" type="text" name="zip_code"/>
+                  <span ng-show="customerForm.zip_code.$error.minlength" class="text-danger">Zip Code required Minimum 5 Digits.</span>
+                  <span ng-show="customerForm.zip_code.$error.maxlength" class="text-danger">Zip Code required Maximum 6 Digits.</span>
+                  <span ng-show="customerForm.zip_code.$error.pattern" class="text-danger">Invalid Zip Code!</span>
+                </div>
+              </div>
+              <div class="customer-apart-address">
+                <div class="form-group" ng-class="{'has-error': customerForm.phone.$dirty && customerForm.phone.$invalid, 'has-success': !customerForm.phone.$invalid}">
+                  <input class="form-control" ng-model="phone" maxlength="100" type="text" name="phone" ng-pattern="/^\d+$/" ng-minlength="10" ng-maxlength="12"/>
+                  <span ng-show="customerForm.phone.$error.required"></span>
+                  <span ng-show="customerForm.phone.$error.minlength" class="text-danger">Phone required Min 10 digit.</span>
+                  <span ng-show="customerForm.phone.$error.maxlength" class="text-danger">Phone required Max 12 digit.</span>
+                  <span ng-show="customerForm.phone.$error.pattern" class="text-danger">Phone required only 0-9_ digit.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="booking-section-next">
+          <a href="#"><button class="btn btn-primary booking-button-next" ng-click="submitOrder()">SUBMIT ORDER</button></a>
+        </div>
+      </div>
+      <div class="col-sm-4 summary-position">
+        <div class="summary-section">
+          <h1 class="summary-text">SUMMARY</h1>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <span class="icon"><i class="glyphicon glyphicon-home"></i></span>
+          </div>
+          <div class="col-sm-8">
+            <h4>{{bookInfo.reserve_hours}} hours</h4>
+            <h4>{{bookInfo.no_of_bedroom}}</h4>
+            <h4>{{bookInfo.no_of_bathroom}}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <span class="icon"><i class="glyphicon glyphicon-calendar"></i></span>
+          </div>
+          <div class="col-sm-8">
+            <h4>{{date |date:"MMM d, y"}} @ {{time}}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <span class="icon"><i class="glyphicon glyphicons-clock"></i></span>
+          </div>
+          <div class="col-sm-8">
+            <h4>{{bookInfo.reserve_hours}} hours @ &#36;{{bookInfo.charges}}.00</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <h4>Subtotal</h4>
+          </div>
+          <div class="col-sm-8">
+            <h4>&#36;{{subtotal}}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <h4>Credits</h4>
+          </div>
+          <div class="col-sm-8">
+            <h4>&#36;0.00</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <h4>TOTAL</h4>
+          </div>
+          <div class="col-sm-8">
+            <h4>&#36;{{subtotal}}</h4>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
