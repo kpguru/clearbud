@@ -3,7 +3,7 @@
     <form class="form-horizontal">
       <ul class="nav nav-tabs customer-tabs">
         <li ng-repeat="step in steps" ng-class="{active: $index==getCurrentStepIndex()}">
-          <a href="javascript:void(0)" ng-click="goToStep($index)">{{step}}</a>
+          <a href="javascript:void(0)" ng-click="goToStep($index)" ng-hide="checkPayment == 0 && step == 'Payment History'">{{step}}</a>
         </li>
       </ul>
       <div ng-switch on="selection">

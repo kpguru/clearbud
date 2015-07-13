@@ -24,9 +24,11 @@
 					  var cleanerBookings = BookingService.getCustomerBookings(authUser.uid);
           cleanerBookings.$loaded().then(function (data) { 
             $scope.custBookings = data; 
+            $scope.checkPayment = 0;
             angular.forEach($scope.custBookings, function(val){
 					  if(val.paymentStatus && val.paymentStatus== true){
-						  $scope.paymentHistory.push(val);						 
+              $scope.checkPayment++;
+						  $scope.paymentHistory.push(val);
 						 }	
 					 });
 					}); 

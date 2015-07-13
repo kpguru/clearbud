@@ -33,7 +33,6 @@
     <script type="text/javascript" src="app/bower_components/angular-payments/lib/angular-payments.js"></script>
     
 	  <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/index.css" />
   </head>
 	<body ng-app="clearbud">
@@ -65,8 +64,8 @@
                     <li class="menu-box login-type" ng-hide="signedIn()">
                        <a href="#/login" class="form-list secndry-lnk login-link-text" role="button" aria-expanded="false" >Login</a>
                     </li>
-                    <li class="menu-box signup-type" ng-hide="signedIn()">
-                      <a class="form-list secndry-lnk login-link-text" role="button" aria-expanded="false" >SignUp</a>
+                    <li class="menu-box" ng-hide="signedIn()">
+                      <a class="form-list" role="button" aria-expanded="false" >SignUp</a>
                       <ul class="sub-menu-box"> 
                         <li><a href="#/customer-signup"> Customer Signup </a></li>
                         <li><a href="#/cleaner-signup">Cleaner Signup</a></li>
