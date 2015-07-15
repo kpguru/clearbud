@@ -11,10 +11,16 @@
     <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="app/bower_components/angularjs-toaster/toaster.css">
     <link rel="stylesheet" href="app/bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css">
+    <link rel="stylesheet" href="app/bower_components/angular-rangeslider/angular.rangeSlider.css">
+
 <!--
      Optional theme 
 -->
     <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap-theme.css">
+<!--
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+-->
+    <script type="text/javascript" src="app/bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="app/bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="app/bower_components/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="app/bower_components/angular-animate/angular-animate.js"></script>
@@ -23,19 +29,20 @@
     <script type="text/javascript" src="app/bower_components/angular-resource/angular-resource.js"></script>
     <script type="text/javascript" src="app/bower_components/firebase/firebase.js"></script>
     <script type="text/javascript" src="app/bower_components/angularfire/dist/angularfire.js"></script>
-    <script type="text/javascript" src="app/bower_components/angularjs-toaster/toaster.js"></script>
-    <script type="text/javascript" src="app/bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="app/bower_components/angularjs-toaster/toaster.js"></script>  
     <script type="text/javascript" src="app/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="app/bower_components/underscore/underscore-min.js"></script>
     <script type="text/javascript" src="app/bower_components/moment/moment.js"></script>
     <script type="text/javascript" src="app/bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script type="text/javascript" src="app/bower_components/angular-payments/lib/angular-payments.js"></script>
+    <script src="app/bower_components/angular-rangeslider/angular.rangeSlider.js"></script>
+   
     
-	  <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/custom.css" />   
     <link rel="stylesheet" href="css/index.css" />
   </head>
-	<body ng-app="clearbud">
+	 <body ng-app="clearbud">
 	  <div class="wrapper" ng-controller="AuthController">
       <!--<div class="container">-->
       <header>
@@ -96,6 +103,7 @@
       <script type="text/javascript" src="js/services/AvailabilitiesService.js"></script>
       <script type="text/javascript" src="js/services/BookingService.js"></script>
       <script type="text/javascript" src="js/services/RatingService.js"></script>
+      <script type="text/javascript" src="js/services/SearchService.js"></script>
       
       <script type="text/javascript" src="js/controllers/AuthController.js"></script>
       <script type="text/javascript" src="js/controllers/CustomerController.js"></script>
@@ -111,7 +119,6 @@
       <script type="text/javascript" src="js/directives/ratingDirective.js"></script>
       <script type="text/javascript" src="js/directives/confirmDirective.js"></script>
       <script type="text/javascript" src="js/directives/siteHeaderDirective.js"></script>
-
 	</body>
 
 </html>
