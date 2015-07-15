@@ -92,7 +92,11 @@
 .search-criteria{ margin-left: -232px; margin-top: 79px;}
 .sort-text{ width: 93px;}
 .set-cleaner-image{ width: 200px;}
-.search-by-name{ margin-left: -13px; width: 795px;}
+.search{ margin-left: -13px; width: 795px;}
+.search-by-zipcode{ margin-left: -13px; width: 237px;}
+.search-by-name{ margin-left: 457px; margin-top: -47px; width: 234px;}
+.select-availabilities{width: 216px;}
+.search-button{ margin-left: 223px; margin-top: -66px; width: 98px;}
 /*==================rating templates========================*/
 .rating{ color: #a9a9a9; margin: 0; padding: 0;}
 ul.rating { display: inline-block;}

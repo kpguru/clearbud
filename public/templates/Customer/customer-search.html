@@ -4,23 +4,31 @@
       <div class="col-sm-2">
         <div>Sort By</div>
         <div>
-          <input type="radio" name="search" ng-click = "setCleanerSearch(1);">Price<br>
-          <input type="radio" name="search" ng-click = "setCleanerSearch(2);">Score
+          <input type="radio" name="search" ng-click = "setCleanerSearch('price');">Price<br>
+          <input type="radio" name="search" ng-click = "setCleanerSearch('score');">Score
         </div>
       </div>
       <div class="col-sm-10">
         <div>
-          <div class="input-group col-sm-12 search-by-name">
-            <input type="text" class="form-control input-lg" placeholder="Search Cleaner By Name" ng-model = "search" ng-change = "searchCleanerByName(search);"/>
-            <span class="input-group-btn">
-              <button class="btn btn-info btn-lg" type="button">
-                <i class="glyphicon glyphicon-search"></i>
-              </button>
-            </span>
+          <div class="row search">
+            <div class="col-sm-4 search-by-zipcode">
+              <input type="text" class="form-control input-lg" placeholder="Zip Code" maxlength="5" ng-model = "searchCredentials.zipcode"/>
+            </div>
+            <div class=" col-sm-4">
+              <select ng-options="availability.value as availability.name for availability in availabilities"  class="form-control input-lg select-availabilities" ng-model="searchCredentials.availability">
+                 <option value="" selected="selected">Choose Avaiabilities</option>
+              </select>
+            </div>
+            <div class="col-sm-4 search-by-name">
+              <input type="text" class="form-control input-lg" placeholder="Name" ng-model = "searchCredentials.name"/>
+               <button class="btn btn-info btn-lg search-button" type="button" ng-click = "searchCleaner(searchCredentials)">
+                 <i class="glyphicon glyphicon-search"></i>
+               </button>
+            </div>
           </div>
           <div>
             <div ng-repeat = "cleaner in cleanerData" ng-show="searchManage == 0"> 
-              <div class="row cleaner-list" ng-show="cleaner.isApproved == 1">
+              <div class="row cleaner-list">
                 <div class = "col-sm-4">            	  	
                   <a href="#/cleaner_profiles/{{cleaner.cleaner_id}}/home-smile-cleaners" title="Cleaner Profile"><img src = {{cleaner.cleaner_logo}}></a>
                 </div>
@@ -48,8 +56,9 @@
                   </div>    
                 </div>
               </div>
-            </div><!--close ng-repeat-->
-            <div ng-repeat = "cleaner in cleanerData | orderBy:'cleaner_charge':false" ng-show="searchManage == 1"> 
+            </div>
+
+            <div ng-repeat = "cleaner in cleanerData | orderBy:sortType:sortOrder" ng-show="searchManage == 1"> 
               <div class="row cleaner-list" ng-show="cleaner.isApproved == 1">
                 <div class = "col-sm-4">                    
                   <a href="#/cleaner_profiles/{{cleaner.cleaner_id}}/home-smile-cleaners" title="Cleaner Profile"><img src = {{cleaner.cleaner_logo}}></a>
@@ -61,36 +70,6 @@
                       <div class="is-disabled">
                        <div class="star-rating is-disabled" star-rating rating-value="cleaner.cleaner_rating" data-max="5"></div>
                        </div>
-                      <div>Hours of Operation:</div>
-                      <div ng-repeat='Availability in cleaner.cleaner_availabilities[0]'>
-                        <div>{{Availability.day}}  {{Availability.fromTime | date:'h:mma'}} {{Availability.toTime | date:'h:mma'}}</div>
-                      </div>
-                    </div>
-                    <div class="col-sm-3">
-                      <div>{{cleaner.score}}</div>
-                      <div>ScrubBud</div>
-                      <div>Score</div>
-                    </div>
-                    <div class="col-sm-3">
-                      <div>&#36;{{cleaner.cleaner_charge}}</div>
-                      <div><a href="#/cleaner_profiles/{{cleaner.cleaner_id}}/home-smile-cleaners" title="Cleaner Profile">View Profile<span>+</span></a></div>
-                    </div>
-                  </div>    
-                </div>
-              </div>
-            </div><!--close ng-repeat-->
-            <div ng-repeat = "cleaner in cleanerData | orderBy:'score':true" ng-show="searchManage == 2"> 
-              <div class="row cleaner-list" ng-show="cleaner.isApproved == 1">
-                <div class = "col-sm-4">                    
-                  <a href="#/cleaner_profiles/{{cleaner.cleaner_id}}/home-smile-cleaners" title="Cleaner Profile"><img src = {{cleaner.cleaner_logo}}></a>
-                </div>
-                <div class = "col-sm-8">
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div>{{cleaner.firstname}} {{cleaner.lastname}}</div>
-                      <div class="is-disabled">
-                        <div class="star-rating" star-rating rating-value="cleaner.cleaner_rating" data-max="5"></div>
-                      </div>
                       <div>Hours of Operation:</div>
                       <div ng-repeat='Availability in cleaner.cleaner_availabilities[0]'>
                         <div>{{Availability.day}}  {{Availability.fromTime | date:'h:mma'}} {{Availability.toTime | date:'h:mma'}}</div>
