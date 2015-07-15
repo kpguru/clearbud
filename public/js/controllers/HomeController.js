@@ -4,24 +4,22 @@
     $scope.cleaners = [];
     $scope.searchManage = 0;
     $scope.availabilities = CustomerService.availabilities(); 
-    
-      $scope.demo1={
-											min: 0,
-											max: 1000
-										 };		
-				//find price range		 
-				$scope.priceRange = function(){						
-					$scope.cleanerData=[];
-					$scope.cd = CustomerService.getData();
-					angular.forEach($scope.cd, function(value){
-						 if(value.cleaner_charge >= $scope.demo1.min && value.cleaner_charge <= $scope.demo1.max){							 
-							 $scope.cleanerData.push(value); 
-							 }
-						})
-				  console.log($scope.cleanerData);					  			
-				}	
+    $scope.demo1={
+                    min: 0,
+                    max: 1000
+                 };		
+    //find price range		 
+    $scope.priceRange = function(){						
+      $scope.cleanerData=[];
+      $scope.cd = CustomerService.getData();
+      angular.forEach($scope.cd, function(value){
+         if(value.cleaner_charge >= $scope.demo1.min && value.cleaner_charge <= $scope.demo1.max){							 
+           $scope.cleanerData.push(value); 
+           }
+        })
+      console.log($scope.cleanerData);					  			
+    }	
 
-    
     //get all cleaner deatails for search page at page loading time
     $scope.getCleanersProfile = function(){
       AuthenticationService.getUsersByRole('cleaner').$loaded().then(function(data){
@@ -48,7 +46,10 @@
     
     //search cleaner by zip code, availability, name
     $scope.searchCleaner = function(searchCredentials){
-      $scope.name = searchCredentials.name;
+      if(angular.isUndefined(searchCredentials) || angular.isUndefined(searchCredentials.zipcode)){
+        toaster.pop('error', "Please Enter Zip Code!");
+        return;
+      }
       CleanerService.getCleanerByZipCode(searchCredentials.zipcode).$loaded().then(function(data){
         $scope.cleaners = [];
         angular.forEach(data, function(value){
@@ -57,17 +58,11 @@
             $scope.cleaners.push(value);
           }
         });
-        if($scope.cleaners.length > 0)
-        {
-          SearchService.getCleanersProfile(false,$scope.cleaners,searchCredentials,function(response){
-            $scope.cleanerData = [];
-            $scope.searchManage=0;
-            $scope.cleanerData = response;
-          });
-        }else{
+        SearchService.getCleanersProfile(false,$scope.cleaners,searchCredentials,function(response){
           $scope.cleanerData = [];
-          toaster.pop('error', "No Result found!");
-          }
+          $scope.searchManage=0;
+          $scope.cleanerData = response;
+        });
       });
     };
     

@@ -124,7 +124,7 @@ var app = angular.module('clearbud',[
            templateUrl: 'templates/Customer/customer-view-cleaner.html',
            controller: 'CleanerController'
        });
-          $routeProvider.when('/cleaner_profiles/:cleanerID/my', {
+          $routeProvider.when('/cleaner/:cleanerID/profiles', {
            templateUrl: 'templates/Cleaner/cleaner-my-profile.html',
            controller: 'CleanerController',
            resolve: {
