@@ -7,6 +7,7 @@ var app = angular.module('clearbud',[
     'firebase',
     'toaster',
     'angularPayments',
+    'angularUtils.directives.dirPagination',
     'ui.bootstrap.datetimepicker'
 	]).constant('FIREBASE_URL', 'https://amber-inferno-3378.firebaseio.com/')	
 	  .constant('SECRET_KEY' , 'sk_test_IeK9KWcycB3NKQkWunnNkWlN')
