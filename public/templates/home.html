@@ -7,6 +7,14 @@
           <input type="radio" name="search" ng-click = "setCleanerSearch('price');">Price<br>
           <input type="radio" name="search" ng-click = "setCleanerSearch('score');">Score
         </div>
+        <div class="slider-price">
+       <div range-slider min="0" max="1000" model-min="demo1.min" model-max="demo1.max" ng-click ="priceRange()"></div>   
+	     <div class="min-max">					 
+					$<input type="text" class="inpt-tc" ng-model="demo1.min">&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;													
+					$<input type="text" class="inpt-tc" ng-model="demo1.max"><br>
+					<strong>Min</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<strong>Max</strong>  
+      </div>
+			</div> 
       </div>
       <div class="col-sm-10">
         <div>
