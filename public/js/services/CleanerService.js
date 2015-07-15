@@ -12,6 +12,9 @@
       getCleanerByName : function(cleaner){
         return $firebase(ref.child('users').orderByChild("firstname").equalTo(cleaner)).$asArray();
       },
+      getCleanerByZipCode : function(zip_code){
+        return $firebase(ref.child('users').orderByChild("zip_code").equalTo(zip_code)).$asArray();
+      },
       createCP : function (ID, profile) {
         var cp = this.getCleaner(ID);
         return cp.$update(profile);

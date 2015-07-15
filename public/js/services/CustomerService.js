@@ -18,6 +18,20 @@
       },
       getData : function(){
         return data;
+      },
+      availabilities : function(){
+        var Availabilities = [{name: 'Sunday', value: 'Sunday' },
+                  {name: 'Monday', value: 'Monday' },
+                  {name: 'Tuesday', value: 'Tuesday' },
+                  {name: 'Wednesday', value: 'Wednesday' },
+                  {name: 'Thusday', value: 'Thusday' },
+                  {name: 'Friday', value: 'Friday' },
+                  {name: 'Saturday', value: 'Saturday' },
+                  {name: 'Everyday', value: 'Everyday' },
+                  {name: 'Weekends', value: 'Weekends' },
+                  {name: 'Monday-Friday', value: 'Monday-Friday' }
+                  ];
+        return Availabilities;
       }
     }
     return customer;

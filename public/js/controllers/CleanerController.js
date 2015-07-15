@@ -19,7 +19,7 @@
     ref.onAuth(function(authUser) {
       if (authUser != null) {
         if($routeParams.cleanerID){ 
-    
+
           var clanerProfile = AuthenticationService.getCurrentUser($routeParams.cleanerID);
           clanerProfile.$loaded().then(function (clanerProfile) { 
             $scope.clanerProfile = clanerProfile;

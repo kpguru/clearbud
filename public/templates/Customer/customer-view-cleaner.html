@@ -234,12 +234,14 @@
         </form>
       </div>
     </div>
-		<div class="col-sm-4 cleaner-profile" ng-controller="BookingController">
-			<img src ="images/service.jpeg" class="fixed-img">
-		    <select ng-options="no_of_bedroom.value as no_of_bedroom.name for no_of_bedroom in no_of_bedrooms"  class="form-control input-lg select-credential" ng-model="bookingInfo.bedrooms"></select>
-		    <select ng-options="no_of_bathroom.value as no_of_bathroom.name for no_of_bathroom in no_of_bathrooms"  class="select-credential form-control input-lg " ng-model="bookingInfo.bathrooms"></select>
-		    <select ng-options="frequency1.value as frequency1.name for frequency1 in frequency"  class="select-credential form-control input-lg " ng-model="bookingInfo.frequency_type"></select>
-		    <a title="Cleaner Profile"><button class="btn btn-primary book-now select-credential" ng-click="setBookInfo(bookingInfo,true)">Book Now</button></a>
-		</div>
+    <div ng-if = "signedIn()">
+      <div class="col-sm-4 cleaner-profile" ng-controller="BookingController">
+        <img src ="images/service.jpeg" class="fixed-img">
+          <select ng-options="no_of_bedroom.value as no_of_bedroom.name for no_of_bedroom in no_of_bedrooms"  class="form-control input-lg select-credential" ng-model="bookingInfo.bedrooms"></select>
+          <select ng-options="no_of_bathroom.value as no_of_bathroom.name for no_of_bathroom in no_of_bathrooms"  class="select-credential form-control input-lg " ng-model="bookingInfo.bathrooms"></select>
+          <select ng-options="frequency1.value as frequency1.name for frequency1 in frequency"  class="select-credential form-control input-lg " ng-model="bookingInfo.frequency_type"></select>
+          <a title="Cleaner Profile"><button class="btn btn-primary book-now select-credential" ng-click="setBookInfo(bookingInfo,true)">Book Now</button></a>
+      </div>
+    </div>
 	</div>
 </div>

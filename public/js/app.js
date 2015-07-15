@@ -16,11 +16,11 @@ var app = angular.module('clearbud',[
 			  Stripe.setPublishableKey('key pk_test_VkqhfDUwIQNyWJK4sR7CKVsY');
         $routeProvider.otherwise({
             templateUrl: 'templates/home.html',
-            controller: 'CustomerController'
+            controller: 'HomeController'
         });
         $routeProvider.when('/home', {
             templateUrl: 'templates/home.html',
-            controller: 'CustomerController'
+            controller: 'HomeController'
         });
         $routeProvider.when('/contact-us', {
             templateUrl: 'templates/contact-us.html',
@@ -98,12 +98,7 @@ var app = angular.module('clearbud',[
        });
         $routeProvider.when('/search-cleaner', {
            templateUrl: 'templates/Customer/customer-search.html',
-           controller: 'CustomerController',
-           resolve: {
-                currentAuth: function (AuthenticationService) {
-                    return AuthenticationService.requireAuth();
-                }
-            }
+           controller: 'HomeController',
        });
        $routeProvider.when('/admin-dashboard', {
            templateUrl: 'templates/Admin/admin-dashboard.html',
@@ -123,16 +118,11 @@ var app = angular.module('clearbud',[
                 }
             }
        });
-       $routeProvider.when('/cleaner_profiles/:cleanerID/home-smile-cleaners', {
+       $routeProvider.when('/cleaner_profiles/:cleanerID', {
            templateUrl: 'templates/Customer/customer-view-cleaner.html',
-           controller: 'CleanerController',
-           resolve: {
-                currentAuth: function (AuthenticationService) {
-                    return AuthenticationService.requireAuth();
-                }
-            }
+           controller: 'CleanerController'
        });
-          $routeProvider.when('/cleaner_profiles/:cleanerID', {
+          $routeProvider.when('/cleaner_profiles/:cleanerID/my', {
            templateUrl: 'templates/Cleaner/cleaner-my-profile.html',
            controller: 'CleanerController',
            resolve: {
