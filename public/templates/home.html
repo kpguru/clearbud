@@ -35,7 +35,7 @@
             </div>
           </div>
           <div>
-            <div ng-repeat = "cleaner in cleanerData" ng-show="searchManage == 0"> 
+            <div dir-paginate= "cleaner in cleanerData | filter: q | itemsPerPage: 2" pagination-id="usersPagination" ng-show="searchManage == 0"> 
               <div class="row cleaner-list">
                 <div class = "col-sm-4">            	  	
                   <a href="#/cleaner_profiles/{{cleaner.cleaner_id}}" title="Cleaner Profile"><img src = {{cleaner.cleaner_logo}}></a>
@@ -59,14 +59,14 @@
                     </div>
                     <div class="col-sm-3">
                       <div>&#36;{{cleaner.cleaner_charge}}</div>
-                      <div><a href="#/cleaner_profiles/{{cleaner.cleaner_id}}/home-smile-cleaners" title="Cleaner Profile">View Profile<span>+</span></a></div>
+                      <div><a href="#/cleaner_profiles/{{cleaner.cleaner_id}}" title="Cleaner Profile">View Profile<span>+</span></a></div>
                     </div>
                   </div>    
                 </div>
               </div>
             </div>
 
-            <div ng-repeat = "cleaner in cleanerData | orderBy:sortType:sortOrder" ng-show="searchManage == 1"> 
+            <div dir-paginate = "cleaner in cleanerData | orderBy:sortType:sortOrder | filter: q | itemsPerPage: 2" pagination-id="usersPagination" ng-show="searchManage == 1"> 
               <div class="row cleaner-list" ng-show="cleaner.isApproved == 1">
                 <div class = "col-sm-4">                    
                   <a href="#/cleaner_profiles/{{cleaner.cleaner_id}}/home-smile-cleaners" title="Cleaner Profile"><img src = {{cleaner.cleaner_logo}}></a>
@@ -90,12 +90,15 @@
                     </div>
                     <div class="col-sm-3">
                       <div>&#36;{{cleaner.cleaner_charge}}</div>
-                      <div><a href="#/cleaner_profiles/{{cleaner.cleaner_id}}/home-smile-cleaners" title="Cleaner Profile">View Profile<span>+</span></a></div>
+                      <div><a href="#/cleaner_profiles/{{cleaner.cleaner_id}}" title="Cleaner Profile">View Profile<span>+</span></a></div>
                     </div>
                   </div>    
                 </div>
               </div>
             </div><!--close ng-repeat-->
+            <div class="text-center">
+               <dir-pagination-controls boundary-links="true" pagination-id="usersPagination" on-page-change="pageChangeHandler(newPageNumber)" template-url="app/bower_components/angular-utils-pagination/dirPagination.tpl.html"> </dir-pagination-controls>
+            </div>
           </div>
         </div>
       </div>

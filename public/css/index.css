@@ -117,7 +117,7 @@ ul.rating { display: inline-block;}
 .avlfrm{ height: 675px;}
 .avlbtn{ height: 40px; margin-left: 509px; width: 90px;}
 /*====================login-signup=======================*/
-.loginbtn{ margin-left: 57px; margin-right: 66px;}
+.loginbtn{ margin-left: 0; margin-right: 66px;}
 .new-ac-section{ width: 224px;}
 .sn-site-logo{ margin-left: 284px; margin-top: -77px; width: 117px;}
 /*============================customer-view-cleaner=======================*/
@@ -157,3 +157,38 @@ ul.rating { display: inline-block;}
 .slider-price{margin-top: 40px;}
 .arrnge {margin-left: -26px;}
 
+/*=============index.html=============*/
+.header { background-color: #ffffff; border-bottom: 1px solid #cccccc; padding: 15px 0;}
+.navbar { margin-bottom: 0;}
+.navbar-default .navbar-brand { font-size: 30px;}
+.head-menu { margin-top: 5px;}
+.header .navbar-default .navbar-nav > li > a { background-color: transparent; border-radius: 3px; color: #3498db; font-size: 16px; font-weight: 600; margin: 0 5px; padding: 8px 18px; text-transform: capitalize; transition: all 0.1s ease-in 0s;}
+.menu-box { position: relative !important;}
+.sub-menu-box { display:none;}
+.sub-menu-box { width:92%; }
+.sub-menu-box  li { list-style:none; }
+.menu-box:hover .sub-menu-box {display:block; }
+.sub-menu-box { background-color: #ffffff; border: 1px solid #cccccc; padding:0; position: absolute; right: 0; width: 180px; z-index: 1; border-radius:2px; }
+.menu-box { position:relative !important; }
+.sub-menu-box > li { padding: 10px 5px; }
+.sub-menu-box > li:nth-child(1) { border-bottom: 1px solid #cccccc; }
+
+/*=============login.html=============*/
+.login-form { margin: 50px 0;}
+.login-form .form-control { max-width: 345px; width: 100%;}
+.login-form .form-group { margin-bottom: 20px;}
+.login-form .form-btns { text-align: center;}
+.loginbtn { width: 100%;}
+.btn-primary { background-color: #3498db; font-size: 12px; font-weight: 600; text-transform: uppercase;}
+.prf-logn { width:420px; }
+.prf-logn { margin: 0 auto; /* width: 290px; */ }
+.prf-logn { width: 100%; }
+.prf-logn { /* border: 1px solid #cccccc;*/  box-shadow: 0 0 1px 1px #999999; line-height: 2; margin:0 auto 0;  width:427px; }
+.prf-logn-wrapper { padding:5px 20px; }
+.prf-logn > p { border-bottom: 1px solid #ccc; font-size: 22px; padding: 12px 0 12px 20px;}
+.prf-logn-wrapper { padding: 5px 20px;}
+/*=============customer-signup.html=============*/
+.login-block { margin: 3% auto 8%;}
+.navbar-default { background-color: transparent;  border-color: transparent;}
+.sn-logo{ margin-left: 284px; margin-top: -42px; width: 117px;}
+.new-section{width: 224px;}
