@@ -96,7 +96,7 @@
              if(data.role == "cleaner"){
                if(data.isApproved== 1){
                  toaster.pop('success', "Logged in successfully!");
-                 window.location = "#/cleaner_profiles/"+ data.$id;
+                 window.location = "#/cleaner/"+ data.$id+"/profiles";
                }else{
                   toaster.pop('success', "Logged in successfully!,Your Profile is Not Approved by Admin");
                   window.location = "#/cleaner-dashboard";

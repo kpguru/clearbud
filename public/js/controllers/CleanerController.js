@@ -142,7 +142,7 @@
           {
             CleanerService.updateCP(authUser.uid, cleaner).then(function (data) {                  
               toaster.pop('success', "Successfully Updated Your Profile");
-              $location.path('/cleaner_profiles/'+cleaner.$id);
+              $location.path('/cleaner/'+cleaner.$id+"/profiles");
             });
           }
           else{
