@@ -1,4 +1,3 @@
-Stripe.setPublishableKey('fillMePlease');
 var app = angular.module('clearbud',[
      'ngRoute',
     'ngAnimate',

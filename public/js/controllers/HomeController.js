@@ -3,25 +3,22 @@
     $scope.cleanerData = [];
     $scope.cleaners = [];
     $scope.searchManage = 0;
-    $scope.availabilities = CustomerService.availabilities(); 
-    
-      $scope.demo1={
-											min: 0,
-											max: 1000
-										 };		
-				//find price range		 
-				$scope.priceRange = function(){						
-					$scope.cleanerData=[];
-					$scope.cd = CustomerService.getData();
-					angular.forEach($scope.cd, function(value){
-						 if(value.cleaner_charge >= $scope.demo1.min && value.cleaner_charge <= $scope.demo1.max){							 
-							 $scope.cleanerData.push(value); 
-							 }
-						})
-				  console.log($scope.cleanerData);					  			
-				}	
-
-    
+    $scope.availabilities = CustomerService.availabilities();     
+	  $scope.demo1={
+										min: 0,
+										max: 1000
+									 };		
+			//find price range		 
+			$scope.priceRange = function(){						
+				$scope.cleanerData=[];
+				$scope.cd = CustomerService.getData();
+				angular.forEach($scope.cd, function(value){
+					 if(value.cleaner_charge >= $scope.demo1.min && value.cleaner_charge <= $scope.demo1.max){							 
+						 $scope.cleanerData.push(value); 
+						 }
+					})
+				console.log($scope.cleanerData);					  			
+			}	    
     //get all cleaner deatails for search page at page loading time
     $scope.getCleanersProfile = function(){
       AuthenticationService.getUsersByRole('cleaner').$loaded().then(function(data){
