@@ -234,7 +234,6 @@
           }  
         $scope.updateBankInfo= function(recInfo){
 					   $scope.recipients.recipientInfo = recInfo;
-					   console.log($scope.recipients.recipientInfo, authUser.uid);
              CleanerService.saveCleanerBankInfo(authUser.uid, $scope.recipients).then(function (data) {
              toaster.pop('success', "Add Bank Information SUccessfully");
           });
