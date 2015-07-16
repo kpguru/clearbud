@@ -28,6 +28,7 @@
                 <th>Amount</th>
                 <th>Status</th>
                 <th>Action</th>
+                <th>Booking Location</th>
               </tr>
               <tr ng-show="setStatus== 0 && booking.status=='Pending'&& booking.date_time > timestampDate" ng-repeat = "booking in bookings">
                 <td>{{booking.firstname}} {{booking.lastname}}</td>   
@@ -37,6 +38,7 @@
                 <td>{{booking.total}}</td> 
                 <td class="status-pending" ng-if="booking.status=='Pending'">{{booking.status}}</td> 
                 <td><button class="btn btn-default dropdown-toggle bn" ng-click="setBookingStatus(booking.$id,'Accepted')" ng-confirm-click="Do you really want to  Approve this Booking?" type="button">{{booking.status ==  "Pending"? "Approve" : "Reject"}}</button></td>
+                <td><button class="btn btn-default dropdown-toggle bn" style="bgcolor:'green';" ng-click="open('md', booking)" type="button">Location</button></td>
               </tr>
               <tr ng-show="setStatus== 1 && booking.status=='Accepted'" ng-repeat = "booking in bookings">
                 <td>{{booking.firstname}} {{booking.lastname}}</td>   
@@ -46,6 +48,7 @@
                 <td>{{booking.total}}</td> 
                 <td class="status-pending" ng-if="booking.status=='Accepted'">{{booking.status}}</td> 
                 <td><button class="btn btn-default dropdown-toggle bnr" style="bgcolor:'green';" ng-click="setBookingStatus(booking.$id,'Rejected')" ng-confirm-click="Do you really want to Reject this Booking?" type="button">{{booking.status ==  "Accepted"? "Reject" : "Approve"}}</button></td>
+                <td><button class="btn btn-default dropdown-toggle bn" style="bgcolor:'green';" ng-click="open('md', booking)" type="button">Location</button></td>
               </tr>
             </table> 
           </div>

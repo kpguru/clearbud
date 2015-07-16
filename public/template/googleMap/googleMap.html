@@ -1,0 +1,22 @@
+<style type="text/css">
+    body .modal-backdrop{
+        position: fixed !important;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<div class="modal-header">
+    <h3 class="modal-title">Booking Location</h3>
+</div>
+<div class="modal-body">
+    <map center="{{latitude}}, {{longitude}}" zoom="{{zoom}}">
+        <info-window position="{{latitude}}, {{longitude}}" visible="true">
+            <span>Booking Location</span>
+        </info-window>
+    </map>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" ng-click="close()">Close</button>
+</div>

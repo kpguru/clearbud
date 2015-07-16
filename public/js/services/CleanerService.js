@@ -115,7 +115,8 @@
                 "What's Included",
                 'Pricing',
                 'Availability',
-                'Bank Accounts Details'
+                'Bank Accounts Details',
+                'Location'
               ];
           return steps1;
       },

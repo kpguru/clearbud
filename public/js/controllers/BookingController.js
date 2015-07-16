@@ -1,5 +1,5 @@
 'use strict';
-  app.controller('BookingController', function ($scope, $routeParams, $window, $location, $http, AvailabilitiesService, ChargesService, CustomerService, BookingService, CleanerService, AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
+  app.controller('BookingController', function ($scope, $routeParams, $window, $modal, $location, $http, AvailabilitiesService, ChargesService, CustomerService, BookingService, CleanerService, AuthenticationService, $firebase, toaster, FIREBASE_URL) { 
     $scope.signedIn = AuthenticationService.signedIn; 
     $scope.final_booking = true;
     $scope.bookInfo={};
@@ -335,6 +335,26 @@
                toaster.pop('success', "Successfully Reschedule Booking Order");
              });
            }
+        };
+        
+        $scope.animationsEnabled = true;
+
+        $scope.open = function (size, data) {
+            var modalInstance = $modal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'template/googleMap/googleMap.html',
+                controller: 'ModalGoogleMapController',
+                size: size,
+                resolve: {
+                    googleData: function () {
+                        return data;
+                    }
+                }
+            });
+        };
+
+        $scope.toggleAnimation = function () {
+            $scope.animationsEnabled = !$scope.animationsEnabled;
         };
         
         $scope.acceptOpenBooking = function(bookingID, status){

@@ -99,7 +99,30 @@
         $scope.livingAreaServices = $scope.services[0].livingArea[0];  
       });  
     }
+  
+    $scope.open_gmap = function(cleanerInfo){
+         var address = cleanerInfo.address1 + ' ' + cleanerInfo.address2 + ' ' + cleanerInfo.city + ' ' + cleanerInfo.state + ' ' + cleanerInfo.zip_code;
+         var geocoder = new google.maps.Geocoder();
+         geocoder.geocode( { 'address': address}, function(results, status) {
+            if(status== 'ZERO_RESULTS'){
+                $scope.zero_status(cleanerInfo.state);
+            }else{
+                var loc = results[0].geometry.location;
+                $scope.lat =loc.lat();
+                $scope.lng =loc.lng();
+            }
+      });
+    };
     
+    $scope.zero_status = function(statename){
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode( { 'address': '' +statename}, function(results, status) {
+            var default_loc = results[0].geometry.location;
+            $scope.lat =default_loc.lat();
+            $scope.lng =default_loc.lng();
+          });
+    };
+
     ref.onAuth(function(authUser) {
       if (authUser != null) {
         var users = AuthenticationService.getCurrentUser(authUser.uid);
@@ -206,7 +229,6 @@
         }; 
         $scope.submitInfo = function(account){
           Stripe.setPublishableKey('pk_test_VkqhfDUwIQNyWJK4sR7CKVsY');							  
-          console.log($scope.bankinfo.number, $scope.bankinfo.exp_month, $scope.bankinfo.exp_year, $scope.bankinfo.cvc, $scope.bankinfo.name);
           var token = Stripe.card.createToken({number: $scope.bankinfo.number, cvc:$scope.bankinfo.cvc, exp_month: $scope.bankinfo.exp_month, exp_year: $scope.bankinfo.exp_year}, stripeResponseHandler);
 
           }  
@@ -229,7 +251,6 @@
 						$http.post('/createRecipentID', accountInfo)
 						.success(function(res){									
 							if(res){		
-								console.log(res);					
 							  $scope.updateBankInfo(res);
 							}
 							else{
@@ -265,7 +286,6 @@
 				$form.find('button').prop('disabled', false);
 			} else {
 				var token = response.id;	
-				console.log(token);				
 				 $scope.createRecipentID(token);
 	      }
     }

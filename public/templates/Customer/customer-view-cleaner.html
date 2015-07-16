@@ -228,20 +228,11 @@
                     </tr>
                   </table>
                 </div>
-              </div>
-<!--
-              fifth step
--->
-                <div ng-switch-when="Location" ng-init="open_gmap(clanerProfile)">
-                  <div class="ng-scope">
-										<map center="59.32522, 18.07002" zoom="13">
-											<marker position="59.327383, 18.06747" on-click="toggleBounce()" animation="DROP" draggable="true"></marker>
-										</map>
-									</div>
-                </div
-                </div>
-              </div>
-      
+              </div>              
+            <!-- Fifth Step -->
+              <div ng-switch-when="Location" ng-init="open_gmap(clanerProfile)">
+                <map zoom="15"> <info-window id="1" position="{{lat}},{{lng}}" visible="true"> <div ng-non-bindable="">{{clanerProfile.address1}}<br>{{clanerProfile.city}}<br> {{clanerProfile.state}}<br>{{clanerProfile.zip_code}}<br> LatLng: {{lat}}, {{lng}}</div> </info-window> </map>
+              </div>      
           </div>
         </form>
       </div>
