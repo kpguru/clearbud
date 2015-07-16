@@ -14,6 +14,7 @@
               <th>Amount</th>
               <th>Status</th>
               <th>Action</th>
+              <th>Booking Location</th>
             </tr>
             <tr ng-show=" booking.status=='Rejected'" ng-repeat = "booking in rejectedBooking">
               <td>{{booking.firstname}} {{booking.lastname}}</td>   
@@ -23,6 +24,7 @@
               <td>{{booking.total}}</td> 
               <td class="status-pending bnr" ng-if="booking.status=='Rejected'">{{booking.status}}</td> 
               <td><button class="btn btn-default dropdown-toggle bn" ng-click="acceptOpenBooking(booking.$id,'Accepted')" ng-confirm-click="Do you really want to  Approve this Booking?" type="button">{{booking.status ==  "Rejected"? "Accept" : "Rejected"}}</button></td>
+              <td><button class="btn btn-default dropdown-toggle bn" style="bgcolor:'green';" ng-click="open('md', booking)" type="button">Location</button></td>
             </tr>
           </table> 
         </div>

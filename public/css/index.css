@@ -145,18 +145,15 @@ ul.rating { display: inline-block;}
 .contact-us{ width: 100%; height: 15em;}
 .contactfrm{ box-shadow: 0 0 1px 1px #999999; line-height: 2; margin: 0 auto; width: 618px;}
 .send { margin-left: 1px; width: 577px;}
-.wait{ margin-left: 600px; margin-top: 100px; width: 600px;}
 /*=============cleaner-book=====================*/
 .booking-section-hours1 { background-color: lavenderblush; height: 280px; margin-left: 49px;}
 .card-img{	margin-left: -11px; margin-top: -35px;}
 .btnn{ margin-left: -30px;}
 .card-img1{	margin-top: -29px;}
 .customer-tabs{	width: 848px;}
-.inpt-tc{width:40px;
-         margin-top:-15px;}
+.inpt-tc{width:40px; margin-top:-15px;}
 .slider-price{margin-top: 40px;}
 .arrnge {margin-left: -26px;}
-
 /*=============index.html=============*/
 .header { background-color: #ffffff; border-bottom: 1px solid #cccccc; padding: 15px 0;}
 .navbar { margin-bottom: 0;}
@@ -172,7 +169,6 @@ ul.rating { display: inline-block;}
 .menu-box { position:relative !important; }
 .sub-menu-box > li { padding: 10px 5px; }
 .sub-menu-box > li:nth-child(1) { border-bottom: 1px solid #cccccc; }
-
 /*=============login.html=============*/
 .login-form { margin: 50px 0;}
 .login-form .form-control { max-width: 345px; width: 100%;}
@@ -192,3 +188,5 @@ ul.rating { display: inline-block;}
 .navbar-default { background-color: transparent;  border-color: transparent;}
 .sn-logo{ margin-left: 284px; margin-top: -42px; width: 117px;}
 .new-section{width: 224px;}
+/*=============booking-view.html=============*/
+.booking-map{width: 224px;}

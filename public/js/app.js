@@ -5,6 +5,7 @@ var app = angular.module('clearbud',[
     'ui.bootstrap',
     'firebase',
     'toaster',
+    'ngMap',
     'angularPayments',
     'ui.bootstrap.datetimepicker',
     'ui-rangeSlider',

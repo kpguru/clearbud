@@ -8,17 +8,16 @@
 										min: 0,
 										max: 1000
 									 };		
-			//find price range		 
-			$scope.priceRange = function(){						
-				$scope.cleanerData=[];
-				$scope.cd = CustomerService.getData();
-				angular.forEach($scope.cd, function(value){
-					 if(value.cleaner_charge >= $scope.demo1.min && value.cleaner_charge <= $scope.demo1.max){							 
-						 $scope.cleanerData.push(value); 
-						 }
-					})
-				console.log($scope.cleanerData);					  			
-			}	    
+    //find price range		 
+    $scope.priceRange = function(){						
+      $scope.cleanerData=[];
+      $scope.cd = CustomerService.getData();
+      angular.forEach($scope.cd, function(value){
+         if(value.cleaner_charge >= $scope.demo1.min && value.cleaner_charge <= $scope.demo1.max){							 
+           $scope.cleanerData.push(value); 
+           }
+        })
+    }	    
     //get all cleaner deatails for search page at page loading time
     $scope.getCleanersProfile = function(){
       AuthenticationService.getUsersByRole('cleaner').$loaded().then(function(data){
